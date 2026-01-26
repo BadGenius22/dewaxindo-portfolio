@@ -3,9 +3,10 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { siteConfig } from "@/data/site";
-import { generateHomepageSchemas } from "@/lib/seo";
+import { generateHomepageSchemas, generateFAQSchema } from "@/lib/seo";
 import { getGAScript, getMetaPixelScript } from "@/lib/analytics";
 import { getFeaturedProduct } from "@/data/products";
+import { getFAQs } from "@/data/faqs";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -111,7 +112,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   // Generate structured data for SEO
-  const schemas = generateHomepageSchemas(getFeaturedProduct());
+  const schemas = [
+    ...generateHomepageSchemas(getFeaturedProduct()),
+    generateFAQSchema(getFAQs()),
+  ];
 
   return (
     <html lang="en" className="dark" suppressHydrationWarning>

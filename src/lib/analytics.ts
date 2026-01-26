@@ -1,6 +1,11 @@
 /**
  * Analytics utilities for Google Analytics and Meta Pixel
  * Implements tracking for SEO and Meta Ads optimization
+ *
+ * CAPI (Conversions API) Ready:
+ * - All events generate unique event_id for deduplication
+ * - Server-side tracking can be added via Next.js API routes
+ * - See: https://developers.facebook.com/docs/marketing-api/conversions-api/
  */
 
 import { siteConfig } from "@/data/site";
@@ -12,6 +17,28 @@ declare global {
     fbq?: (...args: unknown[]) => void;
     dataLayer?: unknown[];
   }
+}
+
+/**
+ * Generate unique event ID for Meta CAPI deduplication
+ * Same ID used for both Pixel (client) and CAPI (server)
+ */
+export function generateEventId(): string {
+  return `${Date.now()}-${Math.random().toString(36).substring(2, 11)}`;
+}
+
+/**
+ * Hash user data for CAPI (SHA-256)
+ * Required for Event Match Quality (EMQ) score
+ */
+export async function hashUserData(value: string): Promise<string> {
+  if (typeof window === "undefined") return "";
+  const normalized = value.toLowerCase().trim();
+  const encoder = new TextEncoder();
+  const data = encoder.encode(normalized);
+  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
 }
 
 /**
@@ -33,16 +60,24 @@ export function trackGAEvent(
 }
 
 /**
- * Meta Pixel event tracking
+ * Meta Pixel event tracking with CAPI deduplication support
  * Standard events: https://developers.facebook.com/docs/meta-pixel/reference
+ *
+ * @param eventName - Standard Meta event name
+ * @param parameters - Event parameters
+ * @param eventId - Unique ID for CAPI deduplication (auto-generated if not provided)
+ * @returns The event_id used (for sending same ID to CAPI server-side)
  */
 export function trackMetaEvent(
   eventName: string,
-  parameters?: Record<string, unknown>
-) {
+  parameters?: Record<string, unknown>,
+  eventId?: string
+): string {
+  const id = eventId || generateEventId();
   if (typeof window !== "undefined" && window.fbq) {
-    window.fbq("track", eventName, parameters);
+    window.fbq("track", eventName, parameters, { eventID: id });
   }
+  return id;
 }
 
 /**
@@ -64,6 +99,7 @@ export function trackPageView(url: string) {
 
 /**
  * Track content view (for products/projects)
+ * Returns event_id for CAPI server-side deduplication
  */
 export function trackViewContent(
   contentId: string,
@@ -71,12 +107,12 @@ export function trackViewContent(
   contentName: string,
   value?: number,
   currency?: string
-) {
+): string {
   // Google Analytics
   trackGAEvent("view_item", contentType, contentName, value);
 
-  // Meta Pixel - ViewContent event
-  trackMetaEvent("ViewContent", {
+  // Meta Pixel - ViewContent event (returns event_id for CAPI)
+  return trackMetaEvent("ViewContent", {
     content_ids: [contentId],
     content_type: contentType,
     content_name: contentName,
@@ -87,18 +123,19 @@ export function trackViewContent(
 
 /**
  * Track product purchase initiation (redirect to Gumroad)
+ * Returns event_id for CAPI server-side deduplication
  */
 export function trackInitiateCheckout(
   productId: string,
   productName: string,
   price: number,
   currency: string
-) {
+): string {
   // Google Analytics
   trackGAEvent("begin_checkout", "product", productName, price);
 
-  // Meta Pixel - InitiateCheckout event
-  trackMetaEvent("InitiateCheckout", {
+  // Meta Pixel - InitiateCheckout event (returns event_id for CAPI)
+  return trackMetaEvent("InitiateCheckout", {
     content_ids: [productId],
     content_name: productName,
     content_type: "product",
@@ -141,6 +178,82 @@ export function trackContactClick(platform: string, url: string) {
  */
 export function trackScrollDepth(percentage: number) {
   trackGAEvent("scroll", "engagement", `${percentage}%`, percentage);
+}
+
+/**
+ * Get Meta cookie values for CAPI user matching
+ */
+function getMetaCookies(): { fbc?: string; fbp?: string } {
+  if (typeof document === "undefined") return {};
+  const cookies = document.cookie.split(";").reduce(
+    (acc, cookie) => {
+      const [key, value] = cookie.trim().split("=");
+      if (key === "_fbc" || key === "_fbp") {
+        acc[key as "_fbc" | "_fbp"] = value;
+      }
+      return acc;
+    },
+    {} as { _fbc?: string; _fbp?: string }
+  );
+  return { fbc: cookies._fbc, fbp: cookies._fbp };
+}
+
+/**
+ * Send event to Meta Conversions API (server-side)
+ * Call this alongside trackMetaEvent for redundant tracking
+ *
+ * @param eventName - Standard Meta event name
+ * @param eventId - Same ID used in trackMetaEvent for deduplication
+ * @param customData - Event parameters (content_ids, value, etc.)
+ * @param userData - Optional hashed user data (em, ph)
+ */
+export async function sendToCAPI(
+  eventName: string,
+  eventId: string,
+  customData?: Record<string, unknown>,
+  userData?: { em?: string; ph?: string }
+): Promise<void> {
+  if (typeof window === "undefined") return;
+
+  const cookies = getMetaCookies();
+
+  try {
+    await fetch("/api/meta-capi", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        event_name: eventName,
+        event_id: eventId,
+        event_source_url: window.location.href,
+        user_data: {
+          ...userData,
+          ...cookies,
+        },
+        custom_data: customData,
+      }),
+    });
+  } catch (error) {
+    // Silently fail - CAPI is redundant, Pixel already tracked
+    console.debug("CAPI send failed:", error);
+  }
+}
+
+/**
+ * Track event with both Pixel (client) and CAPI (server)
+ * Use this for important conversion events
+ */
+export async function trackMetaEventWithCAPI(
+  eventName: string,
+  parameters?: Record<string, unknown>,
+  userData?: { em?: string; ph?: string }
+): Promise<string> {
+  // Track client-side (returns event_id)
+  const eventId = trackMetaEvent(eventName, parameters);
+
+  // Track server-side with same event_id (deduplicated by Meta)
+  await sendToCAPI(eventName, eventId, parameters, userData);
+
+  return eventId;
 }
 
 /**
