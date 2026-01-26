@@ -30,7 +30,7 @@ export const siteConfig = {
   author: {
     name: "Dewangga Praxindo",
     jobTitle: "DeFi Smart Contract Engineer",
-    email: "dewa.xindo@gmail.com",
+    email: "hi@dewaxindo.com",
     location: "Remote",
     experience: "3+ years",
     tvlDeployed: "$50M+",
@@ -38,10 +38,12 @@ export const siteConfig = {
 
   // Social handles for Meta Ads tracking and Open Graph
   social: {
-    twitter: "@dewaxindo",
-    github: "dewaxindo",
+    x: "@dewaxindo",
+    github: "BadGenius22",
     linkedin: "dewaxindo",
     telegram: "@dewaxindo",
+    instagram: "@dewaxindo",
+    youtube: "@dewaxindo",
   },
 
   // Theme configuration

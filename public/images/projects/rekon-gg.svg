@@ -1,0 +1,11 @@
+<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-rekon-gg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#bg-rekon-gg)"/>
+  <text x="50%" y="45%" font-family="system-ui" font-size="32" fill="#a78bfa" text-anchor="middle" font-weight="bold">RekonGG</text>
+  <text x="50%" y="55%" font-family="system-ui" font-size="16" fill="#666" text-anchor="middle">Esports Predictions</text>
+</svg>

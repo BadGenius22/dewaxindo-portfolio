@@ -35,7 +35,7 @@ export interface Product {
 }
 
 export interface SocialLink {
-  platform: "twitter" | "github" | "linkedin" | "telegram" | "email";
+  platform: "x" | "github" | "linkedin" | "telegram" | "instagram" | "youtube" | "email";
   url: string;
   label: string;
   username: string;

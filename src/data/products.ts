@@ -7,7 +7,7 @@ export const products: Product[] = [
     subtitle: "The Complete Guide",
     description:
       "Everything you need to start building in Web3. A comprehensive PDF guide covering smart contract development, DeFi concepts, security best practices, and career advice.",
-    image: "/images/products/web3-starter-kit.png",
+    image: "/images/products/web3-starter-kit.svg",
     price: 29,
     currency: "USD",
     type: "pdf",

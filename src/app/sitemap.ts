@@ -1,21 +1,38 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/data/site";
+import { products } from "@/data/products";
 
 /**
  * Generate XML sitemap for SEO
- * Google doesn't index hash fragments - only include actual URLs
+ * Includes all pages for Google indexing
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url;
 
+  // Product pages - SEO optimized slugs
+  const productPages: MetadataRoute.Sitemap = products.map((product) => ({
+    url: `${baseUrl}/products/${product.id}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
   return [
+    // Homepage
     {
       url: baseUrl,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,
     },
-    // Add new pages here as they're created
-    // Example: { url: `${baseUrl}/blog`, lastModified: new Date(), changeFrequency: "daily", priority: 0.8 },
+    // Products listing page
+    {
+      url: `${baseUrl}/products`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    // Individual product pages
+    ...productPages,
   ];
 }

@@ -7,7 +7,7 @@ export const projects: Project[] = [
     tagline: "Composable DeFi on Arbitrum",
     description:
       "Led smart contract development for leverage vaults and LP management systems. Built core protocol infrastructure handling $50M+ in TVL with zero security incidents.",
-    image: "/images/projects/factor-finance.png",
+    image: "/images/projects/factor-finance.svg",
     tags: ["Solidity", "DeFi", "Arbitrum", "Yield"],
     metrics: "$50M+ TVL",
     links: {
@@ -24,7 +24,7 @@ export const projects: Project[] = [
     tagline: "Esports Prediction Market",
     description:
       "Building a decentralized prediction market for esports outcomes. Developing smart contracts for betting pools, oracle integration, and reward distribution.",
-    image: "/images/projects/rekon-gg.png",
+    image: "/images/projects/rekon-gg.svg",
     tags: ["Solidity", "Gaming", "Prediction Market"],
     links: {
       live: "https://rekon.gg",
@@ -39,7 +39,7 @@ export const projects: Project[] = [
     tagline: "Passkey Wallet Infrastructure",
     description:
       "Developer toolkit enabling passkey-based wallet authentication on Solana. Simplified onboarding with Web3Auth-style UX without custodial tradeoffs.",
-    image: "/images/projects/lazorkit-sdk.png",
+    image: "/images/projects/lazorkit-sdk.svg",
     tags: ["Rust", "Solana", "SDK", "Wallet"],
     links: {
       docs: "https://docs.lazorkit.dev",
@@ -55,7 +55,7 @@ export const projects: Project[] = [
     tagline: "ZK Identity Verification",
     description:
       "Decentralized reputation and identity verification using zero-knowledge proofs. Enabling privacy-preserving credential verification on-chain.",
-    image: "/images/projects/vouch-protocol.png",
+    image: "/images/projects/vouch-protocol.svg",
     tags: ["Solidity", "ZK", "Identity"],
     links: {
       live: "https://vouch.id",

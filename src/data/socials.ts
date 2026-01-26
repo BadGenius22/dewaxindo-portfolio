@@ -2,16 +2,16 @@ import type { SocialLink } from "@/types";
 
 export const socialLinks: SocialLink[] = [
   {
-    platform: "twitter",
-    url: "https://twitter.com/dewaxindo",
-    label: "Twitter / X",
+    platform: "x",
+    url: "https://x.com/dewaxindo",
+    label: "X",
     username: "@dewaxindo",
   },
   {
     platform: "github",
-    url: "https://github.com/dewaxindo",
+    url: "https://github.com/BadGenius22",
     label: "GitHub",
-    username: "dewaxindo",
+    username: "BadGenius22",
   },
   {
     platform: "linkedin",
@@ -23,6 +23,18 @@ export const socialLinks: SocialLink[] = [
     platform: "telegram",
     url: "https://t.me/dewaxindo",
     label: "Telegram",
+    username: "@dewaxindo",
+  },
+  {
+    platform: "instagram",
+    url: "https://instagram.com/dewaxindo",
+    label: "Instagram",
+    username: "@dewaxindo",
+  },
+  {
+    platform: "youtube",
+    url: "https://www.youtube.com/@dewaxindo",
+    label: "YouTube",
     username: "@dewaxindo",
   },
 ];

@@ -1,15 +1,31 @@
 import Link from "next/link";
-import { Github, Linkedin, Send, Twitter } from "lucide-react";
+import { Github, Linkedin, Send, Instagram, Youtube } from "lucide-react";
 
 import { siteConfig } from "@/data/site";
 import { socialLinks } from "@/data/socials";
 import { navigationItems } from "@/data/navigation";
 
+// Custom X (formerly Twitter) icon
+function XIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  );
+}
+
 const socialIcons: Record<string, React.ElementType> = {
-  twitter: Twitter,
+  x: XIcon,
   github: Github,
   linkedin: Linkedin,
   telegram: Send,
+  instagram: Instagram,
+  youtube: Youtube,
 };
 
 export function Footer() {
