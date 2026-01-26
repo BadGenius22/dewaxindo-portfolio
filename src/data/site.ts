@@ -8,7 +8,7 @@ export const siteConfig = {
   title: "Dewangga Praxindo | DeFi Smart Contract Engineer",
   description:
     "DeFi smart contract engineer with 3+ years experience. Building secure, scalable protocols on Ethereum, Arbitrum, and Solana. $50M+ TVL deployed.",
-  url: "https://dewaxindo.dev",
+  url: "https://dewaxindo.com",
   ogImage: "/og-image.png",
   favicon: "/favicon.ico",
 
@@ -30,7 +30,7 @@ export const siteConfig = {
   author: {
     name: "Dewangga Praxindo",
     jobTitle: "DeFi Smart Contract Engineer",
-    email: "hello@dewaxindo.dev",
+    email: "dewa.xindo@gmail.com",
     location: "Remote",
     experience: "3+ years",
     tvlDeployed: "$50M+",
