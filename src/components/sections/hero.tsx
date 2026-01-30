@@ -3,21 +3,49 @@
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
+import { ParticleNetwork } from "@/components/ui/particle-network";
 
 export function Hero() {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Theme-aware colors
+  const isDark = resolvedTheme === "dark";
+  const particleColor = isDark ? "rgba(255, 255, 255, 0.4)" : "rgba(0, 0, 0, 0.3)";
+  const lineColor = isDark ? "rgba(255, 255, 255, 0.15)" : "rgba(0, 0, 0, 0.1)";
+
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center px-6"
+      className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden"
     >
-      {/* Subtle background gradient */}
-      <div className="absolute inset-0 -z-10 bg-background">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-muted/50 via-background to-background" />
+      {/* Particle Network Background */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-background" />
+        {mounted && (
+          <ParticleNetwork
+            key={resolvedTheme}
+            particleCount={60}
+            particleColor={particleColor}
+            lineColor={lineColor}
+            maxDistance={120}
+            speed={0.3}
+            className="absolute inset-0"
+          />
+        )}
+        {/* Gradient overlay for depth */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/50 to-background" />
       </div>
 
-      <div className="max-w-3xl mx-auto text-center">
+      <div className="max-w-3xl mx-auto text-center relative z-10">
         {/* Avatar */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
@@ -25,9 +53,9 @@ export function Hero() {
           transition={{ duration: 0.5 }}
           className="mb-8"
         >
-          <div className="relative w-20 h-20 mx-auto rounded-full overflow-hidden ring-2 ring-border">
+          <div className="relative w-20 h-20 mx-auto rounded-full overflow-hidden ring-2 ring-border shadow-lg">
             <Image
-              src="/images/profile.png"
+              src="/images/profile.jpg"
               alt="Dewangga Praxindo"
               fill
               className="object-cover"
@@ -36,17 +64,17 @@ export function Hero() {
           </div>
         </motion.div>
 
-        {/* Heading - Serif style */}
+        {/* Heading */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-3xl sm:text-4xl md:text-5xl font-serif font-normal leading-relaxed tracking-tight text-foreground"
+          className="text-3xl sm:text-4xl md:text-5xl font-display font-medium leading-relaxed tracking-tight text-foreground"
         >
           Hello, I&apos;m Dewangga, a DeFi smart contract engineer building
           secure protocols with{" "}
           <span className="text-muted-foreground">$50M+ TVL deployed</span>{" "}
-          across Ethereum, Arbitrum, and Solana.
+          across Ethereum, Arbitrum, and Base.
         </motion.h1>
 
         {/* Buttons */}

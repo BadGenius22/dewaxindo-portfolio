@@ -11,8 +11,7 @@ export const projects: Project[] = [
     tags: ["Solidity", "Foundry", "Arbitrum", "DeFi", "Yield"],
     metrics: "$50M+ TVL",
     links: {
-      live: "https://factor.fi",
-      github: "https://github.com/FactorDAO",
+      live: "https://pro.factor.fi/strategies",
     },
     featured: true,
     role: "Smart Contract Engineer",
@@ -60,6 +59,7 @@ export const projects: Project[] = [
     tags: ["Polymarket", "AI", "x402", "Predictions", "Esports"],
     links: {
       live: "https://app.rekon.gg",
+      github: "https://github.com/BadGenius22/Rekon",
     },
     featured: true,
     role: "Blockchain Developer",
@@ -76,6 +76,7 @@ export const projects: Project[] = [
     metrics: "$500 Prize",
     links: {
       live: "https://devpost.com/software/battle-of-heroes",
+      github: "https://github.com/BadGenius22/BoH-BackEnd",
     },
     featured: true,
     role: "Hackathon Winner",
