@@ -1,103 +1,132 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { motion } from "motion/react";
+import { Package, Send, CheckCircle, Loader2 } from "lucide-react";
 
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { SectionHeading } from "@/components/ui/section-heading";
-import { AnimatedSection } from "@/components/ui/animated-section";
-import { getFeaturedProduct, formatPrice } from "@/data/products";
+import { cn } from "@/lib/utils";
 
 export function Products() {
-  const product = getFeaturedProduct();
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+
+    try {
+      const response = await fetch(`https://formspree.io/f/${process.env.NEXT_PUBLIC_FORMSPREE_ID}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        setMessage("You're on the list!");
+        setEmail("");
+      } else {
+        throw new Error("Failed to submit");
+      }
+    } catch {
+      setStatus("error");
+      setMessage("Something went wrong. Try again.");
+    }
+  };
 
   return (
-    <section id="products" className="py-24">
-      <div className="container mx-auto px-4">
-        <AnimatedSection>
-          <SectionHeading
-            title="Products"
-            subtitle="Resources to accelerate your Web3 journey"
-          />
-        </AnimatedSection>
+    <section
+      id="products"
+      className="bg-background px-6 py-24 min-h-screen flex items-center justify-center"
+    >
+      <div className="max-w-7xl w-full mx-auto">
+        <motion.p
+          className="text-muted-foreground font-display text-sm uppercase tracking-widest mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          Digital Products
+        </motion.p>
 
-        <AnimatedSection delay={0.2}>
-          <div className="mx-auto max-w-4xl">
-            <Link href={`/products/${product.id}`} className="group block">
-              <div className="relative overflow-hidden rounded-2xl border bg-card transition-all duration-300 hover:border-primary/50 hover:shadow-lg">
-                <div className="grid md:grid-cols-2 gap-0">
-                  {/* Product Image */}
-                  <div className="relative aspect-[3/4] md:aspect-auto bg-muted">
-                    <Image
-                      src={product.image}
-                      alt={product.title}
-                      fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                    {product.badge && (
-                      <div className="absolute top-4 left-4">
-                        <Badge className="bg-primary text-primary-foreground">
-                          {product.badge}
-                        </Badge>
-                      </div>
+        {/* Coming Soon Card */}
+        <motion.div
+          className="max-w-2xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="rounded-xl border border-border bg-card p-12 text-center">
+            {/* Animated Icon */}
+            <motion.div
+              className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6"
+              animate={{ y: [0, -5, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Package className="w-8 h-8 text-primary" />
+            </motion.div>
+
+            <h3 className="font-display text-2xl md:text-3xl text-foreground font-medium">
+              Coming Soon
+            </h3>
+            <p className="mt-3 text-muted-foreground max-w-md mx-auto">
+              I&apos;m working on digital products to help you accelerate your Web3 journey.
+              Templates, guides, and resources — all coming soon.
+            </p>
+
+            {/* Email Form */}
+            <div className="mt-8">
+              {status === "success" ? (
+                <motion.div
+                  className="flex items-center justify-center gap-2 text-emerald-500"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                >
+                  <CheckCircle className="w-5 h-5" />
+                  <span className="font-medium">{message}</span>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email"
+                    required
+                    className={cn(
+                      "flex-1 px-4 py-3 rounded-lg border border-border bg-background",
+                      "text-foreground placeholder:text-muted-foreground",
+                      "focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary",
+                      "transition-all"
                     )}
-                  </div>
-
-                  {/* Product Details */}
-                  <div className="flex flex-col p-6 md:p-8">
-                    <div>
-                      <p className="text-sm text-muted-foreground uppercase tracking-wider">
-                        {product.type === "pdf"
-                          ? "Digital Guide"
-                          : product.type}
-                      </p>
-                      <h3 className="mt-2 text-2xl font-bold group-hover:text-primary transition-colors">
-                        {product.title}
-                      </h3>
-                      <p className="text-lg text-muted-foreground">
-                        {product.subtitle}
-                      </p>
-                    </div>
-
-                    <p className="mt-4 text-muted-foreground line-clamp-3">
-                      {product.description}
-                    </p>
-
-                    {/* Price & CTA */}
-                    <div className="mt-auto pt-8">
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-3xl font-bold">
-                          {formatPrice(product.price, product.currency)}
-                        </span>
-                        <span className="text-muted-foreground">
-                          {product.currency}
-                        </span>
-                      </div>
-
-                      <Button size="lg" className="w-full mt-4">
-                        View Details
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Link>
-
-            {/* View All Products Link */}
-            <div className="mt-8 text-center">
-              <Button variant="outline" size="lg" asChild>
-                <Link href="/products">
-                  View All Products
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
+                  />
+                  <Button type="submit" size="lg" disabled={status === "loading"}>
+                    {status === "loading" ? (
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                    ) : (
+                      <>
+                        <Send className="mr-2 h-4 w-4" />
+                        Notify Me
+                      </>
+                    )}
+                  </Button>
+                </form>
+              )}
+              {status === "error" && (
+                <p className="mt-3 text-sm text-red-500">{message}</p>
+              )}
             </div>
+
+            <p className="mt-4 text-xs text-muted-foreground">
+              No spam. Unsubscribe anytime.
+            </p>
           </div>
-        </AnimatedSection>
+        </motion.div>
       </div>
     </section>
   );

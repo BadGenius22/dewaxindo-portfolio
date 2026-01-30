@@ -37,10 +37,10 @@ export function Header() {
           : "bg-transparent"
       )}
     >
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
+      <div className="max-w-7xl w-full mx-auto flex h-16 items-center justify-between px-6">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
-          <span className="text-xl font-bold">{siteConfig.name}</span>
+          <span className="font-display text-xl font-medium">{siteConfig.name}</span>
         </Link>
 
         {/* Desktop Navigation */}
