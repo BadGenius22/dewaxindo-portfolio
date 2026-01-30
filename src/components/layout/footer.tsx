@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { Github, Linkedin, Send, Instagram, Youtube } from "lucide-react";
 
 import { siteConfig } from "@/data/site";
@@ -48,35 +47,7 @@ export function Footer() {
             </span>
           </div>
 
-          {/* Center - Quick Links */}
-          <nav className="flex items-center gap-4 md:gap-6">
-            <Link
-              href="#projects"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
-            >
-              Projects
-            </Link>
-            <Link
-              href="#about"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
-            >
-              About
-            </Link>
-            <Link
-              href="#products"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
-            >
-              Products
-            </Link>
-            <Link
-              href="#contact"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
-            >
-              Contact
-            </Link>
-          </nav>
-
-          {/* Right - Social Icons */}
+          {/* Social Icons */}
           <div className="flex items-center gap-4">
             {socialLinks.slice(0, 4).map((social) => {
               const Icon = socialIcons[social.platform];

@@ -36,51 +36,54 @@ export function Header() {
   }, [isOpen]);
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 z-50 w-full transition-all duration-300",
-        isScrolled
-          ? "bg-background/80 backdrop-blur-md border-b border-border"
-          : "bg-transparent"
-      )}
-    >
-      <div className="max-w-7xl w-full mx-auto flex h-16 items-center justify-between px-6">
-        {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2 z-50">
-          <span className="font-display text-xl font-medium">{siteConfig.name}</span>
-        </Link>
+    <>
+      <header
+        className={cn(
+          "fixed top-0 w-full transition-all duration-300",
+          isOpen ? "z-[60]" : "z-50",
+          isScrolled || isOpen
+            ? "bg-background/80 backdrop-blur-md border-b border-border"
+            : "bg-transparent"
+        )}
+      >
+        <div className="max-w-7xl w-full mx-auto flex h-16 items-center justify-between px-6">
+          {/* Logo */}
+          <Link href="/" className="flex items-center space-x-2">
+            <span className="font-display text-xl font-medium">{siteConfig.name}</span>
+          </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6">
-          {navigationItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-6">
+            {navigationItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Right side: Theme Toggle + Mobile Menu */}
+          <div className="flex items-center space-x-2">
+            <ThemeToggle />
+
+            {/* Mobile Menu Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden relative z-[60]"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? "Close menu" : "Open menu"}
             >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-
-        {/* Right side: Theme Toggle + Mobile Menu */}
-        <div className="flex items-center space-x-2">
-          <ThemeToggle />
-
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden z-50"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label={isOpen ? "Close menu" : "Open menu"}
-          >
-            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </Button>
+          </div>
         </div>
-      </div>
+      </header>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay - Outside header for proper z-index stacking */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -88,7 +91,7 @@ export function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 md:hidden"
+            className="fixed inset-0 z-[55] md:hidden"
           >
             {/* Backdrop */}
             <div
@@ -136,6 +139,6 @@ export function Header() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }
