@@ -1,10 +1,9 @@
 "use client";
 
+import { motion } from "motion/react";
 import { Github, Linkedin, Send, Mail, Instagram, Youtube } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { SectionHeading } from "@/components/ui/section-heading";
-import { AnimatedSection } from "@/components/ui/animated-section";
 import { socialLinks } from "@/data/socials";
 import { siteConfig } from "@/data/site";
 import { cn } from "@/lib/utils";
@@ -33,81 +32,112 @@ const socialIcons: Record<string, React.ElementType> = {
   email: Mail,
 };
 
-const socialColors: Record<string, string> = {
-  x: "hover:bg-neutral-500/10 hover:text-neutral-300 hover:border-neutral-500/50",
-  github: "hover:bg-neutral-500/10 hover:text-neutral-300 hover:border-neutral-500/50",
-  linkedin: "hover:bg-blue-500/10 hover:text-blue-500 hover:border-blue-500/50",
-  telegram: "hover:bg-cyan-500/10 hover:text-cyan-500 hover:border-cyan-500/50",
-  instagram: "hover:bg-pink-500/10 hover:text-pink-500 hover:border-pink-500/50",
-  youtube: "hover:bg-red-500/10 hover:text-red-500 hover:border-red-500/50",
-  email: "hover:bg-emerald-500/10 hover:text-emerald-500 hover:border-emerald-500/50",
+const socialColors: Record<string, { bg: string; text: string; border: string }> = {
+  x: { bg: "bg-neutral-500/10", text: "text-neutral-400", border: "border-neutral-500/30" },
+  github: { bg: "bg-neutral-500/10", text: "text-neutral-400", border: "border-neutral-500/30" },
+  linkedin: { bg: "bg-blue-500/10", text: "text-blue-500", border: "border-blue-500/30" },
+  telegram: { bg: "bg-cyan-500/10", text: "text-cyan-500", border: "border-cyan-500/30" },
+  instagram: { bg: "bg-pink-500/10", text: "text-pink-500", border: "border-pink-500/30" },
+  youtube: { bg: "bg-red-500/10", text: "text-red-500", border: "border-red-500/30" },
+  email: { bg: "bg-emerald-500/10", text: "text-emerald-500", border: "border-emerald-500/30" },
 };
 
 export function Contact() {
   return (
-    <section id="contact" className="py-24 bg-muted/30">
-      <div className="container mx-auto px-4">
-        <AnimatedSection>
-          <SectionHeading
-            title="Let's Connect"
-            subtitle="Have a project in mind? Let's talk."
-          />
-        </AnimatedSection>
+    <section
+      id="contact"
+      className="bg-background px-6 py-24"
+    >
+      <div className="max-w-7xl w-full mx-auto">
+        <motion.p
+          className="text-muted-foreground font-display text-sm uppercase tracking-widest mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          Get In Touch
+        </motion.p>
 
-        <AnimatedSection delay={0.2}>
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-muted-foreground mb-8">
-              I&apos;m always open to discussing new projects, creative ideas,
-              or opportunities to be part of your vision. Whether you need smart
-              contract development, protocol design, or Web3 consulting —
-              let&apos;s build something great together.
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          {/* Left side - Text */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="font-display text-3xl md:text-4xl text-foreground font-medium leading-tight">
+              Let&apos;s Build
+            </h2>
+            <p className="mt-4 text-muted-foreground text-lg leading-relaxed">
+              Smart contracts. Full-stack dApps. Audit-ready code.
+            </p>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              Building in Web3? I can help.
             </p>
 
-            {/* Social Links Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {socialLinks.map((social, index) => {
-                const Icon = socialIcons[social.platform];
-                return (
-                  <AnimatedSection key={social.platform} delay={0.1 * index}>
-                    <a
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={cn(
-                        "flex flex-col items-center gap-3 p-6 rounded-xl border bg-card",
-                        "transition-all duration-300",
-                        socialColors[social.platform]
-                      )}
-                    >
-                      {Icon && <Icon className="h-6 w-6" />}
-                      <div className="text-center">
-                        <p className="font-medium text-sm">{social.label}</p>
-                        <p className="text-xs text-muted-foreground">
-                          {social.username}
-                        </p>
-                      </div>
-                    </a>
-                  </AnimatedSection>
-                );
-              })}
-            </div>
-
             {/* Email CTA */}
-            <AnimatedSection delay={0.5}>
-              <div className="mt-12">
-                <p className="text-sm text-muted-foreground mb-4">
-                  Prefer email?
-                </p>
-                <Button size="lg" variant="outline" asChild>
-                  <a href={`mailto:${siteConfig.author.email}`}>
-                    <Mail className="mr-2 h-4 w-4" />
-                    {siteConfig.author.email}
-                  </a>
-                </Button>
-              </div>
-            </AnimatedSection>
+            <motion.div
+              className="mt-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              <Button size="lg" asChild>
+                <a href={`mailto:${siteConfig.author.email}`}>
+                  <Mail className="mr-2 h-4 w-4" />
+                  {siteConfig.author.email}
+                </a>
+              </Button>
+            </motion.div>
+          </motion.div>
+
+          {/* Right side - Social Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {socialLinks.map((social, index) => {
+              const Icon = socialIcons[social.platform];
+              const colors = socialColors[social.platform] || socialColors.email;
+
+              return (
+                <motion.a
+                  key={social.platform}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${social.label} - ${social.username}`}
+                  className={cn(
+                    "flex flex-col items-center gap-3 p-6 rounded-xl border border-border bg-card",
+                    "transition-all duration-300 cursor-pointer",
+                    "hover:border-border/80 hover:bg-accent/50",
+                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  )}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ scale: 0.98 }}
+                >
+                  <motion.div
+                    className={cn(
+                      "w-12 h-12 rounded-xl flex items-center justify-center",
+                      colors.bg
+                    )}
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    {Icon && <Icon className={cn("h-5 w-5", colors.text)} />}
+                  </motion.div>
+                  <div className="text-center">
+                    <p className="font-medium text-sm text-foreground">{social.label}</p>
+                    <p className="text-xs text-muted-foreground font-mono">
+                      {social.username}
+                    </p>
+                  </div>
+                </motion.a>
+              );
+            })}
           </div>
-        </AnimatedSection>
+        </div>
       </div>
     </section>
   );

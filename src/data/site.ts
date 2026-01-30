@@ -12,18 +12,36 @@ export const siteConfig = {
   ogImage: "/og-image.png",
   favicon: "/favicon.ico",
 
-  // SEO keywords for Google
+  // SEO keywords for Google (including long-tail variations)
   keywords: [
+    // Core keywords
     "DeFi developer",
     "Smart contract engineer",
     "Solidity developer",
     "Web3 developer",
     "Blockchain engineer",
+    // Platform-specific
     "Arbitrum developer",
     "Ethereum developer",
     "Solana developer",
-    "DeFi smart contracts",
-    "Web3 consultant",
+    "Base developer",
+    "Polygon developer",
+    // Long-tail variations
+    "DeFi smart contract audit",
+    "Web3 dApp development",
+    "DeFi protocol engineering",
+    "Smart contract security audit",
+    "Yield farming protocol development",
+    "Liquidity pool smart contracts",
+    "EVM smart contract developer",
+    "Rust Solana developer",
+    "Foundry smart contract testing",
+    "TVL protocol development",
+    // Service-oriented
+    "hire DeFi developer",
+    "Web3 consultant Indonesia",
+    "smart contract freelancer",
+    "blockchain development services",
   ],
 
   // Author info for structured data
@@ -31,7 +49,7 @@ export const siteConfig = {
     name: "Dewangga Praxindo",
     jobTitle: "DeFi Smart Contract Engineer",
     email: "hi@dewaxindo.com",
-    location: "Remote",
+    location: "Yogyakarta, Indonesia",
     experience: "3+ years",
     tvlDeployed: "$50M+",
   },

@@ -1,97 +1,103 @@
 "use client";
 
-import { ArrowDown, ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
+import Image from "next/image";
+import Link from "next/link";
+import { useTheme } from "next-themes";
+import { useSyncExternalStore } from "react";
 
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { siteConfig } from "@/data/site";
+import { ParticleNetwork } from "@/components/ui/particle-network";
+
+// Hydration-safe client detection using useSyncExternalStore
+const emptySubscribe = () => () => {};
+const getSnapshot = () => true;
+const getServerSnapshot = () => false;
+
+function useIsMounted() {
+  return useSyncExternalStore(emptySubscribe, getSnapshot, getServerSnapshot);
+}
 
 export function Hero() {
+  const { resolvedTheme } = useTheme();
+  const mounted = useIsMounted();
+
+  // Theme-aware colors
+  const isDark = resolvedTheme === "dark";
+  const particleColor = isDark ? "rgba(255, 255, 255, 0.4)" : "rgba(0, 0, 0, 0.3)";
+  const lineColor = isDark ? "rgba(255, 255, 255, 0.15)" : "rgba(0, 0, 0, 0.1)";
+
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center pt-16"
+      className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden"
     >
-      {/* Background gradient */}
-      <div className="absolute inset-0 -z-10 h-full w-full bg-background bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
-        <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-primary/20 opacity-20 blur-[100px]" />
-      </div>
+      {/* Background color */}
+      <div className="absolute inset-0 bg-background -z-20" />
 
-      <div className="container mx-auto px-4 text-center">
+      {/* Particle Network - interactive layer */}
+      {mounted && (
+        <ParticleNetwork
+          key={resolvedTheme}
+          particleCount={60}
+          particleColor={particleColor}
+          lineColor={lineColor}
+          maxDistance={120}
+          speed={0.3}
+          className="absolute inset-0 z-0"
+        />
+      )}
+
+      {/* Gradient overlay for depth */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/50 to-background pointer-events-none z-0" />
+
+      <div className="max-w-3xl mx-auto text-center relative z-10">
+        {/* Avatar */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
+          className="mb-8"
         >
-          <Badge variant="secondary" className="mb-6">
-            {siteConfig.author.jobTitle}
-          </Badge>
+          <div className="relative w-20 h-20 mx-auto rounded-full overflow-hidden ring-2 ring-border shadow-lg">
+            <Image
+              src="/images/profile.jpg"
+              alt="Dewangga Praxindo - DeFi Smart Contract Engineer"
+              fill
+              className="object-cover"
+              priority
+              placeholder="blur"
+              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUH/8QAIhAAAQMDBAMBAAAAAAAAAAAAAQIDBAAFEQYSITETQVFh/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAZEQACAwEAAAAAAAAAAAAAAAABAgADESH/2gAMAwEAAhEDEEA/ANF09qG3XiBHnQnN7D7YcQSOxkdH8qvSlRLK7UmwPoif/9k="
+            />
+          </div>
         </motion.div>
 
+        {/* Heading */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
+          className="text-3xl sm:text-4xl md:text-5xl font-display font-medium leading-relaxed tracking-tight text-foreground"
         >
-          {siteConfig.author.name}
+          Hello, I&apos;m Dewangga, a DeFi smart contract engineer building
+          secure protocols with{" "}
+          <span className="text-muted-foreground">$50M+ TVL deployed</span>{" "}
+          across Ethereum, Arbitrum, and Base.
         </motion.h1>
 
-        <motion.p
+        {/* Buttons */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-6 text-lg text-muted-foreground sm:text-xl md:text-2xl max-w-3xl mx-auto"
-        >
-          Building the Financial Infrastructure of Tomorrow
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-4 text-muted-foreground max-w-2xl mx-auto"
-        >
-          Smart contract engineer with{" "}
-          <span className="text-foreground font-medium">
-            {siteConfig.author.tvlDeployed} TVL
-          </span>{" "}
-          deployed across Ethereum, Arbitrum, and Solana.{" "}
-          {siteConfig.author.experience} of building secure, scalable DeFi
-          protocols.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
           className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
+          <Button variant="outline" size="lg" asChild>
+            <Link href="#projects">See my work</Link>
+          </Button>
           <Button size="lg" asChild>
-            <a href="#projects">
-              View My Work
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </a>
+            <Link href="#contact">Let&apos;s collaborate</Link>
           </Button>
-          <Button size="lg" variant="outline" asChild>
-            <a href="#contact">Get in Touch</a>
-          </Button>
-        </motion.div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          >
-            <ArrowDown className="h-6 w-6 text-muted-foreground" />
-          </motion.div>
         </motion.div>
       </div>
     </section>
