@@ -350,8 +350,6 @@ function ChainNetwork() {
               width={24}
               height={24}
               className="object-contain"
-              placeholder="blur"
-              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAPUlEQVQYlWNgYGD4z4AEGBkZGf7//8/AwMDAwPD//38GJgYGBob/////Z2BgYGD4////fwYGBgaG////MzAAAFxOD/cjKl3lAAAAAElFTkSuQmCC"
             />
           </motion.div>
         );

@@ -32,23 +32,24 @@ export function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden"
     >
-      {/* Particle Network Background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-background" />
-        {mounted && (
-          <ParticleNetwork
-            key={resolvedTheme}
-            particleCount={60}
-            particleColor={particleColor}
-            lineColor={lineColor}
-            maxDistance={120}
-            speed={0.3}
-            className="absolute inset-0"
-          />
-        )}
-        {/* Gradient overlay for depth */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/50 to-background" />
-      </div>
+      {/* Background color */}
+      <div className="absolute inset-0 bg-background -z-20" />
+
+      {/* Particle Network - interactive layer */}
+      {mounted && (
+        <ParticleNetwork
+          key={resolvedTheme}
+          particleCount={60}
+          particleColor={particleColor}
+          lineColor={lineColor}
+          maxDistance={120}
+          speed={0.3}
+          className="absolute inset-0 z-0"
+        />
+      )}
+
+      {/* Gradient overlay for depth */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/50 to-background pointer-events-none z-0" />
 
       <div className="max-w-3xl mx-auto text-center relative z-10">
         {/* Avatar */}

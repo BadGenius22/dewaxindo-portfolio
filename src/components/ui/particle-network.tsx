@@ -2,12 +2,14 @@
 
 import { useEffect, useRef, useCallback } from "react";
 
-interface Particle {
+interface Block {
   x: number;
   y: number;
   vx: number;
   vy: number;
-  radius: number;
+  size: number;
+  rotation: number;
+  rotationSpeed: number;
 }
 
 interface ParticleNetworkProps {
@@ -28,98 +30,143 @@ export function ParticleNetwork({
   className,
 }: ParticleNetworkProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const particlesRef = useRef<Particle[]>([]);
+  const blocksRef = useRef<Block[]>([]);
   const animationRef = useRef<number>(0);
   const mouseRef = useRef({ x: 0, y: 0, isOver: false });
   const prefersReducedMotionRef = useRef(false);
 
-  const initParticles = useCallback(
+  const initBlocks = useCallback(
     (width: number, height: number) => {
-      const particles: Particle[] = [];
+      const blocks: Block[] = [];
       for (let i = 0; i < particleCount; i++) {
-        particles.push({
+        blocks.push({
           x: Math.random() * width,
           y: Math.random() * height,
           vx: (Math.random() - 0.5) * speed,
           vy: (Math.random() - 0.5) * speed,
-          radius: Math.random() * 2 + 1,
+          size: Math.random() * 8 + 8, // Block size 8-16px
+          rotation: Math.random() * Math.PI * 2,
+          rotationSpeed: (Math.random() - 0.5) * 0.02,
         });
       }
-      return particles;
+      return blocks;
     },
     [particleCount, speed]
+  );
+
+  // Helper to draw a hollow rounded rectangle (block outline)
+  const drawBlock = useCallback(
+    (ctx: CanvasRenderingContext2D, x: number, y: number, size: number, rotation: number, color: string) => {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(rotation);
+
+      const halfSize = size / 2;
+      const radius = size * 0.15; // Rounded corners
+
+      ctx.beginPath();
+      ctx.roundRect(-halfSize, -halfSize, size, size, radius);
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+
+      ctx.restore();
+    },
+    []
   );
 
   const draw = useCallback(
     (ctx: CanvasRenderingContext2D, width: number, height: number) => {
       ctx.clearRect(0, 0, width, height);
 
-      const particles = particlesRef.current;
+      const blocks = blocksRef.current;
 
-      // Update and draw particles
-      particles.forEach((particle) => {
+      // Update and draw blocks
+      blocks.forEach((block) => {
+        // Repel from mouse
+        if (mouseRef.current.isOver) {
+          const dx = block.x - mouseRef.current.x;
+          const dy = block.y - mouseRef.current.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          const repelRadius = 120;
+
+          if (distance < repelRadius && distance > 0) {
+            const force = (repelRadius - distance) / repelRadius;
+            const repelStrength = 2;
+            block.vx += (dx / distance) * force * repelStrength;
+            block.vy += (dy / distance) * force * repelStrength;
+          }
+        }
+
+        // Apply friction to slow down
+        block.vx *= 0.98;
+        block.vy *= 0.98;
+
+        // Ensure minimum movement
+        const minSpeed = 0.1;
+        if (Math.abs(block.vx) < minSpeed) block.vx = (Math.random() - 0.5) * minSpeed * 2;
+        if (Math.abs(block.vy) < minSpeed) block.vy = (Math.random() - 0.5) * minSpeed * 2;
+
         // Update position
-        particle.x += particle.vx;
-        particle.y += particle.vy;
+        block.x += block.vx;
+        block.y += block.vy;
+        block.rotation += block.rotationSpeed;
 
         // Bounce off walls
-        if (particle.x < 0 || particle.x > width) particle.vx *= -1;
-        if (particle.y < 0 || particle.y > height) particle.vy *= -1;
+        if (block.x < 0 || block.x > width) block.vx *= -1;
+        if (block.y < 0 || block.y > height) block.vy *= -1;
 
         // Keep in bounds
-        particle.x = Math.max(0, Math.min(width, particle.x));
-        particle.y = Math.max(0, Math.min(height, particle.y));
+        block.x = Math.max(0, Math.min(width, block.x));
+        block.y = Math.max(0, Math.min(height, block.y));
 
-        // Draw particle
-        ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-        ctx.fillStyle = particleColor;
-        ctx.fill();
+        // Draw block
+        drawBlock(ctx, block.x, block.y, block.size, block.rotation, particleColor);
       });
 
-      // Draw connections
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
+      // Draw chain connections between blocks
+      for (let i = 0; i < blocks.length; i++) {
+        for (let j = i + 1; j < blocks.length; j++) {
+          const dx = blocks[i].x - blocks[j].x;
+          const dy = blocks[i].y - blocks[j].y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           if (distance < maxDistance) {
             const opacity = 1 - distance / maxDistance;
             ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.moveTo(blocks[i].x, blocks[i].y);
+            ctx.lineTo(blocks[j].x, blocks[j].y);
             ctx.strokeStyle = lineColor.replace(
               /[\d.]+\)$/,
-              `${opacity * 0.2})`
+              `${opacity * 0.25})`
             );
-            ctx.lineWidth = 1;
+            ctx.lineWidth = 1.5;
             ctx.stroke();
           }
         }
 
         // Connect to mouse if hovering
         if (mouseRef.current.isOver) {
-          const dx = particles[i].x - mouseRef.current.x;
-          const dy = particles[i].y - mouseRef.current.y;
+          const dx = blocks[i].x - mouseRef.current.x;
+          const dy = blocks[i].y - mouseRef.current.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           if (distance < maxDistance * 1.5) {
             const opacity = 1 - distance / (maxDistance * 1.5);
             ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.moveTo(blocks[i].x, blocks[i].y);
             ctx.lineTo(mouseRef.current.x, mouseRef.current.y);
             ctx.strokeStyle = lineColor.replace(
               /[\d.]+\)$/,
-              `${opacity * 0.3})`
+              `${opacity * 0.35})`
             );
-            ctx.lineWidth = 1;
+            ctx.lineWidth = 1.5;
             ctx.stroke();
           }
         }
       }
     },
-    [particleColor, lineColor, maxDistance]
+    [particleColor, lineColor, maxDistance, drawBlock]
   );
 
   useEffect(() => {
@@ -133,7 +180,7 @@ export function ParticleNetwork({
       const rect = canvas.getBoundingClientRect();
       canvas.width = rect.width;
       canvas.height = rect.height;
-      particlesRef.current = initParticles(rect.width, rect.height);
+      blocksRef.current = initBlocks(rect.width, rect.height);
     };
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -185,7 +232,7 @@ export function ParticleNetwork({
       canvas.removeEventListener("mouseleave", handleMouseLeave);
       cancelAnimationFrame(animationRef.current);
     };
-  }, [draw, initParticles]);
+  }, [draw, initBlocks]);
 
   return (
     <canvas
