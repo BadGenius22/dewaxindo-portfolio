@@ -215,7 +215,7 @@ export function Projects() {
   return (
     <section
       id="projects"
-      className="bg-background px-6 py-24 min-h-screen flex items-center justify-center"
+      className="bg-background px-6 py-24"
     >
       <div className="max-w-7xl w-full mx-auto">
         <motion.p
@@ -228,7 +228,7 @@ export function Projects() {
         </motion.p>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-6 gap-4 auto-rows-[220px]">
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-4 auto-rows-auto md:auto-rows-[220px]">
           {projects.map((project, index) => {
             const isWide = index < 2;
             const AnimatedIcon = projectIcons[project.id];

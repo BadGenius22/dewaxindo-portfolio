@@ -49,7 +49,7 @@ export function Footer() {
           </div>
 
           {/* Center - Quick Links */}
-          <nav className="flex items-center gap-6">
+          <nav className="flex items-center gap-4 md:gap-6">
             <Link
               href="#projects"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"

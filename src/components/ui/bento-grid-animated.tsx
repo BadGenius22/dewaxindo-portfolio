@@ -508,7 +508,7 @@ function FullStackAnimation() {
 
 export function AnimatedBentoGrid() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-6 gap-4 auto-rows-[220px]">
+    <div className="grid grid-cols-1 md:grid-cols-6 gap-4 auto-rows-auto md:auto-rows-[220px]">
       {/* 1. DeFi Engineering - Tall (2x2) */}
       <motion.div
         className={cn(cardStyles, "md:col-span-2 md:row-span-2")}

@@ -46,7 +46,7 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="bg-background px-6 py-24 min-h-screen flex items-center justify-center"
+      className="bg-background px-6 py-24"
     >
       <div className="max-w-7xl w-full mx-auto">
         <motion.p
@@ -67,15 +67,13 @@ export function Contact() {
             transition={{ duration: 0.5 }}
           >
             <h2 className="font-display text-3xl md:text-4xl text-foreground font-medium leading-tight">
-              Let&apos;s Build Together
+              Let&apos;s Build
             </h2>
             <p className="mt-4 text-muted-foreground text-lg leading-relaxed">
-              Got a DeFi project? Let&apos;s make it happen.
+              Smart contracts. Full-stack dApps. Audit-ready code.
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Looking for a smart contract engineer who ships secure, audited code?
-              Whether you&apos;re building DeFi protocols, need ZK implementations,
-              or want Web3 architecture consulting — I&apos;m ready to help.
+              Building in Web3? I can help.
             </p>
 
             {/* Email CTA */}
