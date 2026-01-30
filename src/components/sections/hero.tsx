@@ -44,7 +44,7 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-6 text-lg text-muted-foreground sm:text-xl md:text-2xl max-w-3xl mx-auto"
         >
-          Building the Financial Infrastructure of Tomorrow
+          Building Secure DeFi Infrastructure
         </motion.p>
 
         <motion.p
@@ -53,13 +53,12 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mt-4 text-muted-foreground max-w-2xl mx-auto"
         >
-          Smart contract engineer with{" "}
+          {siteConfig.author.experience} building battle-tested smart contracts.{" "}
           <span className="text-foreground font-medium">
             {siteConfig.author.tvlDeployed} TVL
           </span>{" "}
-          deployed across Ethereum, Arbitrum, and Solana.{" "}
-          {siteConfig.author.experience} of building secure, scalable DeFi
-          protocols.
+          deployed across Ethereum, Arbitrum, and Solana. PeckShield audited.
+          Zero security incidents.
         </motion.p>
 
         <motion.div

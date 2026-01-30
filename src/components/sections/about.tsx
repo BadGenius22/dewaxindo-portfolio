@@ -15,10 +15,10 @@ import { AnimatedSection } from "@/components/ui/animated-section";
 
 const skills = [
   {
-    name: "Smart Contracts",
+    name: "DeFi Engineering",
     description:
-      "Expert in Solidity and Rust. Building secure, gas-optimized contracts for DeFi protocols.",
-    Icon: Code2,
+      "Leverage vaults, LP management, yield optimization. Built protocols handling $50M+ TVL on Arbitrum.",
+    Icon: TrendingUp,
     href: "#projects",
     cta: "See Projects",
     className: "md:col-span-2",
@@ -29,7 +29,7 @@ const skills = [
   {
     name: "Security First",
     description:
-      "Audit-ready code with comprehensive testing. Zero security incidents across $50M+ TVL.",
+      "Fuzz testing, invariant testing, Slither. All contracts PeckShield audited. Zero critical findings.",
     Icon: Shield,
     href: "#projects",
     cta: "View Track Record",
@@ -39,10 +39,10 @@ const skills = [
     ),
   },
   {
-    name: "DeFi Protocols",
+    name: "Smart Contracts",
     description:
-      "Leverage vaults, LP management, yield optimization, and prediction markets.",
-    Icon: TrendingUp,
+      "Solidity & Rust expert. Foundry, Hardhat, Anchor. Gas-optimized, audit-ready code.",
+    Icon: Code2,
     href: "#projects",
     cta: "Explore Work",
     className: "md:col-span-1",
@@ -53,7 +53,7 @@ const skills = [
   {
     name: "Multi-Chain",
     description:
-      "Ethereum, Arbitrum, Solana, and more. Building cross-chain solutions.",
+      "Ethereum, Arbitrum, Solana, Polygon. Integrations with AAVE, Compound, Pendle, Uniswap.",
     Icon: Globe,
     href: "#projects",
     cta: "See Chains",
@@ -63,24 +63,24 @@ const skills = [
     ),
   },
   {
-    name: "Full Stack Web3",
+    name: "ZK & Privacy",
     description:
-      "From smart contracts to frontend integration. Complete dApp development.",
+      "Zero-knowledge proofs with Noir circuits. Building privacy-preserving verification systems.",
     Icon: Layers,
-    href: "#contact",
-    cta: "Let's Talk",
+    href: "#projects",
+    cta: "View ZK Work",
     className: "md:col-span-1",
     background: (
       <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 via-transparent to-transparent" />
     ),
   },
   {
-    name: "Performance",
+    name: "Full Stack Web3",
     description:
-      "Gas optimization, efficient algorithms, and scalable architecture.",
+      "React, Next.js, TypeScript. From smart contracts to polished frontends.",
     Icon: Zap,
-    href: "#projects",
-    cta: "View Results",
+    href: "#contact",
+    cta: "Let's Build",
     className: "md:col-span-1",
     background: (
       <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 via-transparent to-transparent" />
@@ -94,8 +94,8 @@ export function About() {
       <div className="container mx-auto px-4">
         <AnimatedSection>
           <SectionHeading
-            title="What I Do"
-            subtitle="Specialized in building secure, scalable DeFi infrastructure"
+            title="What I Build"
+            subtitle="Secure, battle-tested DeFi infrastructure that moves millions"
           />
         </AnimatedSection>
 

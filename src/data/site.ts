@@ -31,7 +31,7 @@ export const siteConfig = {
     name: "Dewangga Praxindo",
     jobTitle: "DeFi Smart Contract Engineer",
     email: "hi@dewaxindo.com",
-    location: "Remote",
+    location: "Yogyakarta, Indonesia",
     experience: "3+ years",
     tvlDeployed: "$50M+",
   },

@@ -49,18 +49,17 @@ export function Contact() {
       <div className="container mx-auto px-4">
         <AnimatedSection>
           <SectionHeading
-            title="Let's Connect"
-            subtitle="Have a project in mind? Let's talk."
+            title="Let's Build Together"
+            subtitle="Got a DeFi project? Let's make it happen."
           />
         </AnimatedSection>
 
         <AnimatedSection delay={0.2}>
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-muted-foreground mb-8">
-              I&apos;m always open to discussing new projects, creative ideas,
-              or opportunities to be part of your vision. Whether you need smart
-              contract development, protocol design, or Web3 consulting —
-              let&apos;s build something great together.
+              Looking for a smart contract engineer who ships secure, audited code?
+              Whether you&apos;re building DeFi protocols, need ZK implementations,
+              or want Web3 architecture consulting — I&apos;m ready to help.
             </p>
 
             {/* Social Links Grid */}
