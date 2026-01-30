@@ -34,22 +34,6 @@ export const projects: Project[] = [
     year: 2026,
   },
   {
-    id: "lazorkit-sdk",
-    title: "LazorKit SDK",
-    tagline: "Passkey-Based Solana Wallet",
-    description:
-      "Developer template for passkey wallets on Solana. WebAuthn authentication (Face ID/Touch ID), gasless transactions via Paymaster. Built with Next.js 16 and TypeScript.",
-    image: "/images/projects/lazorkit-sdk.svg",
-    tags: ["Solana", "WebAuthn", "Passkeys", "Next.js", "TypeScript"],
-    links: {
-      live: "https://lazorkit-lovat.vercel.app",
-      github: "https://github.com/BadGenius22/Lazorkit",
-    },
-    featured: true,
-    role: "Lead Developer",
-    year: 2026,
-  },
-  {
     id: "rekon-gg",
     title: "RekonGG",
     tagline: "AI-Powered Esports Predictions",
@@ -63,6 +47,22 @@ export const projects: Project[] = [
     },
     featured: true,
     role: "Blockchain Developer",
+    year: 2026,
+  },
+  {
+    id: "lazorkit-sdk",
+    title: "LazorKit SDK",
+    tagline: "Passkey-Based Solana Wallet",
+    description:
+      "Developer template for passkey wallets on Solana. WebAuthn authentication (Face ID/Touch ID), gasless transactions via Paymaster. Built with Next.js 16 and TypeScript.",
+    image: "/images/projects/lazorkit-sdk.svg",
+    tags: ["Solana", "WebAuthn", "Passkeys", "Next.js", "TypeScript"],
+    links: {
+      live: "https://lazorkit-lovat.vercel.app",
+      github: "https://github.com/BadGenius22/Lazorkit",
+    },
+    featured: true,
+    role: "Lead Developer",
     year: 2026,
   },
   {
