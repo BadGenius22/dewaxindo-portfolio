@@ -52,25 +52,25 @@ export function Footer() {
           <nav className="flex items-center gap-4 md:gap-6">
             <Link
               href="#projects"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
             >
               Projects
             </Link>
             <Link
               href="#about"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
             >
               About
             </Link>
             <Link
               href="#products"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
             >
               Products
             </Link>
             <Link
               href="#contact"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
             >
               Contact
             </Link>
@@ -89,7 +89,8 @@ export function Footer() {
                   aria-label={social.label}
                   className={cn(
                     "text-muted-foreground hover:text-foreground transition-colors",
-                    "p-2 rounded-lg hover:bg-accent/50"
+                    "p-2 rounded-lg hover:bg-accent/50",
+                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                   )}
                 >
                   {Icon && <Icon className="h-4 w-4" />}

@@ -31,6 +31,7 @@ export function ParticleNetwork({
   const particlesRef = useRef<Particle[]>([]);
   const animationRef = useRef<number>(0);
   const mouseRef = useRef({ x: 0, y: 0, isOver: false });
+  const prefersReducedMotionRef = useRef(false);
 
   const initParticles = useCallback(
     (width: number, height: number) => {
@@ -154,6 +155,21 @@ export function ParticleNetwork({
     canvas.addEventListener("mousemove", handleMouseMove);
     canvas.addEventListener("mouseenter", handleMouseEnter);
     canvas.addEventListener("mouseleave", handleMouseLeave);
+
+    // Check for reduced motion preference
+    prefersReducedMotionRef.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // Skip animation if user prefers reduced motion
+    if (prefersReducedMotionRef.current) {
+      // Draw static particles once
+      draw(ctx, canvas.width, canvas.height);
+      return () => {
+        window.removeEventListener("resize", handleResize);
+        canvas.removeEventListener("mousemove", handleMouseMove);
+        canvas.removeEventListener("mouseenter", handleMouseEnter);
+        canvas.removeEventListener("mouseleave", handleMouseLeave);
+      };
+    }
 
     const animate = () => {
       draw(ctx, canvas.width, canvas.height);

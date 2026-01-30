@@ -174,4 +174,16 @@
   ::selection {
     @apply bg-primary/20 text-foreground;
   }
+
+  /* Content visibility optimization for off-screen sections */
+  section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 800px;
+  }
+
+  /* Ensure hero section is always visible (above the fold) */
+  section#hero {
+    content-visibility: visible;
+    contain-intrinsic-size: auto;
+  }
 }

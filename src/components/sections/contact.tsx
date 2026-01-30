@@ -105,10 +105,12 @@ export function Contact() {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`${social.label} - ${social.username}`}
                   className={cn(
                     "flex flex-col items-center gap-3 p-6 rounded-xl border border-border bg-card",
                     "transition-all duration-300 cursor-pointer",
-                    "hover:border-border/80 hover:bg-accent/50"
+                    "hover:border-border/80 hover:bg-accent/50",
+                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                   )}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}

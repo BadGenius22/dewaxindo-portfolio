@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
 import {
@@ -10,7 +10,6 @@ import {
   TrendingUp,
   Layers,
   Zap,
-  Shield,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -23,12 +22,21 @@ const cardStyles = cn(
 );
 
 function TVLCounter() {
-  const [value, setValue] = useState(0);
+  // Initialize with final value - animation will override if motion is allowed
+  const [value, setValue] = useState(50);
+  const prefersReducedMotionRef = useRef(true);
 
   useEffect(() => {
+    // Check for reduced motion preference
+    prefersReducedMotionRef.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotionRef.current) return;
+
+    // Reset to 0 and start animation
+    let animatedValue = 0;
     const interval = setInterval(() => {
-      setValue((prev) => (prev >= 50 ? 0 : prev + 1));
-    }, 100);
+      animatedValue = animatedValue >= 50 ? 0 : animatedValue + 1;
+      setValue(animatedValue);
+    }, 200); // Increased from 100ms for better performance
     return () => clearInterval(interval);
   }, []);
 
@@ -51,23 +59,32 @@ function TVLCounter() {
 }
 
 function SecurityShields() {
-  const [scanProgress, setScanProgress] = useState(0);
-  const [status, setStatus] = useState<"scanning" | "verified">("scanning");
+  // Initialize with final state for reduced motion users
+  const [scanProgress, setScanProgress] = useState(100);
+  const [status, setStatus] = useState<"scanning" | "verified">("verified");
+  const prefersReducedMotionRef = useRef(true);
 
   useEffect(() => {
+    // Check for reduced motion preference
+    prefersReducedMotionRef.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotionRef.current) return;
+
+    // Reset and start animation
+    let progress = 0;
     const interval = setInterval(() => {
-      setScanProgress((prev) => {
-        if (prev >= 100) {
-          setStatus("verified");
-          setTimeout(() => {
-            setStatus("scanning");
-            setScanProgress(0);
-          }, 1500);
-          return 100;
-        }
-        return prev + 5;
-      });
-    }, 80);
+      progress += 5;
+      if (progress >= 100) {
+        setStatus("verified");
+        setScanProgress(100);
+        setTimeout(() => {
+          setStatus("scanning");
+          setScanProgress(0);
+          progress = 0;
+        }, 2000);
+      } else {
+        setScanProgress(progress);
+      }
+    }, 150); // Increased from 80ms for better performance
     return () => clearInterval(interval);
   }, []);
 
@@ -140,9 +157,13 @@ function CodeAnimation() {
   ];
 
   useEffect(() => {
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
     const interval = setInterval(() => {
       setLanguage((prev) => (prev === "solidity" ? "rust" : "solidity"));
-    }, 3000);
+    }, 4000); // Increased from 3000ms for better performance
     return () => clearInterval(interval);
   }, []);
 
@@ -227,9 +248,13 @@ function ChainNetwork() {
   const [activeChain, setActiveChain] = useState(0);
 
   useEffect(() => {
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
     const interval = setInterval(() => {
       setActiveChain((prev) => (prev + 1) % chains.length);
-    }, 1500);
+    }, 2500); // Increased from 1500ms for better performance
     return () => clearInterval(interval);
   }, [chains.length]);
 
@@ -340,18 +365,32 @@ function ZKProof() {
   const chars = "█▓▒░×◊○●□■";
 
   useEffect(() => {
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+      setPhase("verify");
+      return;
+    }
+
     const phases: ("encrypt" | "prove" | "verify")[] = ["encrypt", "prove", "verify"];
     let phaseIndex = 0;
 
     const interval = setInterval(() => {
       phaseIndex = (phaseIndex + 1) % phases.length;
       setPhase(phases[phaseIndex]);
-    }, 2000);
+    }, 3000); // Increased from 2000ms for better performance
 
     return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+      setDisplayText(originalText);
+      return;
+    }
+
     if (phase === "encrypt") {
       let iterations = 0;
       const scramble = setInterval(() => {
@@ -362,8 +401,8 @@ function ZKProof() {
             .join("")
         );
         iterations++;
-        if (iterations > 10) clearInterval(scramble);
-      }, 50);
+        if (iterations > 8) clearInterval(scramble); // Reduced iterations
+      }, 100); // Increased from 50ms for better performance
       return () => clearInterval(scramble);
     } else if (phase === "verify") {
       let index = 0;
@@ -378,7 +417,7 @@ function ZKProof() {
         );
         index++;
         if (index >= originalText.length) clearInterval(reveal);
-      }, 100);
+      }, 150); // Increased from 100ms for better performance
       return () => clearInterval(reveal);
     }
   }, [phase]);
@@ -426,20 +465,29 @@ function ZKProof() {
   );
 }
 
-function FullStackAnimation() {
-  const commands = [
-    { cmd: "pnpm build", output: "✓ Built successfully", color: "text-blue-500" },
-    { cmd: "forge test", output: "✓ All tests passed", color: "text-green-500" },
-    { cmd: "forge deploy", output: "✓ Contract live", color: "text-yellow-500" },
-  ];
+// Commands array moved to module level to avoid recreation on every render
+const TERMINAL_COMMANDS = [
+  { cmd: "pnpm build", output: "✓ Built successfully", color: "text-blue-500" },
+  { cmd: "forge test", output: "✓ All tests passed", color: "text-green-500" },
+  { cmd: "forge deploy", output: "✓ Contract live", color: "text-yellow-500" },
+] as const;
 
+function FullStackAnimation() {
   const [currentCmd, setCurrentCmd] = useState(0);
   const [typedText, setTypedText] = useState("");
   const [showOutput, setShowOutput] = useState(false);
   const [cursorVisible, setCursorVisible] = useState(true);
 
   useEffect(() => {
-    const cmd = commands[currentCmd].cmd;
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+      setTypedText(TERMINAL_COMMANDS[currentCmd].cmd);
+      setShowOutput(true);
+      return;
+    }
+
+    const cmd = TERMINAL_COMMANDS[currentCmd].cmd;
     let charIndex = 0;
     setTypedText("");
     setShowOutput(false);
@@ -450,20 +498,27 @@ function FullStackAnimation() {
         charIndex++;
       } else {
         clearInterval(typeInterval);
-        setTimeout(() => setShowOutput(true), 300);
+        setTimeout(() => setShowOutput(true), 400);
         setTimeout(() => {
-          setCurrentCmd((prev) => (prev + 1) % commands.length);
-        }, 1800);
+          setCurrentCmd((prev) => (prev + 1) % TERMINAL_COMMANDS.length);
+        }, 2500); // Increased from 1800ms for better performance
       }
-    }, 80);
+    }, 120); // Increased from 80ms for better performance
 
     return () => clearInterval(typeInterval);
   }, [currentCmd]);
 
   useEffect(() => {
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+      setCursorVisible(true);
+      return;
+    }
+
     const cursorInterval = setInterval(() => {
       setCursorVisible((prev) => !prev);
-    }, 500);
+    }, 530); // Slightly offset to avoid synchronization issues
     return () => clearInterval(cursorInterval);
   }, []);
 
@@ -494,9 +549,9 @@ function FullStackAnimation() {
                 initial={{ opacity: 0, y: -5 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
-                className={commands[currentCmd].color}
+                className={TERMINAL_COMMANDS[currentCmd].color}
               >
-                {commands[currentCmd].output}
+                {TERMINAL_COMMANDS[currentCmd].output}
               </motion.div>
             )}
           </AnimatePresence>

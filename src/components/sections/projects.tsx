@@ -64,10 +64,14 @@ function MoneyIcon() {
   const [pulse, setPulse] = useState(false);
 
   useEffect(() => {
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
     const interval = setInterval(() => {
       setPulse(true);
       setTimeout(() => setPulse(false), 600);
-    }, 2000);
+    }, 3000); // Increased from 2000ms for better performance
     return () => clearInterval(interval);
   }, []);
 
@@ -95,10 +99,14 @@ function ShieldIcon() {
   const [verified, setVerified] = useState(false);
 
   useEffect(() => {
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
     const interval = setInterval(() => {
       setVerified(true);
       setTimeout(() => setVerified(false), 1500);
-    }, 3000);
+    }, 4000); // Increased from 3000ms for better performance
     return () => clearInterval(interval);
   }, []);
 
@@ -121,10 +129,14 @@ function FingerprintIcon() {
   const [scanning, setScanning] = useState(true);
 
   useEffect(() => {
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
     const interval = setInterval(() => {
       setScanning(false);
       setTimeout(() => setScanning(true), 1000);
-    }, 2500);
+    }, 3500); // Increased from 2500ms for better performance
     return () => clearInterval(interval);
   }, []);
 
@@ -147,10 +159,14 @@ function BrainIcon() {
   const [thinking, setThinking] = useState(false);
 
   useEffect(() => {
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
     const interval = setInterval(() => {
       setThinking(true);
       setTimeout(() => setThinking(false), 1000);
-    }, 2500);
+    }, 3500); // Increased from 2500ms for better performance
     return () => clearInterval(interval);
   }, []);
 
@@ -176,10 +192,14 @@ function DiceIcon() {
   const [rolling, setRolling] = useState(false);
 
   useEffect(() => {
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
     const interval = setInterval(() => {
       setRolling(true);
       setTimeout(() => setRolling(false), 800);
-    }, 3000);
+    }, 4000); // Increased from 3000ms for better performance
     return () => clearInterval(interval);
   }, []);
 

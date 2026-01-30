@@ -4,18 +4,23 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
 import { Button } from "@/components/ui/button";
 import { ParticleNetwork } from "@/components/ui/particle-network";
 
+// Hydration-safe client detection using useSyncExternalStore
+const emptySubscribe = () => () => {};
+const getSnapshot = () => true;
+const getServerSnapshot = () => false;
+
+function useIsMounted() {
+  return useSyncExternalStore(emptySubscribe, getSnapshot, getServerSnapshot);
+}
+
 export function Hero() {
   const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useIsMounted();
 
   // Theme-aware colors
   const isDark = resolvedTheme === "dark";

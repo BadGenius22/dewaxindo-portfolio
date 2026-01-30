@@ -98,6 +98,8 @@ export function Products() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email"
                     required
+                    autoComplete="email"
+                    aria-label="Email address for product notifications"
                     className={cn(
                       "flex-1 px-4 py-3 rounded-lg border border-border bg-background",
                       "text-foreground placeholder:text-muted-foreground",

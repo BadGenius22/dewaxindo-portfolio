@@ -16,11 +16,19 @@ export function generatePersonSchema() {
     "@context": "https://schema.org",
     "@type": "Person",
     name: siteConfig.author.name,
+    givenName: "Dewangga",
+    familyName: "Praxindo",
     jobTitle: siteConfig.author.jobTitle,
     description: siteConfig.description,
     url: siteConfig.url,
+    email: `mailto:${siteConfig.author.email}`,
     image: `${siteConfig.url}/images/profile.jpg`,
     sameAs: getSocialUrls(),
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Yogyakarta",
+      addressCountry: "ID",
+    },
     knowsAbout: [
       "Smart Contract Development",
       "DeFi Protocols",
@@ -29,9 +37,29 @@ export function generatePersonSchema() {
       "Ethereum",
       "Arbitrum",
       "Solana",
+      "Base",
+      "Polygon",
       "Web3",
       "Blockchain",
+      "Zero-Knowledge Proofs",
+      "Security Auditing",
     ],
+    hasCredential: [
+      {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "Professional Experience",
+        name: "3+ Years Smart Contract Development",
+      },
+    ],
+    hasOccupation: {
+      "@type": "Occupation",
+      name: "Smart Contract Engineer",
+      occupationLocation: {
+        "@type": "Country",
+        name: "Indonesia",
+      },
+      skills: "Solidity, Rust, DeFi, Security Auditing, Web3",
+    },
   };
 }
 
@@ -152,6 +180,89 @@ export function generateFAQSchema(
 type JsonLdSchema = Record<string, unknown>;
 
 /**
+ * Organization schema for brand presence
+ */
+export function generateOrganizationSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: siteConfig.name,
+    url: siteConfig.url,
+    logo: `${siteConfig.url}/images/profile.jpg`,
+    description: "Smart contract development and DeFi consulting services",
+    founder: {
+      "@type": "Person",
+      name: siteConfig.author.name,
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: siteConfig.author.email,
+      contactType: "Business Inquiries",
+      availableLanguage: ["English", "Indonesian"],
+    },
+    sameAs: getSocialUrls(),
+  };
+}
+
+/**
+ * CreativeWork schema for portfolio projects
+ */
+export function generatePortfolioSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Portfolio Projects",
+    description: "Smart contract and DeFi projects by Dewangga Praxindo",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        item: {
+          "@type": "SoftwareApplication",
+          name: "Factor Finance",
+          description: "Composable DeFi platform on Arbitrum with $50M+ TVL",
+          applicationCategory: "DeFi Protocol",
+          operatingSystem: "Ethereum Virtual Machine",
+        },
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        item: {
+          "@type": "SoftwareApplication",
+          name: "RekonGG",
+          description: "AI-powered esports prediction market",
+          applicationCategory: "Prediction Market",
+          operatingSystem: "Blockchain",
+        },
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        item: {
+          "@type": "SoftwareApplication",
+          name: "LazorKit SDK",
+          description: "Passkey-based wallet infrastructure on Solana",
+          applicationCategory: "Wallet SDK",
+          operatingSystem: "Solana",
+        },
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        item: {
+          "@type": "SoftwareApplication",
+          name: "Vouch Protocol",
+          description: "Zero-knowledge identity verification using Noir",
+          applicationCategory: "Identity Protocol",
+          operatingSystem: "Ethereum",
+        },
+      },
+    ],
+  };
+}
+
+/**
  * Combine all schemas for the homepage
  */
 export function generateHomepageSchemas(product?: Product): JsonLdSchema[] {
@@ -159,6 +270,8 @@ export function generateHomepageSchemas(product?: Product): JsonLdSchema[] {
     generatePersonSchema(),
     generateWebsiteSchema(),
     generateProfessionalServiceSchema(),
+    generateOrganizationSchema(),
+    generatePortfolioSchema(),
   ];
 
   if (product) {

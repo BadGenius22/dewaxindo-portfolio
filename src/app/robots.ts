@@ -9,9 +9,23 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
+        userAgent: "Googlebot",
+        allow: "/",
+        disallow: ["/api/"],
+      },
+      {
+        userAgent: "Googlebot-Image",
+        allow: "/images/",
+      },
+      {
+        userAgent: "Bingbot",
+        allow: "/",
+        disallow: ["/api/"],
+      },
+      {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/_next/"],
+        disallow: ["/api/", "/_next/static/", "/_next/image/"],
       },
     ],
     sitemap: `${siteConfig.url}/sitemap.xml`,
