@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "title": "Dewangga Praxindo | DeFi Smart Contract Engineer",
+    "description": "Smart contract engineer berpengalaman 3+ tahun. Bangun protokol DeFi yang secure di Ethereum, Arbitrum, dan Solana. Total TVL $50M+."
+  },
+  "navigation": {
+    "about": "Tentang",
+    "projects": "Proyek",
+    "products": "Produk",
+    "contact": "Kontak"
+  },
+  "hero": {
+    "greeting": "Halo, saya Dewangga. Smart contract engineer yang fokus bangun protokol DeFi secure dengan",
+    "tvl": "total TVL $50M+",
+    "chains": "di Ethereum, Arbitrum, dan Base.",
+    "cta": {
+      "work": "Lihat portfolio",
+      "collaborate": "Yuk ngobrol"
+    }
+  },
+  "about": {
+    "label": "Yang Saya Kerjakan",
+    "title": "Full-Stack DeFi Engineering",
+    "description": "Fokus saya di smart contract dan protokol DeFi yang production-ready. Dari Solidity di Ethereum/Arbitrum sampai Rust di Solana — semua kode battle-tested dengan security practices lengkap: fuzz testing, invariant testing, dan persiapan audit."
+  },
+  "bento": {
+    "defi": {
+      "title": "DeFi Engineering",
+      "tvlLabel": "Total Value Locked",
+      "description": "Leverage vaults, LP management, yield strategies. Udah handle protokol dengan TVL $50M+ di Arbitrum."
+    },
+    "contracts": {
+      "title": "Smart Contracts",
+      "description": "Solidity & Rust. Foundry, Hardhat, Anchor."
+    },
+    "multichain": {
+      "title": "Multi-Chain",
+      "description": "Deploy dan integrasi di Ethereum, Arbitrum, Solana, Polygon, dan Base."
+    },
+    "security": {
+      "title": "Security First",
+      "description": "Fuzz testing, invariant testing. Audited by PeckShield.",
+      "scanning": "Scanning...",
+      "auditPassed": "Audit Passed"
+    },
+    "zk": {
+      "title": "ZK & Privacy",
+      "description": "Zero-knowledge proofs pakai Noir circuits. Privacy-preserving verification.",
+      "encrypting": "Encrypting...",
+      "generatingProof": "Generating Proof...",
+      "verified": "ZK Verified ✓"
+    },
+    "fullstack": {
+      "title": "Full Stack Web3",
+      "description": "React, Next.js, TypeScript. Dari smart contract sampai frontend yang polished."
+    }
+  },
+  "projects": {
+    "label": "Portfolio",
+    "buttons": {
+      "live": "Live",
+      "github": "GitHub",
+      "docs": "Docs"
+    }
+  },
+  "products": {
+    "label": "Produk Digital",
+    "title": "Produk",
+    "subtitle": "Resource buat percepat journey Web3 kamu",
+    "viewDetails": "Lihat Detail",
+    "digitalGuide": "Digital Guide",
+    "backToProducts": "Kembali",
+    "whatsIncluded": "Apa Aja Isinya",
+    "secureCheckout": "Checkout aman via Gumroad • Langsung dikirim",
+    "buyNow": "Beli Sekarang",
+    "comingSoon": {
+      "title": "Segera Hadir",
+      "description": "Lagi nyiapin produk digital buat bantu kamu di Web3. Template, guide, dan resource — coming soon.",
+      "emailPlaceholder": "Masukkan email kamu",
+      "emailAriaLabel": "Alamat email untuk notifikasi produk",
+      "notifyMe": "Kabari Aku",
+      "successMessage": "Kamu masuk list!",
+      "errorMessage": "Ada yang salah. Coba lagi ya.",
+      "noSpam": "Gak ada spam. Bisa unsubscribe kapan aja."
+    }
+  },
+  "contact": {
+    "label": "Kontak",
+    "title": "Let's Build",
+    "subtitle": "Smart contracts. Full-stack dApps. Audit-ready code.",
+    "description": "Lagi bangun di Web3? Yuk Ngobrol."
+  },
+  "footer": {
+    "copyright": "©"
+  },
+  "common": {
+    "skipToContent": "Skip ke konten"
+  },
+  "languageSwitcher": {
+    "label": "Bahasa",
+    "current": "Bahasa: {language}"
+  }
+}

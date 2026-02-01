@@ -1,19 +1,23 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
-import { navigationItems } from "@/data/navigation";
+import { LanguageSwitcher } from "@/components/layout/language-switcher";
+import { Link } from "@/i18n/routing";
 import { siteConfig } from "@/data/site";
+
+const navigationKeys = ["about", "projects", "products", "contact"] as const;
 
 export function Header() {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isOpen, setIsOpen] = React.useState(false);
+  const t = useTranslations("navigation");
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -54,19 +58,20 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
-            {navigationItems.map((item) => (
+            {navigationKeys.map((key) => (
               <Link
-                key={item.href}
-                href={item.href}
+                key={key}
+                href={`/#${key}`}
                 className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
               >
-                {item.label}
+                {t(key)}
               </Link>
             ))}
           </nav>
 
-          {/* Right side: Theme Toggle + Mobile Menu */}
-          <div className="flex items-center space-x-2">
+          {/* Right side: Language Toggle + Theme Toggle + Mobile Menu */}
+          <div className="flex items-center space-x-1">
+            <LanguageSwitcher />
             <ThemeToggle />
 
             {/* Mobile Menu Button */}
@@ -108,19 +113,19 @@ export function Header() {
               className="relative flex flex-col items-center justify-center h-full"
             >
               <div className="flex flex-col items-center gap-8">
-                {navigationItems.map((item, index) => (
+                {navigationKeys.map((key, index) => (
                   <motion.div
-                    key={item.href}
+                    key={key}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: 0.1 + index * 0.05 }}
                   >
                     <Link
-                      href={item.href}
+                      href={`/#${key}`}
                       onClick={() => setIsOpen(false)}
                       className="font-display text-3xl font-medium text-foreground hover:text-primary transition-colors"
                     >
-                      {item.label}
+                      {t(key)}
                     </Link>
                   </motion.div>
                 ))}
