@@ -35,7 +35,7 @@
     },
     "multichain": {
       "title": "Multi-Chain",
-      "description": "Ethereum, Arbitrum, Solana, Polygon, Base. Integrasi AAVE, Compound, Pendle, Uniswap."
+      "description": "Deploy dan integrasi di Ethereum, Arbitrum, Solana, Polygon, dan Base."
     },
     "security": {
       "title": "Security First",
