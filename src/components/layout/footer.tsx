@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { Github, Linkedin, Send, Instagram, Youtube } from "lucide-react";
 
 import { siteConfig } from "@/data/site";
@@ -31,6 +32,7 @@ const socialIcons: Record<string, React.ElementType> = {
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const t = useTranslations("footer");
 
   return (
     <footer className="border-t border-border bg-background">
@@ -43,7 +45,7 @@ export function Footer() {
             </span>
             <span className="hidden md:block text-muted-foreground/50">·</span>
             <span className="text-sm text-muted-foreground">
-              &copy; {currentYear}
+              {t("copyright")} {currentYear}
             </span>
           </div>
 

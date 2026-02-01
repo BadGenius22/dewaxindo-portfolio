@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "title": "Dewangga Praxindo | DeFi Smart Contract Engineer",
+    "description": "DeFi smart contract engineer with 3+ years experience. Building secure, scalable protocols on Ethereum, Arbitrum, and Solana. $50M+ TVL deployed."
+  },
+  "navigation": {
+    "about": "About",
+    "projects": "Projects",
+    "products": "Products",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I'm Dewangga, a DeFi smart contract engineer building secure protocols with",
+    "tvl": "$50M+ TVL deployed",
+    "chains": "across Ethereum, Arbitrum, and Base.",
+    "cta": {
+      "work": "See my work",
+      "collaborate": "Let's collaborate"
+    }
+  },
+  "about": {
+    "label": "What I Build",
+    "title": "Full-Stack DeFi Engineering",
+    "description": "I specialize in building secure, production-ready smart contracts and DeFi protocols. From Solidity on Ethereum and Arbitrum to Rust on Solana, I deliver battle-tested code with comprehensive security practices including fuzz testing, invariant testing, and audit preparation."
+  },
+  "bento": {
+    "defi": {
+      "title": "DeFi Engineering",
+      "tvlLabel": "Total Value Locked",
+      "description": "Leverage vaults, LP management, yield strategies. Built protocols handling $50M+ TVL on Arbitrum."
+    },
+    "contracts": {
+      "title": "Smart Contracts",
+      "description": "Solidity & Rust. Foundry, Hardhat, Anchor."
+    },
+    "multichain": {
+      "title": "Multi-Chain",
+      "description": "Ethereum, Arbitrum, Solana, Polygon, Base. AAVE, Compound, Pendle, Uniswap integrations."
+    },
+    "security": {
+      "title": "Security First",
+      "description": "Fuzz testing, invariant testing. PeckShield audited.",
+      "scanning": "Scanning...",
+      "auditPassed": "Audit Passed"
+    },
+    "zk": {
+      "title": "ZK & Privacy",
+      "description": "Zero-knowledge proofs with Noir circuits. Privacy-preserving verification.",
+      "encrypting": "Encrypting...",
+      "generatingProof": "Generating Proof...",
+      "verified": "ZK Verified ✓"
+    },
+    "fullstack": {
+      "title": "Full Stack Web3",
+      "description": "React, Next.js, TypeScript. From contracts to polished frontends."
+    }
+  },
+  "projects": {
+    "label": "Selected Work",
+    "buttons": {
+      "live": "Live",
+      "github": "GitHub",
+      "docs": "Docs"
+    }
+  },
+  "products": {
+    "label": "Digital Products",
+    "title": "Products",
+    "subtitle": "Resources to accelerate your Web3 journey",
+    "viewDetails": "View Details",
+    "digitalGuide": "Digital Guide",
+    "backToProducts": "Back to Products",
+    "whatsIncluded": "What's Included",
+    "secureCheckout": "Secure checkout via Gumroad • Instant delivery",
+    "buyNow": "Buy Now",
+    "comingSoon": {
+      "title": "Coming Soon",
+      "description": "I'm working on digital products to help you accelerate your Web3 journey. Templates, guides, and resources — all coming soon.",
+      "emailPlaceholder": "Enter your email",
+      "emailAriaLabel": "Email address for product notifications",
+      "notifyMe": "Notify Me",
+      "successMessage": "You're on the list!",
+      "errorMessage": "Something went wrong. Try again.",
+      "noSpam": "No spam. Unsubscribe anytime."
+    }
+  },
+  "contact": {
+    "label": "Get In Touch",
+    "title": "Let's Build",
+    "subtitle": "Smart contracts. Full-stack dApps. Audit-ready code.",
+    "description": "Building in Web3? I can help."
+  },
+  "footer": {
+    "copyright": "©"
+  },
+  "common": {
+    "skipToContent": "Skip to main content"
+  },
+  "languageSwitcher": {
+    "label": "Language",
+    "current": "Current language: {language}"
+  }
+}

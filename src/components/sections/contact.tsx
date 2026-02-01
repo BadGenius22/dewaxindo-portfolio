@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { Github, Linkedin, Send, Mail, Instagram, Youtube } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -43,6 +44,8 @@ const socialColors: Record<string, { bg: string; text: string; border: string }>
 };
 
 export function Contact() {
+  const t = useTranslations("contact");
+
   return (
     <section
       id="contact"
@@ -55,7 +58,7 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          Get In Touch
+          {t("label")}
         </motion.p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -67,13 +70,13 @@ export function Contact() {
             transition={{ duration: 0.5 }}
           >
             <h2 className="font-display text-3xl md:text-4xl text-foreground font-medium leading-tight">
-              Let&apos;s Build
+              {t("title")}
             </h2>
             <p className="mt-4 text-muted-foreground text-lg leading-relaxed">
-              Smart contracts. Full-stack dApps. Audit-ready code.
+              {t("subtitle")}
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Building in Web3? I can help.
+              {t("description")}
             </p>
 
             {/* Email CTA */}

@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import {
   Lock,
   Globe,
@@ -21,7 +22,7 @@ const cardStyles = cn(
   "hover:bg-accent/50"
 );
 
-function TVLCounter() {
+function TVLCounter({ tvlLabel }: { tvlLabel: string }) {
   // Initialize with final value - animation will override if motion is allowed
   const [value, setValue] = useState(50);
   const prefersReducedMotionRef = useRef(true);
@@ -52,13 +53,13 @@ function TVLCounter() {
         >
           ${value}M+
         </motion.span>
-        <p className="text-muted-foreground text-sm mt-2">Total Value Locked</p>
+        <p className="text-muted-foreground text-sm mt-2">{tvlLabel}</p>
       </motion.div>
     </div>
   );
 }
 
-function SecurityShields() {
+function SecurityShields({ scanningText, auditPassedText }: { scanningText: string; auditPassedText: string }) {
   // Initialize with final state for reduced motion users
   const [scanProgress, setScanProgress] = useState(100);
   const [status, setStatus] = useState<"scanning" | "verified">("verified");
@@ -133,7 +134,7 @@ function SecurityShields() {
         />
       </div>
       <span className="text-[10px] text-muted-foreground">
-        {status === "verified" ? "Audit Passed" : "Scanning..."}
+        {status === "verified" ? auditPassedText : scanningText}
       </span>
     </div>
   );
@@ -358,7 +359,7 @@ function ChainNetwork() {
   );
 }
 
-function ZKProof() {
+function ZKProof({ encryptingText, generatingProofText, verifiedText }: { encryptingText: string; generatingProofText: string; verifiedText: string }) {
   const [phase, setPhase] = useState<"encrypt" | "prove" | "verify">("encrypt");
   const originalText = "SECRET";
   const [displayText, setDisplayText] = useState(originalText);
@@ -456,9 +457,9 @@ function ZKProof() {
           transition={{ duration: 0.5, repeat: Infinity }}
         />
         <span className="text-[10px] text-muted-foreground">
-          {phase === "encrypt" && "Encrypting..."}
-          {phase === "prove" && "Generating Proof..."}
-          {phase === "verify" && "ZK Verified ✓"}
+          {phase === "encrypt" && encryptingText}
+          {phase === "prove" && generatingProofText}
+          {phase === "verify" && verifiedText}
         </span>
       </div>
     </div>
@@ -562,6 +563,8 @@ function FullStackAnimation() {
 }
 
 export function AnimatedBentoGrid() {
+  const t = useTranslations("bento");
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-6 gap-4 auto-rows-auto md:auto-rows-[220px]">
       {/* 1. DeFi Engineering - Tall (2x2) */}
@@ -573,16 +576,15 @@ export function AnimatedBentoGrid() {
         whileHover={{ scale: 1.02 }}
       >
         <div className="flex-1">
-          <TVLCounter />
+          <TVLCounter tvlLabel={t("defi.tvlLabel")} />
         </div>
         <div className="mt-4">
           <h3 className="font-display text-xl text-foreground font-medium flex items-center gap-2">
             <TrendingUp className="w-5 h-5" />
-            DeFi Engineering
+            {t("defi.title")}
           </h3>
           <p className="text-muted-foreground text-sm mt-1">
-            Leverage vaults, LP management, yield strategies. Built protocols
-            handling $50M+ TVL on Arbitrum.
+            {t("defi.description")}
           </p>
         </div>
       </motion.div>
@@ -602,10 +604,10 @@ export function AnimatedBentoGrid() {
         <div className="mt-3 flex-shrink-0">
           <h3 className="font-display text-xl text-foreground font-medium flex items-center gap-2">
             <Code2 className="w-5 h-5" />
-            Smart Contracts
+            {t("contracts.title")}
           </h3>
           <p className="text-muted-foreground text-sm mt-1">
-            Solidity & Rust. Foundry, Hardhat, Anchor.
+            {t("contracts.description")}
           </p>
         </div>
       </motion.div>
@@ -625,10 +627,10 @@ export function AnimatedBentoGrid() {
         <div className="mt-auto relative z-20 bg-card/80 backdrop-blur-sm rounded-lg p-2">
           <h3 className="font-display text-xl text-foreground flex items-center gap-2 font-medium">
             <Globe className="w-5 h-5" />
-            Multi-Chain
+            {t("multichain.title")}
           </h3>
           <p className="text-muted-foreground text-sm mt-1">
-            Ethereum, Arbitrum, Solana, Polygon, Base. AAVE, Compound, Pendle, Uniswap integrations.
+            {t("multichain.description")}
           </p>
         </div>
       </motion.div>
@@ -643,15 +645,18 @@ export function AnimatedBentoGrid() {
         whileHover={{ scale: 0.98 }}
       >
         <div className="flex-1 min-h-0 flex items-center">
-          <SecurityShields />
+          <SecurityShields
+            scanningText={t("security.scanning")}
+            auditPassedText={t("security.auditPassed")}
+          />
         </div>
         <div className="mt-3 flex-shrink-0">
           <h3 className="font-display text-xl text-foreground font-medium flex items-center gap-2">
             <Lock className="w-5 h-5" />
-            Security First
+            {t("security.title")}
           </h3>
           <p className="text-muted-foreground text-sm mt-1">
-            Fuzz testing, invariant testing. PeckShield audited.
+            {t("security.description")}
           </p>
         </div>
       </motion.div>
@@ -666,15 +671,19 @@ export function AnimatedBentoGrid() {
         whileHover={{ scale: 0.98 }}
       >
         <div className="flex-1 min-h-0 flex items-center justify-center">
-          <ZKProof />
+          <ZKProof
+            encryptingText={t("zk.encrypting")}
+            generatingProofText={t("zk.generatingProof")}
+            verifiedText={t("zk.verified")}
+          />
         </div>
         <div className="mt-3 flex-shrink-0">
           <h3 className="font-display text-xl text-foreground flex items-center gap-2 font-medium">
             <Layers className="w-5 h-5" />
-            ZK & Privacy
+            {t("zk.title")}
           </h3>
           <p className="text-muted-foreground text-sm mt-1">
-            Zero-knowledge proofs with Noir circuits. Privacy-preserving verification.
+            {t("zk.description")}
           </p>
         </div>
       </motion.div>
@@ -694,10 +703,10 @@ export function AnimatedBentoGrid() {
         <div className="mt-3 flex-shrink-0">
           <h3 className="font-display text-xl text-foreground font-medium flex items-center gap-2">
             <Zap className="w-5 h-5" />
-            Full Stack Web3
+            {t("fullstack.title")}
           </h3>
           <p className="text-muted-foreground text-sm mt-1">
-            React, Next.js, TypeScript. From contracts to polished frontends.
+            {t("fullstack.description")}
           </p>
         </div>
       </motion.div>

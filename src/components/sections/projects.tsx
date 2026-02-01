@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
+import { useTranslations } from "next-intl";
 import {
   ExternalLink,
   Github,
@@ -64,14 +65,13 @@ function MoneyIcon() {
   const [pulse, setPulse] = useState(false);
 
   useEffect(() => {
-    // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) return;
 
     const interval = setInterval(() => {
       setPulse(true);
       setTimeout(() => setPulse(false), 600);
-    }, 3000); // Increased from 2000ms for better performance
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
@@ -99,14 +99,13 @@ function ShieldIcon() {
   const [verified, setVerified] = useState(false);
 
   useEffect(() => {
-    // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) return;
 
     const interval = setInterval(() => {
       setVerified(true);
       setTimeout(() => setVerified(false), 1500);
-    }, 4000); // Increased from 3000ms for better performance
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
 
@@ -129,14 +128,13 @@ function FingerprintIcon() {
   const [scanning, setScanning] = useState(true);
 
   useEffect(() => {
-    // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) return;
 
     const interval = setInterval(() => {
       setScanning(false);
       setTimeout(() => setScanning(true), 1000);
-    }, 3500); // Increased from 2500ms for better performance
+    }, 3500);
     return () => clearInterval(interval);
   }, []);
 
@@ -159,14 +157,13 @@ function BrainIcon() {
   const [thinking, setThinking] = useState(false);
 
   useEffect(() => {
-    // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) return;
 
     const interval = setInterval(() => {
       setThinking(true);
       setTimeout(() => setThinking(false), 1000);
-    }, 3500); // Increased from 2500ms for better performance
+    }, 3500);
     return () => clearInterval(interval);
   }, []);
 
@@ -192,14 +189,13 @@ function DiceIcon() {
   const [rolling, setRolling] = useState(false);
 
   useEffect(() => {
-    // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) return;
 
     const interval = setInterval(() => {
       setRolling(true);
       setTimeout(() => setRolling(false), 800);
-    }, 4000); // Increased from 3000ms for better performance
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
 
@@ -231,6 +227,7 @@ const projectIcons: Record<string, React.ComponentType> = {
 
 export function Projects() {
   const projects = getFeaturedProjects();
+  const t = useTranslations("projects");
 
   return (
     <section
@@ -244,7 +241,7 @@ export function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          Selected Work
+          {t("label")}
         </motion.p>
 
         {/* Bento Grid */}
@@ -323,7 +320,7 @@ export function Projects() {
                           rel="noopener noreferrer"
                         >
                           <ExternalLink className="mr-1.5 h-3 w-3" />
-                          Live
+                          {t("buttons.live")}
                         </a>
                       </Button>
                     )}
@@ -335,7 +332,7 @@ export function Projects() {
                           rel="noopener noreferrer"
                         >
                           <Github className="mr-1.5 h-3 w-3" />
-                          GitHub
+                          {t("buttons.github")}
                         </a>
                       </Button>
                     )}
@@ -347,7 +344,7 @@ export function Projects() {
                           rel="noopener noreferrer"
                         >
                           <FileText className="mr-1.5 h-3 w-3" />
-                          Docs
+                          {t("buttons.docs")}
                         </a>
                       </Button>
                     )}

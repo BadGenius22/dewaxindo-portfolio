@@ -2,12 +2,14 @@
 
 import { useState } from "react";
 import { motion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { Package, Send, CheckCircle, Loader2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export function Products() {
+  const t = useTranslations("products");
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
@@ -27,14 +29,14 @@ export function Products() {
 
       if (response.ok) {
         setStatus("success");
-        setMessage("You're on the list!");
+        setMessage(t("comingSoon.successMessage"));
         setEmail("");
       } else {
         throw new Error("Failed to submit");
       }
     } catch {
       setStatus("error");
-      setMessage("Something went wrong. Try again.");
+      setMessage(t("comingSoon.errorMessage"));
     }
   };
 
@@ -50,7 +52,7 @@ export function Products() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          Digital Products
+          {t("label")}
         </motion.p>
 
         {/* Coming Soon Card */}
@@ -72,11 +74,10 @@ export function Products() {
             </motion.div>
 
             <h3 className="font-display text-2xl md:text-3xl text-foreground font-medium">
-              Coming Soon
+              {t("comingSoon.title")}
             </h3>
             <p className="mt-3 text-muted-foreground max-w-md mx-auto">
-              I&apos;m working on digital products to help you accelerate your Web3 journey.
-              Templates, guides, and resources — all coming soon.
+              {t("comingSoon.description")}
             </p>
 
             {/* Email Form */}
@@ -96,10 +97,10 @@ export function Products() {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email"
+                    placeholder={t("comingSoon.emailPlaceholder")}
                     required
                     autoComplete="email"
-                    aria-label="Email address for product notifications"
+                    aria-label={t("comingSoon.emailAriaLabel")}
                     className={cn(
                       "flex-1 px-4 py-3 rounded-lg border border-border bg-background",
                       "text-foreground placeholder:text-muted-foreground",
@@ -113,7 +114,7 @@ export function Products() {
                     ) : (
                       <>
                         <Send className="mr-2 h-4 w-4" />
-                        Notify Me
+                        {t("comingSoon.notifyMe")}
                       </>
                     )}
                   </Button>
@@ -125,7 +126,7 @@ export function Products() {
             </div>
 
             <p className="mt-4 text-xs text-muted-foreground">
-              No spam. Unsubscribe anytime.
+              {t("comingSoon.noSpam")}
             </p>
           </div>
         </motion.div>

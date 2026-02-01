@@ -1,9 +1,12 @@
 "use client";
 
 import { motion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { AnimatedBentoGrid } from "@/components/ui/bento-grid-animated";
 
 export function About() {
+  const t = useTranslations("about");
+
   return (
     <section
       id="about"
@@ -16,7 +19,7 @@ export function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          What I Build
+          {t("label")}
         </motion.p>
 
         {/* SEO-friendly introduction text */}
@@ -28,13 +31,10 @@ export function About() {
           transition={{ delay: 0.1 }}
         >
           <h2 className="font-display text-2xl md:text-3xl text-foreground font-medium mb-3">
-            Full-Stack DeFi Engineering
+            {t("title")}
           </h2>
           <p className="text-muted-foreground leading-relaxed">
-            I specialize in building secure, production-ready smart contracts and DeFi protocols.
-            From Solidity on Ethereum and Arbitrum to Rust on Solana, I deliver battle-tested code
-            with comprehensive security practices including fuzz testing, invariant testing, and
-            audit preparation.
+            {t("description")}
           </p>
         </motion.div>
 

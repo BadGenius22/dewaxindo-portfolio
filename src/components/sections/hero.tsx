@@ -2,12 +2,13 @@
 
 import { motion } from "motion/react";
 import Image from "next/image";
-import Link from "next/link";
 import { useTheme } from "next-themes";
 import { useSyncExternalStore } from "react";
+import { useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
 import { ParticleNetwork } from "@/components/ui/particle-network";
+import { Link } from "@/i18n/routing";
 
 // Hydration-safe client detection using useSyncExternalStore
 const emptySubscribe = () => () => {};
@@ -21,6 +22,7 @@ function useIsMounted() {
 export function Hero() {
   const { resolvedTheme } = useTheme();
   const mounted = useIsMounted();
+  const t = useTranslations("hero");
 
   // Theme-aware colors
   const isDark = resolvedTheme === "dark";
@@ -67,7 +69,7 @@ export function Hero() {
               className="object-cover"
               priority
               placeholder="blur"
-              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUH/8QAIhAAAQMDBAMBAAAAAAAAAAAAAQIDBAAFEQYSITETQVFh/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAZEQACAwEAAAAAAAAAAAAAAAABAgADESH/2gAMAwEAAhEDEEA/ANF09qG3XiBHnQnN7D7YcQSOxkdH8qvSlRLK7UmwPoif/9k="
+              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUH/8QAIhAAAQMDBAMBAAAAAAAAAAAAAQIDBAAFEQYSITETQVFh/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAZEQACAwEAAAAAAAAAAAAAAAABAgADESH/2gAMAwEAAhEDEEQ/ANF09qG3XiBHnQnN7D7YcQSOxkdH8qvSlRLK7UmwPoif/9k="
             />
           </div>
         </motion.div>
@@ -79,10 +81,9 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-3xl sm:text-4xl md:text-5xl font-display font-medium leading-relaxed tracking-tight text-foreground"
         >
-          Hello, I&apos;m Dewangga, a DeFi smart contract engineer building
-          secure protocols with{" "}
-          <span className="text-muted-foreground">$50M+ TVL deployed</span>{" "}
-          across Ethereum, Arbitrum, and Base.
+          {t("greeting")}{" "}
+          <span className="text-muted-foreground">{t("tvl")}</span>{" "}
+          {t("chains")}
         </motion.h1>
 
         {/* Buttons */}
@@ -93,10 +94,10 @@ export function Hero() {
           className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <Button variant="outline" size="lg" asChild>
-            <Link href="#projects">See my work</Link>
+            <Link href="/#projects">{t("cta.work")}</Link>
           </Button>
           <Button size="lg" asChild>
-            <Link href="#contact">Let&apos;s collaborate</Link>
+            <Link href="/#contact">{t("cta.collaborate")}</Link>
           </Button>
         </motion.div>
       </div>

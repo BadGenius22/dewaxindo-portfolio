@@ -1,42 +1,61 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/data/site";
 import { products } from "@/data/products";
+import { locales } from "@/i18n/config";
 
 /**
  * Generate XML sitemap for SEO
- * Includes all pages for Google indexing
- * Using static dates to prevent cache invalidation on every request
+ * Includes all pages for Google indexing with multi-locale support
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url;
+  const lastModified = new Date("2026-02-01");
 
-  // Static last modified date - update this when content changes
-  const lastModified = new Date("2026-01-30");
+  const routes: MetadataRoute.Sitemap = [];
 
-  // Product pages - SEO optimized slugs
-  const productPages: MetadataRoute.Sitemap = products.map((product) => ({
-    url: `${baseUrl}/products/${product.id}`,
-    lastModified,
-    changeFrequency: "weekly" as const,
-    priority: 0.8,
-  }));
-
-  return [
+  // Generate entries for each locale
+  locales.forEach((locale) => {
     // Homepage
-    {
-      url: baseUrl,
+    routes.push({
+      url: `${baseUrl}/${locale}`,
       lastModified,
       changeFrequency: "weekly",
       priority: 1,
-    },
+      alternates: {
+        languages: Object.fromEntries(
+          locales.map((loc) => [loc, `${baseUrl}/${loc}`])
+        ),
+      },
+    });
+
     // Products listing page
-    {
-      url: `${baseUrl}/products`,
+    routes.push({
+      url: `${baseUrl}/${locale}/products`,
       lastModified,
       changeFrequency: "weekly",
       priority: 0.9,
-    },
+      alternates: {
+        languages: Object.fromEntries(
+          locales.map((loc) => [loc, `${baseUrl}/${loc}/products`])
+        ),
+      },
+    });
+
     // Individual product pages
-    ...productPages,
-  ];
+    products.forEach((product) => {
+      routes.push({
+        url: `${baseUrl}/${locale}/products/${product.id}`,
+        lastModified,
+        changeFrequency: "weekly",
+        priority: 0.8,
+        alternates: {
+          languages: Object.fromEntries(
+            locales.map((loc) => [loc, `${baseUrl}/${loc}/products/${product.id}`])
+          ),
+        },
+      });
+    });
+  });
+
+  return routes;
 }
