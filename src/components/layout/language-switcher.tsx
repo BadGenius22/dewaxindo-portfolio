@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { useLocale } from "next-intl";
+import { motion, AnimatePresence } from "motion/react";
 
 import { Button } from "@/components/ui/button";
 import { useRouter, usePathname } from "@/i18n/routing";
@@ -24,7 +25,7 @@ export function LanguageSwitcher() {
 
   if (!mounted) {
     return (
-      <Button variant="ghost" size="sm" disabled className="font-mono text-xs px-2">
+      <Button variant="ghost" size="sm" disabled className="font-mono text-xs px-2 w-10">
         EN
       </Button>
     );
@@ -35,10 +36,21 @@ export function LanguageSwitcher() {
       variant="ghost"
       size="sm"
       onClick={toggleLocale}
-      className="font-mono text-xs px-2"
+      className="font-mono text-xs px-2 w-10 overflow-hidden"
       aria-label={`Switch to ${locale === "en" ? "Indonesian" : "English"}`}
     >
-      {locale.toUpperCase()}
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.span
+          key={locale}
+          initial={{ rotateX: -90, opacity: 0 }}
+          animate={{ rotateX: 0, opacity: 1 }}
+          exit={{ rotateX: 90, opacity: 0 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          style={{ display: "inline-block" }}
+        >
+          {locale.toUpperCase()}
+        </motion.span>
+      </AnimatePresence>
     </Button>
   );
 }
