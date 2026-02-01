@@ -5,7 +5,6 @@ import "./globals.css";
 import { siteConfig } from "@/data/site";
 import { generateHomepageSchemas, generateFAQSchema } from "@/lib/seo";
 import { getGAScript, getMetaPixelScript } from "@/lib/analytics";
-import { getFeaturedProduct } from "@/data/products";
 import { getFAQs } from "@/data/faqs";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { Header } from "@/components/layout/header";
@@ -131,7 +130,7 @@ export default function RootLayout({
 }>) {
   // Generate structured data for SEO
   const schemas = [
-    ...generateHomepageSchemas(getFeaturedProduct()),
+    ...generateHomepageSchemas(),
     generateFAQSchema(getFAQs()),
   ];
 

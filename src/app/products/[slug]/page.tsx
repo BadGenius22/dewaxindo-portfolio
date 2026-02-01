@@ -15,7 +15,6 @@ import { Separator } from "@/components/ui/separator";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { products, formatPrice } from "@/data/products";
 import { siteConfig } from "@/data/site";
-import { generateProductSchema } from "@/lib/seo";
 import { ProductPurchaseButton } from "./purchase-button";
 
 interface ProductPageProps {
@@ -91,17 +90,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
     notFound();
   }
 
-  // Generate Product schema for rich results
-  const productSchema = generateProductSchema(product);
-
   return (
-    <>
-      {/* Structured Data for Google */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
-      />
-
       <main id="main-content" className="min-h-screen pt-24 pb-16">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
@@ -196,6 +185,5 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </div>
         </div>
       </main>
-    </>
   );
 }
