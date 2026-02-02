@@ -7,7 +7,7 @@ export const products: Product[] = [
     subtitle: "5 First Steps",
     description:
       "A 22-page practical guide to start your Web3 developer journey. From zero to job-ready with clear, actionable steps.",
-    image: "/images/products/web3-starter-kit.svg",
+    image: "/og-web3-starter-kit.png",
     price: 0,
     currency: "USD",
     type: "pdf",

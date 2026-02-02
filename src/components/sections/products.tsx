@@ -1,53 +1,21 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
-import { Package, Send, CheckCircle, Loader2 } from "lucide-react";
+import { Link } from "@/i18n/routing";
+import { ArrowRight, FileText } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { products } from "@/data/products";
 import { cn } from "@/lib/utils";
 
 export function Products() {
   const t = useTranslations("products");
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [message, setMessage] = useState("");
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus("loading");
-
-    try {
-      const response = await fetch(`https://formspree.io/f/${process.env.NEXT_PUBLIC_FORMSPREE_ID}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      if (response.ok) {
-        setStatus("success");
-        setMessage(t("comingSoon.successMessage"));
-        setEmail("");
-      } else {
-        throw new Error("Failed to submit");
-      }
-    } catch {
-      setStatus("error");
-      setMessage(t("comingSoon.errorMessage"));
-    }
-  };
 
   return (
-    <section
-      id="products"
-      className="bg-background px-6 py-24"
-    >
+    <section id="products" className="bg-background px-6 py-24">
       <div className="max-w-7xl w-full mx-auto">
         <motion.p
-          className="text-muted-foreground font-display text-sm uppercase tracking-widest mb-8"
+          className="text-muted-foreground font-display text-sm uppercase tracking-widest mb-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -55,81 +23,77 @@ export function Products() {
           {t("label")}
         </motion.p>
 
-        {/* Coming Soon Card */}
-        <motion.div
-          className="max-w-2xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold text-foreground mb-4"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ delay: 0.1 }}
         >
-          <div className="rounded-xl border border-border bg-card p-6 md:p-12 text-center">
-            {/* Animated Icon */}
+          {t("title")}
+        </motion.h2>
+
+        <motion.p
+          className="text-muted-foreground text-lg mb-12 max-w-2xl"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+        >
+          {t("subtitle")}
+        </motion.p>
+
+        {/* Products Grid */}
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {products.map((product, index) => (
             <motion.div
-              className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6"
-              animate={{ y: [0, -5, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              key={product.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Package className="w-8 h-8 text-primary" />
-            </motion.div>
-
-            <h3 className="font-display text-2xl md:text-3xl text-foreground font-medium">
-              {t("comingSoon.title")}
-            </h3>
-            <p className="mt-3 text-muted-foreground max-w-md mx-auto">
-              {t("comingSoon.description")}
-            </p>
-
-            {/* Email Form */}
-            <div className="mt-8">
-              {status === "success" ? (
-                <motion.div
-                  className="flex items-center justify-center gap-2 text-emerald-500"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
+              <Link href={`/products/${product.id}`}>
+                <div
+                  className={cn(
+                    "group relative rounded-xl border border-border bg-card p-6",
+                    "hover:border-emerald-500/50 hover:bg-card/80",
+                    "transition-all duration-300 cursor-pointer h-full"
+                  )}
                 >
-                  <CheckCircle className="w-5 h-5" />
-                  <span className="font-medium">{message}</span>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder={t("comingSoon.emailPlaceholder")}
-                    required
-                    autoComplete="email"
-                    aria-label={t("comingSoon.emailAriaLabel")}
-                    className={cn(
-                      "flex-1 px-4 py-3 rounded-lg border border-border bg-background",
-                      "text-foreground placeholder:text-muted-foreground",
-                      "focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary",
-                      "transition-all"
-                    )}
-                  />
-                  <Button type="submit" size="lg" disabled={status === "loading"}>
-                    {status === "loading" ? (
-                      <Loader2 className="w-4 h-4 animate-spin" />
-                    ) : (
-                      <>
-                        <Send className="mr-2 h-4 w-4" />
-                        {t("comingSoon.notifyMe")}
-                      </>
-                    )}
-                  </Button>
-                </form>
-              )}
-              {status === "error" && (
-                <p className="mt-3 text-sm text-red-500">{message}</p>
-              )}
-            </div>
+                  {/* Badge */}
+                  {product.badge && (
+                    <span className="absolute top-4 right-4 px-2.5 py-1 text-xs font-medium rounded-full bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
+                      {t("free")}
+                    </span>
+                  )}
 
-            <p className="mt-4 text-xs text-muted-foreground">
-              {t("comingSoon.noSpam")}
-            </p>
-          </div>
-        </motion.div>
+                  {/* Icon */}
+                  <div className="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-4">
+                    <FileText className="w-6 h-6 text-emerald-500" />
+                  </div>
+
+                  {/* Content */}
+                  <h3 className="text-xl font-semibold text-foreground mb-1 group-hover:text-emerald-500 transition-colors">
+                    {t(`items.${product.id}.title`)}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    {t(`items.${product.id}.subtitle`)}
+                  </p>
+                  <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+                    {t(`items.${product.id}.description`)}
+                  </p>
+
+                  {/* CTA */}
+                  <div className="flex items-center text-sm font-medium text-emerald-500 group-hover:gap-2 transition-all">
+                    {t("viewDetails")}
+                    <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -96,8 +96,9 @@ META_CAPI_ACCESS_TOKEN=your_token
 # SEO
 NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=your_verification_code
 
-# Contact Form
-NEXT_PUBLIC_FORMSPREE_ID=your_form_id
+# Kit (Lead Magnet)
+NEXT_PUBLIC_CONVERTKIT_API_KEY=your_api_key
+NEXT_PUBLIC_CONVERTKIT_FORM_ID=your_form_id
 
 # Site URL
 NEXT_PUBLIC_SITE_URL=https://dewaxindo.com
