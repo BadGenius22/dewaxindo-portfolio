@@ -9,16 +9,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Check } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { AnimatedSection } from "@/components/ui/animated-section";
+import { LeadMagnetForm } from "@/components/products/lead-magnet-form";
 import { products, formatPrice } from "@/data/products";
 import { siteConfig } from "@/data/site";
 import { ProductPurchaseButton } from "./purchase-button";
 
 interface ProductPageProps {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string; locale: string }>;
 }
 
 // Generate static paths for all products (SSG)
@@ -85,6 +87,7 @@ export async function generateMetadata({
 export default async function ProductPage({ params }: ProductPageProps) {
   const { slug } = await params;
   const product = products.find((p) => p.id === slug);
+  const t = await getTranslations("products");
 
   if (!product) {
     notFound();
@@ -101,7 +104,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Products
+                {t("backToProducts")}
               </Link>
             </nav>
           </AnimatedSection>
@@ -132,30 +135,30 @@ export default async function ProductPage({ params }: ProductPageProps) {
             <AnimatedSection delay={0.1}>
               <div className="flex flex-col">
                 <p className="text-sm text-muted-foreground uppercase tracking-wider">
-                  {product.type === "pdf" ? "Digital Guide" : product.type}
+                  {product.type === "pdf" ? t("digitalGuide") : product.type}
                 </p>
 
                 <h1 className="mt-2 text-3xl md:text-4xl font-bold">
-                  {product.title}
+                  {t(`items.${product.id}.title`)}
                 </h1>
                 <p className="text-xl text-muted-foreground">
-                  {product.subtitle}
+                  {t(`items.${product.id}.subtitle`)}
                 </p>
 
                 <Separator className="my-6" />
 
                 <p className="text-muted-foreground leading-relaxed">
-                  {product.description}
+                  {t(`items.${product.id}.description`)}
                 </p>
 
                 {/* Features */}
                 <div className="mt-8">
-                  <h2 className="font-semibold mb-4">What&apos;s Included</h2>
+                  <h2 className="font-semibold mb-4">{t("whatsIncluded")}</h2>
                   <ul className="space-y-3">
-                    {product.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-3">
+                    {product.features.map((_, index) => (
+                      <li key={index} className="flex items-start gap-3">
                         <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                        <span>{feature}</span>
+                        <span>{t(`items.${product.id}.features.${index}`)}</span>
                       </li>
                     ))}
                   </ul>
@@ -163,22 +166,37 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
                 <Separator className="my-8" />
 
-                {/* Price & Purchase */}
+                {/* Price & Purchase / Lead Magnet Form */}
                 <div className="mt-auto">
-                  <div className="flex items-baseline gap-2 mb-4">
-                    <span className="text-4xl font-bold">
-                      {formatPrice(product.price, product.currency)}
-                    </span>
-                    <span className="text-muted-foreground">
-                      {product.currency}
-                    </span>
-                  </div>
-
-                  <ProductPurchaseButton product={product} />
-
-                  <p className="mt-4 text-sm text-center text-muted-foreground">
-                    Secure checkout via Gumroad • Instant delivery
-                  </p>
+                  {product.leadMagnet?.enabled ? (
+                    <>
+                      <div className="flex items-baseline gap-2 mb-4">
+                        <span className="text-4xl font-bold text-emerald-500">
+                          {t("free")}
+                        </span>
+                      </div>
+                      <LeadMagnetForm
+                        formId={product.leadMagnet.formId}
+                        productId={product.id}
+                        productTitle={product.title}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <div className="flex items-baseline gap-2 mb-4">
+                        <span className="text-4xl font-bold">
+                          {formatPrice(product.price, product.currency)}
+                        </span>
+                        <span className="text-muted-foreground">
+                          {product.currency}
+                        </span>
+                      </div>
+                      <ProductPurchaseButton product={product} />
+                      <p className="mt-4 text-sm text-center text-muted-foreground">
+                        {t("secureCheckout")}
+                      </p>
+                    </>
+                  )}
                 </div>
               </div>
             </AnimatedSection>

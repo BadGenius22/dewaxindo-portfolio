@@ -73,6 +73,22 @@
     "whatsIncluded": "What's Included",
     "secureCheckout": "Secure checkout via Gumroad • Instant delivery",
     "buyNow": "Buy Now",
+    "free": "Free",
+    "items": {
+      "web3-starter-kit": {
+        "title": "Web3 Starter Kit",
+        "subtitle": "The Complete Guide",
+        "description": "Everything you need to start building in Web3. A comprehensive PDF guide covering smart contract development, DeFi concepts, security best practices, and career advice.",
+        "features": {
+          "0": "50+ pages of curated content",
+          "1": "Smart contract templates (ERC20, ERC721, Staking)",
+          "2": "Security checklist & audit preparation guide",
+          "3": "DeFi protocol architecture patterns",
+          "4": "Resource links to best tools & docs",
+          "5": "Lifetime updates included"
+        }
+      }
+    },
     "comingSoon": {
       "title": "Coming Soon",
       "description": "I'm working on digital products to help you accelerate your Web3 journey. Templates, guides, and resources — all coming soon.",
@@ -99,5 +115,20 @@
   "languageSwitcher": {
     "label": "Language",
     "current": "Current language: {language}"
+  },
+  "leadMagnet": {
+    "form": {
+      "namePlaceholder": "Your first name",
+      "emailPlaceholder": "Your email address",
+      "submitButton": "Get Free Download",
+      "privacyNote": "We respect your privacy. Unsubscribe anytime."
+    },
+    "success": {
+      "title": "Check Your Email!",
+      "description": "We've sent the download link to your inbox. Check your spam folder if you don't see it."
+    },
+    "error": {
+      "message": "Something went wrong. Please try again."
+    }
   }
 }

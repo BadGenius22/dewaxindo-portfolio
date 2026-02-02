@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -39,14 +40,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ProductsPage() {
+export default async function ProductsPage() {
+  const t = await getTranslations("products");
+
   return (
     <main id="main-content" className="min-h-screen pt-24 pb-16">
       <div className="container mx-auto px-4">
         <AnimatedSection>
           <SectionHeading
-            title="Products"
-            subtitle="Resources to accelerate your Web3 journey"
+            title={t("title")}
+            subtitle={t("subtitle")}
           />
         </AnimatedSection>
 
@@ -80,25 +83,27 @@ export default function ProductsPage() {
                   {/* Content */}
                   <div className="flex flex-1 flex-col p-5">
                     <p className="text-xs text-muted-foreground uppercase tracking-wider">
-                      {product.type === "pdf" ? "Digital Guide" : product.type}
+                      {product.type === "pdf" ? t("digitalGuide") : product.type}
                     </p>
                     <h2 className="mt-1 font-semibold text-lg group-hover:text-primary transition-colors">
-                      {product.title}
+                      {t(`items.${product.id}.title`)}
                     </h2>
                     <p className="text-sm text-muted-foreground">
-                      {product.subtitle}
+                      {t(`items.${product.id}.subtitle`)}
                     </p>
 
                     <p className="mt-3 text-sm text-muted-foreground line-clamp-2">
-                      {product.description}
+                      {t(`items.${product.id}.description`)}
                     </p>
 
                     <div className="mt-auto pt-4 flex items-center justify-between">
-                      <span className="text-lg font-bold">
-                        {formatPrice(product.price, product.currency)}
+                      <span className={`text-lg font-bold ${product.leadMagnet?.enabled ? "text-emerald-500" : ""}`}>
+                        {product.leadMagnet?.enabled
+                          ? t("free")
+                          : formatPrice(product.price, product.currency)}
                       </span>
                       <Button size="sm" variant="ghost" className="group-hover:bg-primary group-hover:text-primary-foreground">
-                        View Details
+                        {t("viewDetails")}
                         <ArrowRight className="ml-2 h-3 w-3" />
                       </Button>
                     </div>

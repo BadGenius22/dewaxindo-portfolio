@@ -73,6 +73,22 @@
     "whatsIncluded": "Apa Aja Isinya",
     "secureCheckout": "Checkout aman via Gumroad • Langsung dikirim",
     "buyNow": "Beli Sekarang",
+    "free": "Gratis",
+    "items": {
+      "web3-starter-kit": {
+        "title": "Web3 Starter Kit",
+        "subtitle": "Panduan Lengkap",
+        "description": "Semua yang kamu butuhkan untuk mulai membangun di Web3. Panduan PDF komprehensif yang mencakup pengembangan smart contract, konsep DeFi, praktik keamanan terbaik, dan saran karier.",
+        "features": {
+          "0": "50+ halaman konten terkurasi",
+          "1": "Template smart contract (ERC20, ERC721, Staking)",
+          "2": "Checklist keamanan & panduan persiapan audit",
+          "3": "Pola arsitektur protokol DeFi",
+          "4": "Link resource ke tools & dokumentasi terbaik",
+          "5": "Update seumur hidup"
+        }
+      }
+    },
     "comingSoon": {
       "title": "Segera Hadir",
       "description": "Lagi nyiapin produk digital buat bantu kamu di Web3. Template, guide, dan resource — coming soon.",
@@ -99,5 +115,20 @@
   "languageSwitcher": {
     "label": "Bahasa",
     "current": "Bahasa: {language}"
+  },
+  "leadMagnet": {
+    "form": {
+      "namePlaceholder": "Nama kamu",
+      "emailPlaceholder": "Email kamu",
+      "submitButton": "Download Gratis",
+      "privacyNote": "Privasi kamu aman. Bisa unsubscribe kapan aja."
+    },
+    "success": {
+      "title": "Cek Email Kamu!",
+      "description": "Link download udah dikirim ke inbox. Cek folder spam kalau gak nemu."
+    },
+    "error": {
+      "message": "Ada yang salah. Coba lagi ya."
+    }
   }
 }

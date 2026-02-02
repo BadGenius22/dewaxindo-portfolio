@@ -288,3 +288,30 @@ export function getMetaPixelScript(pixelId: string) {
     fbq('track', 'PageView');
   `;
 }
+
+/**
+ * Track lead magnet download (email capture)
+ * Used for tracking free PDF/resource signups
+ */
+export function trackLeadMagnetDownload(
+  productId: string,
+  productName: string
+): string {
+  // Google Analytics - generate_lead event
+  if (typeof window !== "undefined" && window.gtag) {
+    window.gtag("event", "generate_lead", {
+      currency: "USD",
+      value: 0,
+      items: [{ item_id: productId, item_name: productName }],
+    });
+  }
+
+  // Meta Pixel - Lead event (returns event_id for CAPI)
+  return trackMetaEvent("Lead", {
+    content_name: productName,
+    content_category: "lead_magnet",
+    content_ids: [productId],
+    value: 0,
+    currency: "USD",
+  });
+}

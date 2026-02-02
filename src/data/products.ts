@@ -8,10 +8,10 @@ export const products: Product[] = [
     description:
       "Everything you need to start building in Web3. A comprehensive PDF guide covering smart contract development, DeFi concepts, security best practices, and career advice.",
     image: "/images/products/web3-starter-kit.svg",
-    price: 29,
+    price: 0,
     currency: "USD",
     type: "pdf",
-    purchaseUrl: "https://dewaxindo.gumroad.com/l/web3-starter-kit",
+    purchaseUrl: "",
     features: [
       "50+ pages of curated content",
       "Smart contract templates (ERC20, ERC721, Staking)",
@@ -20,7 +20,12 @@ export const products: Product[] = [
       "Resource links to best tools & docs",
       "Lifetime updates included",
     ],
-    badge: "New",
+    badge: "Free",
+    leadMagnet: {
+      enabled: true,
+      formId: "YOUR_CONVERTKIT_FORM_ID",
+      deliveryType: "email",
+    },
   },
 ];
 

@@ -31,7 +31,13 @@ export interface Product {
   type: "pdf" | "course" | "template";
   purchaseUrl: string;
   features: string[];
-  badge?: "New" | "Popular" | "Best Seller";
+  badge?: "New" | "Popular" | "Best Seller" | "Free";
+  leadMagnet?: {
+    enabled: boolean;
+    formId: string;
+    deliveryType: "email" | "redirect";
+    downloadUrl?: string;
+  };
 }
 
 export interface SocialLink {
