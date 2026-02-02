@@ -68,7 +68,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center px-6 pt-16 overflow-hidden"
     >
       {/* Background color */}
       <div className="absolute inset-0 bg-background -z-20" />
