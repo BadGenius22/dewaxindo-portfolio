@@ -73,6 +73,21 @@
     "whatsIncluded": "What's Included",
     "secureCheckout": "Secure checkout via Gumroad • Instant delivery",
     "buyNow": "Buy Now",
+    "free": "Free",
+    "items": {
+      "web3-starter-kit": {
+        "title": "Web3 Starter Kit",
+        "subtitle": "5 First Steps",
+        "description": "A 22-page practical guide to start your Web3 developer journey. From zero to job-ready with clear, actionable steps.",
+        "features": {
+          "0": "5 practical steps from zero to job-ready",
+          "1": "Blockchain concepts without jargon",
+          "2": "Curated tools & resources",
+          "3": "Tips from $50M+ TVL DeFi experience",
+          "4": "Telegram community access"
+        }
+      }
+    },
     "comingSoon": {
       "title": "Coming Soon",
       "description": "I'm working on digital products to help you accelerate your Web3 journey. Templates, guides, and resources — all coming soon.",
@@ -99,5 +114,75 @@
   "languageSwitcher": {
     "label": "Language",
     "current": "Current language: {language}"
+  },
+  "leadMagnet": {
+    "form": {
+      "namePlaceholder": "Your first name",
+      "emailPlaceholder": "Your email",
+      "submitButton": "Download Free",
+      "privacyNote": "Free. No spam. Straight to your inbox."
+    },
+    "success": {
+      "title": "Check your inbox!",
+      "description": "We've sent the download link to your email. Check your spam folder if you don't see it."
+    },
+    "error": {
+      "message": "Something went wrong. Please try again."
+    }
+  },
+  "web3StarterKit": {
+    "meta": {
+      "title": "Web3 Starter Kit - Free Guide | Dewangga Praxindo",
+      "description": "Download the free 22-page guide to start your Web3 developer career. Practical roadmap from zero to job-ready."
+    },
+    "hero": {
+      "headline": "Confused Where to Start with Web3?",
+      "subheadline": "Download the free 22-page guide — a practical roadmap from a developer already working in the industry.",
+      "languageNote": "Written in Bahasa Indonesia",
+      "cta": "Download Free"
+    },
+    "problem": {
+      "text": "Tutorials everywhere. Documentation is confusing. Not clear whether to learn Solidity or Rust first. Everyone says 'DYOR' but no one gives a clear roadmap.",
+      "familiar": "Sound familiar?"
+    },
+    "whatsInside": {
+      "title": "What You'll Get",
+      "benefits": {
+        "0": "5 practical steps from zero to job-ready",
+        "1": "Blockchain concepts explained without confusing jargon",
+        "2": "Curated tools & resource recommendations (save research time)",
+        "3": "Tips from real experience working on $50M+ TVL DeFi protocol",
+        "4": "Link to Telegram community for direct Q&A"
+      }
+    },
+    "peekInside": {
+      "title": "Peek Inside",
+      "steps": {
+        "0": "Step 1: Understand \"Why\" (Mindset & Fundamentals)",
+        "1": "Step 2: Setup Your Battlefield (Tools & Environment)",
+        "2": "Step 3: Pick Your First Language (Solidity vs Rust)",
+        "3": "Step 4: Stop Tutorial Hell (Build Real Projects)",
+        "4": "Step 5: Enter the Ecosystem (Community & Career)"
+      }
+    },
+    "author": {
+      "title": "About the Author",
+      "name": "Dewangga Praxindo",
+      "role": "Web3 Engineer | 3+ Years Experience",
+      "credentials": {
+        "0": "Core Engineer at DeFi protocol with $50M+ TVL",
+        "1": "Smart contracts audited by PeckShield",
+        "2": "Active in Solana & Ethereum ecosystem"
+      }
+    },
+    "finalCta": {
+      "title": "Ready to Start Your Web3 Journey?",
+      "cta": "Download Now"
+    },
+    "ebook": {
+      "title": "Web3 Starter Kit",
+      "subtitle": "5 First Steps",
+      "pages": "22 Pages"
+    }
   }
 }

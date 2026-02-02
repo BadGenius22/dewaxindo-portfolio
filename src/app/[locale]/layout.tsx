@@ -219,6 +219,7 @@ export default async function LocaleLayout({
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} font-sans antialiased`}
+        suppressHydrationWarning
       >
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider
