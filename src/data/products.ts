@@ -4,21 +4,20 @@ export const products: Product[] = [
   {
     id: "web3-starter-kit",
     title: "Web3 Starter Kit",
-    subtitle: "The Complete Guide",
+    subtitle: "5 First Steps",
     description:
-      "Everything you need to start building in Web3. A comprehensive PDF guide covering smart contract development, DeFi concepts, security best practices, and career advice.",
+      "A 22-page practical guide to start your Web3 developer journey. From zero to job-ready with clear, actionable steps.",
     image: "/images/products/web3-starter-kit.svg",
     price: 0,
     currency: "USD",
     type: "pdf",
     purchaseUrl: "",
     features: [
-      "50+ pages of curated content",
-      "Smart contract templates (ERC20, ERC721, Staking)",
-      "Security checklist & audit preparation guide",
-      "DeFi protocol architecture patterns",
-      "Resource links to best tools & docs",
-      "Lifetime updates included",
+      "5 practical steps from zero to job-ready",
+      "Blockchain concepts without jargon",
+      "Curated tools & resources",
+      "Tips from $50M+ TVL DeFi experience",
+      "Telegram community access",
     ],
     badge: "Free",
     leadMagnet: {

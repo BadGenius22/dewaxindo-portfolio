@@ -5,58 +5,45 @@
  * Integrates with ConvertKit for auto-delivery of PDFs
  */
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
-import { CheckCircle, Loader2, Download } from "lucide-react";
+import { CheckCircle, Loader2, ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import {
-  trackMetaEvent,
-  sendToCAPI,
-  trackViewContent,
-} from "@/lib/analytics";
+import { trackMetaEvent, sendToCAPI } from "@/lib/analytics";
 
 interface LeadMagnetFormProps {
   formId: string;
   productId: string;
   productTitle: string;
+  className?: string;
+  buttonText?: string;
+  inline?: boolean;
 }
 
 export function LeadMagnetForm({
   formId,
   productId,
   productTitle,
+  className,
+  buttonText,
+  inline = false,
 }: LeadMagnetFormProps) {
   const t = useTranslations("leadMagnet");
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
 
-  // Track ViewContent on mount
-  useEffect(() => {
-    const eventId = trackViewContent(
-      productId,
-      "lead_magnet",
-      productTitle,
-      0,
-      "USD"
-    );
-
-    sendToCAPI("ViewContent", eventId, {
-      content_ids: [productId],
-      content_type: "lead_magnet",
-      content_name: productTitle,
-      value: 0,
-      currency: "USD",
-    });
-  }, [productId, productTitle]);
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!email || !email.includes("@")) {
+      return;
+    }
+
     setStatus("loading");
 
     try {
@@ -68,7 +55,6 @@ export function LeadMagnetForm({
           body: JSON.stringify({
             api_key: process.env.NEXT_PUBLIC_CONVERTKIT_API_KEY,
             email,
-            first_name: name,
           }),
         }
       );
@@ -103,30 +89,30 @@ export function LeadMagnetForm({
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="text-center p-8 rounded-xl border border-emerald-500/30 bg-emerald-500/10"
+        className={cn(
+          "text-center p-6 rounded-xl border border-emerald-500/30 bg-emerald-500/10",
+          className
+        )}
       >
-        <CheckCircle className="w-12 h-12 text-emerald-500 mx-auto mb-4" />
-        <h3 className="text-xl font-medium text-foreground">
+        <CheckCircle className="w-10 h-10 text-emerald-500 mx-auto mb-3" />
+        <h3 className="text-lg font-medium text-foreground">
           {t("success.title")}
         </h3>
-        <p className="text-muted-foreground mt-2">{t("success.description")}</p>
+        <p className="text-muted-foreground text-sm mt-1">
+          {t("success.description")}
+        </p>
       </motion.div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder={t("form.namePlaceholder")}
-        className={cn(
-          "w-full px-4 py-3 rounded-lg border border-border bg-background",
-          "text-foreground placeholder:text-muted-foreground",
-          "focus:outline-none focus:ring-2 focus:ring-primary/50"
-        )}
-      />
+    <form
+      onSubmit={handleSubmit}
+      className={cn(
+        inline ? "flex flex-col sm:flex-row gap-3" : "space-y-4",
+        className
+      )}
+    >
       <input
         type="email"
         value={email}
@@ -134,34 +120,40 @@ export function LeadMagnetForm({
         placeholder={t("form.emailPlaceholder")}
         required
         className={cn(
-          "w-full px-4 py-3 rounded-lg border border-border bg-background",
+          "px-4 py-3 rounded-lg border border-border bg-background",
           "text-foreground placeholder:text-muted-foreground",
-          "focus:outline-none focus:ring-2 focus:ring-primary/50"
+          "focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500",
+          inline ? "flex-1" : "w-full"
         )}
       />
       <Button
         type="submit"
         size="lg"
-        className="w-full text-lg py-6"
+        className={cn(
+          "bg-emerald-500 hover:bg-emerald-600 text-white font-medium",
+          inline ? "px-6" : "w-full text-lg py-6"
+        )}
         disabled={status === "loading"}
       >
         {status === "loading" ? (
           <Loader2 className="w-5 h-5 animate-spin" />
         ) : (
           <>
-            <Download className="mr-2 h-5 w-5" />
-            {t("form.submitButton")}
+            {buttonText || t("form.submitButton")}
+            <ArrowRight className="ml-2 h-4 w-4" />
           </>
         )}
       </Button>
       {status === "error" && (
-        <p className="text-sm text-center text-destructive">
+        <p className="text-sm text-center text-destructive col-span-full">
           {t("error.message")}
         </p>
       )}
-      <p className="text-xs text-center text-muted-foreground">
-        {t("form.privacyNote")}
-      </p>
+      {!inline && (
+        <p className="text-xs text-center text-muted-foreground">
+          {t("form.privacyNote")}
+        </p>
+      )}
     </form>
   );
 }

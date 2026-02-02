@@ -77,15 +77,14 @@
     "items": {
       "web3-starter-kit": {
         "title": "Web3 Starter Kit",
-        "subtitle": "Panduan Lengkap",
-        "description": "Semua yang kamu butuhkan untuk mulai membangun di Web3. Panduan PDF komprehensif yang mencakup pengembangan smart contract, konsep DeFi, praktik keamanan terbaik, dan saran karier.",
+        "subtitle": "5 Langkah Pertama",
+        "description": "Panduan praktis 22 halaman untuk memulai perjalanan Web3 developer kamu. Dari nol sampai siap kerja dengan langkah-langkah yang jelas.",
         "features": {
-          "0": "50+ halaman konten terkurasi",
-          "1": "Template smart contract (ERC20, ERC721, Staking)",
-          "2": "Checklist keamanan & panduan persiapan audit",
-          "3": "Pola arsitektur protokol DeFi",
-          "4": "Link resource ke tools & dokumentasi terbaik",
-          "5": "Update seumur hidup"
+          "0": "5 langkah praktis dari nol sampai siap kerja",
+          "1": "Konsep blockchain tanpa jargon",
+          "2": "Tools & resource terkurasi",
+          "3": "Tips dari pengalaman DeFi $50M+ TVL",
+          "4": "Akses komunitas Telegram"
         }
       }
     },
@@ -121,14 +120,69 @@
       "namePlaceholder": "Nama kamu",
       "emailPlaceholder": "Email kamu",
       "submitButton": "Download Gratis",
-      "privacyNote": "Privasi kamu aman. Bisa unsubscribe kapan aja."
+      "privacyNote": "Gratis. Tanpa spam. Langsung ke inbox kamu."
     },
     "success": {
-      "title": "Cek Email Kamu!",
-      "description": "Link download udah dikirim ke inbox. Cek folder spam kalau gak nemu."
+      "title": "Cek inbox kamu!",
+      "description": "Link download udah dikirim ke email. Cek folder spam kalau gak nemu."
     },
     "error": {
       "message": "Ada yang salah. Coba lagi ya."
+    }
+  },
+  "web3StarterKit": {
+    "meta": {
+      "title": "Web3 Starter Kit - Panduan Gratis | Dewangga Praxindo",
+      "description": "Download panduan gratis 22 halaman untuk memulai karier Web3 developer. Roadmap praktis dari nol sampai siap kerja."
+    },
+    "hero": {
+      "headline": "Bingung Mulai Web3 dari Mana?",
+      "subheadline": "Download panduan gratis 22 halaman — roadmap praktis dari developer yang udah kerja di industri ini.",
+      "languageNote": "Ditulis dalam Bahasa Indonesia",
+      "cta": "Download Gratis"
+    },
+    "problem": {
+      "text": "Tutorial bertebaran. Dokumentasi bikin pusing. Nggak jelas harus belajar Solidity atau Rust dulu. Semua orang bilang 'DYOR' tapi nggak ada yang kasih roadmap jelas.",
+      "familiar": "Sound familiar?"
+    },
+    "whatsInside": {
+      "title": "Apa yang Kamu Dapet",
+      "benefits": {
+        "0": "5 langkah praktis dari nol sampai siap apply kerja",
+        "1": "Penjelasan konsep blockchain tanpa jargon yang bikin pusing",
+        "2": "Rekomendasi tools & resource terkurasi (hemat waktu research)",
+        "3": "Tips dari pengalaman nyata kerja di protokol DeFi $50M+ TVL",
+        "4": "Link ke komunitas Telegram untuk tanya jawab langsung"
+      }
+    },
+    "peekInside": {
+      "title": "Intip Isinya",
+      "steps": {
+        "0": "Langkah 1: Pahami \"Kenapa\" (Mindset & Fundamentals)",
+        "1": "Langkah 2: Setup Medan Perang (Tools & Environment)",
+        "2": "Langkah 3: Pilih Bahasa Pertamamu (Solidity vs Rust)",
+        "3": "Langkah 4: Stop Tutorial Hell (Build Real Projects)",
+        "4": "Langkah 5: Masuk Ekosistem (Community & Career)"
+      }
+    },
+    "author": {
+      "title": "Tentang Penulis",
+      "name": "Dewangga Praxindo",
+      "role": "Web3 Engineer | 3+ Tahun Pengalaman",
+      "credentials": {
+        "0": "Core Engineer di protokol DeFi dengan TVL $50M+",
+        "1": "Smart contract di-audit oleh PeckShield",
+        "2": "Aktif di ekosistem Solana & Ethereum"
+      }
+    },
+    "finalCta": {
+      "title": "Siap Mulai Perjalanan Web3 Kamu?",
+      "cta": "Download Sekarang"
+    },
+    "ebook": {
+      "title": "Web3 Starter Kit",
+      "subtitle": "5 Langkah Pertama",
+      "pages": "22 Halaman"
     }
   }
 }
