@@ -77,10 +77,10 @@ export function Hero() {
       {mounted && (
         <ParticleNetwork
           key={resolvedTheme}
-          particleCount={60}
+          particleCount={100}
           particleColor={particleColor}
           lineColor={lineColor}
-          maxDistance={120}
+          maxDistance={100}
           speed={0.3}
           className="absolute inset-0 z-0"
         />
