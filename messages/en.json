@@ -120,7 +120,8 @@
       "namePlaceholder": "Your first name",
       "emailPlaceholder": "Your email",
       "submitButton": "Download Free",
-      "privacyNote": "Free. No spam. Straight to your inbox."
+      "privacyNote": "Free. No spam. Straight to your inbox.",
+      "trustText": "No spam. Unsubscribe anytime."
     },
     "success": {
       "title": "Check your inbox!",
@@ -136,17 +137,18 @@
       "description": "Download the free 22-page guide to start your Web3 developer career. Practical roadmap from zero to job-ready."
     },
     "hero": {
-      "headline": "Confused Where to Start with Web3?",
-      "subheadline": "Download the free 22-page guide — a practical roadmap from a developer already working in the industry.",
+      "headline": "From Zero to Web3 Developer in 5 Steps",
+      "subheadline": "Free 22-page guide — a practical roadmap from a developer already working in the industry.",
       "languageNote": "Written in Bahasa Indonesia",
-      "cta": "Download Free"
+      "cta": "Send to My Email!",
+      "socialProof": "500+ developers have downloaded"
     },
     "problem": {
       "text": "Tutorials everywhere. Documentation is confusing. Not clear whether to learn Solidity or Rust first. Everyone says 'DYOR' but no one gives a clear roadmap.",
       "familiar": "Sound familiar?"
     },
     "whatsInside": {
-      "title": "What You'll Get",
+      "title": "What You'll Get 🎁",
       "benefits": {
         "0": "5 practical steps from zero to job-ready",
         "1": "Blockchain concepts explained without confusing jargon",
@@ -156,7 +158,7 @@
       }
     },
     "peekInside": {
-      "title": "Peek Inside",
+      "title": "Peek Inside 👀",
       "steps": {
         "0": "Step 1: Understand \"Why\" (Mindset & Fundamentals)",
         "1": "Step 2: Setup Your Battlefield (Tools & Environment)",
@@ -166,7 +168,7 @@
       }
     },
     "author": {
-      "title": "About the Author",
+      "title": "About the Author 👨‍💻",
       "name": "Dewangga Praxindo",
       "role": "Web3 Engineer | 3+ Years Experience",
       "credentials": {
@@ -176,8 +178,9 @@
       }
     },
     "finalCta": {
-      "title": "Ready to Start Your Web3 Journey?",
-      "cta": "Download Now"
+      "title": "Ready to Start Your Web3 Journey? 🚀",
+      "subtitle": "Get the free guide now and take your first step.",
+      "cta": "Send to My Email!"
     },
     "ebook": {
       "title": "Web3 Starter Kit",

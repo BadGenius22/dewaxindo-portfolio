@@ -120,7 +120,8 @@
       "namePlaceholder": "Nama kamu",
       "emailPlaceholder": "Email kamu",
       "submitButton": "Download Gratis",
-      "privacyNote": "Gratis. Tanpa spam. Langsung ke inbox kamu."
+      "privacyNote": "Gratis. Tanpa spam. Langsung ke inbox kamu.",
+      "trustText": "Tanpa spam. Unsubscribe kapan aja."
     },
     "success": {
       "title": "Cek inbox kamu!",
@@ -136,17 +137,18 @@
       "description": "Download panduan gratis 22 halaman untuk memulai karier Web3 developer. Roadmap praktis dari nol sampai siap kerja."
     },
     "hero": {
-      "headline": "Bingung Mulai Web3 dari Mana?",
-      "subheadline": "Download panduan gratis 22 halaman — roadmap praktis dari developer yang udah kerja di industri ini.",
+      "headline": "Dari Nol ke Web3 Developer dalam 5 Langkah",
+      "subheadline": "Panduan gratis 22 halaman — roadmap praktis dari developer yang udah kerja di industri ini.",
       "languageNote": "Ditulis dalam Bahasa Indonesia",
-      "cta": "Download Gratis"
+      "cta": "Kirim ke Email Aku!",
+      "socialProof": "500+ developers udah download"
     },
     "problem": {
       "text": "Tutorial bertebaran. Dokumentasi bikin pusing. Nggak jelas harus belajar Solidity atau Rust dulu. Semua orang bilang 'DYOR' tapi nggak ada yang kasih roadmap jelas.",
       "familiar": "Sound familiar?"
     },
     "whatsInside": {
-      "title": "Apa yang Kamu Dapet",
+      "title": "Apa yang Kamu Dapet 🎁",
       "benefits": {
         "0": "5 langkah praktis dari nol sampai siap apply kerja",
         "1": "Penjelasan konsep blockchain tanpa jargon yang bikin pusing",
@@ -156,7 +158,7 @@
       }
     },
     "peekInside": {
-      "title": "Intip Isinya",
+      "title": "Intip Isinya 👀",
       "steps": {
         "0": "Langkah 1: Pahami \"Kenapa\" (Mindset & Fundamentals)",
         "1": "Langkah 2: Setup Medan Perang (Tools & Environment)",
@@ -166,7 +168,7 @@
       }
     },
     "author": {
-      "title": "Tentang Penulis",
+      "title": "Tentang Penulis 👨‍💻",
       "name": "Dewangga Praxindo",
       "role": "Web3 Engineer | 3+ Tahun Pengalaman",
       "credentials": {
@@ -176,8 +178,9 @@
       }
     },
     "finalCta": {
-      "title": "Siap Mulai Perjalanan Web3 Kamu?",
-      "cta": "Download Sekarang"
+      "title": "Siap Mulai Perjalanan Web3 Kamu? 🚀",
+      "subtitle": "Dapatkan panduan gratis sekarang dan mulai langkah pertamamu.",
+      "cta": "Kirim ke Email Aku!"
     },
     "ebook": {
       "title": "Web3 Starter Kit",

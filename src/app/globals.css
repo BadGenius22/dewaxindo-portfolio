@@ -1,6 +1,33 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Accordion animations for shadcn/ui */
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+.animate-accordion-down {
+  animation: accordion-down 0.2s ease-out;
+}
+
+.animate-accordion-up {
+  animation: accordion-up 0.2s ease-out;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -9,6 +36,7 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-display: var(--font-inter);
+  --font-heading: var(--font-space-grotesk);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -49,6 +77,17 @@
 
 :root {
   --radius: 0.625rem;
+
+  /* Web3 Landing Page Colors - Light Theme */
+  --w3-bg-primary: #FAFAFA;
+  --w3-bg-secondary: #F3F4F6;
+  --w3-bg-card: rgba(243, 244, 246, 0.8);
+  --w3-text-primary: #111827;
+  --w3-text-secondary: #374151;
+  --w3-text-muted: #6B7280;
+  --w3-accent-primary: #10B981;
+  --w3-accent-secondary: #3B82F6;
+  --w3-border: rgba(0, 0, 0, 0.1);
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -83,6 +122,16 @@
 }
 
 .dark {
+  /* Web3 Landing Page Colors - Dark Theme */
+  --w3-bg-primary: #0D1117;
+  --w3-bg-secondary: #161B22;
+  --w3-bg-card: rgba(22, 27, 34, 0.8);
+  --w3-text-primary: #FAFAFA;
+  --w3-text-secondary: #D1D5DB;
+  --w3-text-muted: #9CA3AF;
+  --w3-accent-primary: #10B981;
+  --w3-accent-secondary: #3B82F6;
+  --w3-border: rgba(255, 255, 255, 0.1);
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
@@ -185,5 +234,252 @@
   section#hero {
     content-visibility: visible;
     contain-intrinsic-size: auto;
+  }
+
+  /* Web3 Landing Page Background - Light Theme */
+  .w3-landing-bg {
+    background-color: var(--w3-bg-primary);
+    background-image:
+      radial-gradient(ellipse at top, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
+  }
+
+  /* Web3 Landing Page Background - Dark Theme */
+  .dark .w3-landing-bg {
+    background-color: var(--w3-bg-primary);
+    background-image:
+      radial-gradient(ellipse at top, rgba(16, 185, 129, 0.05) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+  }
+
+  /* Web3 Gradient Headline - Light Theme */
+  .w3-gradient-text {
+    background: linear-gradient(to right, #111827, #4B5563);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Web3 Gradient Headline - Dark Theme */
+  .dark .w3-gradient-text {
+    background: linear-gradient(to right, #FAFAFA, #9CA3AF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Web3 CTA Button Gradient */
+  .w3-cta-gradient {
+    background: linear-gradient(to right, #10B981, #059669);
+  }
+
+  .w3-cta-gradient:hover {
+    background: linear-gradient(to right, #059669, #047857);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 40px rgba(16, 185, 129, 0.25);
+  }
+
+  .dark .w3-cta-gradient:hover {
+    box-shadow: 0 10px 40px rgba(16, 185, 129, 0.3);
+  }
+
+  /* Web3 Ebook Glow - Light Theme */
+  .w3-ebook-glow {
+    filter: drop-shadow(0 0 40px rgba(16, 185, 129, 0.2));
+  }
+
+  /* Web3 Ebook Glow - Dark Theme */
+  .dark .w3-ebook-glow {
+    filter: drop-shadow(0 0 40px rgba(16, 185, 129, 0.3));
+  }
+
+  /* Web3 Card Style */
+  .w3-card {
+    background: var(--w3-bg-secondary);
+    border-radius: 16px;
+    border: 1px solid var(--w3-border);
+  }
+
+  /* Web3 Quote Card */
+  .w3-quote-card {
+    background: var(--w3-bg-secondary);
+    border: 1px solid var(--w3-border);
+    border-left: 4px solid var(--w3-accent-primary);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  /* Glassmorphism Card - Light Theme */
+  .w3-glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
+
+  /* Glassmorphism Card - Dark Theme */
+  .dark .w3-glass-card {
+    background: rgba(22, 27, 34, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  /* Noise/Grain Texture Overlay */
+  .w3-noise-overlay::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+
+  .dark .w3-noise-overlay::before {
+    opacity: 0.04;
+  }
+}
+
+/* Animated Blob Keyframes */
+@keyframes blob-float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(20px, -30px) scale(1.05);
+  }
+  50% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+  75% {
+    transform: translate(30px, 10px) scale(1.02);
+  }
+}
+
+@keyframes blob-float-reverse {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(-30px, 20px) scale(0.98);
+  }
+  50% {
+    transform: translate(20px, -20px) scale(1.05);
+  }
+  75% {
+    transform: translate(-10px, -30px) scale(0.95);
+  }
+}
+
+/* Fade In Animation Keyframes */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animated Blob Styles */
+.w3-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.w3-blob-emerald {
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.4) 0%, transparent 70%);
+  animation: blob-float 20s ease-in-out infinite;
+}
+
+.w3-blob-blue {
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+  animation: blob-float-reverse 25s ease-in-out infinite;
+}
+
+.w3-blob-purple {
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, transparent 70%);
+  animation: blob-float 30s ease-in-out infinite;
+}
+
+/* Light theme blob adjustments */
+.w3-blob-emerald {
+  opacity: 0.3;
+}
+
+.w3-blob-blue {
+  opacity: 0.25;
+}
+
+.w3-blob-purple {
+  opacity: 0.2;
+}
+
+.dark .w3-blob-emerald {
+  opacity: 0.5;
+}
+
+.dark .w3-blob-blue {
+  opacity: 0.4;
+}
+
+.dark .w3-blob-purple {
+  opacity: 0.35;
+}
+
+/* Fade in animation classes */
+.w3-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.w3-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+/* Staggered animation delays */
+.w3-delay-100 { animation-delay: 100ms; }
+.w3-delay-200 { animation-delay: 200ms; }
+.w3-delay-300 { animation-delay: 300ms; }
+.w3-delay-400 { animation-delay: 400ms; }
+.w3-delay-500 { animation-delay: 500ms; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .w3-blob {
+    animation: none;
+  }
+
+  .w3-fade-in-up,
+  .w3-fade-in {
+    animation: none;
+    opacity: 1;
   }
 }
