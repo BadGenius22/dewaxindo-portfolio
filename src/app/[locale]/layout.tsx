@@ -5,7 +5,7 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { Geist, Geist_Mono, Inter, Space_Grotesk } from "next/font/google";
 import Script from "next/script";
 
-import { locales, type Locale } from "@/i18n/config";
+import { locales, defaultLocale, type Locale } from "@/i18n/config";
 import { siteConfig } from "@/data/site";
 import { generateHomepageSchemas, generateFAQSchema } from "@/lib/seo";
 import { getGAScript, getMetaPixelScript } from "@/lib/analytics";
@@ -59,7 +59,7 @@ export async function generateMetadata({
 
   const alternateLanguages: Record<string, string> = {};
   locales.forEach((loc) => {
-    alternateLanguages[loc] = `${siteConfig.url}/${loc}`;
+    alternateLanguages[loc] = loc === defaultLocale ? siteConfig.url : `${siteConfig.url}/${loc}`;
   });
 
   return {
@@ -116,7 +116,7 @@ export async function generateMetadata({
     },
 
     alternates: {
-      canonical: `${siteConfig.url}/${locale}`,
+      canonical: locale === defaultLocale ? siteConfig.url : `${siteConfig.url}/${locale}`,
       languages: alternateLanguages,
     },
 

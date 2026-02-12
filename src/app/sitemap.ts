@@ -1,11 +1,11 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/data/site";
 import { products } from "@/data/products";
-import { locales } from "@/i18n/config";
+import { locales, defaultLocale } from "@/i18n/config";
 
 /**
  * Generate XML sitemap for SEO
- * Includes all pages for Google indexing with multi-locale support
+ * With as-needed locale prefix: default locale (en) uses / not /en
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url;
@@ -13,44 +13,43 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const routes: MetadataRoute.Sitemap = [];
 
-  // Generate entries for each locale
+  const localePath = (locale: string, path: string = "") =>
+    locale === defaultLocale ? `${baseUrl}${path}` : `${baseUrl}/${locale}${path}`;
+
   locales.forEach((locale) => {
-    // Homepage
     routes.push({
-      url: `${baseUrl}/${locale}`,
+      url: localePath(locale),
       lastModified,
       changeFrequency: "weekly",
       priority: 1,
       alternates: {
         languages: Object.fromEntries(
-          locales.map((loc) => [loc, `${baseUrl}/${loc}`])
+          locales.map((loc) => [loc, localePath(loc)])
         ),
       },
     });
 
-    // Products listing page
     routes.push({
-      url: `${baseUrl}/${locale}/products`,
+      url: localePath(locale, "/products"),
       lastModified,
       changeFrequency: "weekly",
       priority: 0.9,
       alternates: {
         languages: Object.fromEntries(
-          locales.map((loc) => [loc, `${baseUrl}/${loc}/products`])
+          locales.map((loc) => [loc, localePath(loc, "/products")])
         ),
       },
     });
 
-    // Individual product pages
     products.forEach((product) => {
       routes.push({
-        url: `${baseUrl}/${locale}/products/${product.id}`,
+        url: localePath(locale, `/products/${product.id}`),
         lastModified,
         changeFrequency: "weekly",
         priority: 0.8,
         alternates: {
           languages: Object.fromEntries(
-            locales.map((loc) => [loc, `${baseUrl}/${loc}/products/${product.id}`])
+            locales.map((loc) => [loc, localePath(loc, `/products/${product.id}`)])
           ),
         },
       });
