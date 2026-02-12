@@ -183,13 +183,13 @@ export default async function LocaleLayout({
             key={loc}
             rel="alternate"
             hrefLang={loc}
-            href={`${siteConfig.url}/${loc}`}
+            href={loc === defaultLocale ? siteConfig.url : `${siteConfig.url}/${loc}`}
           />
         ))}
         <link
           rel="alternate"
           hrefLang="x-default"
-          href={`${siteConfig.url}/en`}
+          href={siteConfig.url}
         />
 
         {/* Structured Data */}
