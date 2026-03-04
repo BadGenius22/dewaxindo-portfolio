@@ -2,6 +2,22 @@ import type { Project } from "@/types";
 
 export const projects: Project[] = [
   {
+    id: "amaly",
+    title: "Amaly",
+    tagline: "Ibadah Tracker PWA for Ramadan",
+    description:
+      "Full-stack Progressive Web App for Muslim ibadah tracking. Prayer logging with streaks, guided Dzikir reader, Quran reader with bookmarks, leaderboard with gamification, 69 badges, push notifications. 224+ users during Ramadan 2026.",
+    image: "/images/projects/amaly.svg",
+    tags: ["Next.js", "TypeScript", "PWA", "Supabase"],
+    metrics: "224+ Users",
+    links: {
+      live: "https://amaly.app",
+    },
+    featured: true,
+    role: "Solo Developer",
+    year: 2026,
+  },
+  {
     id: "factor-finance",
     title: "Factor Finance",
     tagline: "DeFi Yield Optimization on Arbitrum",

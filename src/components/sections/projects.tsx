@@ -12,6 +12,7 @@ import {
   Fingerprint,
   Brain,
   Dices,
+  Moon,
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -49,6 +50,8 @@ const tagColors: Record<string, string> = {
   "Chainlink VRF": "bg-blue-500/10 text-blue-500 dark:text-blue-400 border-blue-500/20",
   "NFT Gaming": "bg-pink-500/10 text-pink-500 dark:text-pink-400 border-pink-500/20",
   Polygon: "bg-purple-500/10 text-purple-500 dark:text-purple-400 border-purple-500/20",
+  PWA: "bg-amber-500/10 text-amber-500 dark:text-amber-400 border-amber-500/20",
+  Supabase: "bg-emerald-500/10 text-emerald-500 dark:text-emerald-400 border-emerald-500/20",
 };
 
 // Grid layout: 2 wide top + 3 equal bottom
@@ -58,6 +61,7 @@ const gridConfig = [
   "md:col-span-2", // Card 3 - standard
   "md:col-span-2", // Card 4 - standard
   "md:col-span-2", // Card 5 - standard
+  "md:col-span-2", // Card 6 - standard (extra row if needed)
 ];
 
 // Animated icon for Factor Finance - Money/Dollar
@@ -216,8 +220,43 @@ function DiceIcon() {
   );
 }
 
+// Animated icon for Amaly - Crescent Moon
+function MoonIcon() {
+  const [glow, setGlow] = useState(false);
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
+    const interval = setInterval(() => {
+      setGlow(true);
+      setTimeout(() => setGlow(false), 1000);
+    }, 3500);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <motion.div
+      className={cn(
+        "w-8 h-8 rounded-lg flex items-center justify-center transition-colors",
+        glow ? "bg-amber-500/20" : "bg-amber-500/10"
+      )}
+      animate={{ scale: glow ? [1, 1.15, 1] : 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <motion.div
+        animate={{ rotate: glow ? [0, -15, 0] : 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <Moon className={cn("w-4 h-4", glow ? "text-amber-400" : "text-amber-500")} />
+      </motion.div>
+    </motion.div>
+  );
+}
+
 // Map project IDs to their animated icons
 const projectIcons: Record<string, React.ComponentType> = {
+  "amaly": MoonIcon,
   "factor-finance": MoneyIcon,
   "vouch-protocol": ShieldIcon,
   "lazorkit-sdk": FingerprintIcon,
