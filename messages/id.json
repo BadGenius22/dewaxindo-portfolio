@@ -35,7 +35,7 @@
     },
     "multichain": {
       "title": "Multi-Chain",
-      "description": "Deploy dan integrasi di Ethereum, Arbitrum, Solana, Polygon, dan Base."
+      "description": "Deploy dan integrasi di Ethereum, Arbitrum, Solana, Sui, dan Base."
     },
     "security": {
       "title": "Security First",

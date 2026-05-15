@@ -35,7 +35,7 @@
     },
     "multichain": {
       "title": "Multi-Chain",
-      "description": "Deploying and integrating across Ethereum, Arbitrum, Solana, Polygon, and Base."
+      "description": "Deploying and integrating across Ethereum, Arbitrum, Solana, Sui, and Base."
     },
     "security": {
       "title": "Security First",
