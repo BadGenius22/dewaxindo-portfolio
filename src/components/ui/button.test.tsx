@@ -11,7 +11,7 @@ describe("Button", () => {
   it("renders as link when asChild with anchor", () => {
     render(
       <Button asChild>
-        <a href="/test">Link</a>
+        <a href="https://example.com/test">Link</a>
       </Button>
     );
     expect(screen.getByRole("link", { name: /link/i })).toBeDefined();

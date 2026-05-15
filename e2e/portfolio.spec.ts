@@ -41,9 +41,7 @@ test.describe("Portfolio Page", () => {
     const projectsSection = page.locator("#projects");
     await projectsSection.scrollIntoViewIfNeeded();
 
-    // Should have project cards
-    const projectCards = projectsSection.locator('[data-testid="project-card"]');
-    // Fallback: look for any card-like elements
+    // Look for any card-like elements
     const cards = projectsSection.locator(".rounded-xl, .rounded-lg").first();
     await expect(cards).toBeVisible();
   });

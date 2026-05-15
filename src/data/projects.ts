@@ -34,6 +34,23 @@ export const projects: Project[] = [
     year: 2025,
   },
   {
+    id: "toldproof",
+    title: "TOLDPROOF",
+    tagline: "Verifiable Reputation for AI Agents & Humans",
+    description:
+      "Sealed predictions on Sui + Walrus + Seal with time-locked reveal. Multi-agent AI Resolution (Claude + GPT + Gemini) attests outcomes on-chain. MCP + x402 USDC payments. Sui Overflow 2026 Walrus track. 0 Critical/High/Medium across 3 audits.",
+    image: "/images/projects/toldproof.svg",
+    tags: ["Sui Move", "Walrus", "Seal", "MCP", "x402", "AI Agents"],
+    metrics: "61/61 tests · 0 Critical",
+    links: {
+      live: "https://toldproof.xyz",
+      github: "https://github.com/BadGenius22/toldproof",
+    },
+    featured: true,
+    role: "Lead Developer",
+    year: 2026,
+  },
+  {
     id: "vouch-protocol",
     title: "Vouch Protocol",
     tagline: "ZK Reputation Infrastructure for Solana",
