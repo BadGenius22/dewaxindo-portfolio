@@ -13,6 +13,7 @@ import {
   Brain,
   Dices,
   Moon,
+  LockKeyhole,
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -254,9 +255,52 @@ function MoonIcon() {
   );
 }
 
+// Animated icon for TOLDPROOF - Sealed prediction lock
+function SealIcon() {
+  const [sealing, setSealing] = useState(false);
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
+    const interval = setInterval(() => {
+      setSealing(true);
+      setTimeout(() => setSealing(false), 800);
+    }, 3500);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <motion.div
+      className={cn(
+        "w-8 h-8 rounded-lg flex items-center justify-center transition-colors relative overflow-hidden",
+        sealing ? "bg-blue-500/20" : "bg-blue-500/10"
+      )}
+      animate={{ scale: sealing ? [1, 1.15, 1] : 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <motion.div
+        animate={{ rotate: sealing ? [0, -8, 8, 0] : 0 }}
+        transition={{ duration: 0.4 }}
+      >
+        <LockKeyhole className={cn("w-4 h-4 z-10", sealing ? "text-blue-400" : "text-blue-500")} />
+      </motion.div>
+      {sealing && (
+        <motion.div
+          className="absolute inset-0 rounded-lg ring-2 ring-blue-500/40"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: [0, 1, 0], scale: [0.8, 1.4, 1.6] }}
+          transition={{ duration: 0.8 }}
+        />
+      )}
+    </motion.div>
+  );
+}
+
 // Map project IDs to their animated icons
 const projectIcons: Record<string, React.ComponentType> = {
   "amaly": MoonIcon,
+  "toldproof": SealIcon,
   "factor-finance": MoneyIcon,
   "vouch-protocol": ShieldIcon,
   "lazorkit-sdk": FingerprintIcon,
