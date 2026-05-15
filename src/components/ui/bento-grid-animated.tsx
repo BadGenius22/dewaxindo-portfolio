@@ -243,7 +243,7 @@ function ChainNetwork() {
     { name: "Ethereum", logo: "/images/chains/ethereum.png" },
     { name: "Arbitrum", logo: "/images/chains/arbitrum.png" },
     { name: "Solana", logo: "/images/chains/solana.png" },
-    { name: "Polygon", logo: "/images/chains/polygon.png" },
+    { name: "Sui", logo: "/images/chains/sui.png" },
     { name: "Base", logo: "/images/chains/base.png" },
   ];
   const [activeChain, setActiveChain] = useState(0);
