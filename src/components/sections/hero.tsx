@@ -1,181 +1,180 @@
 "use client";
 
-import { motion } from "motion/react";
-import Image from "next/image";
-import { useTheme } from "next-themes";
-import { useSyncExternalStore } from "react";
+import * as React from "react";
 import { useTranslations } from "next-intl";
 import {
-  SiSolidity,
-  SiRust,
-  SiTypescript,
-  SiReact,
-  SiNextdotjs,
-  SiTailwindcss,
-} from "react-icons/si";
-import { Anvil, Anchor } from "lucide-react";
-import type { IconType } from "react-icons";
-import type { LucideIcon } from "lucide-react";
+  RECEIPT_CYCLE,
+  AUDIT_STAMPS,
+  MARQUEE_TERMS,
+  FORGE_EMAIL,
+} from "@/data/forge";
 
-import { Button } from "@/components/ui/button";
-import { ParticleNetwork } from "@/components/ui/particle-network";
-import { Link } from "@/i18n/routing";
-
-// Tech stack data grouped by category
-type TechItem = { name: string; icon: IconType | LucideIcon };
-type TechStack = { label: string; items: TechItem[] };
-
-const techStack: TechStack[] = [
-  {
-    label: "Languages",
-    items: [
-      { name: "Solidity", icon: SiSolidity },
-      { name: "Rust", icon: SiRust },
-      { name: "TypeScript", icon: SiTypescript },
-    ],
-  },
-  {
-    label: "Tools",
-    items: [
-      { name: "Foundry", icon: Anvil },
-      { name: "Anchor", icon: Anchor },
-      { name: "React", icon: SiReact },
-      { name: "Next.js", icon: SiNextdotjs },
-      { name: "Tailwind", icon: SiTailwindcss },
-    ],
-  },
-];
-
-// Hydration-safe client detection using useSyncExternalStore
-const emptySubscribe = () => () => {};
-const getSnapshot = () => true;
-const getServerSnapshot = () => false;
-
-function useIsMounted() {
-  return useSyncExternalStore(emptySubscribe, getSnapshot, getServerSnapshot);
+function LiveBlock() {
+  const [block, setBlock] = React.useState(22049837);
+  React.useEffect(() => {
+    const id = setInterval(() => setBlock((b) => b + 1), 12000);
+    return () => clearInterval(id);
+  }, []);
+  return <>#{block.toLocaleString()}</>;
 }
 
-export function Hero() {
-  const { resolvedTheme } = useTheme();
-  const mounted = useIsMounted();
-  const t = useTranslations("hero");
+function useReceipt() {
+  const [i, setI] = React.useState(0);
+  React.useEffect(() => {
+    const id = setInterval(() => setI((x) => (x + 1) % RECEIPT_CYCLE.length), 8000);
+    return () => clearInterval(id);
+  }, []);
+  return { ...RECEIPT_CYCLE[i], idx: i };
+}
 
-  // Theme-aware colors
-  const isDark = resolvedTheme === "dark";
-  const particleColor = isDark ? "rgba(255, 255, 255, 0.4)" : "rgba(0, 0, 0, 0.3)";
-  const lineColor = isDark ? "rgba(255, 255, 255, 0.15)" : "rgba(0, 0, 0, 0.1)";
+const BAR_HEIGHTS = [18, 22, 14, 22, 16, 22, 14, 22, 18, 22, 14, 18, 22, 14, 22];
+const BAR_WIDTHS: Record<number, number> = { 2: 4, 5: 3, 8: 2, 12: 4 };
+
+export function Hero() {
+  const r = useReceipt();
+  const t = useTranslations("forge.hero");
+  const tReceipt = useTranslations("forge.receipt");
+  const tAudit = useTranslations("forge.audit");
 
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen flex items-center justify-center px-6 pt-16 overflow-hidden"
-    >
-      {/* Background color */}
-      <div className="absolute inset-0 bg-background -z-20" />
+    <section id="top" className="hero">
+      <div className="hero-eyebrow">
+        <span>DEWANGGA PRAXINDO</span>
+        <span>—</span>
+        <span>DEFI SMART CONTRACT ENGINEER</span>
+        <span>—</span>
+        <span>EST. 2022</span>
+      </div>
 
-      {/* Particle Network - interactive layer */}
-      {mounted && (
-        <ParticleNetwork
-          key={resolvedTheme}
-          particleCount={100}
-          particleColor={particleColor}
-          lineColor={lineColor}
-          maxDistance={100}
-          speed={0.3}
-          className="absolute inset-0 z-0"
-        />
-      )}
+      <h1 className="hero-headline">
+        <span className="row">SHIPPING</span>
+        <span className="row">
+          <span className="clay">SMART</span> CONTRACTS
+        </span>
+        <span className="row">
+          <span className="outline">REAL MONEY</span>
+        </span>
+        <span className="row">
+          TRUSTS<span style={{ color: "var(--clay)" }}>.</span>
+        </span>
+      </h1>
 
-      {/* Gradient overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/50 to-background pointer-events-none z-0" />
-
-      <div className="max-w-3xl mx-auto text-center relative z-10">
-        {/* Avatar */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="mb-8"
-        >
-          <div className="relative w-20 h-20 mx-auto rounded-full overflow-hidden ring-2 ring-border shadow-lg">
-            <Image
-              src="/images/profile.jpg"
-              alt="Dewangga Praxindo - DeFi Smart Contract Engineer"
-              fill
-              className="object-cover"
-              priority
-              placeholder="blur"
-              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUH/8QAIhAAAQMDBAMBAAAAAAAAAAAAAQIDBAAFEQYSITETQVFh/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAZEQACAwEAAAAAAAAAAAAAAAABAgADESH/2gAMAwEAAhEDEEQ/ANF09qG3XiBHnQnN7D7YcQSOxkdH8qvSlRLK7UmwPoif/9k="
-            />
+      <div className="hero-stage">
+        <div className="hero-left">
+          <p
+            className="hero-lede"
+            dangerouslySetInnerHTML={{ __html: t.raw("lede") as string }}
+          />
+          <div className="hero-ctas">
+            <a className="hero-cta primary" href={`mailto:${FORGE_EMAIL}`}>
+              {t("ctaPrimary")} <span className="hc-ico">↗</span>
+            </a>
+            <a className="hero-cta ghost" href="#works">
+              {t("ctaGhost")} <span className="hc-ico">→</span>
+            </a>
           </div>
-        </motion.div>
+        </div>
 
-        {/* Heading */}
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-3xl sm:text-4xl md:text-5xl font-display font-medium leading-relaxed tracking-tight text-foreground"
-        >
-          {t("greeting")}{" "}
-          <span className="text-muted-foreground">{t("tvl")}</span>{" "}
-          {t("chains")}
-        </motion.h1>
-
-        {/* Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <Button variant="outline" size="lg" asChild>
-            <Link href="/#projects">{t("cta.work")}</Link>
-          </Button>
-          <Button size="lg" asChild>
-            <Link href="/#contact">{t("cta.collaborate")}</Link>
-          </Button>
-        </motion.div>
-
-        {/* Tech Stack Badges */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-12 flex flex-col items-center gap-4"
-        >
-          {techStack.map((group, groupIndex) => (
-            <div key={group.label} className="flex items-center gap-3">
-              <span className="text-[10px] uppercase tracking-wider text-muted-foreground/60 w-20 text-right hidden sm:block">
-                {group.label}
-              </span>
-              <div className="flex items-center gap-2">
-                {group.items.map((tech, index) => (
-                  <motion.div
-                    key={tech.name}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 300,
-                      damping: 20,
-                      delay: 0.4 + groupIndex * 0.1 + index * 0.05,
-                    }}
-                    className="group relative"
-                  >
-                    <div className="p-2 rounded-lg border border-border bg-card/50 text-muted-foreground hover:text-foreground hover:border-foreground/30 hover:bg-card transition-all cursor-default">
-                      <tech.icon className="w-5 h-5" />
-                    </div>
-                    {/* Tooltip */}
-                    <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 text-[10px] font-mono bg-popover text-popover-foreground rounded border border-border opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                      {tech.name}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
+        <aside className="receipt" key={r.idx}>
+          <div className="stamp">{tReceipt("deployed")}</div>
+          <div className="rcpt-head">
+            <span className="t">{tReceipt("title")}</span>
+            <span className="l">{tReceipt("live")}</span>
+          </div>
+          <div className="row">
+            <span className="k">{tReceipt("project")}</span>
+            <span className="v">{r.project}</span>
+          </div>
+          <div className="row">
+            <span className="k">{tReceipt("chain")}</span>
+            <span className="v">{r.chain}</span>
+          </div>
+          <div className="row">
+            <span className="k">{tReceipt("tvl")}</span>
+            <span className="v bigmoney">{r.tvl}</span>
+          </div>
+          <div className="row">
+            <span className="k">{tReceipt("audit")}</span>
+            <span className="v em">{r.audit}</span>
+          </div>
+          <div className="row">
+            <span className="k">{tReceipt("block")}</span>
+            <span className="v">
+              <LiveBlock />
+            </span>
+          </div>
+          <div className="row">
+            <span className="k">{tReceipt("address")}</span>
+            <span className="v">
+              {r.explorerUrl ? (
+                <a
+                  className="copy-btn"
+                  href={r.explorerUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  title={tReceipt("openExplorer")}
+                >
+                  {r.addr} <span className="copy-ico">↗</span>
+                </a>
+              ) : (
+                <span>{r.addr}</span>
+              )}
+            </span>
+          </div>
+          <div className="barcode">
+            <div className="bars">
+              {BAR_HEIGHTS.map((h, i) => (
+                <span key={i} style={{ height: h, width: BAR_WIDTHS[i] ?? undefined }} />
+              ))}
             </div>
+            <span style={{ color: "var(--ink-3)" }}>DWX·MMXXVI</span>
+          </div>
+
+          <div className="rcpt-cycle" aria-hidden="true">
+            {RECEIPT_CYCLE.map((_, i) => (
+              <span key={i} className={"rc-dot" + (i === r.idx ? " on" : "")} />
+            ))}
+          </div>
+        </aside>
+      </div>
+
+      <div className="audit-row" aria-label={tAudit("ariaLabel")}>
+        {AUDIT_STAMPS.map((s, i) => (
+          <div key={i} className="audit-stamp">
+            <div className="audit-stamp-inner">
+              <span className="as-t">
+                Peck
+                <br />
+                Shield
+              </span>
+              <span className="as-mid">AUDIT</span>
+              <span className="as-d">{s.date}</span>
+            </div>
+            <span className="as-label">{s.label}</span>
+          </div>
+        ))}
+        <div className="audit-tally">
+          <span className="at-num">3 / 3</span>
+          <span
+            className="at-lbl"
+            dangerouslySetInnerHTML={{ __html: tAudit("tally") as string }}
+          />
+        </div>
+      </div>
+
+      <div className="marquee" aria-hidden="true">
+        <div className="track">
+          {[0, 1].map((dup) => (
+            <React.Fragment key={dup}>
+              {MARQUEE_TERMS.map((term) => (
+                <React.Fragment key={term}>
+                  <span>{term}</span>
+                  <span className="star">✦</span>
+                </React.Fragment>
+              ))}
+            </React.Fragment>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
