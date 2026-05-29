@@ -9,13 +9,30 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
-        userAgent: "Googlebot",
+        // AI answer engines & LLM crawlers — explicitly welcomed for citation
+        userAgent: [
+          "GPTBot",
+          "OAI-SearchBot",
+          "ChatGPT-User",
+          "ClaudeBot",
+          "Claude-Web",
+          "anthropic-ai",
+          "PerplexityBot",
+          "Perplexity-User",
+          "Google-Extended",
+          "Applebot-Extended",
+          "Bytespider",
+          "Amazonbot",
+          "cohere-ai",
+          "Meta-ExternalAgent",
+        ],
         allow: "/",
         disallow: ["/api/"],
       },
       {
-        userAgent: "Googlebot-Image",
-        allow: "/images/",
+        userAgent: "Googlebot",
+        allow: "/",
+        disallow: ["/api/"],
       },
       {
         userAgent: "Bingbot",
@@ -25,7 +42,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/_next/static/", "/_next/image/"],
+        disallow: ["/api/"],
       },
     ],
     sitemap: `${siteConfig.url}/sitemap.xml`,

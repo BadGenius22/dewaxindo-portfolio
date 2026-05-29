@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Lead magnet email capture form
+ * Lead magnet email capture form (Forge style)
  * Integrates with ConvertKit for auto-delivery of PDFs
  */
 
@@ -10,7 +10,6 @@ import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { CheckCircle, Loader2, ArrowRight, Lock } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { trackMetaEvent, sendToCAPI } from "@/lib/analytics";
 
@@ -20,11 +19,11 @@ interface LeadMagnetFormProps {
   productTitle: string;
   className?: string;
   buttonText?: string;
+  /** Render email + button on one row (desktop). Defaults to stacked. */
   inline?: boolean;
-  variant?: "default" | "gradient";
+  /** Show the "no spam, unsubscribe anytime" trust line under the form. */
   showTrustText?: boolean;
   socialProof?: React.ReactNode;
-  glass?: boolean;
 }
 
 export function LeadMagnetForm({
@@ -34,10 +33,8 @@ export function LeadMagnetForm({
   className,
   buttonText,
   inline = false,
-  variant = "default",
   showTrustText = false,
   socialProof,
-  glass = false,
 }: LeadMagnetFormProps) {
   const t = useTranslations("leadMagnet");
   const [email, setEmail] = useState("");
@@ -95,35 +92,20 @@ export function LeadMagnetForm({
   if (status === "success") {
     return (
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
+        initial={{ opacity: 0, scale: 0.97 }}
         animate={{ opacity: 1, scale: 1 }}
-        className={cn(
-          "text-center p-6 rounded-xl border border-emerald-500/30 bg-emerald-500/10",
-          glass && "w3-glass-card",
-          className
-        )}
+        className={cn("pk-form-success", className)}
       >
-        <CheckCircle className="w-10 h-10 text-emerald-500 mx-auto mb-3" />
-        <h3 className="text-lg font-medium text-foreground">
-          {t("success.title")}
-        </h3>
-        <p className="text-muted-foreground text-sm mt-1">
-          {t("success.description")}
-        </p>
+        <CheckCircle className="ic w-9 h-9 mx-auto" />
+        <h3>{t("success.title")}</h3>
+        <p>{t("success.description")}</p>
       </motion.div>
     );
   }
 
-  const isGradient = variant === "gradient";
-
-  const formContent = (
-    <>
-      <form
-        onSubmit={handleSubmit}
-        className={cn(
-          inline ? "flex flex-col sm:flex-row gap-3" : "space-y-4"
-        )}
-      >
+  return (
+    <div className={cn("pk-form", className)}>
+      <form onSubmit={handleSubmit} className={cn("pk-form-row", inline && "inline")}>
         <input
           type="email"
           value={email}
@@ -131,73 +113,32 @@ export function LeadMagnetForm({
           placeholder={t("form.emailPlaceholder")}
           required
           aria-label={t("form.emailPlaceholder")}
-          className={cn(
-            "px-4 py-3 rounded-lg border",
-            glass
-              ? "border-white/20 bg-white/10 dark:bg-black/20 backdrop-blur-sm"
-              : "border-border bg-background",
-            "text-foreground placeholder:text-muted-foreground",
-            "focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500",
-            "min-h-[48px]",
-            inline ? "flex-1" : "w-full"
-          )}
+          className="pk-input"
         />
-        <Button
-          type="submit"
-          size="lg"
-          className={cn(
-            "font-medium min-h-[48px] transition-all duration-300 motion-safe:transition-all",
-            isGradient
-              ? "w3-cta-gradient text-white border-0 hover:shadow-lg"
-              : "bg-emerald-500 hover:bg-emerald-600 text-white",
-            inline ? "px-6" : "w-full text-lg py-6"
-          )}
-          disabled={status === "loading"}
-        >
+        <button type="submit" className="pk-submit" disabled={status === "loading"}>
           {status === "loading" ? (
             <Loader2 className="w-5 h-5 animate-spin" />
           ) : (
             <>
               {buttonText || t("form.submitButton")}
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <ArrowRight className="w-4 h-4" />
             </>
           )}
-        </Button>
-        {status === "error" && (
-          <p className="text-sm text-center text-destructive col-span-full">
-            {t("error.message")}
-          </p>
-        )}
+        </button>
       </form>
 
-      {showTrustText && (
-        <p className="text-xs text-center text-muted-foreground flex items-center justify-center gap-1.5">
+      {status === "error" && <p className="pk-form-err">{t("error.message")}</p>}
+
+      {showTrustText ? (
+        <p className="pk-form-note">
           <Lock className="w-3 h-3" />
           {t("form.trustText")}
         </p>
-      )}
-
-      {!showTrustText && !inline && (
-        <p className="text-xs text-center text-muted-foreground">
-          {t("form.privacyNote")}
-        </p>
+      ) : (
+        !inline && <p className="pk-form-note">{t("form.privacyNote")}</p>
       )}
 
       {socialProof && <div className="flex justify-center">{socialProof}</div>}
-    </>
-  );
-
-  if (glass) {
-    return (
-      <div className={cn("w3-glass-card p-6 space-y-4", className)}>
-        {formContent}
-      </div>
-    );
-  }
-
-  return (
-    <div className={cn("space-y-4", className)}>
-      {formContent}
     </div>
   );
 }

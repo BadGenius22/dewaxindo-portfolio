@@ -9,7 +9,10 @@ import { locales, defaultLocale } from "@/i18n/config";
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url;
-  const lastModified = new Date("2026-02-01");
+  const lastModified = new Date();
+
+  // Only product ids that have a real static page under /products/[id]
+  const PRODUCTS_WITH_PAGES = ["web3-starter-kit"];
 
   const routes: MetadataRoute.Sitemap = [];
 
@@ -41,19 +44,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       },
     });
 
-    products.forEach((product) => {
-      routes.push({
-        url: localePath(locale, `/products/${product.id}`),
-        lastModified,
-        changeFrequency: "weekly",
-        priority: 0.8,
-        alternates: {
-          languages: Object.fromEntries(
-            locales.map((loc) => [loc, localePath(loc, `/products/${product.id}`)])
-          ),
-        },
+    products
+      .filter((product) => PRODUCTS_WITH_PAGES.includes(product.id))
+      .forEach((product) => {
+        routes.push({
+          url: localePath(locale, `/products/${product.id}`),
+          lastModified,
+          changeFrequency: "weekly",
+          priority: 0.8,
+          alternates: {
+            languages: Object.fromEntries(
+              locales.map((loc) => [loc, localePath(loc, `/products/${product.id}`)])
+            ),
+          },
+        });
       });
-    });
   });
 
   return routes;

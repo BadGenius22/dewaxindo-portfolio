@@ -6,114 +6,138 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
-import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { SectionHeading } from "@/components/ui/section-heading";
-import { AnimatedSection } from "@/components/ui/animated-section";
 import { products, formatPrice } from "@/data/products";
 import { siteConfig } from "@/data/site";
+import { locales, defaultLocale } from "@/i18n/config";
+import { generateBreadcrumbSchema } from "@/lib/seo";
 
-// SEO Metadata
-export const metadata: Metadata = {
-  title: "Products",
-  description:
-    "Digital products and resources to accelerate your Web3 development journey. Guides, templates, and tools by Dewangga Praxindo.",
-  keywords: [
-    "Web3 guides",
-    "Smart contract templates",
-    "DeFi resources",
-    "Blockchain development",
-    "Solidity tutorials",
-  ],
-  openGraph: {
-    title: "Products | Dewangga Praxindo",
+// SEO Metadata (per-locale canonical + hreflang)
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const path = "/products";
+  const localeUrl = (loc: string) =>
+    loc === defaultLocale ? `${siteConfig.url}${path}` : `${siteConfig.url}/${loc}${path}`;
+  const languages: Record<string, string> = {};
+  locales.forEach((loc) => {
+    languages[loc] = localeUrl(loc);
+  });
+  languages["x-default"] = localeUrl(defaultLocale);
+
+  return {
+    title: "Products",
     description:
-      "Digital products and resources to accelerate your Web3 development journey.",
-    url: `${siteConfig.url}/products`,
-    type: "website",
-  },
-  alternates: {
-    canonical: `${siteConfig.url}/products`,
-  },
-};
+      "Digital products and resources to accelerate your Web3 development journey. Guides, templates, and tools by Dewangga Praxindo.",
+    keywords: [
+      "Web3 guides",
+      "Smart contract templates",
+      "DeFi resources",
+      "Blockchain development",
+      "Solidity tutorials",
+    ],
+    alternates: { canonical: localeUrl(locale), languages },
+    openGraph: {
+      title: "Products | Dewangga Praxindo",
+      description:
+        "Digital products and resources to accelerate your Web3 development journey.",
+      url: localeUrl(locale),
+      type: "website",
+    },
+  };
+}
 
-export default async function ProductsPage() {
+export default async function ProductsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
   const t = await getTranslations("products");
 
-  return (
-    <main id="main-content" className="min-h-screen pt-24 pb-16">
-      <div className="container mx-auto px-4">
-        <AnimatedSection>
-          <SectionHeading
-            title={t("title")}
-            subtitle={t("subtitle")}
-          />
-        </AnimatedSection>
+  const base = siteConfig.url;
+  const productsUrl = locale === defaultLocale ? `${base}/products` : `${base}/${locale}/products`;
+  const homeUrl = locale === defaultLocale ? base : `${base}/${locale}`;
+  const breadcrumb = generateBreadcrumbSchema([
+    { name: "Home", url: homeUrl },
+    { name: t("title"), url: productsUrl },
+  ]);
 
-        {/* Products Grid */}
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {products.map((product, index) => (
-            <AnimatedSection key={product.id} delay={0.1 * index}>
-              <Link
-                href={`/products/${product.id}`}
-                className="group block h-full"
-              >
-                <div className="relative flex flex-col overflow-hidden rounded-xl border bg-card h-full transition-all duration-300 hover:border-primary/50 hover:shadow-lg">
-                  {/* Product Image */}
-                  <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+  return (
+    <main id="main-content" className="pk">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
+      <h1 className="sr-only">{t("title")}: Web3 & DeFi developer guides and templates</h1>
+
+      <section className="section">
+        <div className="forge-container">
+          <header className="sec-head">
+            <div className="marker">
+              <span className="num">§ 06</span> {t("label")}
+            </div>
+            <div>
+              <h2 className="pk-h2" style={{ fontSize: "clamp(40px, 6vw, 96px)" }}>
+                {t("title")}
+              </h2>
+              <p className="pk-lead" style={{ marginTop: "16px", maxWidth: "46ch" }}>
+                {t("subtitle")}
+              </p>
+            </div>
+          </header>
+
+          <div className="pk-catalog">
+            {products.map((product) => {
+              const isFree = Boolean(product.leadMagnet?.enabled);
+              return (
+                <Link key={product.id} href={`/products/${product.id}`} className="pk-card">
+                  <div className="pk-card-media">
                     <Image
                       src={product.image}
-                      alt={product.title}
+                      alt={`${t(`items.${product.id}.title`)} — ${t(`items.${product.id}.subtitle`)}`}
                       fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="pk-img"
+                      sizes="(max-width: 900px) 100vw, 480px"
                     />
-                    {product.badge && (
-                      <div className="absolute top-3 left-3">
-                        <Badge className="bg-primary text-primary-foreground">
-                          {product.badge}
-                        </Badge>
-                      </div>
+                    {(isFree || product.badge) && (
+                      <span className="pk-card-badge">{isFree ? t("free") : product.badge}</span>
                     )}
                   </div>
 
-                  {/* Content */}
-                  <div className="flex flex-1 flex-col p-5">
-                    <p className="text-xs text-muted-foreground uppercase tracking-wider">
+                  <div className="pk-card-body">
+                    <p className="pk-card-type">
                       {product.type === "pdf" ? t("digitalGuide") : product.type}
                     </p>
-                    <h2 className="mt-1 font-semibold text-lg group-hover:text-primary transition-colors">
-                      {t(`items.${product.id}.title`)}
-                    </h2>
-                    <p className="text-sm text-muted-foreground">
-                      {t(`items.${product.id}.subtitle`)}
-                    </p>
+                    <h3 className="pk-card-title">{t(`items.${product.id}.title`)}</h3>
+                    <p className="pk-card-sub">{t(`items.${product.id}.subtitle`)}</p>
+                    <p className="pk-card-desc">{t(`items.${product.id}.description`)}</p>
 
-                    <p className="mt-3 text-sm text-muted-foreground line-clamp-2">
-                      {t(`items.${product.id}.description`)}
-                    </p>
+                    <ul className="pk-card-feats">
+                      {product.features.slice(0, 4).map((_, i) => (
+                        <li key={i}>{t(`items.${product.id}.features.${i}`)}</li>
+                      ))}
+                    </ul>
 
-                    <div className="mt-auto pt-4 flex items-center justify-between">
-                      <span className={`text-lg font-bold ${product.leadMagnet?.enabled ? "text-emerald-500" : ""}`}>
-                        {product.leadMagnet?.enabled
-                          ? t("free")
-                          : formatPrice(product.price, product.currency)}
+                    <div className="pk-card-foot">
+                      <span className="pk-price">
+                        {isFree ? t("free") : formatPrice(product.price, product.currency)}
                       </span>
-                      <Button size="sm" variant="ghost" className="group-hover:bg-primary group-hover:text-primary-foreground">
-                        {t("viewDetails")}
-                        <ArrowRight className="ml-2 h-3 w-3" />
-                      </Button>
+                      <span className="pk-cta">
+                        {t("viewDetails")} ↗
+                      </span>
                     </div>
                   </div>
-                </div>
-              </Link>
-            </AnimatedSection>
-          ))}
+                </Link>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      </section>
     </main>
   );
 }

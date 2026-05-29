@@ -1,10 +1,16 @@
 /**
  * SEO utilities for structured data (JSON-LD)
  * Implements Schema.org markup for Google Search and AI Overviews
+ *
+ * Entity graph: every node carries a stable @id (#person, #website,
+ * #organization, #service, #webpage, #portfolio) and cross-references the
+ * others by @id so Google/AI engines can resolve a single connected graph.
  */
 
 import { siteConfig } from "@/data/site";
 import { getSocialUrls } from "@/data/socials";
+import { getFeaturedProjects } from "@/data/projects";
+import { defaultLocale } from "@/i18n/config";
 import type { Product } from "@/types";
 
 /**
@@ -15,6 +21,8 @@ export function generatePersonSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": `${siteConfig.url}/#person`,
+    mainEntityOfPage: `${siteConfig.url}/#webpage`,
     name: siteConfig.author.name,
     givenName: "Dewangga",
     familyName: "Praxindo",
@@ -22,7 +30,12 @@ export function generatePersonSchema() {
     description: siteConfig.description,
     url: siteConfig.url,
     email: `mailto:${siteConfig.author.email}`,
-    image: `${siteConfig.url}/images/profile.jpg`,
+    image: {
+      "@type": "ImageObject",
+      url: `${siteConfig.url}/images/profile.jpg`,
+      width: 1277,
+      height: 1383,
+    },
     sameAs: getSocialUrls(),
     address: {
       "@type": "PostalAddress",
@@ -34,16 +47,37 @@ export function generatePersonSchema() {
       "DeFi Protocols",
       "Solidity",
       "Rust",
+      "Move",
+      "Sui Move",
+      "Anchor Framework",
+      "Foundry",
       "Ethereum",
       "Arbitrum",
-      "Solana",
       "Base",
-      "Polygon",
+      "Solana",
+      "Sui",
+      "Walrus Decentralized Storage",
+      "Seal Encryption",
+      "Noir",
+      "Zero-Knowledge Proofs",
+      "ZK Circuits",
+      "Account Abstraction",
+      "Passkeys (WebAuthn)",
+      "x402 Payments",
+      "Model Context Protocol (MCP)",
+      "AI Agents",
+      "Chainlink VRF",
       "Web3",
       "Blockchain",
-      "Zero-Knowledge Proofs",
-      "Security Auditing",
+      "Smart Contract Security Auditing",
     ],
+    nationality: { "@type": "Country", name: "Indonesia" },
+    worksFor: {
+      "@type": "Organization",
+      name: "Factor Finance",
+      url: "https://pro.factor.fi",
+    },
+    award: ["Chainlink Fall 2022 Hackathon Winner — Top Quality Project"],
     hasCredential: [
       {
         "@type": "EducationalOccupationalCredential",
@@ -58,7 +92,7 @@ export function generatePersonSchema() {
         "@type": "Country",
         name: "Indonesia",
       },
-      skills: "Solidity, Rust, DeFi, Security Auditing, Web3",
+      skills: "Solidity, Rust, Move, Sui, DeFi, ZK Proofs, Security Auditing, Web3",
     },
   };
 }
@@ -70,13 +104,13 @@ export function generateWebsiteSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": `${siteConfig.url}/#website`,
     name: siteConfig.name,
     description: siteConfig.description,
     url: siteConfig.url,
-    author: {
-      "@type": "Person",
-      name: siteConfig.author.name,
-    },
+    inLanguage: ["en", "id"],
+    author: { "@id": `${siteConfig.url}/#person` },
+    publisher: { "@id": `${siteConfig.url}/#organization` },
   };
 }
 
@@ -88,21 +122,21 @@ export function generateProfessionalServiceSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
+    "@id": `${siteConfig.url}/#service`,
     name: `${siteConfig.author.name} - Smart Contract Development`,
     description:
-      "Professional DeFi and smart contract development services. Expertise in Solidity, Rust, Ethereum, Arbitrum, and Solana.",
+      "Professional DeFi and smart contract development. Expertise in Solidity, Rust, and Move across Ethereum, Arbitrum, Base, Solana, and Sui, plus ZK proofs (Noir) and account abstraction.",
     url: siteConfig.url,
-    provider: {
-      "@type": "Person",
-      name: siteConfig.author.name,
-    },
+    provider: { "@id": `${siteConfig.url}/#person` },
     areaServed: {
       "@type": "Place",
       name: "Worldwide",
     },
     serviceType: [
       "Smart Contract Development",
+      "Sui Move Development",
       "DeFi Protocol Design",
+      "ZK Circuit Development",
       "Security Auditing",
       "Web3 Consulting",
     ],
@@ -125,7 +159,7 @@ export function generateProductSchema(product: Product) {
       price: product.price,
       priceCurrency: product.currency,
       availability: "https://schema.org/InStock",
-      url: product.purchaseUrl,
+      url: product.purchaseUrl || `${siteConfig.url}/products/${product.id}`,
       seller: {
         "@type": "Person",
         name: siteConfig.author.name,
@@ -186,14 +220,12 @@ export function generateOrganizationSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": `${siteConfig.url}/#organization`,
     name: siteConfig.name,
     url: siteConfig.url,
-    logo: `${siteConfig.url}/images/profile.jpg`,
+    logo: `${siteConfig.url}/og-image.png`,
     description: "Smart contract development and DeFi consulting services",
-    founder: {
-      "@type": "Person",
-      name: siteConfig.author.name,
-    },
+    founder: { "@id": `${siteConfig.url}/#person` },
     contactPoint: {
       "@type": "ContactPoint",
       email: siteConfig.author.email,
@@ -205,68 +237,80 @@ export function generateOrganizationSchema() {
 }
 
 /**
- * CreativeWork schema for portfolio projects
+ * Map a project's tags to a representative operating system / platform.
+ * Keeps the portfolio schema's operatingSystem field accurate as projects change.
+ */
+function projectOperatingSystem(tags: string[]): string {
+  const t = tags.map((x) => x.toLowerCase());
+  if (t.includes("sui move") || t.includes("sui")) return "Sui";
+  if (t.includes("solana") || t.includes("anchor")) return "Solana";
+  if (t.includes("arbitrum")) return "Arbitrum";
+  if (t.includes("polygon")) return "Polygon";
+  if (t.includes("base")) return "Base";
+  if (t.includes("solidity") || t.includes("foundry")) return "Ethereum Virtual Machine";
+  if (t.includes("pwa") || t.includes("next.js")) return "Web";
+  return "Web3";
+}
+
+/**
+ * CreativeWork schema for portfolio projects.
+ * Derived from src/data/projects.ts so it never drifts from the real project list.
  */
 export function generatePortfolioSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
+    "@id": `${siteConfig.url}/#portfolio`,
     name: "Portfolio Projects",
-    description: "Smart contract and DeFi projects by Dewangga Praxindo",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        item: {
-          "@type": "SoftwareApplication",
-          name: "Factor Finance",
-          description: "Composable DeFi platform on Arbitrum with $50M+ TVL",
-          applicationCategory: "DeFi Protocol",
-          operatingSystem: "Ethereum Virtual Machine",
-        },
+    description: `Smart contract, DeFi and Web3 projects by ${siteConfig.author.name}`,
+    numberOfItems: getFeaturedProjects().length,
+    itemListElement: getFeaturedProjects().map((p, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "SoftwareApplication",
+        name: p.title,
+        description: p.description,
+        applicationCategory: "Smart Contract / Web3 Application",
+        operatingSystem: projectOperatingSystem(p.tags),
+        keywords: p.tags.join(", "),
+        ...(p.links.live ? { url: p.links.live } : {}),
+        ...(p.links.github ? { sameAs: [p.links.github] } : {}),
+        author: { "@id": `${siteConfig.url}/#person` },
+        ...(p.image ? { image: `${siteConfig.url}${p.image}` } : {}),
       },
-      {
-        "@type": "ListItem",
-        position: 2,
-        item: {
-          "@type": "SoftwareApplication",
-          name: "RekonGG",
-          description: "AI-powered esports prediction market",
-          applicationCategory: "Prediction Market",
-          operatingSystem: "Blockchain",
-        },
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        item: {
-          "@type": "SoftwareApplication",
-          name: "LazorKit SDK",
-          description: "Passkey-based wallet infrastructure on Solana",
-          applicationCategory: "Wallet SDK",
-          operatingSystem: "Solana",
-        },
-      },
-      {
-        "@type": "ListItem",
-        position: 4,
-        item: {
-          "@type": "SoftwareApplication",
-          name: "Vouch Protocol",
-          description: "Zero-knowledge identity verification using Noir",
-          applicationCategory: "Identity Protocol",
-          operatingSystem: "Ethereum",
-        },
-      },
-    ],
+    })),
+  };
+}
+
+/**
+ * ProfilePage schema — wraps the homepage as a profile of the Person entity.
+ * Strong signal for "who is X" queries and AI-engine citation.
+ */
+export function generateProfilePageSchema(locale: string = defaultLocale) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "@id": `${siteConfig.url}/#webpage`,
+    url: siteConfig.url,
+    name: siteConfig.title,
+    inLanguage: locale,
+    isPartOf: { "@id": `${siteConfig.url}/#website` },
+    mainEntity: { "@id": `${siteConfig.url}/#person` },
+    about: { "@id": `${siteConfig.url}/#person` },
+    dateModified: new Date().toISOString(),
   };
 }
 
 /**
  * Combine all schemas for the homepage
  */
-export function generateHomepageSchemas(product?: Product): JsonLdSchema[] {
+export function generateHomepageSchemas(
+  locale: string = defaultLocale,
+  product?: Product
+): JsonLdSchema[] {
   const schemas: JsonLdSchema[] = [
+    generateProfilePageSchema(locale),
     generatePersonSchema(),
     generateWebsiteSchema(),
     generateProfessionalServiceSchema(),

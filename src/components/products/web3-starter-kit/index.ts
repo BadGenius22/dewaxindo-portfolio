@@ -10,4 +10,3 @@ export { AuthorSection } from "./author-section";
 export { FinalCtaSection } from "./final-cta-section";
 export { SocialProof } from "./social-proof";
 export { FadeIn } from "./fade-in";
-export { AnimatedBlobs } from "./animated-blobs";

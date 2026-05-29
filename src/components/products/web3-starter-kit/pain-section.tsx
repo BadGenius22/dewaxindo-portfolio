@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Pain point section with styled quote card
+ * Pain point section - clay-bordered quote card (Forge)
  */
 
 import { useTranslations } from "next-intl";
@@ -11,22 +11,15 @@ export function PainSection() {
   const t = useTranslations("web3StarterKit");
 
   return (
-    <section
-      className="py-12 md:py-20 px-4 relative z-10"
-      aria-labelledby="pain-heading"
-    >
-      <div className="max-w-2xl mx-auto">
+    <section className="pk-sec" aria-labelledby="pain-heading">
+      <div className="pk-wrap">
         <FadeIn>
-          <div className="w3-quote-card">
-            <p
-              id="pain-heading"
-              className="text-lg md:text-xl text-[var(--w3-text-secondary)] leading-relaxed italic"
-            >
-              &ldquo;{t("problem.text")}&rdquo;
-            </p>
-            <p className="text-xl md:text-2xl font-semibold text-[var(--w3-text-primary)] mt-6">
+          <div className="pk-quote">
+            <h2 id="pain-heading" className="sr-only">
               {t("problem.familiar")}
-            </p>
+            </h2>
+            <p className="q">&ldquo;{t("problem.text")}&rdquo;</p>
+            <p className="a">{t("problem.familiar")}</p>
           </div>
         </FadeIn>
       </div>

@@ -1,66 +1,189 @@
 {
   "metadata": {
     "title": "Dewangga Praxindo | DeFi Smart Contract Engineer",
-    "description": "DeFi smart contract engineer with 3+ years experience. Building secure, scalable protocols on Ethereum, Arbitrum, and Solana. $50M+ TVL deployed."
+    "description": "Smart contract engineer (3+ yrs) building audited DeFi & Sui Move protocols on Sui, Arbitrum, Base & Solana. Creator of TOLDPROOF — $50M+ TVL, 0 criticals."
   },
-  "navigation": {
-    "about": "About",
-    "projects": "Projects",
-    "products": "Products",
-    "contact": "Contact"
+  "common": {
+    "skipToContent": "Skip to main content"
   },
-  "hero": {
-    "greeting": "Hello, I'm Dewangga, a DeFi smart contract engineer building secure protocols with",
-    "tvl": "$50M+ TVL deployed",
-    "chains": "across Ethereum, Arbitrum, and Base.",
-    "cta": {
-      "work": "See my work",
-      "collaborate": "Let's collaborate"
-    }
+  "languageSwitcher": {
+    "label": "Language",
+    "current": "Current language: {language}"
   },
-  "about": {
-    "label": "What I Build",
-    "title": "Full-Stack DeFi Engineering",
-    "description": "I specialize in building secure, production-ready smart contracts and DeFi protocols. From Solidity on Ethereum and Arbitrum to Rust on Solana, I deliver battle-tested code with comprehensive security practices including fuzz testing, invariant testing, and audit preparation."
-  },
-  "bento": {
-    "defi": {
-      "title": "DeFi Engineering",
-      "tvlLabel": "Total Value Locked",
-      "description": "Leverage vaults, LP management, yield strategies. Built protocols handling $50M+ TVL on Arbitrum."
+  "forge": {
+    "tape": {
+      "available": "AVAILABLE — Q2 2026"
     },
-    "contracts": {
-      "title": "Smart Contracts",
-      "description": "Solidity & Rust. Foundry, Hardhat, Anchor."
+    "nav": {
+      "services": "Services",
+      "process": "Process",
+      "work": "Work",
+      "log": "Log",
+      "contact": "Contact",
+      "products": "Products",
+      "hire": "Hire me"
     },
-    "multichain": {
-      "title": "Multi-Chain",
-      "description": "Deploying and integrating across Ethereum, Arbitrum, Solana, Sui, and Base."
+    "hero": {
+      "lede": "I am a <strong>DeFi smart contract engineer</strong> based in Yogyakarta, Indonesia. I write the contracts that move money — <mark>$50M+ TVL deployed</mark> across Ethereum, Arbitrum, Base, Solana, and Sui. Three full PeckShield audits, zero criticals. The receipts are below.",
+      "ctaPrimary": "Hire me",
+      "ctaGhost": "See selected work"
     },
-    "security": {
-      "title": "Security First",
-      "description": "Fuzz testing, invariant testing. PeckShield audited.",
-      "scanning": "Scanning...",
-      "auditPassed": "Audit Passed"
+    "receipt": {
+      "title": "Deploy Receipt",
+      "deployed": "DEPLOYED",
+      "live": "LIVE",
+      "project": "Project",
+      "chain": "Chain",
+      "tvl": "TVL",
+      "audit": "Audit",
+      "block": "Block",
+      "address": "Address",
+      "openExplorer": "Open in explorer"
     },
-    "zk": {
-      "title": "ZK & Privacy",
-      "description": "Zero-knowledge proofs with Noir circuits. Privacy-preserving verification.",
-      "encrypting": "Encrypting...",
-      "generatingProof": "Generating Proof...",
-      "verified": "ZK Verified ✓"
+    "audit": {
+      "ariaLabel": "Audit history",
+      "tally": "Audits passed.<br/>Zero critical findings."
     },
-    "fullstack": {
-      "title": "Full Stack Web3",
-      "description": "React, Next.js, TypeScript. From contracts to polished frontends."
-    }
-  },
-  "projects": {
-    "label": "Selected Work",
-    "buttons": {
-      "live": "Live",
-      "github": "GitHub",
-      "docs": "Docs"
+    "capabilities": {
+      "marker": "What I build",
+      "title": "Six things <br/> I can <span class=\"clay\">build</span> for you,<br/> <span class=\"outline\">end-to-end.</span>",
+      "items": {
+        "defi": {
+          "title": "DeFi Engineering",
+          "desc": "Vaults, liquidity pools, and yield strategies that hold real user money. Production protocols on Arbitrum and Ethereum."
+        },
+        "contracts": {
+          "title": "Smart Contracts",
+          "desc": "I write Solidity and Rust. Heavy testing before any audit — fuzz tests, invariants, and mutation testing run on every change."
+        },
+        "multichain": {
+          "title": "Multi-Chain",
+          "desc": "Live on six chains — Ethereum, Arbitrum, Base, Solana, Sui, and Polygon. Each one with its own deploy plan and monitoring."
+        },
+        "security": {
+          "title": "Security First",
+          "desc": "Three PeckShield audits. Zero critical issues found, every time. Slither and Aderyn run on every PR before merge."
+        },
+        "zk": {
+          "title": "ZK & Privacy",
+          "desc": "Zero-knowledge proofs with Noir. Sealed predictions on Sui, time-locked reveals — keeping data private without losing trust."
+        },
+        "fullstack": {
+          "title": "Full-Stack Web3",
+          "desc": "React, Next.js, TypeScript. I build the contract and the website it talks to — no handoffs between people, no rewriting at the boundary."
+        }
+      }
+    },
+    "process": {
+      "marker": "How I work",
+      "title": "Three<br/> phases. <span class=\"clay\">Same</span><br/> every time.",
+      "steps": {
+        "scope": {
+          "title": "Scope & threat model",
+          "bullets": {
+            "0": "Read every line of the existing spec, code, and prior audits.",
+            "1": "Diagram the trust assumptions. Mark every place value crosses a trust boundary.",
+            "2": "Write the threat model. Adversary capabilities, invariants we cannot break."
+          }
+        },
+        "build": {
+          "title": "Write, fuzz, invariants",
+          "bullets": {
+            "0": "Solidity / Move / Rust. Foundry tests next to every contract.",
+            "1": "Echidna or Medusa for property-based fuzzing. Mutation testing on every PR.",
+            "2": "Slither + Aderyn run on every push. 80% branch coverage gate before merge."
+          }
+        },
+        "deploy": {
+          "title": "Audit & deploy",
+          "bullets": {
+            "0": "PeckShield or equivalent. Fixes shipped same day, re-audit on critical paths.",
+            "1": "Mainnet deploy with timelock, multisig, and a tested emergency pause.",
+            "2": "Tenderly + Defender monitors. On-call for the first 30 days post-launch."
+          }
+        }
+      }
+    },
+    "works": {
+      "marker": "Selected works",
+      "title": "<span class=\"clay\">7</span> projects.<br/> All <span class=\"outline\">live</span><br/> or in production.",
+      "stamps": {
+        "receipt": "RECEIPT",
+        "marquee": "MARQUEE",
+        "caseStudy": "CASE STUDY →"
+      },
+      "taglines": {
+        "toldproof": "A way for AI agents and people to prove their predictions are honest. Sealed on Sui, revealed on time.",
+        "amaly": "A mobile app for tracking prayers during Ramadan. Quran reader, streaks, leaderboard.",
+        "factor": "DeFi yield strategies on Arbitrum. I am a core engineer — leverage vaults, LP management, the contracts that hold $50M+ TVL.",
+        "rekon": "Esports predictions powered by AI on Polymarket. Pay in USDC with one click.",
+        "lazor": "A Solana wallet template with Face ID and Touch ID. No seed phrases.",
+        "vouch": "Prove things about your Solana wallet without revealing who you are. Built with Noir zero-knowledge circuits.",
+        "boh": "NFT battle game with fair, verifiable randomness. Chainlink hackathon winner in 2022."
+      }
+    },
+    "caseStudy": {
+      "file": "CASE STUDY",
+      "opened": "FILE OPENED",
+      "closeLabel": "Close case study",
+      "project": "Project",
+      "role": "Role",
+      "window": "Window",
+      "liveAt": "Live at",
+      "challenge": "The challenge",
+      "built": "What I built",
+      "outcomes": "Outcomes",
+      "stack": "Stack",
+      "endOfFile": "END · OF · FILE",
+      "visit": "Visit"
+    },
+    "log": {
+      "marker": "Deploy log",
+      "title": "<span class=\"clay\">9</span> commits<br/> to <span class=\"outline\">production.</span><br/> All on chain.",
+      "live": "LIVE",
+      "total": "TOTAL",
+      "openExplorer": "Open in explorer",
+      "col": {
+        "date": "Date",
+        "project": "Project",
+        "chain": "Chain",
+        "address": "Address",
+        "note": "Note"
+      },
+      "notes": {
+        "toldproof": "61/61 tests · 0 critical",
+        "amaly": "224 monthly users",
+        "rekon": "AI · esports predictions",
+        "lazor": "WebAuthn template",
+        "vouch": "ZK hackathon · finalist",
+        "factorWethUsdc": "WETH/USDC Compound leverage",
+        "factorMultilend": "USDC multilend vault",
+        "factorCbeth": "cbETH boosted USDC lending",
+        "boh": "Chainlink hack · winner"
+      }
+    },
+    "contact": {
+      "eyebrow": "Get in touch",
+      "pitchPre": "Let's",
+      "pitchMid": "build something",
+      "pitchTail": "worth",
+      "pitchHighlight": "auditing",
+      "orCopy": "or copy address",
+      "copyTitle": "Copy email",
+      "lede": "I reply in <b>under 24 hours</b> on weekdays. Available for contract audits, protocol engineering, and Web3 advice — <b>starting Q2 2026</b>."
+    },
+    "foot": {
+      "signed": "SIGNED",
+      "copyright": "© MMXXVI · Yogyakarta, ID · v3 Forge Edition",
+      "products": "Products",
+      "starterKit": "Web3 Starter Kit"
+    },
+    "perforation": {
+      "s02": "— — —  CUT HERE  ·  § 02  — — —",
+      "s03": "— — —  CUT HERE  ·  § 03  — — —",
+      "s04": "— — —  CUT HERE  ·  § 04  — — —",
+      "s05": "— — —  CUT HERE  ·  § 05  — — —",
+      "end": "— — —  END OF ROLL  — — —"
     }
   },
   "products": {
@@ -98,22 +221,6 @@
       "errorMessage": "Something went wrong. Try again.",
       "noSpam": "No spam. Unsubscribe anytime."
     }
-  },
-  "contact": {
-    "label": "Get In Touch",
-    "title": "Let's Build",
-    "subtitle": "Smart contracts. Full-stack dApps. Audit-ready code.",
-    "description": "Building in Web3? I can help."
-  },
-  "footer": {
-    "copyright": "©"
-  },
-  "common": {
-    "skipToContent": "Skip to main content"
-  },
-  "languageSwitcher": {
-    "label": "Language",
-    "current": "Current language: {language}"
   },
   "leadMagnet": {
     "form": {
