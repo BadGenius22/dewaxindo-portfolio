@@ -1666,7 +1666,7 @@ p { text-wrap: pretty; }
 }
 .pk-hero-form { width: 100%; max-width: 440px; }
 .pk-hero-media { position: relative; }
-.pk-hero-media-inner { position: relative; }
+.pk-hero-media-inner { position: relative; z-index: 0; }
 .pk-hero-media-inner::after {
   content: ""; position: absolute; left: 8%; right: 8%; bottom: -8px; height: 26px;
   background: rgba(14, 14, 13, 0.18); filter: blur(22px); border-radius: 50%; z-index: -1;
