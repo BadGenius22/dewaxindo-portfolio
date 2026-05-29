@@ -1,6 +1,5 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/routing";
-import { FORGE_EMAIL } from "@/data/forge";
 
 const NAV_KEYS = [
   { n: "01.", key: "services", anchor: "capabilities" },
@@ -25,10 +24,14 @@ export async function Nav() {
             {t(item.key)}
           </Link>
         ))}
+        <Link href="/products">
+          <span className="n">06.</span>
+          {t("products")}
+        </Link>
       </nav>
-      <a className="cta" href={`mailto:${FORGE_EMAIL}`}>
+      <Link className="cta" href="/#contact">
         {t("hire")}
-      </a>
+      </Link>
     </header>
   );
 }

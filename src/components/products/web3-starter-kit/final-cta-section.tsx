@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Final CTA section with full-width layout and duplicate form
+ * Final CTA - dark band with duplicate lead form (Forge)
  */
 
 import { useTranslations } from "next-intl";
@@ -18,33 +18,26 @@ export function FinalCtaSection({ formId, productId }: FinalCtaSectionProps) {
   const t = useTranslations("web3StarterKit");
 
   return (
-    <section
-      className="py-20 md:py-28 px-4 bg-[var(--w3-bg-secondary)] relative z-10"
-      aria-labelledby="final-cta-heading"
-    >
-      <div className="max-w-xl mx-auto text-center">
+    <section className="pk-final" aria-labelledby="final-cta-heading">
+      <div className="pk-wrap">
         <FadeIn>
-          <h2
-            id="final-cta-heading"
-            className="font-[family-name:var(--font-space-grotesk)] text-[24px] md:text-[32px] font-semibold mb-4 text-[var(--w3-text-primary)]"
-          >
-            {t("finalCta.title")}
-          </h2>
+          <div className="pk-eyebrow">
+            <span className="tick">§</span> {t("ebook.pages")} · {t("ebook.subtitle")}
+          </div>
         </FadeIn>
         <FadeIn delay={100}>
-          <p className="text-[var(--w3-text-secondary)] mb-8">
-            {t("finalCta.subtitle")}
-          </p>
+          <h2 id="final-cta-heading">{t("finalCta.title")}</h2>
         </FadeIn>
         <FadeIn delay={200}>
+          <p className="sub">{t("finalCta.subtitle")}</p>
+        </FadeIn>
+        <FadeIn delay={300} className="pk-final-form">
           <LeadMagnetForm
             formId={formId}
             productId={productId}
             productTitle="Web3 Starter Kit"
             buttonText={t("finalCta.cta")}
-            variant="gradient"
             showTrustText
-            glass
           />
         </FadeIn>
       </div>

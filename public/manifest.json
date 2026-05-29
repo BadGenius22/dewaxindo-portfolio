@@ -1,11 +1,11 @@
 {
   "name": "Dewangga Praxindo | DeFi Smart Contract Engineer",
   "short_name": "Dewaxindo",
-  "description": "DeFi smart contract engineer with 3+ years experience. Building secure, scalable protocols on Ethereum, Arbitrum, and Solana.",
+  "description": "DeFi & Sui Move smart contract engineer building audited protocols on Sui, Arbitrum, Base, Solana, and Ethereum. $50M+ TVL.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#09090b",
-  "theme_color": "#09090b",
+  "background_color": "#F8F7F4",
+  "theme_color": "#F8F7F4",
   "icons": [
     {
       "src": "/favicon.ico",

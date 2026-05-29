@@ -43,8 +43,9 @@ export const RECEIPT_CYCLE: ReceiptCycleItem[] = [
     chain: "Solana · Noir",
     tvl: "ZK proofs",
     audit: "Self-reviewed",
-    addr: "0x2c91…1b3c",
-    // TODO: explorerUrl: "https://solscan.io/account/..."
+    addr: "EhSk…LuaD",
+    explorerUrl:
+      "https://solscan.io/account/EhSkCuohWP8Sdfq6yHoKih6r2rsNoYYPZZSfpnyELuaD?cluster=devnet",
   },
 ];
 
@@ -160,7 +161,7 @@ export const WORKS_V3: WorkV3[] = [
     taglineKey: "amaly",
     tags: ["Next.js", "PWA"],
     metric: "224+ users",
-    // image: "/works/amaly.png",
+    image: "/images/projects/Amaly.jpeg",
   },
   {
     id: "factor",
@@ -173,7 +174,7 @@ export const WORKS_V3: WorkV3[] = [
     taglineKey: "factor",
     tags: ["Solidity", "Foundry", "Arbitrum"],
     metric: "$50M+ TVL",
-    // image: "/works/factor.png",
+    image: "/images/projects/Factor.png",
     study: {
       role: "Core protocol engineer",
       window: "2024 — present",
@@ -204,7 +205,7 @@ export const WORKS_V3: WorkV3[] = [
     taglineKey: "rekon",
     tags: ["Polymarket", "AI"],
     metric: "Live",
-    // image: "/works/rekon.png",
+    image: "/images/projects/HomeRekon.png",
   },
   {
     id: "lazor",
@@ -216,7 +217,7 @@ export const WORKS_V3: WorkV3[] = [
     taglineKey: "lazor",
     tags: ["Solana", "WebAuthn"],
     metric: "Dev template",
-    // image: "/works/lazor.png",
+    image: "/images/projects/LazorKit.png",
   },
   {
     id: "vouch",
@@ -228,7 +229,7 @@ export const WORKS_V3: WorkV3[] = [
     taglineKey: "vouch",
     tags: ["Solana", "Noir", "Privacy"],
     metric: "Hackathon",
-    // image: "/works/vouch.png",
+    image: "/images/projects/Vouch.png",
   },
   {
     id: "boh",
@@ -240,7 +241,7 @@ export const WORKS_V3: WorkV3[] = [
     taglineKey: "boh",
     tags: ["Solidity", "Chainlink VRF"],
     metric: "$500 prize",
-    // image: "/works/boh.png",
+    image: "/images/projects/BattleOfHeroes.png",
   },
 ];
 
@@ -268,13 +269,13 @@ export const LOG_ENTRIES: LogEntry[] = [
     live: true,
   },
   { date: "2026.03.05", project: "AMALY v2", chain: "WEB · PWA", addr: "—", noteKey: "amaly" },
-  { date: "2026.02.18", project: "REKON.GG", chain: "POLYMARKET", addr: "0x91ae…47b3", noteKey: "rekon", live: true },
+  { date: "2026.02.18", project: "REKON.GG", chain: "POLYMARKET", addr: "—", noteKey: "rekon", live: true },
   { date: "2026.01.30", project: "LAZORKIT SDK", chain: "SOLANA", addr: "—", noteKey: "lazor" },
-  { date: "2026.01.12", project: "VOUCH PROTOCOL", chain: "SOLANA · NOIR", addr: "0x7b3c…91ae", noteKey: "vouch" },
-  { date: "2025.11.22", project: "FACTOR LP-USDC.e", chain: "ARBITRUM ONE", addr: "0x1b3c…ae47", noteKey: "factorUsdc", live: true },
-  { date: "2025.09.04", project: "FACTOR PT-GMX", chain: "ARBITRUM ONE", addr: "0x4c91…3b7a", noteKey: "factorGmx" },
-  { date: "2025.06.18", project: "FACTOR LP-ETH", chain: "ARBITRUM ONE", addr: "0x3b7a…ae47", noteKey: "factorEth", live: true },
-  { date: "2022.10.09", project: "BATTLE OF HEROES", chain: "ETHEREUM", addr: "0x9201…c4d2", noteKey: "boh" },
+  { date: "2026.01.12", project: "VOUCH PROTOCOL", chain: "SOLANA · NOIR", addr: "EhSk…LuaD", explorerUrl: "https://solscan.io/account/EhSkCuohWP8Sdfq6yHoKih6r2rsNoYYPZZSfpnyELuaD?cluster=devnet", noteKey: "vouch" },
+  { date: "2025.11.22", project: "FACTOR LEV WETH/USDC", chain: "ARBITRUM ONE", addr: "0xcB31…D28f", explorerUrl: "https://arbiscan.io/address/0xcB3104Ee2D1132346E137DdFC7CE68da9dFAD28f", noteKey: "factorWethUsdc", live: true },
+  { date: "2025.09.04", project: "FACTOR MULTILEND USDC", chain: "ARBITRUM ONE", addr: "0xf19c…6cd2", explorerUrl: "https://arbiscan.io/address/0xf19cc43987838c975f2ba0e5cfe4c78580b86cd2", noteKey: "factorMultilend", live: true },
+  { date: "2025.06.18", project: "FACTOR cbETH LENDING", chain: "BASE", addr: "0xee65…40f6", explorerUrl: "https://basescan.org/address/0xee65d18cdc1c879822214a878660b13e8fa440f6", noteKey: "factorCbeth", live: true },
+  { date: "2022.10.09", project: "BATTLE OF HEROES", chain: "ETHEREUM", addr: "—", noteKey: "boh" },
 ];
 
 export interface SocialV3 {

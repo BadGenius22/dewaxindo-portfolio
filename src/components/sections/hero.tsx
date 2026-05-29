@@ -6,7 +6,6 @@ import {
   RECEIPT_CYCLE,
   AUDIT_STAMPS,
   MARQUEE_TERMS,
-  FORGE_EMAIL,
 } from "@/data/forge";
 
 function LiveBlock() {
@@ -47,6 +46,9 @@ export function Hero() {
       </div>
 
       <h1 className="hero-headline">
+        <span className="sr-only">
+          Dewangga Praxindo — DeFi smart contract engineer shipping audited contracts that move real money.
+        </span>
         <span className="row">SHIPPING</span>
         <span className="row">
           <span className="clay">SMART</span> CONTRACTS
@@ -66,8 +68,8 @@ export function Hero() {
             dangerouslySetInnerHTML={{ __html: t.raw("lede") as string }}
           />
           <div className="hero-ctas">
-            <a className="hero-cta primary" href={`mailto:${FORGE_EMAIL}`}>
-              {t("ctaPrimary")} <span className="hc-ico">↗</span>
+            <a className="hero-cta primary" href="#contact">
+              {t("ctaPrimary")} <span className="hc-ico">↓</span>
             </a>
             <a className="hero-cta ghost" href="#works">
               {t("ctaGhost")} <span className="hc-ico">→</span>

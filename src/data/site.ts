@@ -7,51 +7,81 @@ export const siteConfig = {
   name: "Dewangga Praxindo",
   title: "Dewangga Praxindo | DeFi Smart Contract Engineer",
   description:
-    "DeFi smart contract engineer with 3+ years experience. Building secure, scalable protocols on Ethereum, Arbitrum, and Solana. $50M+ TVL deployed.",
+    "Smart contract engineer (3+ yrs) building audited DeFi & Sui Move protocols — Sui, Arbitrum, Base, Solana. Creator of TOLDPROOF. $50M+ TVL, 0 criticals.",
   url: "https://dewaxindo.com",
   ogImage: "/og-image.png",
   favicon: "/favicon.ico",
 
   // SEO keywords for Google (including long-tail variations)
   keywords: [
-    // Core keywords
-    "DeFi developer",
+    // Core
+    "DeFi smart contract engineer",
     "Smart contract engineer",
     "Solidity developer",
     "Web3 developer",
     "Blockchain engineer",
-    // Platform-specific
+    // Sui / Move (flagship stack)
+    "Sui developer",
+    "Sui Move developer",
+    "Move developer",
+    "Walrus developer",
+    "Seal Sui developer",
+    "Sui smart contract developer",
+    // ZK / privacy
+    "Noir developer",
+    "zero-knowledge developer",
+    "ZK circuit developer",
+    "ZK proof Solana",
+    // AI / agentic payments
+    "x402 developer",
+    "AI agent infrastructure",
+    "MCP developer",
+    "prediction market developer",
+    // Wallet infra
+    "passkey wallet developer",
+    "account abstraction Solana",
+    "WebAuthn wallet",
+    // Chains
     "Arbitrum developer",
     "Ethereum developer",
     "Solana developer",
     "Base developer",
     "Polygon developer",
-    // Long-tail variations
-    "DeFi smart contract audit",
-    "Web3 dApp development",
+    // Practice
+    "smart contract security audit",
     "DeFi protocol engineering",
-    "Smart contract security audit",
-    "Yield farming protocol development",
-    "Liquidity pool smart contracts",
-    "EVM smart contract developer",
-    "Rust Solana developer",
     "Foundry smart contract testing",
-    "TVL protocol development",
+    "Anchor Solana developer",
+    "Rust Solana developer",
     // Service-oriented
+    "hire Sui developer",
     "hire DeFi developer",
     "Web3 consultant Indonesia",
     "smart contract freelancer",
-    "blockchain development services",
   ],
 
   // Author info for structured data
   author: {
     name: "Dewangga Praxindo",
-    jobTitle: "DeFi Smart Contract Engineer",
+    jobTitle: "DeFi & Sui Move Smart Contract Engineer",
     email: "hi@dewaxindo.com",
     location: "Yogyakarta, Indonesia",
     experience: "3+ years",
     tvlDeployed: "$50M+",
+    specialties: [
+      "Sui Move",
+      "Walrus",
+      "Seal",
+      "Solidity",
+      "Rust",
+      "Anchor",
+      "Noir zero-knowledge circuits",
+      "x402 payments",
+      "MCP",
+      "account abstraction",
+      "DeFi protocol engineering",
+      "smart contract security",
+    ],
   },
 
   // Social handles for Meta Ads tracking and Open Graph

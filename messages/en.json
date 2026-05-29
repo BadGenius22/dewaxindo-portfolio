@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Dewangga Praxindo | DeFi Smart Contract Engineer",
-    "description": "DeFi smart contract engineer with 3+ years experience. Building secure, scalable protocols on Ethereum, Arbitrum, and Solana. $50M+ TVL deployed."
+    "description": "Smart contract engineer (3+ yrs) building audited DeFi & Sui Move protocols on Sui, Arbitrum, Base & Solana. Creator of TOLDPROOF — $50M+ TVL, 0 criticals."
   },
   "common": {
     "skipToContent": "Skip to main content"
@@ -20,6 +20,7 @@
       "work": "Work",
       "log": "Log",
       "contact": "Contact",
+      "products": "Products",
       "hire": "Hire me"
     },
     "hero": {
@@ -155,9 +156,9 @@
         "rekon": "AI · esports predictions",
         "lazor": "WebAuthn template",
         "vouch": "ZK hackathon · finalist",
-        "factorUsdc": "$32M TVL · audited",
-        "factorGmx": "leverage vault · v2",
-        "factorEth": "initial deploy · $8M TVL",
+        "factorWethUsdc": "WETH/USDC Compound leverage",
+        "factorMultilend": "USDC multilend vault",
+        "factorCbeth": "cbETH boosted USDC lending",
         "boh": "Chainlink hack · winner"
       }
     },
@@ -173,7 +174,9 @@
     },
     "foot": {
       "signed": "SIGNED",
-      "copyright": "© MMXXVI · Yogyakarta, ID · v3 Forge Edition"
+      "copyright": "© MMXXVI · Yogyakarta, ID · v3 Forge Edition",
+      "products": "Products",
+      "starterKit": "Web3 Starter Kit"
     },
     "perforation": {
       "s02": "— — —  CUT HERE  ·  § 02  — — —",

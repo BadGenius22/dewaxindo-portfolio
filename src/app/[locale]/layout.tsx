@@ -22,19 +22,21 @@ const boldonse = Boldonse({
   subsets: ["latin"],
   weight: "400",
   display: "swap",
+  fallback: ["Anton", "Arial Black", "Helvetica Neue", "sans-serif"],
+  adjustFontFallback: false,
 });
 
 const funnelSans = Funnel_Sans({
   variable: "--font-funnel-sans",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
 const ibmPlexMono = IBM_Plex_Mono({
   variable: "--font-ibm-plex-mono",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
@@ -58,6 +60,7 @@ export async function generateMetadata({
   locales.forEach((loc) => {
     alternateLanguages[loc] = loc === defaultLocale ? siteConfig.url : `${siteConfig.url}/${loc}`;
   });
+  alternateLanguages["x-default"] = siteConfig.url;
 
   return {
     metadataBase: new URL(siteConfig.url),
@@ -74,7 +77,7 @@ export async function generateMetadata({
     openGraph: {
       type: "website",
       locale: locale === "id" ? "id_ID" : "en_US",
-      url: `${siteConfig.url}/${locale}`,
+      url: locale === defaultLocale ? siteConfig.url : `${siteConfig.url}/${locale}`,
       title: messages.metadata.title,
       description: messages.metadata.description,
       siteName: siteConfig.name,
@@ -159,23 +162,14 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   const schemas = [
-    ...generateHomepageSchemas(),
-    generateFAQSchema(getFAQs()),
+    ...generateHomepageSchemas(locale),
+    generateFAQSchema(getFAQs(locale)),
   ];
 
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
-        {locales.map((loc) => (
-          <link
-            key={loc}
-            rel="alternate"
-            hrefLang={loc}
-            href={loc === defaultLocale ? siteConfig.url : `${siteConfig.url}/${loc}`}
-          />
-        ))}
-        <link rel="alternate" hrefLang="x-default" href={siteConfig.url} />
-
+        {/* hreflang is emitted via Metadata.alternates.languages (generateMetadata) — not duplicated here */}
         {schemas.map((schema, index) => (
           <script
             key={index}
@@ -184,10 +178,9 @@ export default async function LocaleLayout({
           />
         ))}
 
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://connect.facebook.net" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-        <link rel="preconnect" href="https://gumroad.com" />
       </head>
       <body
         className={`${boldonse.variable} ${funnelSans.variable} ${ibmPlexMono.variable}`}

@@ -27,7 +27,7 @@ function WorkCard({ w, onOpen, taglineLabel, stampReceipt, stampMarquee, stampCa
 
   return (
     <article
-      className={"work-card " + w.span + (hasStudy ? " has-study" : "")}
+      className={"work-card" + (w.featured ? " featured" : "") + (hasStudy ? " has-study" : "")}
       onClick={handleClick}
       role={hasStudy ? "button" : undefined}
       tabIndex={hasStudy ? 0 : undefined}
@@ -49,9 +49,9 @@ function WorkCard({ w, onOpen, taglineLabel, stampReceipt, stampMarquee, stampCa
         {w.image ? (
           <Image
             src={w.image}
-            alt={`${w.name} screenshot`}
+            alt={`${w.name} — ${w.tags.join(", ")} project${w.metric ? ` (${w.metric})` : ""}`}
             fill
-            sizes={w.span === "span-12" ? "100vw" : w.span === "span-7" ? "58vw" : "42vw"}
+            sizes={w.featured ? "(max-width: 820px) 92vw, 56vw" : "(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 31vw"}
             className="work-img"
           />
         ) : (

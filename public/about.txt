@@ -1,6 +1,7 @@
-This favicon was generated using the following font:
+Dewangga Praxindo (handle: dewaxindo) is a DeFi smart contract engineer based in Yogyakarta, Indonesia, with 3+ years of experience building secure, audited protocols. He writes contracts in Solidity, Rust, and Move (Sui), and has deployed protocols holding $50M+ in total value locked across Ethereum, Arbitrum, Base, Solana, and Sui. His protocols have passed three full security audits with zero critical findings.
 
-- Font Title: Space Grotesk
-- Font Author: undefined
-- Font Source: https://fonts.gstatic.com/s/spacegrotesk/v21/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj7oUUsjNsFjTDJK.ttf
-- Font License: undefined)
+Notable work includes TOLDPROOF (verifiable reputation for AI agents on Sui + Walrus + Seal with multi-agent AI resolution and x402 USDC payments), Factor Finance (Arbitrum leverage vaults, $50M+ TVL), Vouch Protocol (Noir ZK reputation on Solana), RekonGG (AI esports prediction market), LazorKit SDK (passkey Solana wallets via WebAuthn), Amaly (ibadah-tracking PWA, 224+ users), and Battle of Heroes (Chainlink Fall 2022 hackathon winner).
+
+He specializes in DeFi protocol engineering, smart contract security (fuzz/invariant/mutation testing, Slither, Aderyn), zero-knowledge privacy (Noir), and full-stack Web3 (React, Next.js, TypeScript).
+
+Contact: hi@dewaxindo.com | https://dewaxindo.com | X @dewaxindo | GitHub BadGenius22 | LinkedIn dewaxindo

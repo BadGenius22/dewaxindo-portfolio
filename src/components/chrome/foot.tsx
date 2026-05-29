@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/routing";
 
 export async function Foot() {
   const t = await getTranslations("forge.foot");
@@ -12,6 +13,11 @@ export async function Foot() {
             DEWANGGA PRAXINDO
           </span>
         </div>
+        <nav className="c" aria-label="Footer">
+          <Link href="/products">{t("products")}</Link>
+          {" · "}
+          <Link href="/products/web3-starter-kit">{t("starterKit")}</Link>
+        </nav>
         <div className="r">{t("copyright")}</div>
       </div>
     </footer>

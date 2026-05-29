@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Dewangga Praxindo | DeFi Smart Contract Engineer",
-    "description": "Smart contract engineer berpengalaman 3+ tahun. Bangun protokol DeFi yang secure di Ethereum, Arbitrum, dan Solana. Total TVL $50M+."
+    "description": "Smart contract engineer berpengalaman 3+ tahun, bangun protokol DeFi & Sui Move yang teraudit di Sui, Arbitrum, Base & Solana. Pencipta TOLDPROOF — TVL $50M+, 0 critical."
   },
   "common": {
     "skipToContent": "Skip ke konten"
@@ -20,6 +20,7 @@
       "work": "Karya",
       "log": "Log",
       "contact": "Kontak",
+      "products": "Produk",
       "hire": "Hire saya"
     },
     "hero": {
@@ -155,9 +156,9 @@
         "rekon": "AI · prediksi esports",
         "lazor": "template WebAuthn",
         "vouch": "Hackathon ZK · finalis",
-        "factorUsdc": "$32M TVL · audited",
-        "factorGmx": "leverage vault · v2",
-        "factorEth": "deploy awal · $8M TVL",
+        "factorWethUsdc": "Leverage WETH/USDC Compound",
+        "factorMultilend": "Vault multilend USDC",
+        "factorCbeth": "Lending USDC boosted cbETH",
         "boh": "Chainlink hack · pemenang"
       }
     },
@@ -173,7 +174,9 @@
     },
     "foot": {
       "signed": "SIGNED",
-      "copyright": "© MMXXVI · Yogyakarta, ID · v3 Forge Edition"
+      "copyright": "© MMXXVI · Yogyakarta, ID · v3 Forge Edition",
+      "products": "Produk",
+      "starterKit": "Web3 Starter Kit"
     },
     "perforation": {
       "s02": "— — —  POTONG DI SINI  ·  § 02  — — —",
