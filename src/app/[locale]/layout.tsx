@@ -169,7 +169,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
-        {/* hreflang is emitted via Metadata.alternates.languages (generateMetadata) — not duplicated here */}
+        {/* hreflang is emitted via Metadata.alternates.languages (generateMetadata), not duplicated here */}
         {schemas.map((schema, index) => (
           <script
             key={index}

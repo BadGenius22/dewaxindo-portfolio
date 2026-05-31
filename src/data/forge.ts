@@ -61,6 +61,9 @@ export const AUDIT_STAMPS: AuditStamp[] = [
 ];
 
 export const MARQUEE_TERMS = [
+  "AI AGENTS",
+  "MCP",
+  "x402",
   "SOLIDITY",
   "RUST",
   "FOUNDRY",
@@ -68,6 +71,7 @@ export const MARQUEE_TERMS = [
   "SUI MOVE",
   "NOIR · ZK",
   "NEXT.JS",
+  "TYPESCRIPT",
   "PECKSHIELD AUDITED",
 ];
 
@@ -80,12 +84,12 @@ export interface CapabilityV3 {
 }
 
 export const CAPABILITIES_V3: CapabilityV3[] = [
-  { n: "01", key: "defi", sk: "TVL", sv: "$50M+", em: true },
-  { n: "02", key: "contracts", sk: "STACK", sv: ".sol · .rs" },
-  { n: "03", key: "multichain", sk: "CHAINS", sv: "06" },
+  { n: "01", key: "ai", sk: "SHIPPED", sv: "02 agents", em: true },
+  { n: "02", key: "contracts", sk: "TVL", sv: "$50M+", em: true },
+  { n: "03", key: "fullstack", sk: "SHIPPED", sv: "05 apps" },
   { n: "04", key: "security", sk: "CRITICAL", sv: "0/0/0", em: true },
-  { n: "05", key: "zk", sk: "TOOLS", sv: "Noir · Walrus" },
-  { n: "06", key: "fullstack", sk: "SHIPPED", sv: "Cx ↔ UI" },
+  { n: "05", key: "multichain", sk: "CHAINS", sv: "06" },
+  { n: "06", key: "zk", sk: "TOOLS", sv: "Noir · Walrus" },
 ];
 
 export interface ProcessStep {
@@ -96,8 +100,8 @@ export interface ProcessStep {
 }
 
 export const PROCESS_STEPS: ProcessStep[] = [
-  { n: "01", key: "scope", meta: "DAYS 01—03", bulletKeys: ["0", "1", "2"] },
-  { n: "02", key: "build", meta: "WEEKS 01—04", bulletKeys: ["0", "1", "2"] },
+  { n: "01", key: "scope", meta: "DAYS 01-03", bulletKeys: ["0", "1", "2"] },
+  { n: "02", key: "build", meta: "WEEKS 01-04", bulletKeys: ["0", "1", "2"] },
   { n: "03", key: "deploy", meta: "FINAL WEEK", bulletKeys: ["0", "1", "2"] },
 ];
 
@@ -177,14 +181,14 @@ export const WORKS_V3: WorkV3[] = [
     image: "/images/projects/Factor.png",
     study: {
       role: "Core protocol engineer",
-      window: "2024 — present",
+      window: "2024 to present",
       stack: ["Solidity 0.8.24", "Foundry", "Echidna", "Slither", "Aderyn", "Defender"],
       challenge:
         "Hold real user capital across volatile L2 liquidity venues without ever losing the principal. Withstand price shocks, MEV reorgs, and partner-protocol failures.",
       contributions: [
         "Built leveraged LP vaults for ETH, USDC.e, and PT-GMX across Camelot V3 and Uniswap V3.",
-        "Wrote the rebalancer that keeps each pool within its target health band — saved ~$200k in gas vs the first design via assembly optimizations.",
-        "Authored the invariant suite — 12 properties checked on every PR with 100k+ Echidna runs.",
+        "Wrote the rebalancer that keeps each pool within its target health band. Saved ~$200k in gas vs the first design via assembly optimizations.",
+        "Authored the invariant suite: 12 properties checked on every PR with 100k+ Echidna runs.",
         "Ran the deploy pipeline end-to-end: timelock, multisig, Defender monitors, on-call rotation for the first 30 days post-launch.",
       ],
       results: [
@@ -249,7 +253,7 @@ export interface LogEntry {
   date: string;
   project: string;
   chain: string;
-  /** Truncated display label for the contract / package / program address. `"—"` means no on-chain address (web-only release). */
+  /** Truncated display label for the contract / package / program address. `"·"` means no on-chain address (web-only release). */
   addr: string;
   /** Block-explorer URL pointing at the address above. If absent, addr renders as plain text. */
   explorerUrl?: string;
@@ -268,14 +272,14 @@ export const LOG_ENTRIES: LogEntry[] = [
     noteKey: "toldproof",
     live: true,
   },
-  { date: "2026.03.05", project: "AMALY v2", chain: "WEB · PWA", addr: "—", noteKey: "amaly" },
-  { date: "2026.02.18", project: "REKON.GG", chain: "POLYMARKET", addr: "—", noteKey: "rekon", live: true },
-  { date: "2026.01.30", project: "LAZORKIT SDK", chain: "SOLANA", addr: "—", noteKey: "lazor" },
+  { date: "2026.03.05", project: "AMALY v2", chain: "WEB · PWA", addr: "·", noteKey: "amaly" },
+  { date: "2026.02.18", project: "REKON.GG", chain: "POLYMARKET", addr: "·", noteKey: "rekon", live: true },
+  { date: "2026.01.30", project: "LAZORKIT SDK", chain: "SOLANA", addr: "·", noteKey: "lazor" },
   { date: "2026.01.12", project: "VOUCH PROTOCOL", chain: "SOLANA · NOIR", addr: "EhSk…LuaD", explorerUrl: "https://solscan.io/account/EhSkCuohWP8Sdfq6yHoKih6r2rsNoYYPZZSfpnyELuaD?cluster=devnet", noteKey: "vouch" },
   { date: "2025.11.22", project: "FACTOR LEV WETH/USDC", chain: "ARBITRUM ONE", addr: "0xcB31…D28f", explorerUrl: "https://arbiscan.io/address/0xcB3104Ee2D1132346E137DdFC7CE68da9dFAD28f", noteKey: "factorWethUsdc", live: true },
   { date: "2025.09.04", project: "FACTOR MULTILEND USDC", chain: "ARBITRUM ONE", addr: "0xf19c…6cd2", explorerUrl: "https://arbiscan.io/address/0xf19cc43987838c975f2ba0e5cfe4c78580b86cd2", noteKey: "factorMultilend", live: true },
   { date: "2025.06.18", project: "FACTOR cbETH LENDING", chain: "BASE", addr: "0xee65…40f6", explorerUrl: "https://basescan.org/address/0xee65d18cdc1c879822214a878660b13e8fa440f6", noteKey: "factorCbeth", live: true },
-  { date: "2022.10.09", project: "BATTLE OF HEROES", chain: "ETHEREUM", addr: "—", noteKey: "boh" },
+  { date: "2022.10.09", project: "BATTLE OF HEROES", chain: "ETHEREUM", addr: "·", noteKey: "boh" },
 ];
 
 export interface SocialV3 {
@@ -288,6 +292,7 @@ export const SOCIALS_V3: SocialV3[] = [
   { pl: "X / Twitter", hd: "@dewaxindo", url: "https://x.com/dewaxindo" },
   { pl: "GitHub", hd: "BadGenius22", url: "https://github.com/BadGenius22" },
   { pl: "LinkedIn", hd: "in/dewaxindo", url: "https://linkedin.com/in/dewaxindo" },
+  { pl: "Instagram", hd: "@dewaxindo", url: "https://instagram.com/dewaxindo" },
 ];
 
 export const FORGE_EMAIL = "hi@dewaxindo.com";

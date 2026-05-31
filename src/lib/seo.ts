@@ -77,7 +77,7 @@ export function generatePersonSchema() {
       name: "Factor Finance",
       url: "https://pro.factor.fi",
     },
-    award: ["Chainlink Fall 2022 Hackathon Winner — Top Quality Project"],
+    award: ["Chainlink Fall 2022 Hackathon Winner: Top Quality Project"],
     hasCredential: [
       {
         "@type": "EducationalOccupationalCredential",
@@ -284,7 +284,7 @@ export function generatePortfolioSchema() {
 }
 
 /**
- * ProfilePage schema — wraps the homepage as a profile of the Person entity.
+ * ProfilePage schema. Wraps the homepage as a profile of the Person entity.
  * Strong signal for "who is X" queries and AI-engine citation.
  */
 export function generateProfilePageSchema(locale: string = defaultLocale) {

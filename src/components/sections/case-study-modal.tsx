@@ -42,7 +42,7 @@ export function CaseStudyModal({ work, onClose }: CaseStudyModalProps) {
           <span>
             {t("file")} · {work.id.toUpperCase()} · {work.year}
           </span>
-          <span className="cs-tape-mid">— {t("opened")} —</span>
+          <span className="cs-tape-mid">· {t("opened")} ·</span>
           <button className="cs-close" onClick={onClose} aria-label={t("closeLabel")}>
             [ ESC ]
           </button>

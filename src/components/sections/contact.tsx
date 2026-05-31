@@ -10,7 +10,7 @@ export async function Contact() {
         RECEIPTS
       </div>
       <div className="contact-inner">
-        <div className="contact-eyebrow">§ 05 — {t("eyebrow")}</div>
+        <div className="contact-eyebrow">§ 05 · {t("eyebrow")}</div>
 
         <h2 className="contact-pitch">
           {t("pitchPre")}

@@ -45,7 +45,7 @@ export async function Changelog() {
                 </span>
                 <span className="lg-chain">{e.chain}</span>
                 <span className="lg-hash">
-                  {e.addr === "—" ? (
+                  {e.addr === "·" ? (
                     <span style={{ color: "var(--ink-faint)" }}>{e.addr}</span>
                   ) : e.explorerUrl ? (
                     <a
@@ -68,7 +68,7 @@ export async function Changelog() {
 
           <div className="log-frame-foot">
             <span>END · OF · ROLL</span>
-            <span>— · — · —</span>
+            <span>· · ·</span>
           </div>
         </div>
       </div>

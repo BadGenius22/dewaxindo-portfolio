@@ -99,7 +99,7 @@ export default async function ProductsPage({
                   <div className="pk-card-media">
                     <Image
                       src={product.image}
-                      alt={`${t(`items.${product.id}.title`)} — ${t(`items.${product.id}.subtitle`)}`}
+                      alt={`${t(`items.${product.id}.title`)}: ${t(`items.${product.id}.subtitle`)}`}
                       fill
                       className="pk-img"
                       sizes="(max-width: 900px) 100vw, 480px"

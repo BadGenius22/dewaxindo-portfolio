@@ -5,18 +5,37 @@
 
 export const siteConfig = {
   name: "Dewangga Praxindo",
-  title: "Dewangga Praxindo | DeFi Smart Contract Engineer",
+  title: "Dewangga Praxindo | AI · Smart Contract · Full-Stack Engineer",
   description:
-    "Smart contract engineer (3+ yrs) building audited DeFi & Sui Move protocols — Sui, Arbitrum, Base, Solana. Creator of TOLDPROOF. $50M+ TVL, 0 criticals.",
+    "AI, smart contract & full-stack engineer (3+ yrs). Ship AI agents on x402/MCP, audited Sui Move & Solidity protocols, and Next.js products. $50M+ TVL · 3 audits · 0 criticals.",
   url: "https://dewaxindo.com",
   ogImage: "/og-image.png",
   favicon: "/favicon.ico",
 
   // SEO keywords for Google (including long-tail variations)
   keywords: [
-    // Core
+    // Core identity (new framing)
+    "AI engineer",
+    "AI agent engineer",
+    "Full-stack engineer",
+    "Full-stack Web3 engineer",
     "DeFi smart contract engineer",
     "Smart contract engineer",
+    // AI / agentic
+    "x402 developer",
+    "MCP developer",
+    "MCP server developer",
+    "AI agent infrastructure",
+    "agentic payments developer",
+    "prediction market developer",
+    "AI prediction market",
+    // Full-stack
+    "Next.js developer",
+    "TypeScript developer",
+    "React developer",
+    "PWA developer",
+    "Tailwind developer",
+    // Smart contract
     "Solidity developer",
     "Web3 developer",
     "Blockchain engineer",
@@ -32,11 +51,6 @@ export const siteConfig = {
     "zero-knowledge developer",
     "ZK circuit developer",
     "ZK proof Solana",
-    // AI / agentic payments
-    "x402 developer",
-    "AI agent infrastructure",
-    "MCP developer",
-    "prediction market developer",
     // Wallet infra
     "passkey wallet developer",
     "account abstraction Solana",
@@ -54,6 +68,8 @@ export const siteConfig = {
     "Anchor Solana developer",
     "Rust Solana developer",
     // Service-oriented
+    "hire AI engineer",
+    "hire full-stack engineer",
     "hire Sui developer",
     "hire DeFi developer",
     "Web3 consultant Indonesia",
@@ -63,12 +79,21 @@ export const siteConfig = {
   // Author info for structured data
   author: {
     name: "Dewangga Praxindo",
-    jobTitle: "DeFi & Sui Move Smart Contract Engineer",
+    jobTitle: "AI, Smart Contract & Full-Stack Engineer",
     email: "hi@dewaxindo.com",
     location: "Yogyakarta, Indonesia",
     experience: "3+ years",
     tvlDeployed: "$50M+",
     specialties: [
+      "AI agents",
+      "x402 payments",
+      "MCP",
+      "prediction markets",
+      "Next.js",
+      "TypeScript",
+      "React",
+      "Tailwind CSS",
+      "PWA",
       "Sui Move",
       "Walrus",
       "Seal",
@@ -76,8 +101,6 @@ export const siteConfig = {
       "Rust",
       "Anchor",
       "Noir zero-knowledge circuits",
-      "x402 payments",
-      "MCP",
       "account abstraction",
       "DeFi protocol engineering",
       "smart contract security",

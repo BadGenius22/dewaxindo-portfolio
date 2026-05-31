@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Dewangga Praxindo | DeFi Smart Contract Engineer",
-    "description": "Smart contract engineer (3+ yrs) building audited DeFi & Sui Move protocols on Sui, Arbitrum, Base & Solana. Creator of TOLDPROOF — $50M+ TVL, 0 criticals."
+    "title": "Dewangga Praxindo | AI · Smart Contract · Full-Stack Engineer",
+    "description": "AI, smart contract & full-stack engineer (3+ yrs). Ship AI agents on x402/MCP, audited Sui Move & Solidity protocols, and Next.js products. $50M+ TVL · 3 audits · 0 criticals."
   },
   "common": {
     "skipToContent": "Skip to main content"
@@ -12,7 +12,7 @@
   },
   "forge": {
     "tape": {
-      "available": "AVAILABLE — Q2 2026"
+      "available": "AVAILABLE · Q2 2026"
     },
     "nav": {
       "services": "Services",
@@ -24,7 +24,7 @@
       "hire": "Hire me"
     },
     "hero": {
-      "lede": "I am a <strong>DeFi smart contract engineer</strong> based in Yogyakarta, Indonesia. I write the contracts that move money — <mark>$50M+ TVL deployed</mark> across Ethereum, Arbitrum, Base, Solana, and Sui. Three full PeckShield audits, zero criticals. The receipts are below.",
+      "lede": "I am an <strong>AI, smart contract & full-stack engineer</strong> based in Yogyakarta, Indonesia. I ship AI agents on x402 and MCP, audited contracts that move money (<mark>$50M+ TVL deployed</mark> across Ethereum, Arbitrum, Base, Solana, and Sui), and the Next.js products around them. Three full PeckShield audits, zero criticals. The receipts are below.",
       "ctaPrimary": "Hire me",
       "ctaGhost": "See selected work"
     },
@@ -48,29 +48,29 @@
       "marker": "What I build",
       "title": "Six things <br/> I can <span class=\"clay\">build</span> for you,<br/> <span class=\"outline\">end-to-end.</span>",
       "items": {
-        "defi": {
-          "title": "DeFi Engineering",
-          "desc": "Vaults, liquidity pools, and yield strategies that hold real user money. Production protocols on Arbitrum and Ethereum."
+        "ai": {
+          "title": "AI Agent Engineering",
+          "desc": "AI agents that move real money: x402 payments, MCP servers, and prediction-market infrastructure. Powering TOLDPROOF and RekonGG in production."
         },
         "contracts": {
           "title": "Smart Contracts",
-          "desc": "I write Solidity and Rust. Heavy testing before any audit — fuzz tests, invariants, and mutation testing run on every change."
+          "desc": "Solidity, Rust, and Sui Move. DeFi vaults, lending, and yield strategies holding $50M+ TVL. Fuzz tests, invariants, and mutation testing on every change."
         },
-        "multichain": {
-          "title": "Multi-Chain",
-          "desc": "Live on six chains — Ethereum, Arbitrum, Base, Solana, Sui, and Polygon. Each one with its own deploy plan and monitoring."
+        "fullstack": {
+          "title": "Full-Stack Products",
+          "desc": "Next.js, TypeScript, React, Tailwind, PWA. I ship the contract, the AI, and the product around them. No handoffs, no rewrites at the boundary."
         },
         "security": {
           "title": "Security First",
           "desc": "Three PeckShield audits. Zero critical issues found, every time. Slither and Aderyn run on every PR before merge."
         },
+        "multichain": {
+          "title": "Multi-Chain",
+          "desc": "Live on six chains: Ethereum, Arbitrum, Base, Solana, Sui, and Polygon. Each with its own deploy plan and monitoring."
+        },
         "zk": {
           "title": "ZK & Privacy",
-          "desc": "Zero-knowledge proofs with Noir. Sealed predictions on Sui, time-locked reveals — keeping data private without losing trust."
-        },
-        "fullstack": {
-          "title": "Full-Stack Web3",
-          "desc": "React, Next.js, TypeScript. I build the contract and the website it talks to — no handoffs between people, no rewriting at the boundary."
+          "desc": "Zero-knowledge proofs with Noir. Sealed predictions on Sui, time-locked reveals. Keeping data private without losing trust."
         }
       }
     },
@@ -115,7 +115,7 @@
       "taglines": {
         "toldproof": "A way for AI agents and people to prove their predictions are honest. Sealed on Sui, revealed on time.",
         "amaly": "A mobile app for tracking prayers during Ramadan. Quran reader, streaks, leaderboard.",
-        "factor": "DeFi yield strategies on Arbitrum. I am a core engineer — leverage vaults, LP management, the contracts that hold $50M+ TVL.",
+        "factor": "DeFi yield strategies on Arbitrum. I am a core engineer: leverage vaults, LP management, the contracts that hold $50M+ TVL.",
         "rekon": "Esports predictions powered by AI on Polymarket. Pay in USDC with one click.",
         "lazor": "A Solana wallet template with Face ID and Touch ID. No seed phrases.",
         "vouch": "Prove things about your Solana wallet without revealing who you are. Built with Noir zero-knowledge circuits.",
@@ -170,7 +170,7 @@
       "pitchHighlight": "auditing",
       "orCopy": "or copy address",
       "copyTitle": "Copy email",
-      "lede": "I reply in <b>under 24 hours</b> on weekdays. Available for contract audits, protocol engineering, and Web3 advice — <b>starting Q2 2026</b>."
+      "lede": "I reply in <b>under 24 hours</b> on weekdays. Available for contract audits, protocol engineering, and Web3 advice, <b>starting Q2 2026</b>."
     },
     "foot": {
       "signed": "SIGNED",
@@ -179,11 +179,11 @@
       "starterKit": "Web3 Starter Kit"
     },
     "perforation": {
-      "s02": "— — —  CUT HERE  ·  § 02  — — —",
-      "s03": "— — —  CUT HERE  ·  § 03  — — —",
-      "s04": "— — —  CUT HERE  ·  § 04  — — —",
-      "s05": "— — —  CUT HERE  ·  § 05  — — —",
-      "end": "— — —  END OF ROLL  — — —"
+      "s02": "· · ·  CUT HERE  ·  § 02  · · ·",
+      "s03": "· · ·  CUT HERE  ·  § 03  · · ·",
+      "s04": "· · ·  CUT HERE  ·  § 04  · · ·",
+      "s05": "· · ·  CUT HERE  ·  § 05  · · ·",
+      "end": "· · ·  END OF ROLL  · · ·"
     }
   },
   "products": {
@@ -213,7 +213,7 @@
     },
     "comingSoon": {
       "title": "Coming Soon",
-      "description": "I'm working on digital products to help you accelerate your Web3 journey. Templates, guides, and resources — all coming soon.",
+      "description": "I'm working on digital products to help you accelerate your Web3 journey. Templates, guides, and resources, all coming soon.",
       "emailPlaceholder": "Enter your email",
       "emailAriaLabel": "Email address for product notifications",
       "notifyMe": "Notify Me",
@@ -245,7 +245,7 @@
     },
     "hero": {
       "headline": "From Zero to Web3 Developer in 5 Steps",
-      "subheadline": "Free 22-page guide — a practical roadmap from a developer already working in the industry.",
+      "subheadline": "Free 22-page guide: a practical roadmap from a developer already working in the industry.",
       "languageNote": "Written in Bahasa Indonesia",
       "cta": "Send to My Email!",
       "socialProof": "500+ developers have downloaded"
