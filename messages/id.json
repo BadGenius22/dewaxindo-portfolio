@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Dewangga Praxindo | DeFi Smart Contract Engineer",
-    "description": "Smart contract engineer berpengalaman 3+ tahun, bangun protokol DeFi & Sui Move yang teraudit di Sui, Arbitrum, Base & Solana. Pencipta TOLDPROOF — TVL $50M+, 0 critical."
+    "title": "Dewangga Praxindo | AI · Smart Contract · Full-Stack Engineer",
+    "description": "AI, smart contract & full-stack engineer (3+ tahun). Bangun AI agent di x402/MCP, protokol Sui Move & Solidity yang teraudit, dan produk Next.js. TVL $50M+ · 3 audit · 0 critical."
   },
   "common": {
     "skipToContent": "Skip ke konten"
@@ -12,7 +12,7 @@
   },
   "forge": {
     "tape": {
-      "available": "TERSEDIA — Q2 2026"
+      "available": "TERSEDIA · Q2 2026"
     },
     "nav": {
       "services": "Layanan",
@@ -24,7 +24,7 @@
       "hire": "Hire saya"
     },
     "hero": {
-      "lede": "Saya <strong>DeFi smart contract engineer</strong> yang berbasis di Yogyakarta, Indonesia. Saya nulis kontrak yang ngurusin uang — <mark>$50M+ TVL deployed</mark> di Ethereum, Arbitrum, Base, Solana, dan Sui. Tiga audit penuh dari PeckShield, nol critical. Buktinya ada di bawah.",
+      "lede": "Saya <strong>AI, smart contract & full-stack engineer</strong> yang berbasis di Yogyakarta, Indonesia. Saya bangun AI agent di x402 dan MCP, kontrak teraudit yang ngurusin uang (<mark>$50M+ TVL deployed</mark> di Ethereum, Arbitrum, Base, Solana, dan Sui), sekaligus produk Next.js di atasnya. Tiga audit penuh dari PeckShield, nol critical. Buktinya ada di bawah.",
       "ctaPrimary": "Hire saya",
       "ctaGhost": "Lihat karya pilihan"
     },
@@ -48,29 +48,29 @@
       "marker": "Yang saya bangun",
       "title": "Enam hal <br/> yang bisa saya <span class=\"clay\">bangun</span> untuk kamu,<br/> <span class=\"outline\">end-to-end.</span>",
       "items": {
-        "defi": {
-          "title": "DeFi Engineering",
-          "desc": "Vault, liquidity pool, dan yield strategy yang nampung uang user beneran. Protokol production di Arbitrum dan Ethereum."
+        "ai": {
+          "title": "AI Agent Engineering",
+          "desc": "AI agent yang ngurusin uang beneran: x402 payments, MCP server, dan infrastruktur prediction market. Jalanin TOLDPROOF dan RekonGG di production."
         },
         "contracts": {
           "title": "Smart Contracts",
-          "desc": "Saya nulis Solidity dan Rust. Testing berlapis sebelum audit — fuzz test, invariant, dan mutation testing di setiap perubahan."
+          "desc": "Solidity, Rust, dan Sui Move. DeFi vault, lending, dan yield strategy yang nampung $50M+ TVL. Fuzz test, invariant, dan mutation testing di setiap perubahan."
         },
-        "multichain": {
-          "title": "Multi-Chain",
-          "desc": "Live di enam chain — Ethereum, Arbitrum, Base, Solana, Sui, dan Polygon. Masing-masing dengan rencana deploy dan monitoring sendiri."
+        "fullstack": {
+          "title": "Full-Stack Products",
+          "desc": "Next.js, TypeScript, React, Tailwind, PWA. Saya kirim kontrak, AI, dan produk di atasnya. Tanpa handoff, tanpa rewrite di boundary."
         },
         "security": {
           "title": "Security First",
           "desc": "Tiga audit PeckShield. Nol critical issue, setiap kali. Slither dan Aderyn jalan di setiap PR sebelum merge."
         },
+        "multichain": {
+          "title": "Multi-Chain",
+          "desc": "Live di enam chain: Ethereum, Arbitrum, Base, Solana, Sui, dan Polygon. Masing-masing dengan rencana deploy dan monitoring sendiri."
+        },
         "zk": {
           "title": "ZK & Privacy",
-          "desc": "Zero-knowledge proof pakai Noir. Sealed prediction di Sui, reveal berbasis waktu — data tetap private tanpa kehilangan trust."
-        },
-        "fullstack": {
-          "title": "Full-Stack Web3",
-          "desc": "React, Next.js, TypeScript. Saya bangun kontraknya sekaligus website yang ngobrol sama kontrak — tanpa handoff, tanpa rewrite di boundary."
+          "desc": "Zero-knowledge proof pakai Noir. Sealed prediction di Sui, reveal berbasis waktu. Data tetap private tanpa kehilangan trust."
         }
       }
     },
@@ -81,7 +81,7 @@
         "scope": {
           "title": "Scope & threat model",
           "bullets": {
-            "0": "Baca semua spec, kode, dan audit sebelumnya — baris per baris.",
+            "0": "Baca semua spec, kode, dan audit sebelumnya, baris per baris.",
             "1": "Diagram trust assumption-nya. Tandai semua tempat nilai melintasi trust boundary.",
             "2": "Tulis threat model. Kemampuan adversary, invariant yang nggak boleh pecah."
           }
@@ -115,7 +115,7 @@
       "taglines": {
         "toldproof": "Cara biar AI agent dan manusia bisa membuktikan prediksi mereka jujur. Disegel di Sui, dibuka tepat waktu.",
         "amaly": "Aplikasi mobile untuk tracking ibadah selama Ramadan. Quran reader, streak, leaderboard.",
-        "factor": "Strategi yield DeFi di Arbitrum. Saya core engineer — leverage vault, LP management, kontrak yang nampung $50M+ TVL.",
+        "factor": "Strategi yield DeFi di Arbitrum. Saya core engineer: leverage vault, LP management, kontrak yang nampung $50M+ TVL.",
         "rekon": "Prediksi esports berbasis AI di Polymarket. Bayar pakai USDC sekali klik.",
         "lazor": "Template wallet Solana dengan Face ID dan Touch ID. Tanpa seed phrase.",
         "vouch": "Buktikan sesuatu tentang wallet Solana kamu tanpa kasih tahu siapa kamu. Dibangun pakai circuit zero-knowledge Noir.",
@@ -170,7 +170,7 @@
       "pitchHighlight": "diaudit",
       "orCopy": "atau copy alamat",
       "copyTitle": "Copy email",
-      "lede": "Saya bales di <b>bawah 24 jam</b> pada hari kerja. Siap untuk contract audit, protocol engineering, dan konsultasi Web3 — <b>mulai Q2 2026</b>."
+      "lede": "Saya bales di <b>bawah 24 jam</b> pada hari kerja. Siap untuk contract audit, protocol engineering, dan konsultasi Web3, <b>mulai Q2 2026</b>."
     },
     "foot": {
       "signed": "SIGNED",
@@ -179,11 +179,11 @@
       "starterKit": "Web3 Starter Kit"
     },
     "perforation": {
-      "s02": "— — —  POTONG DI SINI  ·  § 02  — — —",
-      "s03": "— — —  POTONG DI SINI  ·  § 03  — — —",
-      "s04": "— — —  POTONG DI SINI  ·  § 04  — — —",
-      "s05": "— — —  POTONG DI SINI  ·  § 05  — — —",
-      "end": "— — —  AKHIR ROLL  — — —"
+      "s02": "· · ·  POTONG DI SINI  ·  § 02  · · ·",
+      "s03": "· · ·  POTONG DI SINI  ·  § 03  · · ·",
+      "s04": "· · ·  POTONG DI SINI  ·  § 04  · · ·",
+      "s05": "· · ·  POTONG DI SINI  ·  § 05  · · ·",
+      "end": "· · ·  AKHIR ROLL  · · ·"
     }
   },
   "products": {
@@ -213,7 +213,7 @@
     },
     "comingSoon": {
       "title": "Segera Hadir",
-      "description": "Lagi nyiapin produk digital buat bantu kamu di Web3. Template, guide, dan resource — coming soon.",
+      "description": "Lagi nyiapin produk digital buat bantu kamu di Web3. Template, guide, dan resource, coming soon.",
       "emailPlaceholder": "Masukkan email kamu",
       "emailAriaLabel": "Alamat email untuk notifikasi produk",
       "notifyMe": "Kabari Aku",
@@ -245,7 +245,7 @@
     },
     "hero": {
       "headline": "Dari Nol ke Web3 Developer dalam 5 Langkah",
-      "subheadline": "Panduan gratis 22 halaman — roadmap praktis dari developer yang udah kerja di industri ini.",
+      "subheadline": "Panduan gratis 22 halaman: roadmap praktis dari developer yang udah kerja di industri ini.",
       "languageNote": "Ditulis dalam Bahasa Indonesia",
       "cta": "Kirim ke Email Aku!",
       "socialProof": "500+ developers udah download"

@@ -39,25 +39,25 @@ export function Hero() {
     <section id="top" className="hero">
       <div className="hero-eyebrow">
         <span>DEWANGGA PRAXINDO</span>
-        <span>—</span>
-        <span>DEFI SMART CONTRACT ENGINEER</span>
-        <span>—</span>
+        <span>·</span>
+        <span>AI · SMART CONTRACT · FULL-STACK ENGINEER</span>
+        <span>·</span>
         <span>EST. 2022</span>
       </div>
 
       <h1 className="hero-headline">
         <span className="sr-only">
-          Dewangga Praxindo — DeFi smart contract engineer shipping audited contracts that move real money.
+          Dewangga Praxindo. AI, smart contract, and full-stack engineer shipping agents, audited contracts, and products that move real money.
         </span>
         <span className="row">SHIPPING</span>
         <span className="row">
-          <span className="clay">SMART</span> CONTRACTS
+          <span className="clay">AI</span>, CONTRACTS
         </span>
         <span className="row">
-          <span className="outline">REAL MONEY</span>
+          <span className="outline">&amp; PRODUCTS</span>
         </span>
         <span className="row">
-          TRUSTS<span style={{ color: "var(--clay)" }}>.</span>
+          REAL MONEY TRUSTS<span style={{ color: "var(--clay)" }}>.</span>
         </span>
       </h1>
 

@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
-        // AI answer engines & LLM crawlers — explicitly welcomed for citation
+        // AI answer engines & LLM crawlers. Explicitly welcomed for citation
         userAgent: [
           "GPTBot",
           "OAI-SearchBot",
