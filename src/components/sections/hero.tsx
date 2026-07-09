@@ -4,17 +4,19 @@ import * as React from "react";
 import { useTranslations } from "next-intl";
 import {
   RECEIPT_CYCLE,
-  AUDIT_STAMPS,
-  MARQUEE_TERMS,
+  RECEIPT_BARS,
+  DISCIPLINES,
+  STACK_TERMS,
+  FORGE_EMAIL,
 } from "@/data/forge";
 
-function LiveBlock() {
-  const [block, setBlock] = React.useState(22049837);
+function BuildCounter() {
+  const [build, setBuild] = React.useState(1287);
   React.useEffect(() => {
-    const id = setInterval(() => setBlock((b) => b + 1), 12000);
+    const id = setInterval(() => setBuild((b) => b + 1), 12000);
     return () => clearInterval(id);
   }, []);
-  return <>#{block.toLocaleString()}</>;
+  return <>#{build.toLocaleString()}</>;
 }
 
 function useReceipt() {
@@ -26,39 +28,28 @@ function useReceipt() {
   return { ...RECEIPT_CYCLE[i], idx: i };
 }
 
-const BAR_HEIGHTS = [18, 22, 14, 22, 16, 22, 14, 22, 18, 22, 14, 18, 22, 14, 22];
-const BAR_WIDTHS: Record<number, number> = { 2: 4, 5: 3, 8: 2, 12: 4 };
-
 export function Hero() {
   const r = useReceipt();
   const t = useTranslations("forge.hero");
   const tReceipt = useTranslations("forge.receipt");
-  const tAudit = useTranslations("forge.audit");
+  const tDisc = useTranslations("forge.disciplines");
 
   return (
     <section id="top" className="hero">
       <div className="hero-eyebrow">
-        <span>DEWANGGA PRAXINDO</span>
-        <span>—</span>
-        <span>DEFI SMART CONTRACT ENGINEER</span>
-        <span>—</span>
-        <span>EST. 2022</span>
+        <span>{t("eyebrowName")}</span>
+        <span className="star">✦</span>
+        <span>{t("eyebrowRole")}</span>
+        <span className="star">✦</span>
+        <span>{t("eyebrowEst")}</span>
       </div>
 
       <h1 className="hero-headline">
-        <span className="sr-only">
-          Dewangga Praxindo — DeFi smart contract engineer shipping audited contracts that move real money.
-        </span>
-        <span className="row">SHIPPING</span>
-        <span className="row">
-          <span className="clay">SMART</span> CONTRACTS
-        </span>
-        <span className="row">
-          <span className="outline">REAL MONEY</span>
-        </span>
-        <span className="row">
-          TRUSTS<span style={{ color: "var(--clay)" }}>.</span>
-        </span>
+        <span className="sr-only">{t("srHeadline")}</span>
+        <span
+          aria-hidden="true"
+          dangerouslySetInnerHTML={{ __html: t.raw("headline") as string }}
+        />
       </h1>
 
       <div className="hero-stage">
@@ -68,8 +59,8 @@ export function Hero() {
             dangerouslySetInnerHTML={{ __html: t.raw("lede") as string }}
           />
           <div className="hero-ctas">
-            <a className="hero-cta primary" href="#contact">
-              {t("ctaPrimary")} <span className="hc-ico">↓</span>
+            <a className="hero-cta primary" href={`mailto:${FORGE_EMAIL}`}>
+              {t("ctaPrimary")} <span className="hc-ico">↗</span>
             </a>
             <a className="hero-cta ghost" href="#works">
               {t("ctaGhost")} <span className="hc-ico">→</span>
@@ -88,45 +79,35 @@ export function Hero() {
             <span className="v">{r.project}</span>
           </div>
           <div className="row">
-            <span className="k">{tReceipt("chain")}</span>
-            <span className="v">{r.chain}</span>
+            <span className="k">{tReceipt("stack")}</span>
+            <span className="v">{r.stack}</span>
           </div>
           <div className="row">
-            <span className="k">{tReceipt("tvl")}</span>
-            <span className="v bigmoney">{r.tvl}</span>
+            <span className="k">{tReceipt("scale")}</span>
+            <span className="v bigmoney">{r.scale}</span>
           </div>
           <div className="row">
-            <span className="k">{tReceipt("audit")}</span>
-            <span className="v em">{r.audit}</span>
+            <span className="k">{tReceipt("status")}</span>
+            <span className="v em">{r.status}</span>
           </div>
           <div className="row">
-            <span className="k">{tReceipt("block")}</span>
+            <span className="k">{tReceipt("build")}</span>
             <span className="v">
-              <LiveBlock />
+              <BuildCounter />
             </span>
           </div>
           <div className="row">
-            <span className="k">{tReceipt("address")}</span>
+            <span className="k">{tReceipt("commit")}</span>
             <span className="v">
-              {r.explorerUrl ? (
-                <a
-                  className="copy-btn"
-                  href={r.explorerUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  title={tReceipt("openExplorer")}
-                >
-                  {r.addr} <span className="copy-ico">↗</span>
-                </a>
-              ) : (
-                <span>{r.addr}</span>
-              )}
+              <button className="copy-btn" data-copy={r.hash} title={tReceipt("copyCommit")}>
+                {r.hash} <span className="copy-ico">⎘</span>
+              </button>
             </span>
           </div>
           <div className="barcode">
             <div className="bars">
-              {BAR_HEIGHTS.map((h, i) => (
-                <span key={i} style={{ height: h, width: BAR_WIDTHS[i] ?? undefined }} />
+              {RECEIPT_BARS.map((bar, i) => (
+                <span key={i} style={{ height: bar.h, width: bar.w ?? undefined }} />
               ))}
             </div>
             <span style={{ color: "var(--ink-3)" }}>DWX·MMXXVI</span>
@@ -140,35 +121,28 @@ export function Hero() {
         </aside>
       </div>
 
-      <div className="audit-row" aria-label={tAudit("ariaLabel")}>
-        {AUDIT_STAMPS.map((s, i) => (
-          <div key={i} className="audit-stamp">
-            <div className="audit-stamp-inner">
-              <span className="as-t">
-                Peck
-                <br />
-                Shield
-              </span>
-              <span className="as-mid">AUDIT</span>
-              <span className="as-d">{s.date}</span>
-            </div>
-            <span className="as-label">{s.label}</span>
+      <div className="disc-strip" aria-label={tDisc("ariaLabel")}>
+        {DISCIPLINES.map((d) => (
+          <div key={d.key} className="disc">
+            <span className="d-n">{d.n}</span>
+            <span className="d-t">{tDisc(`${d.key}.title`)}</span>
+            <span className="d-s">{d.sub}</span>
           </div>
         ))}
-        <div className="audit-tally">
-          <span className="at-num">3 / 3</span>
+        <div className="disc-tally">
+          <span className="at-num">1 / 3</span>
           <span
             className="at-lbl"
-            dangerouslySetInnerHTML={{ __html: tAudit("tally") as string }}
+            dangerouslySetInnerHTML={{ __html: tDisc.raw("tally") as string }}
           />
         </div>
       </div>
 
-      <div className="marquee" aria-hidden="true">
+      <div className="stackline" aria-hidden="true">
         <div className="track">
           {[0, 1].map((dup) => (
             <React.Fragment key={dup}>
-              {MARQUEE_TERMS.map((term) => (
+              {STACK_TERMS.map((term) => (
                 <React.Fragment key={term}>
                   <span>{term}</span>
                   <span className="star">✦</span>

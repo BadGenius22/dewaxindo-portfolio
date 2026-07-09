@@ -13,7 +13,7 @@ export async function Changelog() {
       <div className="forge-container">
         <header className="sec-head">
           <div className="marker">
-            <span className="num">§ 04</span> {t("marker")}
+            <span className="num">§ 05</span> {t("marker")}
           </div>
           <h2 dangerouslySetInnerHTML={{ __html: t.raw("title") as string }} />
         </header>

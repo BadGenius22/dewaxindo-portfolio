@@ -18,105 +18,119 @@
       "services": "Services",
       "process": "Process",
       "work": "Work",
+      "audits": "Audits",
       "log": "Log",
       "contact": "Contact",
-      "products": "Products",
       "hire": "Hire me"
     },
     "hero": {
-      "lede": "I am a <strong>DeFi smart contract engineer</strong> based in Yogyakarta, Indonesia. I write the contracts that move money — <mark>$50M+ TVL deployed</mark> across Ethereum, Arbitrum, Base, Solana, and Sui. Three full PeckShield audits, zero criticals. The receipts are below.",
+      "eyebrowName": "Dewangga Praxindo",
+      "eyebrowRole": "AI · Full-Stack · Smart Contract Engineer",
+      "eyebrowEst": "Est. 2022",
+      "srHeadline": "Dewangga Praxindo — an AI, full-stack, and smart contract engineer shipping AI, full-stack, and onchain systems.",
+      "headline": "Shipping <span class=\"clay\">AI</span>, full-stack &amp; onchain systems<span class=\"clay\">.</span>",
+      "lede": "I'm an <strong>AI &amp; full-stack engineer</strong> based in Yogyakarta, Indonesia — I also write the smart contracts that move money. LLM agents, production web apps, and <mark>$50M+ TVL deployed</mark> onchain. I build the whole stack: the model, the interface, and the contract underneath.",
       "ctaPrimary": "Hire me",
-      "ctaGhost": "See selected work"
+      "ctaGhost": "Selected work"
     },
     "receipt": {
-      "title": "Deploy Receipt",
-      "deployed": "DEPLOYED",
+      "title": "Ship Receipt",
+      "deployed": "Deployed",
       "live": "LIVE",
       "project": "Project",
-      "chain": "Chain",
-      "tvl": "TVL",
-      "audit": "Audit",
-      "block": "Block",
-      "address": "Address",
-      "openExplorer": "Open in explorer"
+      "stack": "Stack",
+      "scale": "Scale",
+      "status": "Status",
+      "build": "Build",
+      "commit": "Commit",
+      "copyCommit": "Copy commit"
     },
-    "audit": {
-      "ariaLabel": "Audit history",
-      "tally": "Audits passed.<br/>Zero critical findings."
+    "disciplines": {
+      "ariaLabel": "Three disciplines, one engineer",
+      "ai": {
+        "title": "AI Systems"
+      },
+      "fullstack": {
+        "title": "Full-Stack"
+      },
+      "contracts": {
+        "title": "Smart Contracts"
+      },
+      "tally": "One engineer.<br/>Three disciplines."
     },
     "capabilities": {
       "marker": "What I build",
-      "title": "Six things <br/> I can <span class=\"clay\">build</span> for you,<br/> <span class=\"outline\">end-to-end.</span>",
+      "title": "Six things I can <span class=\"clay\">build</span> for you, <span class=\"outline\">end-to-end.</span>",
       "items": {
-        "defi": {
-          "title": "DeFi Engineering",
+        "aiEngineering": {
+          "title": "AI Engineering",
+          "desc": "LLM agents, RAG pipelines, and evals that actually ship. Function calling, tool use, retrieval, and guardrails — from prompt to production."
+        },
+        "fullstackApps": {
+          "title": "Full-Stack Apps",
+          "desc": "React, Next.js, TypeScript end to end. Auth, payments, realtime, and the database underneath. I ship the whole product, not a slice."
+        },
+        "smartContracts": {
+          "title": "Smart Contracts",
+          "desc": "Solidity and Rust. Heavy testing before any audit — fuzz tests, invariants, and mutation testing run on every change."
+        },
+        "defiOnchain": {
+          "title": "DeFi & Onchain",
           "desc": "Vaults, liquidity pools, and yield strategies that hold real user money. Production protocols on Arbitrum and Ethereum."
         },
-        "contracts": {
-          "title": "Smart Contracts",
-          "desc": "I write Solidity and Rust. Heavy testing before any audit — fuzz tests, invariants, and mutation testing run on every change."
+        "infraShip": {
+          "title": "Infra & Ship",
+          "desc": "CI/CD, observability, and cloud. Postgres, edge functions, queues. The unglamorous parts that keep products alive at 3am."
         },
-        "multichain": {
-          "title": "Multi-Chain",
-          "desc": "Live on six chains — Ethereum, Arbitrum, Base, Solana, Sui, and Polygon. Each one with its own deploy plan and monitoring."
-        },
-        "security": {
+        "securityFirst": {
           "title": "Security First",
-          "desc": "Three PeckShield audits. Zero critical issues found, every time. Slither and Aderyn run on every PR before merge."
-        },
-        "zk": {
-          "title": "ZK & Privacy",
-          "desc": "Zero-knowledge proofs with Noir. Sealed predictions on Sui, time-locked reveals — keeping data private without losing trust."
-        },
-        "fullstack": {
-          "title": "Full-Stack Web3",
-          "desc": "React, Next.js, TypeScript. I build the contract and the website it talks to — no handoffs between people, no rewriting at the boundary."
+          "desc": "Three PeckShield audits, zero critical issues. Slither and Aderyn on every PR. Threat models written before a line of code."
         }
       }
     },
     "process": {
       "marker": "How I work",
-      "title": "Three<br/> phases. <span class=\"clay\">Same</span><br/> every time.",
+      "title": "Three phases. <span class=\"clay\">Same</span> every time.",
       "steps": {
         "scope": {
-          "title": "Scope & threat model",
+          "title": "Scope & design",
           "bullets": {
-            "0": "Read every line of the existing spec, code, and prior audits.",
-            "1": "Diagram the trust assumptions. Mark every place value crosses a trust boundary.",
-            "2": "Write the threat model. Adversary capabilities, invariants we cannot break."
+            "0": "Understand the problem before the stack. Read the code, the specs, the prior art.",
+            "1": "Map the data flow and the trust boundaries. Mark every place value or state crosses one.",
+            "2": "Pick the tools that fit — model, framework, chain — and write the spec we build to."
           }
         },
         "build": {
-          "title": "Write, fuzz, invariants",
+          "title": "Build & test",
           "bullets": {
-            "0": "Solidity / Move / Rust. Foundry tests next to every contract.",
-            "1": "Echidna or Medusa for property-based fuzzing. Mutation testing on every PR.",
-            "2": "Slither + Aderyn run on every push. 80% branch coverage gate before merge."
+            "0": "Ship in vertical slices. Working software every week, not a big-bang reveal.",
+            "1": "Tests live next to the code: evals for AI, e2e for apps, fuzz & invariants for contracts.",
+            "2": "CI on every push. Type-safe end to end. Coverage gate before anything merges."
           }
         },
-        "deploy": {
-          "title": "Audit & deploy",
+        "ship": {
+          "title": "Ship & watch",
           "bullets": {
-            "0": "PeckShield or equivalent. Fixes shipped same day, re-audit on critical paths.",
-            "1": "Mainnet deploy with timelock, multisig, and a tested emergency pause.",
-            "2": "Tenderly + Defender monitors. On-call for the first 30 days post-launch."
+            "0": "Deploy with rollback. Feature flags, timelocks, and a tested kill switch on the money paths.",
+            "1": "Monitoring, logging, and traces wired in — I get paged before users do.",
+            "2": "Audit the critical paths. On-call for the first 30 days after every launch."
           }
         }
       }
     },
     "works": {
       "marker": "Selected works",
-      "title": "<span class=\"clay\">7</span> projects.<br/> All <span class=\"outline\">live</span><br/> or in production.",
+      "title": "<span class=\"clay\">Seven</span> projects.<br/> All live or <span class=\"outline\">in production.</span>",
       "stamps": {
-        "receipt": "RECEIPT",
+        "receipt": "SHIPPED",
         "marquee": "MARQUEE",
-        "caseStudy": "CASE STUDY →"
+        "caseStudy": "CASE STUDY"
       },
       "taglines": {
         "toldproof": "A way for AI agents and people to prove their predictions are honest. Sealed on Sui, revealed on time.",
-        "amaly": "A mobile app for tracking prayers during Ramadan. Quran reader, streaks, leaderboard.",
+        "amaly": "A full-stack prayer-tracking app for Ramadan. Quran reader, streaks, and a leaderboard — shipped as a PWA.",
         "factor": "DeFi yield strategies on Arbitrum. I am a core engineer — leverage vaults, LP management, the contracts that hold $50M+ TVL.",
-        "rekon": "Esports predictions powered by AI on Polymarket. Pay in USDC with one click.",
+        "rekon": "AI-powered esports predictions on Polymarket. Model picks the edge, you pay in USDC with one click.",
         "lazor": "A Solana wallet template with Face ID and Touch ID. No seed phrases.",
         "vouch": "Prove things about your Solana wallet without revealing who you are. Built with Noir zero-knowledge circuits.",
         "boh": "NFT battle game with fair, verifiable randomness. Chainlink hackathon winner in 2022."
@@ -137,9 +151,32 @@
       "endOfFile": "END · OF · FILE",
       "visit": "Visit"
     },
+    "audits": {
+      "marker": "Security record",
+      "title": "Audited code. <br/> <span class=\"clay\">Zero</span> critical findings<span class=\"outline\">, so far.</span>",
+      "passed": "PASSED",
+      "total": "TOTAL",
+      "col": {
+        "date": "Date",
+        "scope": "Scope",
+        "firm": "Firm",
+        "result": "Result"
+      },
+      "results": {
+        "zeroCritical": "0 critical",
+        "reportPending": "Report pending"
+      },
+      "credLabel": "CREDENTIAL",
+      "credStatus": "GRADUATE",
+      "credName": "RektOff Solana Auditor Bootcamp",
+      "credDesc": "Graduated from RektOff's Solana security bootcamp — auditing Anchor and native programs: account validation, CPI safety, and the exploit patterns that drain protocols.",
+      "credMetaLeft": "SOLANA · SECURITY",
+      "credMetaRight": "CERTIFIED · 2026",
+      "credPlaceholder": "[ RektOff certificate — image coming soon ]"
+    },
     "log": {
       "marker": "Deploy log",
-      "title": "<span class=\"clay\">9</span> commits<br/> to <span class=\"outline\">production.</span><br/> All on chain.",
+      "title": "<span class=\"clay\">Nine</span> commits to <span class=\"outline\">production.</span>",
       "live": "LIVE",
       "total": "TOTAL",
       "openExplorer": "Open in explorer",
@@ -167,23 +204,17 @@
       "pitchPre": "Let's",
       "pitchMid": "build something",
       "pitchTail": "worth",
-      "pitchHighlight": "auditing",
+      "pitchHighlight": "shipping",
       "orCopy": "or copy address",
       "copyTitle": "Copy email",
-      "lede": "I reply in <b>under 24 hours</b> on weekdays. Available for contract audits, protocol engineering, and Web3 advice — <b>starting Q2 2026</b>."
+      "lede": "I reply in <b>under 24 hours</b> on weekdays. Available for AI engineering, full-stack product builds, and smart-contract work — <b>starting Q2 2026</b>."
     },
     "foot": {
       "signed": "SIGNED",
-      "copyright": "© MMXXVI · Yogyakarta, ID · v3 Forge Edition",
+      "setIn": "SET IN",
+      "copyright": "© MMXXVI · Yogyakarta, ID · v4 Ledger Edition",
       "products": "Products",
       "starterKit": "Web3 Starter Kit"
-    },
-    "perforation": {
-      "s02": "— — —  CUT HERE  ·  § 02  — — —",
-      "s03": "— — —  CUT HERE  ·  § 03  — — —",
-      "s04": "— — —  CUT HERE  ·  § 04  — — —",
-      "s05": "— — —  CUT HERE  ·  § 05  — — —",
-      "end": "— — —  END OF ROLL  — — —"
     }
   },
   "products": {

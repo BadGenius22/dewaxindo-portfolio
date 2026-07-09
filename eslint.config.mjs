@@ -13,6 +13,7 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
     // Design handoff prototypes — Babel-standalone JSX, not production
+    "design_handoff_v4_ledger/**",
     "design_handoff_portfolio_v3/**",
     "design_handoff_portfolio_v2/**",
   ]),

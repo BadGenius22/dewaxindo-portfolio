@@ -11,12 +11,12 @@ function Contact() {
     <section id="contact" className="contact-wrap" data-screen-label="06 Contact">
       <div className="contact-ghost" aria-hidden="true">RECEIPTS</div>
       <div className="contact-inner">
-        <div className="contact-eyebrow">§ 05 — Get in touch</div>
+        <div className="contact-eyebrow">§ 06 — Get in touch</div>
 
         <h2 className="contact-pitch">
           Let's<br/>
           build something<br/>
-          worth <span className="forest-pad offset-print" data-text="auditing">auditing</span>.
+          worth <span className="forest-pad offset-print" data-text="shipping">shipping</span>.
         </h2>
 
         <div className="contact-line">
@@ -29,7 +29,7 @@ function Contact() {
               <span className="ec-ico">⎘</span>
             </button>
             <p className="lede" style={{ marginTop: 24 }}>
-              I reply in <b>under 24 hours</b> on weekdays. Available for contract audits, protocol engineering, and Web3 advice — <b>starting Q2 2026</b>.
+              I reply in <b>under 24 hours</b> on weekdays. Available for AI engineering, full-stack product builds, and smart-contract work — <b>starting Q2 2026</b>.
             </p>
           </div>
 

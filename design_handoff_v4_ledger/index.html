@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dewangga Praxindo — Forge (v3)</title>
-  <link rel="icon" type="image/png" href="../../assets/favicon-32x32.png" />
+  <title>Dewangga Praxindo — AI · Full-Stack · Smart Contract Engineer</title>
+  <link rel="icon" type="image/png" href="favicon-32x32.png" />
   <link rel="stylesheet" href="styles.css" />
   <script src="image-slot.js"></script>
   <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
@@ -14,6 +14,7 @@
 <body>
   <div id="root"></div>
 
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
   <script type="text/babel" src="Icon.jsx"></script>
   <script type="text/babel" src="Chrome.jsx"></script>
   <script type="text/babel" src="Frame.jsx"></script>
@@ -21,32 +22,61 @@
   <script type="text/babel" src="Capabilities.jsx"></script>
   <script type="text/babel" src="Process.jsx"></script>
   <script type="text/babel" src="Works.jsx"></script>
+  <script type="text/babel" src="Audits.jsx"></script>
   <script type="text/babel" src="Changelog.jsx"></script>
   <script type="text/babel" src="Contact.jsx"></script>
 
   <script type="text/babel">
+    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+      "accent": "#0F6B3F",
+      "headingWeight": "Bold",
+      "ticker": true
+    }/*EDITMODE-END*/;
+
+    const ACCENT_LITE = {
+      "#0F6B3F": "#6FBF95",
+      "#8A3D1C": "#D89A7E",
+      "#24449A": "#8FA3DB"
+    };
+
     function App() {
+      const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+
+      React.useEffect(() => {
+        const root = document.documentElement;
+        root.style.setProperty("--clay", t.accent);
+        root.style.setProperty("--clay-lite", ACCENT_LITE[t.accent] || "#6FBF95");
+        root.style.setProperty("--disp-wght", t.headingWeight === "Heavy" ? "800" : "700");
+      }, [t.accent, t.headingWeight]);
+
       return (
         <React.Fragment>
           <TapeTop />
-          <Instruments />
-          <RollGutter />
           <Nav />
           <main>
             <Hero />
-            <Perforation label="— — —  CUT HERE  ·  § 02  — — —" />
             <Capabilities />
-            <Perforation label="— — —  CUT HERE  ·  § 03  — — —" />
             <Process />
-            <Perforation label="— — —  CUT HERE  ·  § 04  — — —" />
             <Works />
-            <Perforation label="— — —  CUT HERE  ·  § 05  — — —" />
+            <Audits />
             <Changelog />
-            <Perforation label="— — —  END OF ROLL  — — —" />
             <Contact />
           </main>
           <FootV3 />
           <CopyToast />
+          <TweaksPanel>
+            <TweakSection label="Theme" />
+            <TweakColor label="Accent" value={t.accent}
+                        options={["#0F6B3F", "#8A3D1C", "#24449A"]}
+                        onChange={(v) => setTweak("accent", v)} />
+            <TweakRadio label="Headings" value={t.headingWeight}
+                        options={["Bold", "Heavy"]}
+                        onChange={(v) => setTweak("headingWeight", v)} />
+            <TweakSection label="Motion" />
+            <TweakToggle label="Stack ticker" value={t.ticker}
+                         onChange={(v) => setTweak("ticker", v)} />
+          </TweaksPanel>
+          <style>{t.ticker ? "" : ".stackline { display: none; }"}</style>
         </React.Fragment>
       );
     }

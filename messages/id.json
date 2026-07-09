@@ -18,128 +18,165 @@
       "services": "Layanan",
       "process": "Proses",
       "work": "Karya",
+      "audits": "Audit",
       "log": "Log",
       "contact": "Kontak",
-      "products": "Produk",
       "hire": "Hire saya"
     },
     "hero": {
-      "lede": "Saya <strong>DeFi smart contract engineer</strong> yang berbasis di Yogyakarta, Indonesia. Saya nulis kontrak yang ngurusin uang — <mark>$50M+ TVL deployed</mark> di Ethereum, Arbitrum, Base, Solana, dan Sui. Tiga audit penuh dari PeckShield, nol critical. Buktinya ada di bawah.",
+      "eyebrowName": "Dewangga Praxindo",
+      "eyebrowRole": "AI · Full-Stack · Smart Contract Engineer",
+      "eyebrowEst": "Est. 2022",
+      "srHeadline": "Dewangga Praxindo — engineer AI, full-stack, dan smart contract yang mengirim sistem AI, full-stack, dan onchain.",
+      "headline": "Mengirim sistem <span class=\"clay\">AI</span>, full-stack &amp; onchain<span class=\"clay\">.</span>",
+      "lede": "Saya <strong>engineer AI &amp; full-stack</strong> yang berbasis di Yogyakarta, Indonesia — sekaligus menulis smart contract yang menggerakkan uang. LLM agent, aplikasi web produksi, dan <mark>$50M+ TVL ter-deploy</mark> onchain. Saya bangun seluruh stack: modelnya, antarmukanya, dan kontrak di baliknya.",
       "ctaPrimary": "Hire saya",
-      "ctaGhost": "Lihat karya pilihan"
+      "ctaGhost": "Lihat karya"
     },
     "receipt": {
-      "title": "Deploy Receipt",
-      "deployed": "DEPLOYED",
+      "title": "Ship Receipt",
+      "deployed": "Deployed",
       "live": "LIVE",
-      "project": "Proyek",
-      "chain": "Chain",
-      "tvl": "TVL",
-      "audit": "Audit",
-      "block": "Block",
-      "address": "Address",
-      "openExplorer": "Buka di explorer"
+      "project": "Project",
+      "stack": "Stack",
+      "scale": "Scale",
+      "status": "Status",
+      "build": "Build",
+      "commit": "Commit",
+      "copyCommit": "Copy commit"
     },
-    "audit": {
-      "ariaLabel": "Riwayat audit",
-      "tally": "Audit lulus.<br/>Nol critical findings."
+    "disciplines": {
+      "ariaLabel": "Tiga disiplin, satu engineer",
+      "ai": {
+        "title": "AI Systems"
+      },
+      "fullstack": {
+        "title": "Full-Stack"
+      },
+      "contracts": {
+        "title": "Smart Contracts"
+      },
+      "tally": "Satu engineer.<br/>Tiga disiplin."
     },
     "capabilities": {
       "marker": "Yang saya bangun",
-      "title": "Enam hal <br/> yang bisa saya <span class=\"clay\">bangun</span> untuk kamu,<br/> <span class=\"outline\">end-to-end.</span>",
+      "title": "Enam hal yang bisa saya <span class=\"clay\">bangun</span> untuk Anda, <span class=\"outline\">end-to-end.</span>",
       "items": {
-        "defi": {
-          "title": "DeFi Engineering",
-          "desc": "Vault, liquidity pool, dan yield strategy yang nampung uang user beneran. Protokol production di Arbitrum dan Ethereum."
+        "aiEngineering": {
+          "title": "AI Engineering",
+          "desc": "LLM agent, pipeline RAG, dan eval yang benar-benar rilis. Function calling, tool use, retrieval, dan guardrail — dari prompt sampai produksi."
         },
-        "contracts": {
+        "fullstackApps": {
+          "title": "Full-Stack Apps",
+          "desc": "React, Next.js, TypeScript dari ujung ke ujung. Auth, pembayaran, realtime, dan database di baliknya. Saya kirim produk utuh, bukan sepotong."
+        },
+        "smartContracts": {
           "title": "Smart Contracts",
-          "desc": "Saya nulis Solidity dan Rust. Testing berlapis sebelum audit — fuzz test, invariant, dan mutation testing di setiap perubahan."
+          "desc": "Solidity dan Rust. Pengujian intens sebelum audit apa pun — fuzz test, invariant, dan mutation testing di setiap perubahan."
         },
-        "multichain": {
-          "title": "Multi-Chain",
-          "desc": "Live di enam chain — Ethereum, Arbitrum, Base, Solana, Sui, dan Polygon. Masing-masing dengan rencana deploy dan monitoring sendiri."
+        "defiOnchain": {
+          "title": "DeFi & Onchain",
+          "desc": "Vault, liquidity pool, dan strategi yield yang menyimpan uang pengguna sungguhan. Protokol produksi di Arbitrum dan Ethereum."
         },
-        "security": {
+        "infraShip": {
+          "title": "Infra & Ship",
+          "desc": "CI/CD, observability, dan cloud. Postgres, edge function, queue. Bagian tak menawan yang menjaga produk tetap hidup jam 3 pagi."
+        },
+        "securityFirst": {
           "title": "Security First",
-          "desc": "Tiga audit PeckShield. Nol critical issue, setiap kali. Slither dan Aderyn jalan di setiap PR sebelum merge."
-        },
-        "zk": {
-          "title": "ZK & Privacy",
-          "desc": "Zero-knowledge proof pakai Noir. Sealed prediction di Sui, reveal berbasis waktu — data tetap private tanpa kehilangan trust."
-        },
-        "fullstack": {
-          "title": "Full-Stack Web3",
-          "desc": "React, Next.js, TypeScript. Saya bangun kontraknya sekaligus website yang ngobrol sama kontrak — tanpa handoff, tanpa rewrite di boundary."
+          "desc": "Tiga audit PeckShield, nol isu critical. Slither dan Aderyn di setiap PR. Threat model ditulis sebelum satu baris kode pun."
         }
       }
     },
     "process": {
-      "marker": "Cara saya kerja",
-      "title": "Tiga<br/> fase. <span class=\"clay\">Sama</span><br/> setiap kali.",
+      "marker": "Cara saya bekerja",
+      "title": "Tiga fase. <span class=\"clay\">Sama</span> setiap kali.",
       "steps": {
         "scope": {
-          "title": "Scope & threat model",
+          "title": "Scope & desain",
           "bullets": {
-            "0": "Baca semua spec, kode, dan audit sebelumnya — baris per baris.",
-            "1": "Diagram trust assumption-nya. Tandai semua tempat nilai melintasi trust boundary.",
-            "2": "Tulis threat model. Kemampuan adversary, invariant yang nggak boleh pecah."
+            "0": "Pahami masalahnya sebelum stack-nya. Baca kodenya, spesifikasinya, karya sebelumnya.",
+            "1": "Petakan alur data dan batas kepercayaan. Tandai setiap titik di mana nilai atau state melewatinya.",
+            "2": "Pilih tool yang pas — model, framework, chain — lalu tulis spesifikasi yang kita bangun."
           }
         },
         "build": {
-          "title": "Tulis, fuzz, invariants",
+          "title": "Bangun & uji",
           "bullets": {
-            "0": "Solidity / Move / Rust. Foundry test di sebelah setiap kontrak.",
-            "1": "Echidna atau Medusa untuk property-based fuzzing. Mutation testing di setiap PR.",
-            "2": "Slither + Aderyn jalan di setiap push. Branch coverage 80% wajib sebelum merge."
+            "0": "Kirim dalam potongan vertikal. Software yang jalan tiap minggu, bukan reveal besar-besaran.",
+            "1": "Tes hidup di samping kode: eval untuk AI, e2e untuk app, fuzz & invariant untuk kontrak.",
+            "2": "CI di setiap push. Type-safe dari ujung ke ujung. Gate coverage sebelum apa pun di-merge."
           }
         },
-        "deploy": {
-          "title": "Audit & deploy",
+        "ship": {
+          "title": "Rilis & pantau",
           "bullets": {
-            "0": "PeckShield atau setara. Fix dikirim hari yang sama, re-audit untuk critical path.",
-            "1": "Deploy mainnet dengan timelock, multisig, dan emergency pause yang sudah diuji.",
-            "2": "Tenderly + Defender monitor. On-call 30 hari pertama setelah launch."
+            "0": "Deploy dengan rollback. Feature flag, timelock, dan kill switch teruji di jalur uang.",
+            "1": "Monitoring, logging, dan trace terpasang — saya di-page sebelum pengguna.",
+            "2": "Audit jalur kritis. On-call 30 hari pertama setiap peluncuran."
           }
         }
       }
     },
     "works": {
       "marker": "Karya pilihan",
-      "title": "<span class=\"clay\">7</span> proyek.<br/> Semua <span class=\"outline\">live</span><br/> atau production.",
+      "title": "<span class=\"clay\">Tujuh</span> proyek.<br/> Semua live atau <span class=\"outline\">di produksi.</span>",
       "stamps": {
-        "receipt": "RECEIPT",
+        "receipt": "SHIPPED",
         "marquee": "MARQUEE",
-        "caseStudy": "CASE STUDY →"
+        "caseStudy": "CASE STUDY"
       },
       "taglines": {
-        "toldproof": "Cara biar AI agent dan manusia bisa membuktikan prediksi mereka jujur. Disegel di Sui, dibuka tepat waktu.",
-        "amaly": "Aplikasi mobile untuk tracking ibadah selama Ramadan. Quran reader, streak, leaderboard.",
-        "factor": "Strategi yield DeFi di Arbitrum. Saya core engineer — leverage vault, LP management, kontrak yang nampung $50M+ TVL.",
-        "rekon": "Prediksi esports berbasis AI di Polymarket. Bayar pakai USDC sekali klik.",
+        "toldproof": "Cara bagi AI agent dan manusia membuktikan prediksi mereka jujur. Disegel di Sui, dibuka tepat waktu.",
+        "amaly": "Aplikasi full-stack pelacak salat untuk Ramadan. Pembaca Quran, streak, dan leaderboard — dirilis sebagai PWA.",
+        "factor": "Strategi yield DeFi di Arbitrum. Saya core engineer — leverage vault, manajemen LP, kontrak yang memegang $50M+ TVL.",
+        "rekon": "Prediksi esports bertenaga AI di Polymarket. Model memilih edge-nya, Anda bayar pakai USDC sekali klik.",
         "lazor": "Template wallet Solana dengan Face ID dan Touch ID. Tanpa seed phrase.",
-        "vouch": "Buktikan sesuatu tentang wallet Solana kamu tanpa kasih tahu siapa kamu. Dibangun pakai circuit zero-knowledge Noir.",
-        "boh": "Game battle NFT dengan randomness yang fair dan bisa diverifikasi. Pemenang hackathon Chainlink 2022."
+        "vouch": "Buktikan hal tentang wallet Solana Anda tanpa mengungkap identitas. Dibangun dengan sirkuit zero-knowledge Noir.",
+        "boh": "Game battle NFT dengan randomness yang adil dan bisa diverifikasi. Pemenang hackathon Chainlink 2022."
       }
     },
     "caseStudy": {
       "file": "CASE STUDY",
       "opened": "FILE OPENED",
-      "closeLabel": "Tutup case study",
+      "closeLabel": "Tutup studi kasus",
       "project": "Proyek",
       "role": "Peran",
       "window": "Periode",
       "liveAt": "Live di",
       "challenge": "Tantangannya",
       "built": "Yang saya bangun",
-      "outcomes": "Hasilnya",
+      "outcomes": "Hasil",
       "stack": "Stack",
       "endOfFile": "END · OF · FILE",
       "visit": "Kunjungi"
     },
+    "audits": {
+      "marker": "Rekam jejak keamanan",
+      "title": "Kode teraudit. <br/> <span class=\"clay\">Nol</span> temuan critical<span class=\"outline\">, sejauh ini.</span>",
+      "passed": "LULUS",
+      "total": "TOTAL",
+      "col": {
+        "date": "Tanggal",
+        "scope": "Cakupan",
+        "firm": "Firma",
+        "result": "Hasil"
+      },
+      "results": {
+        "zeroCritical": "0 critical",
+        "reportPending": "Laporan pending"
+      },
+      "credLabel": "KREDENSIAL",
+      "credStatus": "LULUSAN",
+      "credName": "RektOff Solana Auditor Bootcamp",
+      "credDesc": "Lulusan bootcamp keamanan Solana RektOff — mengaudit program Anchor dan native: validasi akun, keamanan CPI, dan pola eksploitasi yang menguras protokol.",
+      "credMetaLeft": "SOLANA · SECURITY",
+      "credMetaRight": "CERTIFIED · 2026",
+      "credPlaceholder": "[ Sertifikat RektOff — gambar segera hadir ]"
+    },
     "log": {
-      "marker": "Deploy log",
-      "title": "<span class=\"clay\">9</span> commit<br/> ke <span class=\"outline\">production.</span><br/> Semua on-chain.",
+      "marker": "Log deploy",
+      "title": "<span class=\"clay\">Sembilan</span> commit ke <span class=\"outline\">produksi.</span>",
       "live": "LIVE",
       "total": "TOTAL",
       "openExplorer": "Buka di explorer",
@@ -147,19 +184,19 @@
         "date": "Tanggal",
         "project": "Proyek",
         "chain": "Chain",
-        "address": "Address",
+        "address": "Alamat",
         "note": "Catatan"
       },
       "notes": {
-        "toldproof": "61/61 test · 0 critical",
-        "amaly": "224 user bulanan",
+        "toldproof": "61/61 tes · 0 critical",
+        "amaly": "224 pengguna bulanan",
         "rekon": "AI · prediksi esports",
-        "lazor": "template WebAuthn",
+        "lazor": "Template WebAuthn",
         "vouch": "Hackathon ZK · finalis",
-        "factorWethUsdc": "Leverage WETH/USDC Compound",
+        "factorWethUsdc": "Leverage Compound WETH/USDC",
         "factorMultilend": "Vault multilend USDC",
         "factorCbeth": "Lending USDC boosted cbETH",
-        "boh": "Chainlink hack · pemenang"
+        "boh": "Hackathon Chainlink · pemenang"
       }
     },
     "contact": {
@@ -167,23 +204,17 @@
       "pitchPre": "Yuk",
       "pitchMid": "bangun sesuatu",
       "pitchTail": "yang layak",
-      "pitchHighlight": "diaudit",
+      "pitchHighlight": "dikirim",
       "orCopy": "atau copy alamat",
       "copyTitle": "Copy email",
-      "lede": "Saya bales di <b>bawah 24 jam</b> pada hari kerja. Siap untuk contract audit, protocol engineering, dan konsultasi Web3 — <b>mulai Q2 2026</b>."
+      "lede": "Saya bales di <b>bawah 24 jam</b> pada hari kerja. Siap untuk AI engineering, pembuatan produk full-stack, dan pekerjaan smart contract — <b>mulai Q2 2026</b>."
     },
     "foot": {
       "signed": "SIGNED",
-      "copyright": "© MMXXVI · Yogyakarta, ID · v3 Forge Edition",
+      "setIn": "SET IN",
+      "copyright": "© MMXXVI · Yogyakarta, ID · v4 Ledger Edition",
       "products": "Produk",
       "starterKit": "Web3 Starter Kit"
-    },
-    "perforation": {
-      "s02": "— — —  POTONG DI SINI  ·  § 02  — — —",
-      "s03": "— — —  POTONG DI SINI  ·  § 03  — — —",
-      "s04": "— — —  POTONG DI SINI  ·  § 04  — — —",
-      "s05": "— — —  POTONG DI SINI  ·  § 05  — — —",
-      "end": "— — —  AKHIR ROLL  — — —"
     }
   },
   "products": {

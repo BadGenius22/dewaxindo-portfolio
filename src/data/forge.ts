@@ -1,6 +1,6 @@
 /**
- * v3 Forge Edition - data module
- * All hard-coded content for the receipt/forge portfolio.
+ * v4 Ledger Edition - data module
+ * All hard-coded content for the receipt/ledger portfolio.
  * Translatable copy goes through next-intl; this file holds the
  * structural data (IDs, URLs, technical labels, metrics).
  */
@@ -8,67 +8,56 @@
 export interface ReceiptCycleItem {
   id: string;
   project: string;
-  chain: string;
-  tvl: string;
-  audit: string;
-  /** Truncated display label for the contract / package / program address. */
-  addr: string;
-  /** Block-explorer URL pointing at the address above. If omitted, addr renders as plain text. */
-  explorerUrl?: string;
+  /** Tech stack line, mono. */
+  stack: string;
+  /** Headline number rendered in the big display face. */
+  scale: string;
+  /** Status line, rendered in the accent colour. */
+  status: string;
+  /** Short commit hash, copyable via the receipt. */
+  hash: string;
 }
 
 export const RECEIPT_CYCLE: ReceiptCycleItem[] = [
-  {
-    id: "factor",
-    project: "Factor Finance",
-    chain: "Arbitrum One",
-    tvl: "$50M+",
-    audit: "PeckShield · 0 Critical",
-    addr: "0x1b3c…ae47",
-    // TODO: explorerUrl: "https://arbiscan.io/address/0x..."
-  },
-  {
-    id: "toldproof",
-    project: "Toldproof",
-    chain: "Sui Testnet",
-    tvl: "61/61 tests",
-    audit: "Internal · 0 Critical",
-    addr: "0x3450…22e4",
-    explorerUrl:
-      "https://suiscan.xyz/testnet/object/0x34504260083297947936564fb6f70476db3b17d7dce32aa038d27ad6a47b22e4/tx-blocks",
-  },
-  {
-    id: "vouch",
-    project: "Vouch Protocol",
-    chain: "Solana · Noir",
-    tvl: "ZK proofs",
-    audit: "Self-reviewed",
-    addr: "EhSk…LuaD",
-    explorerUrl:
-      "https://solscan.io/account/EhSkCuohWP8Sdfq6yHoKih6r2rsNoYYPZZSfpnyELuaD?cluster=devnet",
-  },
+  { id: "rekon", project: "RekonGG", stack: "Next.js · AI", scale: "LIVE", status: "Polymarket · USDC", hash: "a3f9c1e" },
+  { id: "factor", project: "Factor Finance", stack: "Solidity · Arbitrum", scale: "$50M+", status: "PeckShield · 0 Critical", hash: "0x1b3c…ae47" },
+  { id: "amaly", project: "Amaly", stack: "Next.js · PWA", scale: "224+", status: "Shipped · in prod", hash: "7d20b4f" },
 ];
 
-export interface AuditStamp {
-  date: string;
-  label: string;
+/** Barcode footer bar geometry for the ship receipt. */
+export const RECEIPT_BARS: { h: number; w?: number }[] = [
+  { h: 16 }, { h: 20 }, { h: 13, w: 4 }, { h: 20 }, { h: 15 }, { h: 20, w: 3 },
+  { h: 13 }, { h: 20 }, { h: 16, w: 2 }, { h: 20 }, { h: 13 }, { h: 16 },
+  { h: 20, w: 4 }, { h: 13 }, { h: 20 },
+];
+
+export interface Discipline {
+  n: string;
+  key: string;
+  sub: string;
 }
 
-export const AUDIT_STAMPS: AuditStamp[] = [
-  { date: "Q3 · 25", label: "0 CRITICAL · 0 HIGH" },
-  { date: "Q1 · 25", label: "0 CRITICAL · 1 INFO" },
-  { date: "Q3 · 24", label: "0 CRITICAL · 2 LOW" },
+/** Hero disciplines strip — one engineer, three disciplines. */
+export const DISCIPLINES: Discipline[] = [
+  { n: "A —", key: "ai", sub: "Agents · RAG · Evals" },
+  { n: "B —", key: "fullstack", sub: "Next · TypeScript · Cloud" },
+  { n: "C —", key: "contracts", sub: "Audited · 0 Critical" },
 ];
 
-export const MARQUEE_TERMS = [
-  "SOLIDITY",
-  "RUST",
-  "FOUNDRY",
-  "ANCHOR",
-  "SUI MOVE",
-  "NOIR · ZK",
-  "NEXT.JS",
-  "PECKSHIELD AUDITED",
+/** Stack ticker terms (hero marquee). */
+export const STACK_TERMS = [
+  "TypeScript",
+  "Next.js",
+  "Python",
+  "LLM Agents",
+  "RAG",
+  "React",
+  "Postgres",
+  "Solidity",
+  "Rust",
+  "Foundry",
+  "Sui Move",
+  "Noir · ZK",
 ];
 
 export interface CapabilityV3 {
@@ -80,12 +69,12 @@ export interface CapabilityV3 {
 }
 
 export const CAPABILITIES_V3: CapabilityV3[] = [
-  { n: "01", key: "defi", sk: "TVL", sv: "$50M+", em: true },
-  { n: "02", key: "contracts", sk: "STACK", sv: ".sol · .rs" },
-  { n: "03", key: "multichain", sk: "CHAINS", sv: "06" },
-  { n: "04", key: "security", sk: "CRITICAL", sv: "0/0/0", em: true },
-  { n: "05", key: "zk", sk: "TOOLS", sv: "Noir · Walrus" },
-  { n: "06", key: "fullstack", sk: "SHIPPED", sv: "Cx ↔ UI" },
+  { n: "01", key: "aiEngineering", sk: "MODELS", sv: "GPT · Claude", em: true },
+  { n: "02", key: "fullstackApps", sk: "SHIPPED", sv: "Next · TS" },
+  { n: "03", key: "smartContracts", sk: "STACK", sv: ".sol · .rs" },
+  { n: "04", key: "defiOnchain", sk: "TVL", sv: "$50M+", em: true },
+  { n: "05", key: "infraShip", sk: "UPTIME", sv: "24/7" },
+  { n: "06", key: "securityFirst", sk: "CRITICAL", sv: "0/0/0", em: true },
 ];
 
 export interface ProcessStep {
@@ -98,7 +87,7 @@ export interface ProcessStep {
 export const PROCESS_STEPS: ProcessStep[] = [
   { n: "01", key: "scope", meta: "DAYS 01—03", bulletKeys: ["0", "1", "2"] },
   { n: "02", key: "build", meta: "WEEKS 01—04", bulletKeys: ["0", "1", "2"] },
-  { n: "03", key: "deploy", meta: "FINAL WEEK", bulletKeys: ["0", "1", "2"] },
+  { n: "03", key: "ship", meta: "FINAL WEEK", bulletKeys: ["0", "1", "2"] },
 ];
 
 export interface WorkStudy {
@@ -123,16 +112,16 @@ export interface WorkV3 {
   metric: string;
   acid?: boolean;
   study?: WorkStudy;
-  /** Public path to the screenshot, e.g. "/works/toldproof.png". If absent, falls back to the ghost-text placeholder. */
+  /** Public path to the screenshot, e.g. "/images/projects/toldproof.png". If absent, falls back to the ghost-text placeholder. */
   image?: string;
 }
 
 /**
  * Work card screenshots
  *
- * Drop files into `/public/works/{id}.{png|jpg|webp}` and set the `image`
- * field on the matching entry below. When `image` is absent the card falls
- * back to the giant ghost-text placeholder.
+ * Drop files into `/public/images/projects/{Name}.{png|jpg|webp}` and set the
+ * `image` field on the matching entry below. When `image` is absent the card
+ * falls back to the giant ghost-text placeholder.
  *
  * Recommended export: ~1600x1000 (16:10), under 400KB. PNG for UI shots,
  * JPG/WebP for photo-heavy captures.
@@ -146,7 +135,7 @@ export const WORKS_V3: WorkV3[] = [
     host: "toldproof.xyz",
     url: "https://toldproof.xyz",
     taglineKey: "toldproof",
-    tags: ["Sui Move", "Walrus", "x402"],
+    tags: ["AI Agents", "Sui Move", "x402"],
     metric: "61/61 · 0 critical",
     acid: true,
     image: "/images/projects/ToldProof.png",
@@ -159,7 +148,7 @@ export const WORKS_V3: WorkV3[] = [
     host: "amaly.app",
     url: "https://amaly.app",
     taglineKey: "amaly",
-    tags: ["Next.js", "PWA"],
+    tags: ["Full-Stack", "Next.js", "PWA"],
     metric: "224+ users",
     image: "/images/projects/Amaly.jpeg",
   },
@@ -203,7 +192,7 @@ export const WORKS_V3: WorkV3[] = [
     host: "app.rekon.gg",
     url: "https://app.rekon.gg",
     taglineKey: "rekon",
-    tags: ["Polymarket", "AI"],
+    tags: ["AI", "Next.js", "Polymarket"],
     metric: "Live",
     image: "/images/projects/HomeRekon.png",
   },
@@ -215,7 +204,7 @@ export const WORKS_V3: WorkV3[] = [
     host: "lazorkit-lovat.vercel.app",
     url: "https://lazorkit-lovat.vercel.app",
     taglineKey: "lazor",
-    tags: ["Solana", "WebAuthn"],
+    tags: ["Full-Stack", "Solana", "WebAuthn"],
     metric: "Dev template",
     image: "/images/projects/LazorKit.png",
   },
@@ -227,7 +216,7 @@ export const WORKS_V3: WorkV3[] = [
     host: "vouch-protocol.vercel.app",
     url: "https://vouch-protocol.vercel.app",
     taglineKey: "vouch",
-    tags: ["Solana", "Noir", "Privacy"],
+    tags: ["ZK", "Solana", "Noir"],
     metric: "Hackathon",
     image: "/images/projects/Vouch.png",
   },
@@ -244,6 +233,29 @@ export const WORKS_V3: WorkV3[] = [
     image: "/images/projects/BattleOfHeroes.png",
   },
 ];
+
+export interface AuditRecord {
+  date: string;
+  scope: string;
+  firm: string;
+  /** Translation key for the result badge label. */
+  resultKey: string;
+  status: "pass" | "pending";
+}
+
+export const AUDIT_RECORDS: AuditRecord[] = [
+  { date: "2025.Q3", scope: "Factor PT-GMX Leverage v2", firm: "PeckShield", resultKey: "zeroCritical", status: "pass" },
+  { date: "2025.Q2", scope: "Factor LP-USDC.e Vaults", firm: "PeckShield", resultKey: "zeroCritical", status: "pass" },
+  { date: "2025.Q1", scope: "Factor LP-ETH Core", firm: "PeckShield", resultKey: "zeroCritical", status: "pass" },
+  { date: "2026", scope: "TOLDPROOF · Sui Move", firm: "TBA", resultKey: "reportPending", status: "pending" },
+];
+
+/** RektOff Solana Auditor Bootcamp credential card. */
+export const CREDENTIAL = {
+  no: "001",
+  /** Public path to the certificate image, or undefined for the placeholder. */
+  image: "/images/rektoff-cert.jpeg" as string | undefined,
+};
 
 export interface LogEntry {
   date: string;

@@ -1,12 +1,14 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/routing";
+import { FORGE_EMAIL } from "@/data/forge";
 
 const NAV_KEYS = [
   { n: "01.", key: "services", anchor: "capabilities" },
   { n: "02.", key: "process", anchor: "process" },
   { n: "03.", key: "work", anchor: "works" },
-  { n: "04.", key: "log", anchor: "log" },
-  { n: "05.", key: "contact", anchor: "contact" },
+  { n: "04.", key: "audits", anchor: "audits" },
+  { n: "05.", key: "log", anchor: "log" },
+  { n: "06.", key: "contact", anchor: "contact" },
 ];
 
 export async function Nav() {
@@ -15,7 +17,7 @@ export async function Nav() {
   return (
     <header className="nav">
       <Link href="/#top" className="mark">
-        Praxindo<span className="num">/003</span>
+        Praxindo<span className="num">/004</span>
       </Link>
       <nav className="links" aria-label="Primary">
         {NAV_KEYS.map((item) => (
@@ -24,14 +26,10 @@ export async function Nav() {
             {t(item.key)}
           </Link>
         ))}
-        <Link href="/products">
-          <span className="n">06.</span>
-          {t("products")}
-        </Link>
       </nav>
-      <Link className="cta" href="/#contact">
+      <a className="cta" href={`mailto:${FORGE_EMAIL}`}>
         {t("hire")}
-      </Link>
+      </a>
     </header>
   );
 }

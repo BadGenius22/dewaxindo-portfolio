@@ -1,12 +1,12 @@
-// v3 — Works — asymmetric grid of project cards with image-slots for screenshots.
+// v4 — Works — asymmetric grid, cleaner cards, body wrapped for padding.
 
 const WORKS_V3 = [
   { id: "toldproof", year: 2026, span: "span-7", name: "TOLDPROOF",       host: "toldproof.xyz",            url: "https://toldproof.xyz",
     tagline: "A way for AI agents and people to prove their predictions are honest. Sealed on Sui, revealed on time.",
-    tags: ["Sui Move", "Walrus", "x402"], metric: "61/61 · 0 critical", acid: true },
+    tags: ["AI Agents", "Sui Move", "x402"], metric: "61/61 · 0 critical", acid: true },
   { id: "amaly",     year: 2026, span: "span-5", name: "Amaly",           host: "amaly.app",                url: "https://amaly.app",
-    tagline: "A mobile app for tracking prayers during Ramadan. Quran reader, streaks, leaderboard.",
-    tags: ["Next.js", "PWA"],            metric: "224+ users" },
+    tagline: "A full-stack prayer-tracking app for Ramadan. Quran reader, streaks, and a leaderboard — shipped as a PWA.",
+    tags: ["Full-Stack", "Next.js", "PWA"],            metric: "224+ users" },
   { id: "factor",    year: 2025, span: "span-12", name: "Factor Finance", host: "pro.factor.fi",            url: "https://pro.factor.fi/strategies", featured: true,
     tagline: "DeFi yield strategies on Arbitrum. I am a core engineer — leverage vaults, LP management, the contracts that hold $50M+ TVL.",
     tags: ["Solidity", "Foundry", "Arbitrum"], metric: "$50M+ TVL",
@@ -30,14 +30,14 @@ const WORKS_V3 = [
     },
   },
   { id: "rekon",     year: 2026, span: "span-6", name: "RekonGG",         host: "app.rekon.gg",             url: "https://app.rekon.gg",
-    tagline: "Esports predictions powered by AI on Polymarket. Pay in USDC with one click.",
-    tags: ["Polymarket", "AI"],          metric: "Live" },
+    tagline: "AI-powered esports predictions on Polymarket. Model picks the edge, you pay in USDC with one click.",
+    tags: ["AI", "Next.js", "Polymarket"],          metric: "Live" },
   { id: "lazor",     year: 2026, span: "span-6", name: "LazorKit SDK",    host: "lazorkit-lovat.vercel.app", url: "https://lazorkit-lovat.vercel.app",
     tagline: "A Solana wallet template with Face ID and Touch ID. No seed phrases.",
-    tags: ["Solana", "WebAuthn"],        metric: "Dev template" },
+    tags: ["Full-Stack", "Solana", "WebAuthn"],        metric: "Dev template" },
   { id: "vouch",     year: 2026, span: "span-7", name: "Vouch Protocol",  host: "vouch-protocol.vercel.app", url: "https://vouch-protocol.vercel.app",
     tagline: "Prove things about your Solana wallet without revealing who you are. Built with Noir zero-knowledge circuits.",
-    tags: ["Solana", "Noir", "Privacy"], metric: "Hackathon" },
+    tags: ["ZK", "Solana", "Noir"], metric: "Hackathon" },
   { id: "boh",       year: 2022, span: "span-5", name: "Battle of Heroes", host: "devpost.com",             url: "https://devpost.com/software/battle-of-heroes",
     tagline: "NFT battle game with fair, verifiable randomness. Chainlink hackathon winner in 2022.",
     tags: ["Solidity", "Chainlink VRF"], metric: "$500 prize" },
@@ -59,7 +59,7 @@ function WorkCard({ w, onOpen }) {
     >
       <div className="stamp">
         <span>№ {w.id.toUpperCase()} · {w.year}</span>
-        <span className="clay">{w.featured ? "MARQUEE" : (hasStudy ? "CASE STUDY →" : "RECEIPT")}</span>
+        <span className="clay">{w.featured ? "MARQUEE" : (hasStudy ? "CASE STUDY" : "SHIPPED")}</span>
       </div>
 
       <div className="visual">
@@ -72,13 +72,15 @@ function WorkCard({ w, onOpen }) {
         <a className="url-pill" href={w.url} target="_blank" rel="noreferrer">{w.host}</a>
       </div>
 
-      <h3>{w.name}</h3>
-      <p className="tagline">{w.tagline}</p>
-      <div className="meta">
-        <div className="tags">
-          {w.tags.map(t => <span key={t} className="tag">{t}</span>)}
+      <div className="wc-body">
+        <h3>{w.name}</h3>
+        <p className="tagline">{w.tagline}</p>
+        <div className="meta">
+          <div className="tags">
+            {w.tags.map(t => <span key={t} className="tag">{t}</span>)}
+          </div>
+          <span className={"metric" + (w.acid ? " acid" : "")}>{w.metric}</span>
         </div>
-        <span className={"metric" + (w.acid ? " acid" : "")}>{w.metric}</span>
       </div>
     </article>
   );
@@ -103,9 +105,8 @@ function Works() {
         <header className="sec-head">
           <div className="marker"><span className="num">§ 03</span> Selected works</div>
           <h2>
-            <span className="clay">7</span> projects.<br/>
-            All <span className="outline">live</span><br/>
-            or in production.
+            <span className="clay">Seven</span> projects.<br />
+            All live or <span className="outline">in production.</span>
           </h2>
         </header>
 
