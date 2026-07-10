@@ -43,6 +43,15 @@ export function generatePersonSchema() {
       addressCountry: "ID",
     },
     knowsAbout: [
+      "Smart Contract Security Auditing",
+      "Smart Contract Security Research",
+      "Competitive Audit Contests",
+      "Threat Modeling",
+      "Fuzz Testing",
+      "Invariant Testing",
+      "Echidna",
+      "Slither",
+      "Aderyn",
       "Smart Contract Development",
       "DeFi Protocols",
       "Solidity",
@@ -56,6 +65,7 @@ export function generatePersonSchema() {
       "Base",
       "Solana",
       "Sui",
+      "XRP Ledger",
       "Walrus Decentralized Storage",
       "Seal Encryption",
       "Noir",
@@ -69,7 +79,6 @@ export function generatePersonSchema() {
       "Chainlink VRF",
       "Web3",
       "Blockchain",
-      "Smart Contract Security Auditing",
     ],
     nationality: { "@type": "Country", name: "Indonesia" },
     worksFor: {
@@ -82,17 +91,29 @@ export function generatePersonSchema() {
       {
         "@type": "EducationalOccupationalCredential",
         credentialCategory: "Professional Experience",
-        name: "3+ Years Smart Contract Development",
+        name: "3+ Years Smart Contract Development and Security Research",
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "Certification",
+        name: "RektOff Solana Auditor Bootcamp",
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "Competitive Audit Record",
+        name: "Sherlock and Code4rena audit contests",
+        url: siteConfig.credentials.sherlock,
       },
     ],
     hasOccupation: {
       "@type": "Occupation",
-      name: "Smart Contract Engineer",
+      name: "Web3 Security Researcher",
       occupationLocation: {
         "@type": "Country",
         name: "Indonesia",
       },
-      skills: "Solidity, Rust, Move, Sui, DeFi, ZK Proofs, Security Auditing, Web3",
+      skills:
+        "Smart Contract Auditing, Security Research, Threat Modeling, Fuzz Testing, Invariant Testing, Solidity, Rust, Sui Move, DeFi, ZK Proofs, AI Agents, Full-Stack Web3",
     },
   };
 }
@@ -123,9 +144,9 @@ export function generateProfessionalServiceSchema() {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "@id": `${siteConfig.url}/#service`,
-    name: `${siteConfig.author.name} - Smart Contract Development`,
+    name: `${siteConfig.author.name} - Web3 Security Research`,
     description:
-      "Professional DeFi and smart contract development. Expertise in Solidity, Rust, and Move across Ethereum, Arbitrum, Base, Solana, and Sui, plus ZK proofs (Noir) and account abstraction.",
+      "Web3 security research and smart contract auditing. Security reviews, threat models, fuzz and invariant testing across Solidity, Rust, and Sui Move, plus AI agent and full-stack Web3 engineering.",
     url: siteConfig.url,
     provider: { "@id": `${siteConfig.url}/#person` },
     areaServed: {
@@ -133,11 +154,15 @@ export function generateProfessionalServiceSchema() {
       name: "Worldwide",
     },
     serviceType: [
+      "Smart Contract Security Auditing",
+      "Web3 Security Research",
+      "Threat Modeling",
       "Smart Contract Development",
       "Sui Move Development",
       "DeFi Protocol Design",
       "ZK Circuit Development",
-      "Security Auditing",
+      "AI Agent Engineering",
+      "Full-Stack Web3 Development",
       "Web3 Consulting",
     ],
   };
@@ -224,7 +249,7 @@ export function generateOrganizationSchema() {
     name: siteConfig.name,
     url: siteConfig.url,
     logo: `${siteConfig.url}/og-image.png`,
-    description: "Smart contract development and DeFi consulting services",
+    description: "Web3 security research, smart contract auditing, and protocol engineering services",
     founder: { "@id": `${siteConfig.url}/#person` },
     contactPoint: {
       "@type": "ContactPoint",

@@ -1,7 +1,9 @@
-Dewangga Praxindo (handle: dewaxindo) is a DeFi smart contract engineer based in Yogyakarta, Indonesia, with 3+ years of experience building secure, audited protocols. He writes contracts in Solidity, Rust, and Move (Sui), and has deployed protocols holding $50M+ in total value locked across Ethereum, Arbitrum, Base, Solana, and Sui. His protocols have passed three full security audits with zero critical findings.
+Dewangga Praxindo (handle: dewaxindo, Sherlock handle: BadGenius) is a Web3 security researcher based in Yogyakarta, Indonesia, with 3+ years of experience auditing and building secure protocols. He audits smart contracts in competitive contests on Sherlock and Code4rena and reviews protocols before launch. He writes contracts in Solidity, Rust, and Move (Sui), and has deployed protocols holding $50M+ in total value locked across Ethereum, Arbitrum, Base, Solana, and Sui. His protocols have passed three full security audits with zero critical findings.
+
+His competitive audit record covers three paid contests with two Medium-severity findings and a best placement of #20 (XRP Ledger on Sherlock, April 2026). He is a graduate of the RektOff Solana Auditor Bootcamp, covering Anchor and native Solana program auditing: account validation, CPI safety, and common exploit patterns. Profile: https://audits.sherlock.xyz/watson/BadGenius
 
 Notable work includes TOLDPROOF (verifiable reputation for AI agents on Sui + Walrus + Seal with multi-agent AI resolution and x402 USDC payments), Factor Finance (Arbitrum leverage vaults, $50M+ TVL), Vouch Protocol (Noir ZK reputation on Solana), RekonGG (AI esports prediction market), LazorKit SDK (passkey Solana wallets via WebAuthn), Amaly (ibadah-tracking PWA, 224+ users), and Battle of Heroes (Chainlink Fall 2022 hackathon winner).
 
-He specializes in DeFi protocol engineering, smart contract security (fuzz/invariant/mutation testing, Slither, Aderyn), zero-knowledge privacy (Noir), and full-stack Web3 (React, Next.js, TypeScript).
+He specializes in smart contract security (auditing, threat modeling, fuzz/invariant/mutation testing, Slither, Aderyn), DeFi protocol engineering, zero-knowledge privacy (Noir), AI agents (LLM agents, MCP, x402), and full-stack Web3 (React, Next.js, TypeScript).
 
-Contact: hi@dewaxindo.com | https://dewaxindo.com | X @dewaxindo | GitHub BadGenius22 | LinkedIn dewaxindo
+Contact: hi@dewaxindo.com | https://dewaxindo.com | X @dewaxindo | GitHub BadGenius22 | LinkedIn dewaxindo | Sherlock BadGenius

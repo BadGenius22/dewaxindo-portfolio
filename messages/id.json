@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Dewangga Praxindo | AI · Smart Contract · Full-Stack Engineer",
-    "description": "AI, smart contract & full-stack engineer (3+ tahun). Bangun AI agent di x402/MCP, protokol Sui Move & Solidity yang teraudit, dan produk Next.js. TVL $50M+ · 3 audit · 0 critical."
+    "title": "Dewangga Praxindo | Web3 Security Researcher",
+    "description": "Web3 security researcher (3+ thn). Kontes audit di Sherlock dan Code4rena, protokol Solidity dan Sui Move teraudit ($50M+ TVL, 3 audit, 0 critical), plus AI agent dan produk Next.js."
   },
   "common": {
     "skipToContent": "Skip ke konten"
@@ -25,11 +25,11 @@
     },
     "hero": {
       "eyebrowName": "Dewangga Praxindo",
-      "eyebrowRole": "AI · Full-Stack · Smart Contract Engineer",
+      "eyebrowRole": "Web3 Security Researcher",
       "eyebrowEst": "Est. 2022",
-      "srHeadline": "Dewangga Praxindo. Engineer AI, full-stack, dan smart contract yang mengirim sistem AI, full-stack, dan onchain.",
-      "headline": "Mengirim sistem <span class=\"clay\">AI</span>, full-stack &amp; onchain<span class=\"clay\">.</span>",
-      "lede": "Saya <strong>engineer AI &amp; full-stack</strong> yang berbasis di Yogyakarta, Indonesia. Sekaligus menulis smart contract yang menggerakkan uang. LLM agent, aplikasi web produksi, dan <mark>$50M+ TVL ter-deploy</mark> onchain. Saya bangun seluruh stack: modelnya, antarmukanya, dan kontrak di baliknya.",
+      "srHeadline": "Dewangga Praxindo. Web3 security researcher yang mengamankan smart contract penggerak uang sungguhan, sekaligus membangun sistem AI dan produk di sekitarnya.",
+      "headline": "<span class=\"clay\">Mengamankan</span> kontrak yang menggerakkan uang<span class=\"clay\">.</span>",
+      "lede": "Saya <strong>Web3 security researcher</strong> yang berbasis di Yogyakarta, Indonesia. Saya mengaudit kontrak yang memegang uang sungguhan, sekaligus membangun sistem AI dan produk di sekitarnya. <mark>$50M+ TVL ter-deploy</mark>, tiga audit PeckShield, nol critical.",
       "ctaPrimary": "Hire saya",
       "ctaGhost": "Lihat karya"
     },
@@ -47,28 +47,24 @@
     },
     "disciplines": {
       "ariaLabel": "Tiga disiplin, satu engineer",
+      "security": {
+        "title": "Security Research"
+      },
       "ai": {
         "title": "AI Systems"
       },
       "fullstack": {
         "title": "Full-Stack"
       },
-      "contracts": {
-        "title": "Smart Contracts"
-      },
       "tally": "Satu engineer.<br/>Tiga disiplin."
     },
     "capabilities": {
       "marker": "Yang saya bangun",
-      "title": "Enam hal yang bisa saya <span class=\"clay\">bangun</span> untuk Anda, <span class=\"outline\">end-to-end.</span>",
+      "title": "Enam hal yang bisa saya <span class=\"clay\">amankan</span> dan kirim untuk Anda, <span class=\"outline\">end-to-end.</span>",
       "items": {
-        "aiEngineering": {
-          "title": "AI Engineering",
-          "desc": "LLM agent, pipeline RAG, dan eval yang benar-benar rilis. Function calling, tool use, retrieval, dan guardrail, dari prompt sampai produksi."
-        },
-        "fullstackApps": {
-          "title": "Full-Stack Apps",
-          "desc": "React, Next.js, TypeScript dari ujung ke ujung. Auth, pembayaran, realtime, dan database di baliknya. Saya kirim produk utuh, bukan sepotong."
+        "securityResearch": {
+          "title": "Security Research",
+          "desc": "Kontes audit di Sherlock dan Code4rena. Threat model sebelum satu baris kode, Slither dan Aderyn di setiap PR. Tiga audit PeckShield pada protokol yang saya bangun, nol temuan critical."
         },
         "smartContracts": {
           "title": "Smart Contracts",
@@ -78,13 +74,17 @@
           "title": "DeFi & Onchain",
           "desc": "Vault, liquidity pool, dan strategi yield yang menyimpan uang pengguna sungguhan. Protokol produksi di Arbitrum dan Ethereum."
         },
+        "aiEngineering": {
+          "title": "AI Engineering",
+          "desc": "LLM agent, pipeline RAG, dan eval yang benar-benar rilis. Function calling, tool use, retrieval, dan guardrail, dari prompt sampai produksi."
+        },
+        "fullstackApps": {
+          "title": "Full-Stack Apps",
+          "desc": "React, Next.js, TypeScript dari ujung ke ujung. Auth, pembayaran, realtime, dan database di baliknya. Saya kirim produk utuh, bukan sepotong."
+        },
         "infraShip": {
           "title": "Infra & Ship",
           "desc": "CI/CD, observability, dan cloud. Postgres, edge function, queue. Bagian tak menawan yang menjaga produk tetap hidup jam 3 pagi."
-        },
-        "securityFirst": {
-          "title": "Security First",
-          "desc": "Tiga audit PeckShield, nol isu critical. Slither dan Aderyn di setiap PR. Threat model ditulis sebelum satu baris kode pun."
         }
       }
     },
@@ -219,7 +219,7 @@
       "pitchHighlight": "dikirim",
       "orCopy": "atau copy alamat",
       "copyTitle": "Copy email",
-      "lede": "Saya bales di <b>bawah 24 jam</b> pada hari kerja. Siap untuk AI engineering, pembuatan produk full-stack, dan pekerjaan smart contract, <b>mulai Q2 2026</b>."
+      "lede": "Saya bales di <b>bawah 24 jam</b> pada hari kerja. Siap untuk security review, kontes audit, AI engineering, dan pembuatan produk full-stack, <b>mulai Q2 2026</b>."
     },
     "foot": {
       "signed": "SIGNED",

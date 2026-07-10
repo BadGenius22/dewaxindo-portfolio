@@ -37,29 +37,31 @@ export interface Discipline {
   sub: string;
 }
 
-/** Hero disciplines strip. One engineer, three disciplines. */
+/** Hero disciplines strip. One engineer, three disciplines. Security leads. */
 export const DISCIPLINES: Discipline[] = [
-  { n: "A ·", key: "ai", sub: "Agents · RAG · Evals" },
-  { n: "B ·", key: "fullstack", sub: "Next · TypeScript · Cloud" },
-  { n: "C ·", key: "contracts", sub: "Audited · 0 Critical" },
+  { n: "A ·", key: "security", sub: "Audits · Contests · 0 Critical" },
+  { n: "B ·", key: "ai", sub: "Agents · RAG · Evals" },
+  { n: "C ·", key: "fullstack", sub: "Next · TypeScript · Cloud" },
 ];
 
 /** Stack ticker terms (hero marquee). */
 export const STACK_TERMS = [
+  "Solidity",
+  "Sui Move",
+  "Rust",
+  "Foundry",
+  "Echidna",
+  "Slither",
+  "Invariants",
+  "Noir · ZK",
   "TypeScript",
   "Next.js",
-  "Python",
   "LLM Agents",
   "MCP",
   "x402",
   "RAG",
   "React",
   "Postgres",
-  "Solidity",
-  "Rust",
-  "Foundry",
-  "Sui Move",
-  "Noir · ZK",
 ];
 
 export interface CapabilityV3 {
@@ -71,12 +73,12 @@ export interface CapabilityV3 {
 }
 
 export const CAPABILITIES_V3: CapabilityV3[] = [
-  { n: "01", key: "aiEngineering", sk: "MODELS", sv: "GPT · Claude", em: true },
-  { n: "02", key: "fullstackApps", sk: "SHIPPED", sv: "Next · TS" },
-  { n: "03", key: "smartContracts", sk: "STACK", sv: ".sol · .rs" },
-  { n: "04", key: "defiOnchain", sk: "TVL", sv: "$50M+", em: true },
-  { n: "05", key: "infraShip", sk: "UPTIME", sv: "24/7" },
-  { n: "06", key: "securityFirst", sk: "CRITICAL", sv: "0/0/0", em: true },
+  { n: "01", key: "securityResearch", sk: "AUDITED", sv: "0 critical", em: true },
+  { n: "02", key: "smartContracts", sk: "STACK", sv: ".sol · .rs" },
+  { n: "03", key: "defiOnchain", sk: "TVL", sv: "$50M+", em: true },
+  { n: "04", key: "aiEngineering", sk: "MODELS", sv: "GPT · Claude", em: true },
+  { n: "05", key: "fullstackApps", sk: "SHIPPED", sv: "Next · TS" },
+  { n: "06", key: "infraShip", sk: "UPTIME", sv: "24/7" },
 ];
 
 export interface ProcessStep {
@@ -245,12 +247,28 @@ export interface AuditRecord {
   status: "pass" | "pending";
 }
 
+/** Firm string that marks an engagement whose auditor is not yet announced. */
+export const AUDIT_FIRM_TBA = "TBA";
+
 export const AUDIT_RECORDS: AuditRecord[] = [
   { date: "2025.Q3", scope: "Factor PT-GMX Leverage v2", firm: "PeckShield", resultKey: "zeroCritical", status: "pass" },
   { date: "2025.Q2", scope: "Factor LP-USDC.e Vaults", firm: "PeckShield", resultKey: "zeroCritical", status: "pass" },
   { date: "2025.Q1", scope: "Factor LP-ETH Core", firm: "PeckShield", resultKey: "zeroCritical", status: "pass" },
-  { date: "2026", scope: "TOLDPROOF · Sui Move", firm: "TBA", resultKey: "reportPending", status: "pending" },
+  { date: "2026", scope: "TOLDPROOF · Sui Move", firm: AUDIT_FIRM_TBA, resultKey: "reportPending", status: "pending" },
 ];
+
+/**
+ * Standing claims for the summary band below the audit table. The other two
+ * band cells (firms, window) derive from AUDIT_RECORDS at render time.
+ *
+ * `tvl` is the same figure quoted on the Factor work card and the capability
+ * grid - update all three together.
+ */
+export const AUDIT_SUMMARY = {
+  /** Criticals across every settled engagement. */
+  critical: "0",
+  tvl: "$50M+",
+} as const;
 
 /** RektOff Solana Auditor Bootcamp credential card. */
 export const CREDENTIAL = {

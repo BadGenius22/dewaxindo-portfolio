@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Dewangga Praxindo | AI · Smart Contract · Full-Stack Engineer",
-    "description": "AI, smart contract & full-stack engineer (3+ yrs). Ship AI agents on x402/MCP, audited Sui Move & Solidity protocols, and Next.js products. $50M+ TVL · 3 audits · 0 criticals."
+    "title": "Dewangga Praxindo | Web3 Security Researcher",
+    "description": "Web3 security researcher (3+ yrs). Audit contests on Sherlock and Code4rena, audited Solidity and Sui Move protocols ($50M+ TVL, 3 audits, 0 criticals), plus AI agents and Next.js products."
   },
   "common": {
     "skipToContent": "Skip to main content"
@@ -25,11 +25,11 @@
     },
     "hero": {
       "eyebrowName": "Dewangga Praxindo",
-      "eyebrowRole": "AI · Full-Stack · Smart Contract Engineer",
+      "eyebrowRole": "Web3 Security Researcher",
       "eyebrowEst": "Est. 2022",
-      "srHeadline": "Dewangga Praxindo. An AI, full-stack, and smart contract engineer shipping AI, full-stack, and onchain systems.",
-      "headline": "Shipping <span class=\"clay\">AI</span>, full-stack &amp; onchain systems<span class=\"clay\">.</span>",
-      "lede": "I'm an <strong>AI &amp; full-stack engineer</strong> based in Yogyakarta, Indonesia. I also write the smart contracts that move money. LLM agents, production web apps, and <mark>$50M+ TVL deployed</mark> onchain. I build the whole stack: the model, the interface, and the contract underneath.",
+      "srHeadline": "Dewangga Praxindo. Web3 security researcher securing the smart contracts that move real money, and building the AI systems and products around them.",
+      "headline": "<span class=\"clay\">Securing</span> the contracts that move money<span class=\"clay\">.</span>",
+      "lede": "I'm a <strong>Web3 security researcher</strong> based in Yogyakarta, Indonesia. I audit the contracts that hold real money, and I build the AI systems and products around them. <mark>$50M+ TVL deployed</mark>, three PeckShield audits, zero criticals.",
       "ctaPrimary": "Hire me",
       "ctaGhost": "Selected work"
     },
@@ -47,28 +47,24 @@
     },
     "disciplines": {
       "ariaLabel": "Three disciplines, one engineer",
+      "security": {
+        "title": "Security Research"
+      },
       "ai": {
         "title": "AI Systems"
       },
       "fullstack": {
         "title": "Full-Stack"
       },
-      "contracts": {
-        "title": "Smart Contracts"
-      },
       "tally": "One engineer.<br/>Three disciplines."
     },
     "capabilities": {
       "marker": "What I build",
-      "title": "Six things I can <span class=\"clay\">build</span> for you, <span class=\"outline\">end-to-end.</span>",
+      "title": "Six things I can <span class=\"clay\">secure</span> and ship for you, <span class=\"outline\">end-to-end.</span>",
       "items": {
-        "aiEngineering": {
-          "title": "AI Engineering",
-          "desc": "LLM agents, RAG pipelines, and evals that actually ship. Function calling, tool use, retrieval, and guardrails, from prompt to production."
-        },
-        "fullstackApps": {
-          "title": "Full-Stack Apps",
-          "desc": "React, Next.js, TypeScript end to end. Auth, payments, realtime, and the database underneath. I ship the whole product, not a slice."
+        "securityResearch": {
+          "title": "Security Research",
+          "desc": "Audit contests on Sherlock and Code4rena. Threat models before a line of code, Slither and Aderyn on every PR. Three PeckShield audits on protocols I engineered, zero critical findings."
         },
         "smartContracts": {
           "title": "Smart Contracts",
@@ -78,13 +74,17 @@
           "title": "DeFi & Onchain",
           "desc": "Vaults, liquidity pools, and yield strategies that hold real user money. Production protocols on Arbitrum and Ethereum."
         },
+        "aiEngineering": {
+          "title": "AI Engineering",
+          "desc": "LLM agents, RAG pipelines, and evals that actually ship. Function calling, tool use, retrieval, and guardrails, from prompt to production."
+        },
+        "fullstackApps": {
+          "title": "Full-Stack Apps",
+          "desc": "React, Next.js, TypeScript end to end. Auth, payments, realtime, and the database underneath. I ship the whole product, not a slice."
+        },
         "infraShip": {
           "title": "Infra & Ship",
           "desc": "CI/CD, observability, and cloud. Postgres, edge functions, queues. The unglamorous parts that keep products alive at 3am."
-        },
-        "securityFirst": {
-          "title": "Security First",
-          "desc": "Three PeckShield audits, zero critical issues. Slither and Aderyn on every PR. Threat models written before a line of code."
         }
       }
     },
@@ -219,7 +219,7 @@
       "pitchHighlight": "shipping",
       "orCopy": "or copy address",
       "copyTitle": "Copy email",
-      "lede": "I reply in <b>under 24 hours</b> on weekdays. Available for AI engineering, full-stack product builds, and smart-contract work, <b>starting Q2 2026</b>."
+      "lede": "I reply in <b>under 24 hours</b> on weekdays. Available for security reviews, audit contests, AI engineering, and full-stack product builds, <b>starting Q2 2026</b>."
     },
     "foot": {
       "signed": "SIGNED",
