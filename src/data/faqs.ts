@@ -18,7 +18,7 @@ export const faqs: FAQ[] = [
   {
     question: "What is Dewangga Praxindo's expertise in blockchain development?",
     answer:
-      "Dewangga Praxindo is a smart contract engineer with 3+ years building secure protocols across Sui, Ethereum, Arbitrum, Base, and Solana. On Sui he writes Move contracts integrated with Walrus storage and Seal encryption; on EVM he builds DeFi systems including leverage vaults, LP management, and yield strategies; on Solana he works in Rust/Anchor including zero-knowledge circuits with Noir. He has deployed protocols managing $50M+ in TVL and emphasizes security-first development with fuzz testing, invariant testing, and external audits — his flagship TOLDPROOF passed three audits with zero Critical, High, or Medium findings.",
+      "Dewangga Praxindo is a smart contract engineer with 3+ years building secure protocols across Sui, Ethereum, Arbitrum, Base, and Solana. On Sui he writes Move contracts integrated with Walrus storage and Seal encryption; on EVM he builds DeFi systems including leverage vaults, LP management, and yield strategies; on Solana he works in Rust/Anchor including zero-knowledge circuits with Noir. He has deployed protocols managing $50M+ in TVL and emphasizes security-first development with fuzz testing, invariant testing, and external audits. His flagship TOLDPROOF passed three audits with zero Critical, High, or Medium findings.",
   },
   {
     question: "What smart contract development services does Dewangga offer?",
@@ -43,7 +43,7 @@ export const faqs: FAQ[] = [
   {
     question: "Does Dewangga Praxindo offer smart contract security audits?",
     answer:
-      "Yes. Dewangga's protocols are built security-first and have passed external audits with strong results — his flagship Sui project TOLDPROOF cleared three independent security audits with zero Critical, High, or Medium findings, and his Arbitrum protocol Factor Finance was PeckShield-audited with zero critical findings. His process combines manual review for logic vulnerabilities, fuzz and invariant testing in Foundry, gas optimization, and proxy upgrade-safety verification. For critical protocol launches he still recommends an independent third-party audit for maximum coverage.",
+      "Yes. Dewangga's protocols are built security-first and have passed external audits with strong results. His flagship Sui project TOLDPROOF cleared three independent security audits with zero Critical, High, or Medium findings, and his Arbitrum protocol Factor Finance was PeckShield-audited with zero critical findings. His process combines manual review for logic vulnerabilities, fuzz and invariant testing in Foundry, gas optimization, and proxy upgrade-safety verification. For critical protocol launches he still recommends an independent third-party audit for maximum coverage.",
   },
   {
     question: "What is TOLDPROOF?",
@@ -71,7 +71,7 @@ export const faqsId: FAQ[] = [
   {
     question: "Apa keahlian Dewangga Praxindo dalam pengembangan blockchain?",
     answer:
-      "Dewangga Praxindo adalah smart contract engineer dengan pengalaman 3+ tahun membangun protokol yang aman di Sui, Ethereum, Arbitrum, Base, dan Solana. Di Sui ia menulis kontrak Move yang terintegrasi dengan penyimpanan Walrus dan enkripsi Seal; di EVM ia membangun sistem DeFi termasuk leverage vault, manajemen LP, dan strategi yield; di Solana ia bekerja dengan Rust/Anchor termasuk sirkuit zero-knowledge menggunakan Noir. Ia telah men-deploy protokol yang mengelola TVL lebih dari $50M dan mengutamakan pengembangan yang berfokus pada keamanan dengan fuzz testing, invariant testing, dan audit eksternal — proyek andalannya, TOLDPROOF, lolos tiga audit tanpa temuan Critical, High, atau Medium.",
+      "Dewangga Praxindo adalah smart contract engineer dengan pengalaman 3+ tahun membangun protokol yang aman di Sui, Ethereum, Arbitrum, Base, dan Solana. Di Sui ia menulis kontrak Move yang terintegrasi dengan penyimpanan Walrus dan enkripsi Seal; di EVM ia membangun sistem DeFi termasuk leverage vault, manajemen LP, dan strategi yield; di Solana ia bekerja dengan Rust/Anchor termasuk sirkuit zero-knowledge menggunakan Noir. Ia telah men-deploy protokol yang mengelola TVL lebih dari $50M dan mengutamakan pengembangan yang berfokus pada keamanan dengan fuzz testing, invariant testing, dan audit eksternal. Proyek andalannya, TOLDPROOF, lolos tiga audit tanpa temuan Critical, High, atau Medium.",
   },
   {
     question: "Layanan pengembangan smart contract apa yang ditawarkan Dewangga?",
@@ -86,7 +86,7 @@ export const faqsId: FAQ[] = [
   {
     question: "Bagaimana cara hire Dewangga Praxindo untuk pengembangan smart contract?",
     answer:
-      "Anda bisa hire Dewangga untuk pengembangan Sui Move, engineering DeFi di EVM/Solana, pekerjaan sirkuit ZK, atau security review smart contract independen. Hubungi via X (@dewaxindo) untuk pertanyaan singkat, Telegram (@dewaxindo) untuk diskusi mendetail, LinkedIn (dewaxindo) untuk jejaring profesional, atau email hi@dewaxindo.com untuk proposal formal. Ia bekerja dengan startup maupun protokol mapan — baik proyek penuh waktu, peran advisory, maupun engagement audit — dan biasanya merespons dalam 24-48 jam.",
+      "Anda bisa hire Dewangga untuk pengembangan Sui Move, engineering DeFi di EVM/Solana, pekerjaan sirkuit ZK, atau security review smart contract independen. Hubungi via X (@dewaxindo) untuk pertanyaan singkat, Telegram (@dewaxindo) untuk diskusi mendetail, LinkedIn (dewaxindo) untuk jejaring profesional, atau email hi@dewaxindo.com untuk proposal formal. Ia bekerja dengan startup maupun protokol mapan, baik proyek penuh waktu, peran advisory, maupun engagement audit, dan biasanya merespons dalam 24-48 jam.",
   },
   {
     question: "Jaringan blockchain apa yang menjadi spesialisasi Dewangga?",
@@ -96,7 +96,7 @@ export const faqsId: FAQ[] = [
   {
     question: "Apakah Dewangga Praxindo menyediakan audit keamanan smart contract?",
     answer:
-      "Ya. Protokol Dewangga dibangun dengan mengutamakan keamanan dan telah lolos audit eksternal dengan hasil yang kuat — proyek Sui andalannya, TOLDPROOF, lolos tiga audit keamanan independen tanpa temuan Critical, High, atau Medium, dan protokol Arbitrum-nya, Factor Finance, diaudit PeckShield tanpa temuan critical. Prosesnya memadukan review manual untuk kerentanan logika, fuzz dan invariant testing di Foundry, optimasi gas, dan verifikasi keamanan upgrade proxy. Untuk peluncuran protokol yang kritis, ia tetap menyarankan audit pihak ketiga independen demi cakupan maksimal.",
+      "Ya. Protokol Dewangga dibangun dengan mengutamakan keamanan dan telah lolos audit eksternal dengan hasil yang kuat. Proyek Sui andalannya, TOLDPROOF, lolos tiga audit keamanan independen tanpa temuan Critical, High, atau Medium, dan protokol Arbitrum-nya, Factor Finance, diaudit PeckShield tanpa temuan critical. Prosesnya memadukan review manual untuk kerentanan logika, fuzz dan invariant testing di Foundry, optimasi gas, dan verifikasi keamanan upgrade proxy. Untuk peluncuran protokol yang kritis, ia tetap menyarankan audit pihak ketiga independen demi cakupan maksimal.",
   },
   {
     question: "Apa itu TOLDPROOF?",

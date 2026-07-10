@@ -49,7 +49,7 @@ function WorkCard({ w, onOpen, taglineLabel, stampReceipt, stampMarquee, stampCa
         {w.image ? (
           <Image
             src={w.image}
-            alt={`${w.name} — ${w.tags.join(", ")} project${w.metric ? ` (${w.metric})` : ""}`}
+            alt={`${w.name}: ${w.tags.join(", ")} project${w.metric ? ` (${w.metric})` : ""}`}
             fill
             sizes={w.featured ? "(max-width: 900px) 92vw, 1200px" : "(max-width: 900px) 92vw, 640px"}
             className="work-img"

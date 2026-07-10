@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Dewangga Praxindo | DeFi Smart Contract Engineer",
-    "description": "Smart contract engineer (3+ yrs) building audited DeFi & Sui Move protocols on Sui, Arbitrum, Base & Solana. Creator of TOLDPROOF — $50M+ TVL, 0 criticals."
+    "title": "Dewangga Praxindo | AI · Smart Contract · Full-Stack Engineer",
+    "description": "AI, smart contract & full-stack engineer (3+ yrs). Ship AI agents on x402/MCP, audited Sui Move & Solidity protocols, and Next.js products. $50M+ TVL · 3 audits · 0 criticals."
   },
   "common": {
     "skipToContent": "Skip to main content"
@@ -12,7 +12,7 @@
   },
   "forge": {
     "tape": {
-      "available": "AVAILABLE — Q2 2026"
+      "available": "AVAILABLE · Q2 2026"
     },
     "nav": {
       "services": "Services",
@@ -27,9 +27,9 @@
       "eyebrowName": "Dewangga Praxindo",
       "eyebrowRole": "AI · Full-Stack · Smart Contract Engineer",
       "eyebrowEst": "Est. 2022",
-      "srHeadline": "Dewangga Praxindo — an AI, full-stack, and smart contract engineer shipping AI, full-stack, and onchain systems.",
+      "srHeadline": "Dewangga Praxindo. An AI, full-stack, and smart contract engineer shipping AI, full-stack, and onchain systems.",
       "headline": "Shipping <span class=\"clay\">AI</span>, full-stack &amp; onchain systems<span class=\"clay\">.</span>",
-      "lede": "I'm an <strong>AI &amp; full-stack engineer</strong> based in Yogyakarta, Indonesia — I also write the smart contracts that move money. LLM agents, production web apps, and <mark>$50M+ TVL deployed</mark> onchain. I build the whole stack: the model, the interface, and the contract underneath.",
+      "lede": "I'm an <strong>AI &amp; full-stack engineer</strong> based in Yogyakarta, Indonesia. I also write the smart contracts that move money. LLM agents, production web apps, and <mark>$50M+ TVL deployed</mark> onchain. I build the whole stack: the model, the interface, and the contract underneath.",
       "ctaPrimary": "Hire me",
       "ctaGhost": "Selected work"
     },
@@ -64,7 +64,7 @@
       "items": {
         "aiEngineering": {
           "title": "AI Engineering",
-          "desc": "LLM agents, RAG pipelines, and evals that actually ship. Function calling, tool use, retrieval, and guardrails — from prompt to production."
+          "desc": "LLM agents, RAG pipelines, and evals that actually ship. Function calling, tool use, retrieval, and guardrails, from prompt to production."
         },
         "fullstackApps": {
           "title": "Full-Stack Apps",
@@ -72,7 +72,7 @@
         },
         "smartContracts": {
           "title": "Smart Contracts",
-          "desc": "Solidity and Rust. Heavy testing before any audit — fuzz tests, invariants, and mutation testing run on every change."
+          "desc": "Solidity and Rust. Heavy testing before any audit: fuzz tests, invariants, and mutation testing run on every change."
         },
         "defiOnchain": {
           "title": "DeFi & Onchain",
@@ -97,7 +97,7 @@
           "bullets": {
             "0": "Understand the problem before the stack. Read the code, the specs, the prior art.",
             "1": "Map the data flow and the trust boundaries. Mark every place value or state crosses one.",
-            "2": "Pick the tools that fit — model, framework, chain — and write the spec we build to."
+            "2": "Pick the tools that fit (model, framework, chain) and write the spec we build to."
           }
         },
         "build": {
@@ -112,7 +112,7 @@
           "title": "Ship & watch",
           "bullets": {
             "0": "Deploy with rollback. Feature flags, timelocks, and a tested kill switch on the money paths.",
-            "1": "Monitoring, logging, and traces wired in — I get paged before users do.",
+            "1": "Monitoring, logging, and traces wired in. I get paged before users do.",
             "2": "Audit the critical paths. On-call for the first 30 days after every launch."
           }
         }
@@ -128,8 +128,8 @@
       },
       "taglines": {
         "toldproof": "A way for AI agents and people to prove their predictions are honest. Sealed on Sui, revealed on time.",
-        "amaly": "A full-stack prayer-tracking app for Ramadan. Quran reader, streaks, and a leaderboard — shipped as a PWA.",
-        "factor": "DeFi yield strategies on Arbitrum. I am a core engineer — leverage vaults, LP management, the contracts that hold $50M+ TVL.",
+        "amaly": "A full-stack prayer-tracking app for Ramadan. Quran reader, streaks, and a leaderboard. Shipped as a PWA.",
+        "factor": "DeFi yield strategies on Arbitrum. I am a core engineer: leverage vaults, LP management, the contracts that hold $50M+ TVL.",
         "rekon": "AI-powered esports predictions on Polymarket. Model picks the edge, you pay in USDC with one click.",
         "lazor": "A Solana wallet template with Face ID and Touch ID. No seed phrases.",
         "vouch": "Prove things about your Solana wallet without revealing who you are. Built with Noir zero-knowledge circuits.",
@@ -169,10 +169,10 @@
       "credLabel": "CREDENTIAL",
       "credStatus": "GRADUATE",
       "credName": "RektOff Solana Auditor Bootcamp",
-      "credDesc": "Graduated from RektOff's Solana security bootcamp — auditing Anchor and native programs: account validation, CPI safety, and the exploit patterns that drain protocols.",
+      "credDesc": "Graduated from RektOff's Solana security bootcamp. Auditing Anchor and native programs: account validation, CPI safety, and the exploit patterns that drain protocols.",
       "credMetaLeft": "SOLANA · SECURITY",
       "credMetaRight": "CERTIFIED · 2026",
-      "credPlaceholder": "[ RektOff certificate — image coming soon ]"
+      "credPlaceholder": "[ RektOff certificate · image coming soon ]"
     },
     "log": {
       "marker": "Deploy log",
@@ -207,7 +207,7 @@
       "pitchHighlight": "shipping",
       "orCopy": "or copy address",
       "copyTitle": "Copy email",
-      "lede": "I reply in <b>under 24 hours</b> on weekdays. Available for AI engineering, full-stack product builds, and smart-contract work — <b>starting Q2 2026</b>."
+      "lede": "I reply in <b>under 24 hours</b> on weekdays. Available for AI engineering, full-stack product builds, and smart-contract work, <b>starting Q2 2026</b>."
     },
     "foot": {
       "signed": "SIGNED",
@@ -244,7 +244,7 @@
     },
     "comingSoon": {
       "title": "Coming Soon",
-      "description": "I'm working on digital products to help you accelerate your Web3 journey. Templates, guides, and resources — all coming soon.",
+      "description": "I'm working on digital products to help you accelerate your Web3 journey. Templates, guides, and resources, all coming soon.",
       "emailPlaceholder": "Enter your email",
       "emailAriaLabel": "Email address for product notifications",
       "notifyMe": "Notify Me",
@@ -276,7 +276,7 @@
     },
     "hero": {
       "headline": "From Zero to Web3 Developer in 5 Steps",
-      "subheadline": "Free 22-page guide — a practical roadmap from a developer already working in the industry.",
+      "subheadline": "Free 22-page guide: a practical roadmap from a developer already working in the industry.",
       "languageNote": "Written in Bahasa Indonesia",
       "cta": "Send to My Email!",
       "socialProof": "500+ developers have downloaded"

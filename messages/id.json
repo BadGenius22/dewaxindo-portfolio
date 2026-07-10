@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Dewangga Praxindo | DeFi Smart Contract Engineer",
-    "description": "Smart contract engineer berpengalaman 3+ tahun, bangun protokol DeFi & Sui Move yang teraudit di Sui, Arbitrum, Base & Solana. Pencipta TOLDPROOF — TVL $50M+, 0 critical."
+    "title": "Dewangga Praxindo | AI · Smart Contract · Full-Stack Engineer",
+    "description": "AI, smart contract & full-stack engineer (3+ tahun). Bangun AI agent di x402/MCP, protokol Sui Move & Solidity yang teraudit, dan produk Next.js. TVL $50M+ · 3 audit · 0 critical."
   },
   "common": {
     "skipToContent": "Skip ke konten"
@@ -12,7 +12,7 @@
   },
   "forge": {
     "tape": {
-      "available": "TERSEDIA — Q2 2026"
+      "available": "TERSEDIA · Q2 2026"
     },
     "nav": {
       "services": "Layanan",
@@ -27,9 +27,9 @@
       "eyebrowName": "Dewangga Praxindo",
       "eyebrowRole": "AI · Full-Stack · Smart Contract Engineer",
       "eyebrowEst": "Est. 2022",
-      "srHeadline": "Dewangga Praxindo — engineer AI, full-stack, dan smart contract yang mengirim sistem AI, full-stack, dan onchain.",
+      "srHeadline": "Dewangga Praxindo. Engineer AI, full-stack, dan smart contract yang mengirim sistem AI, full-stack, dan onchain.",
       "headline": "Mengirim sistem <span class=\"clay\">AI</span>, full-stack &amp; onchain<span class=\"clay\">.</span>",
-      "lede": "Saya <strong>engineer AI &amp; full-stack</strong> yang berbasis di Yogyakarta, Indonesia — sekaligus menulis smart contract yang menggerakkan uang. LLM agent, aplikasi web produksi, dan <mark>$50M+ TVL ter-deploy</mark> onchain. Saya bangun seluruh stack: modelnya, antarmukanya, dan kontrak di baliknya.",
+      "lede": "Saya <strong>engineer AI &amp; full-stack</strong> yang berbasis di Yogyakarta, Indonesia. Sekaligus menulis smart contract yang menggerakkan uang. LLM agent, aplikasi web produksi, dan <mark>$50M+ TVL ter-deploy</mark> onchain. Saya bangun seluruh stack: modelnya, antarmukanya, dan kontrak di baliknya.",
       "ctaPrimary": "Hire saya",
       "ctaGhost": "Lihat karya"
     },
@@ -64,7 +64,7 @@
       "items": {
         "aiEngineering": {
           "title": "AI Engineering",
-          "desc": "LLM agent, pipeline RAG, dan eval yang benar-benar rilis. Function calling, tool use, retrieval, dan guardrail — dari prompt sampai produksi."
+          "desc": "LLM agent, pipeline RAG, dan eval yang benar-benar rilis. Function calling, tool use, retrieval, dan guardrail, dari prompt sampai produksi."
         },
         "fullstackApps": {
           "title": "Full-Stack Apps",
@@ -72,7 +72,7 @@
         },
         "smartContracts": {
           "title": "Smart Contracts",
-          "desc": "Solidity dan Rust. Pengujian intens sebelum audit apa pun — fuzz test, invariant, dan mutation testing di setiap perubahan."
+          "desc": "Solidity dan Rust. Pengujian intens sebelum audit apa pun: fuzz test, invariant, dan mutation testing di setiap perubahan."
         },
         "defiOnchain": {
           "title": "DeFi & Onchain",
@@ -97,7 +97,7 @@
           "bullets": {
             "0": "Pahami masalahnya sebelum stack-nya. Baca kodenya, spesifikasinya, karya sebelumnya.",
             "1": "Petakan alur data dan batas kepercayaan. Tandai setiap titik di mana nilai atau state melewatinya.",
-            "2": "Pilih tool yang pas — model, framework, chain — lalu tulis spesifikasi yang kita bangun."
+            "2": "Pilih tool yang pas (model, framework, chain) lalu tulis spesifikasi yang kita bangun."
           }
         },
         "build": {
@@ -112,7 +112,7 @@
           "title": "Rilis & pantau",
           "bullets": {
             "0": "Deploy dengan rollback. Feature flag, timelock, dan kill switch teruji di jalur uang.",
-            "1": "Monitoring, logging, dan trace terpasang — saya di-page sebelum pengguna.",
+            "1": "Monitoring, logging, dan trace terpasang. Saya di-page sebelum pengguna.",
             "2": "Audit jalur kritis. On-call 30 hari pertama setiap peluncuran."
           }
         }
@@ -128,8 +128,8 @@
       },
       "taglines": {
         "toldproof": "Cara bagi AI agent dan manusia membuktikan prediksi mereka jujur. Disegel di Sui, dibuka tepat waktu.",
-        "amaly": "Aplikasi full-stack pelacak salat untuk Ramadan. Pembaca Quran, streak, dan leaderboard — dirilis sebagai PWA.",
-        "factor": "Strategi yield DeFi di Arbitrum. Saya core engineer — leverage vault, manajemen LP, kontrak yang memegang $50M+ TVL.",
+        "amaly": "Aplikasi full-stack pelacak salat untuk Ramadan. Pembaca Quran, streak, dan leaderboard. Dirilis sebagai PWA.",
+        "factor": "Strategi yield DeFi di Arbitrum. Saya core engineer: leverage vault, manajemen LP, kontrak yang memegang $50M+ TVL.",
         "rekon": "Prediksi esports bertenaga AI di Polymarket. Model memilih edge-nya, Anda bayar pakai USDC sekali klik.",
         "lazor": "Template wallet Solana dengan Face ID dan Touch ID. Tanpa seed phrase.",
         "vouch": "Buktikan hal tentang wallet Solana Anda tanpa mengungkap identitas. Dibangun dengan sirkuit zero-knowledge Noir.",
@@ -169,10 +169,10 @@
       "credLabel": "KREDENSIAL",
       "credStatus": "LULUSAN",
       "credName": "RektOff Solana Auditor Bootcamp",
-      "credDesc": "Lulusan bootcamp keamanan Solana RektOff — mengaudit program Anchor dan native: validasi akun, keamanan CPI, dan pola eksploitasi yang menguras protokol.",
+      "credDesc": "Lulusan bootcamp keamanan Solana RektOff. Mengaudit program Anchor dan native: validasi akun, keamanan CPI, dan pola eksploitasi yang menguras protokol.",
       "credMetaLeft": "SOLANA · SECURITY",
       "credMetaRight": "CERTIFIED · 2026",
-      "credPlaceholder": "[ Sertifikat RektOff — gambar segera hadir ]"
+      "credPlaceholder": "[ Sertifikat RektOff · gambar segera hadir ]"
     },
     "log": {
       "marker": "Log deploy",
@@ -207,7 +207,7 @@
       "pitchHighlight": "dikirim",
       "orCopy": "atau copy alamat",
       "copyTitle": "Copy email",
-      "lede": "Saya bales di <b>bawah 24 jam</b> pada hari kerja. Siap untuk AI engineering, pembuatan produk full-stack, dan pekerjaan smart contract — <b>mulai Q2 2026</b>."
+      "lede": "Saya bales di <b>bawah 24 jam</b> pada hari kerja. Siap untuk AI engineering, pembuatan produk full-stack, dan pekerjaan smart contract, <b>mulai Q2 2026</b>."
     },
     "foot": {
       "signed": "SIGNED",
@@ -244,7 +244,7 @@
     },
     "comingSoon": {
       "title": "Segera Hadir",
-      "description": "Lagi nyiapin produk digital buat bantu kamu di Web3. Template, guide, dan resource — coming soon.",
+      "description": "Lagi nyiapin produk digital buat bantu kamu di Web3. Template, guide, dan resource, coming soon.",
       "emailPlaceholder": "Masukkan email kamu",
       "emailAriaLabel": "Alamat email untuk notifikasi produk",
       "notifyMe": "Kabari Aku",
@@ -276,7 +276,7 @@
     },
     "hero": {
       "headline": "Dari Nol ke Web3 Developer dalam 5 Langkah",
-      "subheadline": "Panduan gratis 22 halaman — roadmap praktis dari developer yang udah kerja di industri ini.",
+      "subheadline": "Panduan gratis 22 halaman: roadmap praktis dari developer yang udah kerja di industri ini.",
       "languageNote": "Ditulis dalam Bahasa Indonesia",
       "cta": "Kirim ke Email Aku!",
       "socialProof": "500+ developers udah download"

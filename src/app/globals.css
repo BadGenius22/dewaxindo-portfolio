@@ -53,7 +53,7 @@
   --ink-2:        #2A2A28;
   --ink-3:        #6B6B66;
   --ink-faint:    #A8A8A2;
-  --clay:         #0F6B3F;    /* on-chain green — single accent */
+  --clay:         #0F6B3F;    /* on-chain green, single accent */
   --clay-lite:    #6FBF95;    /* accent on dark ink */
   --line:         rgba(19, 19, 17, 0.08);
   --line-strong:  rgba(19, 19, 17, 0.22);
@@ -95,7 +95,7 @@
   --sidebar-ring: var(--clay);
 }
 
-/* Force light mode regardless of class — the ledger is paper-only */
+/* Force light mode regardless of class. The ledger is paper-only */
 .dark { color-scheme: light; }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -122,7 +122,7 @@ button { font: inherit; background: none; border: 0; color: inherit; cursor: poi
 h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
 p { text-wrap: pretty; }
 
-/* Paper grain — very faint */
+/* Paper grain. Very faint */
 body::before {
   content: "";
   position: fixed; inset: 0;
@@ -189,7 +189,7 @@ body::before {
 }
 .tape-top .r > .sep { color: var(--ink-faint); opacity: 0.6; }
 
-/* Lang switch on the dark tape-top */
+/* Lang switch on the dark tape-top. Invert colors */
 .tape-top .lang-switch button { color: var(--ink-faint); }
 .tape-top .lang-switch button:hover { color: var(--clay-lite); }
 .tape-top .lang-switch button.active { color: var(--paper); font-weight: 600; }
@@ -337,7 +337,7 @@ body::before {
 .hero-cta .hc-ico { font-size: 13px; transition: transform .2s; }
 .hero-cta:hover .hc-ico { transform: translateX(3px); }
 
-/* Receipt — the signature tactile object. Kept, calmed. */
+/* Receipt: the signature tactile object. Kept, calmed. */
 .receipt {
   background: var(--paper);
   border: 1px solid var(--ink);
@@ -408,7 +408,7 @@ body::before {
 }
 .rc-dot.on { background: var(--clay); border-color: var(--clay); }
 
-/* Disciplines strip — replaces rotated stamps */
+/* Disciplines strip. Replaces rotated stamps */
 .disc-strip {
   margin-top: 88px;
   display: grid;
@@ -465,7 +465,7 @@ body::before {
   line-height: 1.5;
 }
 
-/* Stack ticker — quiet mono strip, replaces giant marquee */
+/* Stack ticker: quiet mono strip, replaces giant marquee */
 .stackline {
   margin-top: 0;
   border-bottom: 1px solid var(--line);
@@ -1531,7 +1531,7 @@ body::before {
 .pk-author-info .role { font-family: var(--mono); font-size: 12px; color: var(--clay); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 6px; }
 .pk-author-info ul { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 8px; }
 .pk-author-info li { font-size: 14px; color: var(--ink-2); display: flex; gap: 10px; align-items: baseline; }
-.pk-author-info li::before { content: "—"; color: var(--clay); flex-shrink: 0; }
+.pk-author-info li::before { content: "·"; color: var(--clay); flex-shrink: 0; }
 
 /* ---------------- final CTA (dark band) ---------------- */
 .pk-final { background: var(--ink); color: var(--paper); padding: 72px 0; }

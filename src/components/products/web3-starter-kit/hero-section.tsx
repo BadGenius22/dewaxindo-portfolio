@@ -64,7 +64,7 @@ export function HeroSection({ formId, productId }: HeroSectionProps) {
           <div className="pk-hero-media-inner">
             <EbookMockup
               src="/images/ebook/3dMockup.png"
-              alt="Web3 Starter Kit — 5 Langkah Pertama Masuk Dunia Web3"
+              alt="Web3 Starter Kit: 5 Langkah Pertama Masuk Dunia Web3"
               size="large"
               variant="device"
             />
