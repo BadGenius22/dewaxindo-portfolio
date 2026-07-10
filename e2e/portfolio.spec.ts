@@ -21,54 +21,55 @@ test.describe("Portfolio Page", () => {
   });
 
   test("all main sections are visible", async ({ page }) => {
-    // Hero
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
 
-    // About section
-    const about = page.locator("#about");
-    await expect(about).toBeVisible();
-
-    // Projects section
-    const projects = page.locator("#projects");
-    await expect(projects).toBeVisible();
-
-    // Contact section
-    const contact = page.locator("#contact");
-    await expect(contact).toBeVisible();
-  });
-
-  test("projects display correctly", async ({ page }) => {
-    const projectsSection = page.locator("#projects");
-    await projectsSection.scrollIntoViewIfNeeded();
-
-    // Look for any card-like elements
-    const cards = projectsSection.locator(".rounded-xl, .rounded-lg").first();
-    await expect(cards).toBeVisible();
-  });
-
-  test("dark mode toggle works", async ({ page }) => {
-    const html = page.locator("html");
-
-    // Check initial state (should be dark by default)
-    await expect(html).toHaveClass(/dark/);
-
-    // Find and click theme toggle
-    const themeToggle = page.getByRole("button", { name: /theme/i });
-    if (await themeToggle.isVisible()) {
-      await themeToggle.click();
-      // After click, should toggle
-      await expect(html).not.toHaveClass(/dark/);
+    // Section order matches the nav numbering, § 01 through § 06.
+    for (const id of ["capabilities", "process", "works", "audits", "log", "contact"]) {
+      await expect(page.locator(`#${id}`)).toBeVisible();
     }
   });
 
+  test("work cards display correctly", async ({ page }) => {
+    const works = page.locator("#works");
+    await works.scrollIntoViewIfNeeded();
+
+    const cards = works.locator(".work-card");
+    expect(await cards.count()).toBeGreaterThan(0);
+    await expect(cards.first()).toBeVisible();
+
+    // Exactly one card carries the featured treatment.
+    await expect(works.locator(".work-card.featured")).toHaveCount(1);
+  });
+
+  test("credential cards render in the security section", async ({ page }) => {
+    const audits = page.locator("#audits");
+    await audits.scrollIntoViewIfNeeded();
+
+    const cards = audits.locator(".cred-card");
+    await expect(cards).toHaveCount(2);
+    await expect(cards.first()).toBeVisible();
+    await expect(cards.last()).toBeVisible();
+  });
+
+  test("language switcher routes between locales", async ({ page }) => {
+    // localePrefix is "as-needed", so the default locale serves from "/" unprefixed.
+    await expect(page.locator("html")).toHaveAttribute("lang", "en");
+
+    await page.getByRole("button", { name: "Bahasa Indonesia" }).click();
+
+    await expect(page).toHaveURL(/\/id\/?$/);
+    await expect(page.locator("html")).toHaveAttribute("lang", "id");
+  });
+
   test("external links have correct attributes", async ({ page }) => {
-    // Check that external links open in new tab
     const externalLinks = page.locator('a[target="_blank"]');
     const count = await externalLinks.count();
+    expect(count).toBeGreaterThan(0);
 
-    for (let i = 0; i < Math.min(count, 5); i++) {
-      const link = externalLinks.nth(i);
-      await expect(link).toHaveAttribute("rel", /noopener/);
+    for (let i = 0; i < count; i++) {
+      // noreferrer also severs window.opener, so it covers reverse tabnabbing
+      // on its own. Either token is acceptable here.
+      await expect(externalLinks.nth(i)).toHaveAttribute("rel", /noreferrer|noopener/);
     }
   });
 

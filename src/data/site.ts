@@ -5,16 +5,30 @@
 
 export const siteConfig = {
   name: "Dewangga Praxindo",
-  title: "Dewangga Praxindo | AI · Smart Contract · Full-Stack Engineer",
+  title: "Dewangga Praxindo | Web3 Security Researcher",
   description:
-    "AI, smart contract & full-stack engineer (3+ yrs). Ship AI agents on x402/MCP, audited Sui Move & Solidity protocols, and Next.js products. $50M+ TVL · 3 audits · 0 criticals.",
+    "Web3 security researcher (3+ yrs). Audit contests on Sherlock & Code4rena, audited Solidity & Sui Move protocols, plus AI agents and Next.js products. $50M+ TVL · 3 audits · 0 criticals.",
   url: "https://dewaxindo.com",
   ogImage: "/og-image.png",
   favicon: "/favicon.ico",
 
   // SEO keywords for Google (including long-tail variations)
   keywords: [
-    // Core identity (new framing)
+    // Core identity (security-led)
+    "Web3 security researcher",
+    "smart contract auditor",
+    "smart contract security researcher",
+    "blockchain security researcher",
+    "DeFi security researcher",
+    "Solidity auditor",
+    "Sui Move auditor",
+    "Solana program auditor",
+    // Competitive auditing
+    "Sherlock watson",
+    "Code4rena warden",
+    "audit contest researcher",
+    "competitive smart contract auditing",
+    // Retained: AI / agentic
     "AI engineer",
     "AI agent engineer",
     "Full-stack engineer",
@@ -63,11 +77,19 @@ export const siteConfig = {
     "Polygon developer",
     // Practice
     "smart contract security audit",
+    "smart contract security review",
+    "threat modeling smart contracts",
+    "invariant testing Foundry",
+    "fuzz testing smart contracts",
+    "Echidna invariant testing",
+    "Slither static analysis",
     "DeFi protocol engineering",
     "Foundry smart contract testing",
     "Anchor Solana developer",
     "Rust Solana developer",
     // Service-oriented
+    "hire smart contract auditor",
+    "hire Web3 security researcher",
     "hire AI engineer",
     "hire full-stack engineer",
     "hire Sui developer",
@@ -79,12 +101,27 @@ export const siteConfig = {
   // Author info for structured data
   author: {
     name: "Dewangga Praxindo",
-    jobTitle: "AI, Smart Contract & Full-Stack Engineer",
+    jobTitle: "Web3 Security Researcher",
     email: "hi@dewaxindo.com",
     location: "Yogyakarta, Indonesia",
     experience: "3+ years",
     tvlDeployed: "$50M+",
     specialties: [
+      "smart contract security research",
+      "smart contract auditing",
+      "competitive audit contests",
+      "threat modeling",
+      "fuzz testing",
+      "invariant testing",
+      "Solidity",
+      "Sui Move",
+      "Rust",
+      "Anchor",
+      "Foundry",
+      "Echidna",
+      "Slither",
+      "Noir zero-knowledge circuits",
+      "DeFi protocol engineering",
       "AI agents",
       "x402 payments",
       "MCP",
@@ -92,18 +129,10 @@ export const siteConfig = {
       "Next.js",
       "TypeScript",
       "React",
-      "Tailwind CSS",
       "PWA",
-      "Sui Move",
       "Walrus",
       "Seal",
-      "Solidity",
-      "Rust",
-      "Anchor",
-      "Noir zero-knowledge circuits",
       "account abstraction",
-      "DeFi protocol engineering",
-      "smart contract security",
     ],
   },
 
