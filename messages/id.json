@@ -153,19 +153,7 @@
     },
     "audits": {
       "marker": "Rekam jejak keamanan",
-      "title": "Kode teraudit. <br/> <span class=\"clay\">Nol</span> temuan critical<span class=\"outline\">, sejauh ini.</span>",
-      "passed": "LULUS",
-      "total": "TOTAL",
-      "col": {
-        "date": "Tanggal",
-        "scope": "Cakupan",
-        "firm": "Firma",
-        "result": "Hasil"
-      },
-      "results": {
-        "zeroCritical": "0 critical",
-        "reportPending": "Laporan pending"
-      },
+      "title": "Saya berburu bug <span class=\"clay\">di ruang publik</span>, <br/> <span class=\"outline\">melawan seluruh peserta.</span>",
       "credLabel": "KREDENSIAL",
       "credStatus": "LULUSAN",
       "credName": "RektOff Solana Auditor Bootcamp",

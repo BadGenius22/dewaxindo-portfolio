@@ -153,19 +153,7 @@
     },
     "audits": {
       "marker": "Security record",
-      "title": "Audited code. <br/> <span class=\"clay\">Zero</span> critical findings<span class=\"outline\">, so far.</span>",
-      "passed": "PASSED",
-      "total": "TOTAL",
-      "col": {
-        "date": "Date",
-        "scope": "Scope",
-        "firm": "Firm",
-        "result": "Result"
-      },
-      "results": {
-        "zeroCritical": "0 critical",
-        "reportPending": "Report pending"
-      },
+      "title": "I hunt bugs <span class=\"clay\">in public</span>, <br/> <span class=\"outline\">against the whole field.</span>",
       "credLabel": "CREDENTIAL",
       "credStatus": "GRADUATE",
       "credName": "RektOff Solana Auditor Bootcamp",

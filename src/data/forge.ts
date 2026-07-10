@@ -238,37 +238,11 @@ export const WORKS_V3: WorkV3[] = [
   },
 ];
 
-export interface AuditRecord {
-  date: string;
-  scope: string;
-  firm: string;
-  /** Translation key for the result badge label. */
-  resultKey: string;
-  status: "pass" | "pending";
-}
-
-/** Firm string that marks an engagement whose auditor is not yet announced. */
-export const AUDIT_FIRM_TBA = "TBA";
-
-export const AUDIT_RECORDS: AuditRecord[] = [
-  { date: "2025.Q3", scope: "Factor PT-GMX Leverage v2", firm: "PeckShield", resultKey: "zeroCritical", status: "pass" },
-  { date: "2025.Q2", scope: "Factor LP-USDC.e Vaults", firm: "PeckShield", resultKey: "zeroCritical", status: "pass" },
-  { date: "2025.Q1", scope: "Factor LP-ETH Core", firm: "PeckShield", resultKey: "zeroCritical", status: "pass" },
-  { date: "2026", scope: "TOLDPROOF · Sui Move", firm: AUDIT_FIRM_TBA, resultKey: "reportPending", status: "pending" },
-];
-
 /**
- * Standing claims for the summary band below the audit table. The other two
- * band cells (firms, window) derive from AUDIT_RECORDS at render time.
- *
- * `tvl` is the same figure quoted on the Factor work card and the capability
- * grid - update all three together.
+ * §04 credentials. The section covers security work *performed*, so the
+ * PeckShield engagements on Factor's own code live on the Factor work card
+ * (WORKS_V3) and in the FAQ, not here.
  */
-export const AUDIT_SUMMARY = {
-  /** Criticals across every settled engagement. */
-  critical: "0",
-  tvl: "$50M+",
-} as const;
 
 /** RektOff Solana Auditor Bootcamp credential card. */
 export const CREDENTIAL = {
