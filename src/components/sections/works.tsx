@@ -27,7 +27,7 @@ function WorkCard({ w, onOpen, taglineLabel, stampReceipt, stampMarquee, stampCa
 
   return (
     <article
-      className={"work-card" + (w.featured ? " featured" : "") + (hasStudy ? " has-study" : "")}
+      className={"work-card " + w.span + (w.featured ? " featured" : "") + (hasStudy ? " has-study" : "")}
       onClick={handleClick}
       role={hasStudy ? "button" : undefined}
       tabIndex={hasStudy ? 0 : undefined}
@@ -51,7 +51,7 @@ function WorkCard({ w, onOpen, taglineLabel, stampReceipt, stampMarquee, stampCa
             src={w.image}
             alt={`${w.name}: ${w.tags.join(", ")} project${w.metric ? ` (${w.metric})` : ""}`}
             fill
-            sizes={w.featured ? "(max-width: 820px) 92vw, 56vw" : "(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 31vw"}
+            sizes={w.featured ? "(max-width: 900px) 92vw, 1200px" : "(max-width: 900px) 92vw, 640px"}
             className="work-img"
           />
         ) : (
@@ -68,17 +68,19 @@ function WorkCard({ w, onOpen, taglineLabel, stampReceipt, stampMarquee, stampCa
         </a>
       </div>
 
-      <h3>{w.name}</h3>
-      <p className="tagline">{taglineLabel}</p>
-      <div className="meta">
-        <div className="tags">
-          {w.tags.map((tag) => (
-            <span key={tag} className="tag">
-              {tag}
-            </span>
-          ))}
+      <div className="wc-body">
+        <h3>{w.name}</h3>
+        <p className="tagline">{taglineLabel}</p>
+        <div className="meta">
+          <div className="tags">
+            {w.tags.map((tag) => (
+              <span key={tag} className="tag">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <span className={"metric" + (w.acid ? " acid" : "")}>{w.metric}</span>
         </div>
-        <span className={"metric" + (w.acid ? " acid" : "")}>{w.metric}</span>
       </div>
     </article>
   );

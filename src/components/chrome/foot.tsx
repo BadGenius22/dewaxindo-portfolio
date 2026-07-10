@@ -13,13 +13,17 @@ export async function Foot() {
             DEWANGGA PRAXINDO
           </span>
         </div>
-        <nav className="c" aria-label="Footer">
-          <Link href="/products">{t("products")}</Link>
-          {" · "}
-          <Link href="/products/web3-starter-kit">{t("starterKit")}</Link>
-        </nav>
-        <div className="r">{t("copyright")}</div>
+        <div className="c">{t("copyright")}</div>
+        <div className="r">
+          <span style={{ color: "var(--ink-faint)" }}>{t("setIn")}</span>{" "}
+          ARCHIVO · FUNNEL SANS · IBM PLEX MONO
+        </div>
       </div>
+      <nav className="foot-nav" aria-label="Footer">
+        <Link href="/products">{t("products")}</Link>
+        {" · "}
+        <Link href="/products/web3-starter-kit">{t("starterKit")}</Link>
+      </nav>
     </footer>
   );
 }

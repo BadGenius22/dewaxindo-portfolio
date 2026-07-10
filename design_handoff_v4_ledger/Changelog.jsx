@@ -17,11 +17,9 @@ function Changelog() {
     <section id="log" className="section log" data-screen-label="05 Log">
       <div className="container">
         <header className="sec-head">
-          <div className="marker"><span className="num">§ 04</span> Deploy log</div>
+          <div className="marker"><span className="num">§ 05</span> Deploy log</div>
           <h2>
-            <span className="clay">9</span> commits<br/>
-            to <span className="outline">production.</span><br/>
-            All on chain.
+            <span className="clay">Nine</span> commits to <span className="outline">production.</span>
           </h2>
         </header>
 

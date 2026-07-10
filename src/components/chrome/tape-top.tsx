@@ -21,7 +21,7 @@ export function TapeTop() {
 
   return (
     <div className="tape-top">
-      <div className="l">№ 003 / FORGE EDITION</div>
+      <div className="l">№ 004 / LEDGER EDITION</div>
       <div className="c">{t("available")}</div>
       <div className="r">
         <LangSwitch />

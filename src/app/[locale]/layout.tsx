@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
-import { Boldonse, Funnel_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Archivo, Funnel_Sans, IBM_Plex_Mono } from "next/font/google";
 import Script from "next/script";
 
 import { locales, defaultLocale, type Locale } from "@/i18n/config";
@@ -11,19 +11,16 @@ import { generateHomepageSchemas, generateFAQSchema } from "@/lib/seo";
 import { getGAScript, getMetaPixelScript } from "@/lib/analytics";
 import { getFAQs } from "@/data/faqs";
 import { TapeTop } from "@/components/chrome/tape-top";
-import { Instruments } from "@/components/chrome/instruments";
-import { RollGutter } from "@/components/chrome/roll-gutter";
 import { Nav } from "@/components/chrome/nav";
 import { Foot } from "@/components/chrome/foot";
 import { CopyToast } from "@/components/chrome/copy-toast";
 
-const boldonse = Boldonse({
-  variable: "--font-boldonse",
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
-  weight: "400",
+  weight: ["500", "600", "700", "800"],
   display: "swap",
-  fallback: ["Anton", "Arial Black", "Helvetica Neue", "sans-serif"],
-  adjustFontFallback: false,
+  fallback: ["Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
 });
 
 const funnelSans = Funnel_Sans({
@@ -183,7 +180,7 @@ export default async function LocaleLayout({
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
       </head>
       <body
-        className={`${boldonse.variable} ${funnelSans.variable} ${ibmPlexMono.variable}`}
+        className={`${archivo.variable} ${funnelSans.variable} ${ibmPlexMono.variable}`}
         suppressHydrationWarning
       >
         <NextIntlClientProvider messages={messages}>
@@ -193,8 +190,6 @@ export default async function LocaleLayout({
           </a>
 
           <TapeTop />
-          <Instruments />
-          <RollGutter />
           <Nav />
           {children}
           <Foot />

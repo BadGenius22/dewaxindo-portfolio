@@ -3,32 +3,32 @@
 const PROCESS_STEPS = [
   {
     n: "01",
-    title: "Scope & threat model",
+    title: "Scope & design",
     meta: "DAYS 01—03",
     bullets: [
-      "Read every line of the existing spec, code, and prior audits.",
-      "Diagram the trust assumptions. Mark every place value crosses a trust boundary.",
-      "Write the threat model. Adversary capabilities, invariants we cannot break.",
+      "Understand the problem before the stack. Read the code, the specs, the prior art.",
+      "Map the data flow and the trust boundaries. Mark every place value or state crosses one.",
+      "Pick the tools that fit — model, framework, chain — and write the spec we build to.",
     ],
   },
   {
     n: "02",
-    title: "Write, fuzz, invariants",
+    title: "Build & test",
     meta: "WEEKS 01—04",
     bullets: [
-      "Solidity / Move / Rust. Foundry tests next to every contract.",
-      "Echidna or Medusa for property-based fuzzing. Mutation testing on every PR.",
-      "Slither + Aderyn run on every push. 80% branch coverage gate before merge.",
+      "Ship in vertical slices. Working software every week, not a big-bang reveal.",
+      "Tests live next to the code: evals for AI, e2e for apps, fuzz & invariants for contracts.",
+      "CI on every push. Type-safe end to end. Coverage gate before anything merges.",
     ],
   },
   {
     n: "03",
-    title: "Audit & deploy",
+    title: "Ship & watch",
     meta: "FINAL WEEK",
     bullets: [
-      "PeckShield or equivalent. Fixes shipped same day, re-audit on critical paths.",
-      "Mainnet deploy with timelock, multisig, and a tested emergency pause.",
-      "Tenderly + Defender monitors. On-call for the first 30 days post-launch.",
+      "Deploy with rollback. Feature flags, timelocks, and a tested kill switch on the money paths.",
+      "Monitoring, logging, and traces wired in — I get paged before users do.",
+      "Audit the critical paths. On-call for the first 30 days after every launch.",
     ],
   },
 ];
@@ -40,9 +40,7 @@ function Process() {
         <header className="sec-head">
           <div className="marker"><span className="num">§ 02</span> How I work</div>
           <h2>
-            Three<br/>
-            phases. <span className="clay">Same</span><br/>
-            every time.
+            Three phases. <span className="clay">Same</span> every time.
           </h2>
         </header>
 
