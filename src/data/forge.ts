@@ -259,6 +259,27 @@ export const CREDENTIAL = {
   image: "/images/rektoff-cert.jpeg" as string | undefined,
 };
 
+/**
+ * Competitive audit record (credential № 002).
+ *
+ * Figures mirror the public Sherlock watson profile. Update them together
+ * with the screenshot whenever a new contest settles.
+ * Source: https://audits.sherlock.xyz/watson/BadGenius
+ */
+export const CONTEST_PROFILE = {
+  no: "002",
+  handle: "BadGenius",
+  url: "https://audits.sherlock.xyz/watson/BadGenius",
+  image: "/images/sherlock-profile.png" as string | undefined,
+  /** Stat band. `k` is a translation key under forge.audits.contestStats. */
+  stats: [
+    { k: "contests", v: "3" },
+    { k: "mediums", v: "2" },
+    { k: "bestRank", v: "#20" },
+    { k: "payouts", v: "$3.36K" },
+  ],
+};
+
 export interface LogEntry {
   date: string;
   project: string;

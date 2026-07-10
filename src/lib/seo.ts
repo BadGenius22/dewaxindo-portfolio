@@ -36,7 +36,7 @@ export function generatePersonSchema() {
       width: 1277,
       height: 1383,
     },
-    sameAs: getSocialUrls(),
+    sameAs: [...getSocialUrls(), siteConfig.credentials.sherlock],
     address: {
       "@type": "PostalAddress",
       addressLocality: "Yogyakarta",

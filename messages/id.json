@@ -172,7 +172,19 @@
       "credDesc": "Lulusan bootcamp keamanan Solana RektOff. Mengaudit program Anchor dan native: validasi akun, keamanan CPI, dan pola eksploitasi yang menguras protokol.",
       "credMetaLeft": "SOLANA · SECURITY",
       "credMetaRight": "CERTIFIED · 2026",
-      "credPlaceholder": "[ Sertifikat RektOff · gambar segera hadir ]"
+      "credPlaceholder": "[ Sertifikat RektOff · gambar segera hadir ]",
+      "contestName": "Kontes audit kompetitif",
+      "contestDesc": "Kontes audit publik di Sherlock dan Code4rena, bersaing dengan seluruh peserta untuk menemukan bug sebelum penyerang. Dua temuan Medium di kontes XRP Ledger, finis peringkat 20.",
+      "contestStatus": "TOP 25",
+      "contestMetaLeft": "SHERLOCK · CODE4RENA",
+      "contestCta": "Lihat profil",
+      "contestImageAlt": "Profil kontes audit Sherlock untuk {handle}",
+      "contestStats": {
+        "contests": "Kontes",
+        "mediums": "Medium",
+        "bestRank": "Peringkat terbaik",
+        "payouts": "Bayaran"
+      }
     },
     "log": {
       "marker": "Log deploy",

@@ -117,6 +117,11 @@ export const siteConfig = {
     youtube: "@dewaxindo",
   },
 
+  // Verifiable external credential profiles (surfaced in Person JSON-LD sameAs)
+  credentials: {
+    sherlock: "https://audits.sherlock.xyz/watson/BadGenius",
+  },
+
   // Theme configuration
   theme: {
     defaultMode: "dark" as const,

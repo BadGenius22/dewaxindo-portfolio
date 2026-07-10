@@ -172,7 +172,19 @@
       "credDesc": "Graduated from RektOff's Solana security bootcamp. Auditing Anchor and native programs: account validation, CPI safety, and the exploit patterns that drain protocols.",
       "credMetaLeft": "SOLANA · SECURITY",
       "credMetaRight": "CERTIFIED · 2026",
-      "credPlaceholder": "[ RektOff certificate · image coming soon ]"
+      "credPlaceholder": "[ RektOff certificate · image coming soon ]",
+      "contestName": "Competitive audit contests",
+      "contestDesc": "Public audit contests on Sherlock and Code4rena, competing against the whole field to find bugs before attackers do. Two Medium-severity findings on the XRP Ledger contest, finishing 20th.",
+      "contestStatus": "TOP 25",
+      "contestMetaLeft": "SHERLOCK · CODE4RENA",
+      "contestCta": "View profile",
+      "contestImageAlt": "Sherlock audit contest profile for {handle}",
+      "contestStats": {
+        "contests": "Contests",
+        "mediums": "Mediums",
+        "bestRank": "Best rank",
+        "payouts": "Payouts"
+      }
     },
     "log": {
       "marker": "Deploy log",

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
-import { AUDIT_RECORDS, CREDENTIAL } from "@/data/forge";
+import { AUDIT_RECORDS, CREDENTIAL, CONTEST_PROFILE } from "@/data/forge";
 
 export async function Audits() {
   const t = await getTranslations("forge.audits");
@@ -76,6 +76,54 @@ export async function Audits() {
             </div>
           </aside>
         </div>
+
+        <a
+          className="cred-card cred-wide"
+          href={CONTEST_PROFILE.url}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <div className="cred-visual">
+            {CONTEST_PROFILE.image ? (
+              <Image
+                src={CONTEST_PROFILE.image}
+                alt={t("contestImageAlt", { handle: CONTEST_PROFILE.handle })}
+                fill
+                sizes="(max-width: 980px) 92vw, 720px"
+                className="cred-shot"
+              />
+            ) : (
+              <span className="placeholder-mark">{t("contestName")}</span>
+            )}
+          </div>
+
+          <div className="cred-side">
+            <div className="cred-head">
+              <span>
+                {t("credLabel")} · № {CONTEST_PROFILE.no}
+              </span>
+              <span className="clay">{t("contestStatus")}</span>
+            </div>
+            <div className="cred-body">
+              <h3>{t("contestName")}</h3>
+              <p>{t("contestDesc")}</p>
+
+              <div className="cred-stats">
+                {CONTEST_PROFILE.stats.map((s) => (
+                  <div key={s.k} className="cred-stat">
+                    <span className="cred-stat-k">{t(`contestStats.${s.k}`)}</span>
+                    <span className="cred-stat-v">{s.v}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="cred-meta">
+                <span>{t("contestMetaLeft")}</span>
+                <span className="clay">{t("contestCta")} ↗</span>
+              </div>
+            </div>
+          </div>
+        </a>
       </div>
     </section>
   );
