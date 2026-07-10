@@ -526,7 +526,9 @@ body::before {
   text-wrap: balance;
 }
 .sec-head h2 .clay { color: var(--clay); }
-.sec-head h2 .outline { color: var(--ink-faint); -webkit-text-stroke: 0; }
+/* `outline` is also a Tailwind v4 utility (outline-width: 1px), so the class
+   name collides and draws a stray box around the phrase. Reset it here. */
+.sec-head h2 .outline { color: var(--ink-faint); -webkit-text-stroke: 0; outline: 0; }
 @media (max-width: 900px) {
   .sec-head { grid-template-columns: 1fr; gap: 18px; }
 }
