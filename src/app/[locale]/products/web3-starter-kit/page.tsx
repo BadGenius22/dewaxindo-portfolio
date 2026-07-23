@@ -10,6 +10,7 @@ import { siteConfig } from "@/data/site";
 import { locales, defaultLocale } from "@/i18n/config";
 import { getFeaturedProduct } from "@/data/products";
 import { generateProductSchema, generateBreadcrumbSchema } from "@/lib/seo";
+import { TrackViewContent } from "@/components/products/track-view-content";
 import {
   HeroSection,
   PainSection,
@@ -93,6 +94,8 @@ export default async function Web3StarterKitPage({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }}
         />
       ))}
+
+      <TrackViewContent contentId={PRODUCT_ID} contentName={product.title} />
 
       {/* Hero - eyebrow, display headline, ebook mockup, lead form (2-col on desktop) */}
       <HeroSection formId={CONVERTKIT_FORM_ID} productId={PRODUCT_ID} />

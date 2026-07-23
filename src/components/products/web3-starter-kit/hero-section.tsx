@@ -69,6 +69,21 @@ export function HeroSection({ formId, productId }: HeroSectionProps) {
               variant="device"
             />
           </div>
+          <div className="pk-receipt">
+            <span className="stamp">{t("receipt.stamp")}</span>
+            <div className="row">
+              <span className="k">{t("receipt.itemLabel")}</span>
+              <span className="v">{t("receipt.itemValue")}</span>
+            </div>
+            <div className="row">
+              <span className="k">{t("receipt.pagesLabel")}</span>
+              <span className="v">{t("receipt.pagesValue")}</span>
+            </div>
+            <div className="row">
+              <span className="k">{t("receipt.totalLabel")}</span>
+              <span className="v total">{t("receipt.totalValue")}</span>
+            </div>
+          </div>
         </FadeIn>
       </div>
     </section>

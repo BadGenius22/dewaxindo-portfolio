@@ -221,6 +221,7 @@
     "label": "Produk Digital",
     "title": "Produk",
     "subtitle": "Resource buat percepat journey Web3 kamu",
+    "metaDescription": "Produk digital dan resource buat percepat journey Web3 kamu. Guide, template, dan tools dari Dewangga Praxindo.",
     "viewDetails": "Lihat Detail",
     "digitalGuide": "Digital Guide",
     "backToProducts": "Kembali",
@@ -232,6 +233,7 @@
       "web3-starter-kit": {
         "title": "Web3 Starter Kit",
         "subtitle": "5 Langkah Pertama",
+        "meta": "PDF · 22 halaman · Bahasa Indonesia",
         "description": "Panduan praktis 22 halaman untuk memulai perjalanan Web3 developer kamu. Dari nol sampai siap kerja dengan langkah-langkah yang jelas.",
         "features": {
           "0": "5 langkah praktis dari nol sampai siap kerja",
@@ -281,12 +283,27 @@
       "cta": "Kirim ke Email Aku!",
       "socialProof": "500+ developers udah download"
     },
+    "receipt": {
+      "itemLabel": "Item",
+      "itemValue": "Web3 Starter Kit · PDF",
+      "pagesLabel": "Halaman",
+      "pagesValue": "22",
+      "totalLabel": "Total",
+      "totalValue": "Rp 0",
+      "stamp": "Gratis"
+    },
+    "kickers": {
+      "problem": "Masalahnya",
+      "inside": "Isi kit",
+      "contents": "5 langkahnya",
+      "author": "Penulis"
+    },
     "problem": {
       "text": "Tutorial bertebaran. Dokumentasi bikin pusing. Nggak jelas harus belajar Solidity atau Rust dulu. Semua orang bilang 'DYOR' tapi nggak ada yang kasih roadmap jelas.",
       "familiar": "Sound familiar?"
     },
     "whatsInside": {
-      "title": "Apa yang Kamu Dapet 🎁",
+      "title": "Apa yang Kamu Dapet",
       "benefits": {
         "0": "5 langkah praktis dari nol sampai siap apply kerja",
         "1": "Penjelasan konsep blockchain tanpa jargon yang bikin pusing",
@@ -296,17 +313,25 @@
       }
     },
     "peekInside": {
-      "title": "Intip Isinya 👀",
+      "title": "Intip Isinya",
       "steps": {
-        "0": "Langkah 1: Pahami \"Kenapa\" (Mindset & Fundamentals)",
-        "1": "Langkah 2: Setup Medan Perang (Tools & Environment)",
-        "2": "Langkah 3: Pilih Bahasa Pertamamu (Solidity vs Rust)",
-        "3": "Langkah 4: Stop Tutorial Hell (Build Real Projects)",
-        "4": "Langkah 5: Masuk Ekosistem (Community & Career)"
-      }
+        "0": "Pahami \"Kenapa\" (Mindset & Fundamentals)",
+        "1": "Setup Medan Perang (Tools & Environment)",
+        "2": "Pilih Bahasa Pertamamu (Solidity vs Rust)",
+        "3": "Stop Tutorial Hell (Build Real Projects)",
+        "4": "Masuk Ekosistem (Community & Career)"
+      },
+      "details": {
+        "0": "Kenapa Web3 layak dipelajari sekarang, cara kerja blockchain dari kacamata developer, dan mindset biar kamu nggak gampang nyerah.",
+        "1": "Tools yang perlu di-install dari hari pertama — wallet, editor, dan environment development yang bakal kamu pakai.",
+        "2": "Perbandingan jujur dua jalur utama — ekosistem, peluang kerja, dan cara milih yang paling cocok buat kamu.",
+        "3": "Cara pindah dari sekadar ngikutin tutorial ke bikin proyek kecil yang jadi portfolio kamu.",
+        "4": "Tempat nyari komunitas, cara berkontribusi, dan langkah buat dapet role Web3 pertamamu."
+      },
+      "jump": "Ambil panduan gratisnya"
     },
     "author": {
-      "title": "Tentang Penulis 👨‍💻",
+      "title": "Tentang Penulis",
       "name": "Dewangga Praxindo",
       "role": "Web3 Engineer | 3+ Tahun Pengalaman",
       "credentials": {
@@ -316,7 +341,7 @@
       }
     },
     "finalCta": {
-      "title": "Siap Mulai Perjalanan Web3 Kamu? 🚀",
+      "title": "Siap Mulai Perjalanan Web3 Kamu?",
       "subtitle": "Dapatkan panduan gratis sekarang dan mulai langkah pertamamu.",
       "cta": "Kirim ke Email Aku!"
     },

@@ -23,6 +23,9 @@ export function PreviewSection() {
       <div className="pk-wrap">
         <FadeIn>
           <div className="pk-sec-head">
+            <p className="pk-kicker">
+              <span className="num">§ 03</span> {t("kickers.contents")}
+            </p>
             <h2 id="preview-heading" className="pk-h2">
               {t("peekInside.title")}
             </h2>
@@ -38,15 +41,23 @@ export function PreviewSection() {
                   className="pk-acc-item"
                 >
                   <AccordionTrigger className="pk-acc-trigger text-left hover:no-underline">
-                    {t(`peekInside.steps.${index}`)}
+                    <span className="pk-acc-n" aria-hidden="true">
+                      0{index + 1}
+                    </span>
+                    <span className="pk-acc-t">{t(`peekInside.steps.${index}`)}</span>
                   </AccordionTrigger>
                   <AccordionContent className="pk-acc-content">
-                    {t(`whatsInside.benefits.${index}`)}
+                    {t(`peekInside.details.${index}`)}
                   </AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
           </div>
+        </FadeIn>
+        <FadeIn delay={200}>
+          <p className="pk-jump">
+            <a href="#final-cta">{t("peekInside.jump")} ↓</a>
+          </p>
         </FadeIn>
       </div>
     </section>

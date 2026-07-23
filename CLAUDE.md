@@ -88,6 +88,10 @@ To add translations, update both `messages/en.json` and `messages/id.json`.
 ```
 NEXT_PUBLIC_GA_ID                     # Google Analytics 4 ID
 NEXT_PUBLIC_META_PIXEL_ID             # Meta Pixel ID
+META_CAPI_ACCESS_TOKEN                # Meta Conversions API token (server-side, /api/meta-capi)
+META_TEST_EVENT_CODE                  # Optional: CAPI test event code while verifying in Events Manager
 NEXT_PUBLIC_GTM_ID                    # Google Tag Manager ID
 NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION  # Google Search Console verification
+NEXT_PUBLIC_CONVERTKIT_API_KEY        # ConvertKit API key (lead magnet delivery)
+NEXT_PUBLIC_CONVERTKIT_FORM_ID        # ConvertKit form ID for Web3 Starter Kit
 ```

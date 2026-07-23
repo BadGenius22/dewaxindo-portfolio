@@ -14,6 +14,7 @@ import { TapeTop } from "@/components/chrome/tape-top";
 import { Nav } from "@/components/chrome/nav";
 import { Foot } from "@/components/chrome/foot";
 import { CopyToast } from "@/components/chrome/copy-toast";
+import { AnalyticsPageView } from "@/components/chrome/analytics-pageview";
 
 const archivo = Archivo({
   variable: "--font-archivo",
@@ -194,6 +195,7 @@ export default async function LocaleLayout({
           {children}
           <Foot />
           <CopyToast />
+          <AnalyticsPageView />
 
           {siteConfig.analytics.gaId && (
             <>

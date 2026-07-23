@@ -1391,8 +1391,14 @@ a.cred-card:hover { box-shadow: 8px 8px 0 var(--ink); transform: translate(-2px,
 .pk-sec { padding: 64px 0; border-top: 1px dashed var(--line); }
 .pk-wrap { max-width: 760px; margin: 0 auto; padding: 0 28px; }
 .pk-sec-head { text-align: center; margin-bottom: 36px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.pk-sec-head.compact { margin-bottom: 20px; }
+.pk-kicker {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.pk-kicker .num { color: var(--clay); margin-right: 6px; }
 .pk-h2 {
-  font-family: var(--display); font-weight: 400;
+  font-family: var(--display); font-weight: var(--disp-wght);
   font-size: clamp(26px, 3.2vw, 40px); line-height: 1.04;
   letter-spacing: -0.03em; color: var(--ink);
 }
@@ -1407,8 +1413,10 @@ a.cred-card:hover { box-shadow: 8px 8px 0 var(--ink); transform: translate(-2px,
   transition: transform .3s ease, box-shadow .3s ease, border-color .25s;
 }
 .pk-card:hover { transform: translateY(-4px); box-shadow: 8px 8px 0 var(--ink); border-color: var(--ink); }
-.pk-card-media { position: relative; aspect-ratio: 16 / 10; background: var(--paper-3); border-right: 1px solid var(--line); overflow: hidden; }
-.pk-card-media .pk-img { object-fit: cover; transition: transform .5s ease; }
+/* Cover art sits contained on an ink mat (same move as .cred-visual.doc) so the
+   1200x630 artwork is never cropped by the card column. */
+.pk-card-media { position: relative; background: var(--ink); border-right: 1px solid var(--line); overflow: hidden; min-height: 320px; }
+.pk-card-media .pk-img { object-fit: contain; padding: 26px; transition: transform .5s ease; }
 .pk-card:hover .pk-card-media .pk-img { transform: scale(1.035); }
 .pk-card-badge {
   position: absolute; top: 12px; left: 12px; z-index: 2;
@@ -1417,14 +1425,14 @@ a.cred-card:hover { box-shadow: 8px 8px 0 var(--ink); transform: translate(-2px,
 }
 .pk-card-body { padding: 28px; display: flex; flex-direction: column; }
 .pk-card-type { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); }
-.pk-card-title { font-family: var(--display); font-weight: 400; font-size: clamp(24px, 2.4vw, 34px); line-height: 1.0; letter-spacing: -0.03em; margin-top: 10px; color: var(--ink); }
+.pk-card-title { font-family: var(--display); font-weight: var(--disp-wght); font-size: clamp(24px, 2.4vw, 34px); line-height: 1.0; letter-spacing: -0.03em; margin-top: 10px; color: var(--ink); }
 .pk-card-sub { font-family: var(--mono); font-size: 12px; color: var(--clay); letter-spacing: 0.04em; margin-top: 8px; text-transform: uppercase; }
 .pk-card-desc { font-size: 14.5px; line-height: 1.55; color: var(--ink-2); margin-top: 14px; }
 .pk-card-feats { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 8px; }
 .pk-card-feats li { font-size: 13px; color: var(--ink-2); display: flex; gap: 10px; align-items: baseline; }
 .pk-card-feats li::before { content: "→"; color: var(--clay); font-family: var(--mono); flex-shrink: 0; }
 .pk-card-foot { margin-top: auto; padding-top: 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; border-top: 1px dashed var(--line); }
-.pk-price { font-family: var(--display); font-size: 24px; color: var(--clay); letter-spacing: -0.01em; }
+.pk-price { font-family: var(--display); font-weight: var(--disp-wght); font-size: 24px; color: var(--clay); letter-spacing: -0.01em; }
 .pk-cta {
   display: inline-flex; align-items: center; gap: 8px;
   background: var(--ink); color: var(--paper); padding: 11px 18px;
@@ -1432,6 +1440,20 @@ a.cred-card:hover { box-shadow: 8px 8px 0 var(--ink); transform: translate(-2px,
   white-space: nowrap; transition: background-color .2s, transform .2s;
 }
 .pk-card:hover .pk-cta { background: var(--clay); }
+
+/* coming-soon ledger slot */
+.pk-slot {
+  border: 1px dashed var(--line-strong);
+  padding: 26px 28px;
+  display: grid; grid-template-columns: auto 1fr; gap: 22px; align-items: baseline;
+}
+.pk-slot .tag {
+  justify-self: start;
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-3); border: 1px solid var(--line-strong); padding: 4px 9px; white-space: nowrap;
+}
+.pk-slot p { font-size: 14px; line-height: 1.55; color: var(--ink-3); max-width: 62ch; }
+@media (max-width: 700px) { .pk-slot { grid-template-columns: 1fr; gap: 12px; } }
 
 /* ---------------- hero (landing) ---------------- */
 .pk-hero { padding: 56px 0 8px; }
@@ -1441,7 +1463,7 @@ a.cred-card:hover { box-shadow: 8px 8px 0 var(--ink); transform: translate(-2px,
 }
 .pk-hero-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
 .pk-h1 {
-  font-family: var(--display); font-weight: 400;
+  font-family: var(--display); font-weight: var(--disp-wght);
   font-size: clamp(34px, 4.4vw, 60px); line-height: 0.98;
   letter-spacing: -0.035em; color: var(--ink); text-wrap: balance;
 }
@@ -1458,6 +1480,26 @@ a.cred-card:hover { box-shadow: 8px 8px 0 var(--ink); transform: translate(-2px,
 .pk-hero-media-inner::after {
   content: ""; position: absolute; left: 8%; right: 8%; bottom: -8px; height: 26px;
   background: rgba(14, 14, 13, 0.18); filter: blur(22px); border-radius: 50%; z-index: -1;
+}
+
+/* mini receipt under the mockup - echoes the homepage receipt object */
+.pk-receipt {
+  position: relative;
+  margin: 34px auto 0; max-width: 380px;
+  border-top: 1px dashed var(--line-strong);
+  padding-top: 16px;
+  font-family: var(--mono); font-size: 11.5px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.pk-receipt .row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+.pk-receipt .k { color: var(--ink-3); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; }
+.pk-receipt .v { color: var(--ink); font-weight: 500; text-align: right; }
+.pk-receipt .v.total { color: var(--clay); font-weight: 600; }
+.pk-receipt .stamp {
+  position: absolute; top: -10px; right: 0;
+  background: var(--clay); color: var(--paper);
+  padding: 3px 9px; font-size: 9.5px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
 }
 
 /* ---------------- lead form (Forge) ---------------- */
@@ -1486,7 +1528,7 @@ a.cred-card:hover { box-shadow: 8px 8px 0 var(--ink); transform: translate(-2px,
 .pk-form-note { display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.04em; color: var(--ink-3); }
 .pk-form-err { font-size: 13px; color: var(--destructive); }
 .pk-form-success { border: 1px solid var(--clay); background: var(--paper-2); padding: 24px; text-align: center; }
-.pk-form-success h3 { font-family: var(--display); font-weight: 400; font-size: 22px; color: var(--ink); margin-top: 10px; letter-spacing: -0.02em; }
+.pk-form-success h3 { font-family: var(--display); font-weight: var(--disp-wght); font-size: 22px; color: var(--ink); margin-top: 10px; letter-spacing: -0.02em; }
 .pk-form-success p { font-size: 14px; color: var(--ink-2); margin-top: 6px; line-height: 1.5; }
 .pk-form-success .ic { color: var(--clay); }
 
@@ -1500,11 +1542,11 @@ a.cred-card:hover { box-shadow: 8px 8px 0 var(--ink); transform: translate(-2px,
 /* ---------------- pain quote ---------------- */
 .pk-quote { border-left: 3px solid var(--clay); background: var(--paper-2); padding: 28px 28px 28px 32px; }
 .pk-quote .q { font-size: clamp(17px, 1.8vw, 21px); line-height: 1.55; color: var(--ink-2); font-style: italic; }
-.pk-quote .a { font-family: var(--display); font-weight: 400; font-size: clamp(20px, 2.2vw, 28px); color: var(--ink); margin-top: 18px; letter-spacing: -0.02em; }
+.pk-quote .a { font-family: var(--display); font-weight: var(--disp-wght); font-size: clamp(20px, 2.2vw, 28px); color: var(--ink); margin-top: 18px; letter-spacing: -0.02em; }
 
-/* ---------------- benefits (numbered ledger) ---------------- */
+/* ---------------- benefits (deliverables checklist) ---------------- */
 .pk-rows { display: grid; border-top: 1px solid var(--line-strong); }
-.pk-rowi { display: grid; grid-template-columns: 56px 1fr; gap: 18px; align-items: start; padding: 18px 4px; border-bottom: 1px dashed var(--line); }
+.pk-rowi { display: grid; grid-template-columns: 30px 1fr; gap: 14px; align-items: start; padding: 18px 4px; border-bottom: 1px dashed var(--line); }
 .pk-rowi .nx { font-family: var(--mono); font-size: 13px; color: var(--clay); letter-spacing: 0.04em; padding-top: 2px; }
 .pk-rowi .tx { font-size: clamp(15px, 1.5vw, 17px); line-height: 1.5; color: var(--ink-2); }
 
@@ -1512,26 +1554,36 @@ a.cred-card:hover { box-shadow: 8px 8px 0 var(--ink); transform: translate(-2px,
 .pk-acc { border: 1px solid var(--line-strong); background: var(--paper-2); }
 .pk-acc-item { border-bottom: 1px dashed var(--line); padding: 0 20px; }
 .pk-acc-item:last-child { border-bottom: 0; }
-.pk-acc-trigger { font-family: var(--sans); color: var(--ink-2); }
+.pk-acc-trigger { font-family: var(--sans); font-size: 15px; font-weight: 500; color: var(--ink-2); gap: 14px; padding-top: 17px; padding-bottom: 17px; }
 .pk-acc-trigger:hover { color: var(--ink); }
-.pk-acc-n { font-family: var(--mono); font-size: 12px; color: var(--clay); letter-spacing: 0.06em; flex-shrink: 0; }
-.pk-acc-content { color: var(--ink-3); padding-left: 36px; font-size: 14px; line-height: 1.55; }
+.pk-acc-n { font-family: var(--mono); font-size: 12px; color: var(--clay); letter-spacing: 0.06em; flex-shrink: 0; padding-top: 3px; }
+.pk-acc-t { flex: 1; text-align: left; }
+.pk-acc-content { color: var(--ink-3); padding-left: 40px; font-size: 14px; line-height: 1.55; }
+
+/* jump link to the final form */
+.pk-jump { display: flex; justify-content: center; margin-top: 24px; }
+.pk-jump a {
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink-2); border-bottom: 1px solid var(--line-strong); padding: 4px 2px;
+  transition: color .15s, border-color .15s;
+}
+.pk-jump a:hover { color: var(--clay); border-color: var(--clay); }
 
 /* ---------------- author ---------------- */
 .pk-author { border: 1px solid var(--line-strong); background: var(--paper-2); padding: 28px; display: flex; gap: 28px; align-items: center; }
 .pk-author-photo { flex-shrink: 0; width: 120px; height: 120px; border: 1px solid var(--ink); position: relative; overflow: hidden; }
 .pk-author-photo .pk-img { object-fit: cover; }
-.pk-author-info h3 { font-family: var(--display); font-weight: 400; font-size: 24px; color: var(--ink); letter-spacing: -0.02em; }
+.pk-author-info h3 { font-family: var(--display); font-weight: var(--disp-wght); font-size: 24px; color: var(--ink); letter-spacing: -0.02em; }
 .pk-author-info .role { font-family: var(--mono); font-size: 12px; color: var(--clay); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 6px; }
 .pk-author-info ul { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 8px; }
 .pk-author-info li { font-size: 14px; color: var(--ink-2); display: flex; gap: 10px; align-items: baseline; }
 .pk-author-info li::before { content: "·"; color: var(--clay); flex-shrink: 0; }
 
 /* ---------------- final CTA (dark band) ---------------- */
-.pk-final { background: var(--ink); color: var(--paper); padding: 72px 0; }
+.pk-final { background: var(--ink); color: var(--paper); padding: 72px 0; scroll-margin-top: 72px; }
 .pk-final .pk-wrap { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px; }
 .pk-final .pk-eyebrow { color: rgba(248, 247, 244, 0.55); }
-.pk-final h2 { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 3.4vw, 42px); color: var(--paper); letter-spacing: -0.03em; line-height: 1.04; }
+.pk-final h2 { font-family: var(--display); font-weight: var(--disp-wght); font-size: clamp(26px, 3.4vw, 42px); color: var(--paper); letter-spacing: -0.03em; line-height: 1.04; }
 .pk-final .sub { color: rgba(248, 247, 244, 0.7); font-size: 16px; line-height: 1.55; }
 .pk-final-form { width: 100%; max-width: 440px; margin-top: 8px; }
 .pk-final .pk-input { background: rgba(248, 247, 244, 0.06); border-color: rgba(248, 247, 244, 0.28); color: var(--paper); }
@@ -1548,7 +1600,8 @@ a.cred-card:hover { box-shadow: 8px 8px 0 var(--ink); transform: translate(-2px,
 @media (max-width: 900px) {
   .pk-hero-grid { grid-template-columns: 1fr; gap: 36px; }
   .pk-card { grid-template-columns: 1fr; }
-  .pk-card-media { border-right: 0; border-bottom: 1px solid var(--line); aspect-ratio: 16 / 9; }
+  .pk-card-media { border-right: 0; border-bottom: 1px solid var(--line); aspect-ratio: 4 / 3; min-height: 0; }
+  .pk-card-media .pk-img { padding: 16px; }
   .pk-author { flex-direction: column; text-align: center; }
   .pk-author-info ul { justify-items: center; }
   .pk-author-info li { justify-content: center; }

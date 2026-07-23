@@ -14,6 +14,13 @@ export function PainSection() {
     <section className="pk-sec" aria-labelledby="pain-heading">
       <div className="pk-wrap">
         <FadeIn>
+          <div className="pk-sec-head compact">
+            <p className="pk-kicker">
+              <span className="num">§ 01</span> {t("kickers.problem")}
+            </p>
+          </div>
+        </FadeIn>
+        <FadeIn delay={100}>
           <div className="pk-quote">
             <h2 id="pain-heading" className="sr-only">
               {t("problem.familiar")}

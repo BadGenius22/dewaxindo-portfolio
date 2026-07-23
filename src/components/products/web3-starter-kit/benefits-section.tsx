@@ -17,6 +17,9 @@ export function BenefitsSection() {
       <div className="pk-wrap">
         <FadeIn>
           <div className="pk-sec-head">
+            <p className="pk-kicker">
+              <span className="num">§ 02</span> {t("kickers.inside")}
+            </p>
             <h2 id="benefits-heading" className="pk-h2">
               {t("whatsInside.title")}
             </h2>
@@ -26,7 +29,9 @@ export function BenefitsSection() {
           {benefits.map((index) => (
             <FadeIn key={index} delay={index * 80}>
               <div className="pk-rowi">
-                <span className="nx">0{index + 1}</span>
+                <span className="nx" aria-hidden="true">
+                  ▸
+                </span>
                 <span className="tx">{t(`whatsInside.benefits.${index}`)}</span>
               </div>
             </FadeIn>

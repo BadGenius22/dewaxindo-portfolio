@@ -18,6 +18,9 @@ export function AuthorSection() {
       <div className="pk-wrap">
         <FadeIn>
           <div className="pk-sec-head">
+            <p className="pk-kicker">
+              <span className="num">§ 04</span> {t("kickers.author")}
+            </p>
             <h2 id="author-heading" className="pk-h2">
               {t("author.title")}
             </h2>

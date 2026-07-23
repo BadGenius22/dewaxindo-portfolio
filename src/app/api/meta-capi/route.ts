@@ -9,7 +9,9 @@ import { NextRequest, NextResponse } from "next/server";
 
 const PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
 const ACCESS_TOKEN = process.env.META_CAPI_ACCESS_TOKEN;
-const API_VERSION = "v21.0";
+// Set only while verifying events in Events Manager -> Test Events, then remove
+const TEST_EVENT_CODE = process.env.META_TEST_EVENT_CODE;
+const API_VERSION = "v25.0";
 
 interface CAPIEventData {
   event_name: string;
@@ -83,6 +85,7 @@ export async function POST(request: NextRequest) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           data: [eventData],
+          ...(TEST_EVENT_CODE ? { test_event_code: TEST_EVENT_CODE } : {}),
         }),
       }
     );

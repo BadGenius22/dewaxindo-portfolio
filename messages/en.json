@@ -221,6 +221,7 @@
     "label": "Digital Products",
     "title": "Products",
     "subtitle": "Resources to accelerate your Web3 journey",
+    "metaDescription": "Digital products and resources to accelerate your Web3 development journey. Guides, templates, and tools by Dewangga Praxindo.",
     "viewDetails": "View Details",
     "digitalGuide": "Digital Guide",
     "backToProducts": "Back to Products",
@@ -232,6 +233,7 @@
       "web3-starter-kit": {
         "title": "Web3 Starter Kit",
         "subtitle": "5 First Steps",
+        "meta": "PDF · 22 pages · Bahasa Indonesia",
         "description": "A 22-page practical guide to start your Web3 developer journey. From zero to job-ready with clear, actionable steps.",
         "features": {
           "0": "5 practical steps from zero to job-ready",
@@ -281,12 +283,27 @@
       "cta": "Send to My Email!",
       "socialProof": "500+ developers have downloaded"
     },
+    "receipt": {
+      "itemLabel": "Item",
+      "itemValue": "Web3 Starter Kit · PDF",
+      "pagesLabel": "Pages",
+      "pagesValue": "22",
+      "totalLabel": "Total",
+      "totalValue": "$0",
+      "stamp": "Free"
+    },
+    "kickers": {
+      "problem": "The problem",
+      "inside": "Inside the kit",
+      "contents": "The 5 steps",
+      "author": "The author"
+    },
     "problem": {
       "text": "Tutorials everywhere. Documentation is confusing. Not clear whether to learn Solidity or Rust first. Everyone says 'DYOR' but no one gives a clear roadmap.",
       "familiar": "Sound familiar?"
     },
     "whatsInside": {
-      "title": "What You'll Get 🎁",
+      "title": "What You'll Get",
       "benefits": {
         "0": "5 practical steps from zero to job-ready",
         "1": "Blockchain concepts explained without confusing jargon",
@@ -296,17 +313,25 @@
       }
     },
     "peekInside": {
-      "title": "Peek Inside 👀",
+      "title": "Peek Inside",
       "steps": {
-        "0": "Step 1: Understand \"Why\" (Mindset & Fundamentals)",
-        "1": "Step 2: Setup Your Battlefield (Tools & Environment)",
-        "2": "Step 3: Pick Your First Language (Solidity vs Rust)",
-        "3": "Step 4: Stop Tutorial Hell (Build Real Projects)",
-        "4": "Step 5: Enter the Ecosystem (Community & Career)"
-      }
+        "0": "Understand \"Why\" (Mindset & Fundamentals)",
+        "1": "Setup Your Battlefield (Tools & Environment)",
+        "2": "Pick Your First Language (Solidity vs Rust)",
+        "3": "Stop Tutorial Hell (Build Real Projects)",
+        "4": "Enter the Ecosystem (Community & Career)"
+      },
+      "details": {
+        "0": "Why Web3 is worth learning right now, how blockchain works from a developer's point of view, and the mindset that keeps you going.",
+        "1": "The tools worth installing from day one — wallet, editor, and the development environment you'll actually use.",
+        "2": "An honest comparison of the two main paths — ecosystems, job market, and how to pick the one that fits you.",
+        "3": "How to move from following tutorials to shipping small projects that become your portfolio.",
+        "4": "Where to find communities, how to contribute, and how to position yourself for your first Web3 role."
+      },
+      "jump": "Get the free guide"
     },
     "author": {
-      "title": "About the Author 👨‍💻",
+      "title": "About the Author",
       "name": "Dewangga Praxindo",
       "role": "Web3 Engineer | 3+ Years Experience",
       "credentials": {
@@ -316,7 +341,7 @@
       }
     },
     "finalCta": {
-      "title": "Ready to Start Your Web3 Journey? 🚀",
+      "title": "Ready to Start Your Web3 Journey?",
       "subtitle": "Get the free guide now and take your first step.",
       "cta": "Send to My Email!"
     },

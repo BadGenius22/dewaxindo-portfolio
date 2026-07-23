@@ -18,7 +18,7 @@ export function FinalCtaSection({ formId, productId }: FinalCtaSectionProps) {
   const t = useTranslations("web3StarterKit");
 
   return (
-    <section className="pk-final" aria-labelledby="final-cta-heading">
+    <section id="final-cta" className="pk-final" aria-labelledby="final-cta-heading">
       <div className="pk-wrap">
         <FadeIn>
           <div className="pk-eyebrow">

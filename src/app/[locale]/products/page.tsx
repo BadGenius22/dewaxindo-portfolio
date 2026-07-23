@@ -20,6 +20,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "products" });
   const path = "/products";
   const localeUrl = (loc: string) =>
     loc === defaultLocale ? `${siteConfig.url}${path}` : `${siteConfig.url}/${loc}${path}`;
@@ -30,9 +31,8 @@ export async function generateMetadata({
   languages["x-default"] = localeUrl(defaultLocale);
 
   return {
-    title: "Products",
-    description:
-      "Digital products and resources to accelerate your Web3 development journey. Guides, templates, and tools by Dewangga Praxindo.",
+    title: t("title"),
+    description: t("metaDescription"),
     keywords: [
       "Web3 guides",
       "Smart contract templates",
@@ -42,9 +42,8 @@ export async function generateMetadata({
     ],
     alternates: { canonical: localeUrl(locale), languages },
     openGraph: {
-      title: "Products | Dewangga Praxindo",
-      description:
-        "Digital products and resources to accelerate your Web3 development journey.",
+      title: `${t("title")} | Dewangga Praxindo`,
+      description: t("metaDescription"),
       url: localeUrl(locale),
       type: "website",
     },
@@ -79,12 +78,10 @@ export default async function ProductsPage({
         <div className="forge-container">
           <header className="sec-head">
             <div className="marker">
-              <span className="num">§ 06</span> {t("label")}
+              <span className="num">§ 07</span> {t("label")}
             </div>
             <div>
-              <h2 className="pk-h2" style={{ fontSize: "clamp(40px, 6vw, 96px)" }}>
-                {t("title")}
-              </h2>
+              <h2>{t("title")}</h2>
               <p className="pk-lead" style={{ marginTop: "16px", maxWidth: "46ch" }}>
                 {t("subtitle")}
               </p>
@@ -110,9 +107,7 @@ export default async function ProductsPage({
                   </div>
 
                   <div className="pk-card-body">
-                    <p className="pk-card-type">
-                      {product.type === "pdf" ? t("digitalGuide") : product.type}
-                    </p>
+                    <p className="pk-card-type">{t(`items.${product.id}.meta`)}</p>
                     <h3 className="pk-card-title">{t(`items.${product.id}.title`)}</h3>
                     <p className="pk-card-sub">{t(`items.${product.id}.subtitle`)}</p>
                     <p className="pk-card-desc">{t(`items.${product.id}.description`)}</p>
@@ -135,6 +130,11 @@ export default async function ProductsPage({
                 </Link>
               );
             })}
+
+            <div className="pk-slot">
+              <span className="tag">{t("comingSoon.title")}</span>
+              <p>{t("comingSoon.description")}</p>
+            </div>
           </div>
         </div>
       </section>

@@ -60,6 +60,29 @@ export function trackGAEvent(
 }
 
 /**
+ * Resolve once window.fbq exists.
+ *
+ * The Pixel bootstrap is injected with strategy="afterInteractive", so effects
+ * that fire on mount (e.g. ViewContent on a product page) can run before fbq is
+ * defined. Without this wait the Pixel call is dropped while its CAPI twin is
+ * still sent, leaving Meta with an unpaired event it cannot deduplicate.
+ */
+function waitForFbq(timeoutMs = 5000): Promise<boolean> {
+  if (typeof window === "undefined") return Promise.resolve(false);
+  if (window.fbq) return Promise.resolve(true);
+
+  return new Promise((resolve) => {
+    const startedAt = Date.now();
+    const poll = () => {
+      if (window.fbq) return resolve(true);
+      if (Date.now() - startedAt >= timeoutMs) return resolve(false);
+      setTimeout(poll, 100);
+    };
+    poll();
+  });
+}
+
+/**
  * Meta Pixel event tracking with CAPI deduplication support
  * Standard events: https://developers.facebook.com/docs/meta-pixel/reference
  *
@@ -74,9 +97,17 @@ export function trackMetaEvent(
   eventId?: string
 ): string {
   const id = eventId || generateEventId();
-  if (typeof window !== "undefined" && window.fbq) {
-    window.fbq("track", eventName, parameters, { eventID: id });
-  }
+  if (typeof window === "undefined") return id;
+
+  const fire = (ready: boolean) => {
+    if (ready && window.fbq) {
+      window.fbq("track", eventName, parameters, { eventID: id });
+    }
+  };
+
+  if (window.fbq) fire(true);
+  else void waitForFbq().then(fire);
+
   return id;
 }
 
@@ -85,7 +116,7 @@ export function trackMetaEvent(
  */
 export function trackPageView(url: string) {
   // Google Analytics
-  if (typeof window !== "undefined" && window.gtag) {
+  if (typeof window !== "undefined" && window.gtag && siteConfig.analytics.gaId) {
     window.gtag("config", siteConfig.analytics.gaId, {
       page_path: url,
     });
@@ -147,16 +178,20 @@ export function trackInitiateCheckout(
 
 /**
  * Track external link clicks
+ * Uses a custom Meta event: the standard "Lead" event is reserved for real
+ * conversions (email capture), so outbound clicks must not pollute it.
  */
 export function trackOutboundLink(url: string, label: string) {
   // Google Analytics
   trackGAEvent("click", "outbound", label);
 
   // Meta Pixel custom event
-  trackMetaEvent("Lead", {
-    content_name: label,
-    content_category: "outbound_link",
-  });
+  if (typeof window !== "undefined" && window.fbq) {
+    window.fbq("trackCustom", "OutboundClick", {
+      content_name: label,
+      url,
+    });
+  }
 }
 
 /**
