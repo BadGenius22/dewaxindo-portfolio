@@ -13,6 +13,22 @@ const ACCESS_TOKEN = process.env.META_CAPI_ACCESS_TOKEN;
 const TEST_EVENT_CODE = process.env.META_TEST_EVENT_CODE;
 const API_VERSION = "v25.0";
 
+/**
+ * Events this site is allowed to forward.
+ *
+ * The route is a public POST endpoint, so anything reaching Meta unvalidated
+ * lands in the dataset — malformed payloads raise Events Manager diagnostics
+ * (`s2s_missing_event_name`) and arbitrary ones would pollute conversion data.
+ * Reject here rather than letting Meta be the validator.
+ */
+const ALLOWED_EVENTS = new Set([
+  "PageView",
+  "ViewContent",
+  "Lead",
+  "InitiateCheckout",
+  "Contact",
+]);
+
 interface CAPIEventData {
   event_name: string;
   event_id: string;
@@ -55,6 +71,29 @@ export async function POST(request: NextRequest) {
   try {
     const body: CAPIRequestBody = await request.json();
 
+    // Validate before forwarding. Meta drops malformed events and raises a
+    // dataset-level diagnostic for them, so a bad payload is worse than a
+    // rejected request.
+    const eventName = typeof body.event_name === "string" ? body.event_name.trim() : "";
+    if (!eventName) {
+      return NextResponse.json(
+        { error: "event_name is required and must be a non-empty string" },
+        { status: 400 }
+      );
+    }
+    if (!ALLOWED_EVENTS.has(eventName)) {
+      return NextResponse.json(
+        { error: `event_name "${eventName}" is not an allowed event` },
+        { status: 400 }
+      );
+    }
+    if (typeof body.event_id !== "string" || !body.event_id.trim()) {
+      return NextResponse.json(
+        { error: "event_id is required for Pixel/CAPI deduplication" },
+        { status: 400 }
+      );
+    }
+
     // Get user data from request headers
     const clientIp =
       request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
@@ -64,7 +103,7 @@ export async function POST(request: NextRequest) {
 
     // Build event data
     const eventData: CAPIEventData = {
-      event_name: body.event_name,
+      event_name: eventName,
       event_id: body.event_id,
       event_time: Math.floor(Date.now() / 1000),
       event_source_url: body.event_source_url,
