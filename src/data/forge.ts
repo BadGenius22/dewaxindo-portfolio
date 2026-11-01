@@ -105,7 +105,7 @@ export interface WorkStudy {
 
 export interface WorkV3 {
   id: string;
-  year: number;
+  year: number | string;
   span: "span-5" | "span-6" | "span-7" | "span-12";
   name: string;
   host: string;
@@ -158,7 +158,7 @@ export const WORKS_V3: WorkV3[] = [
   },
   {
     id: "factor",
-    year: 2025,
+    year: "2023–2025",
     span: "span-12",
     name: "Factor Finance",
     host: "pro.factor.fi",
@@ -170,7 +170,7 @@ export const WORKS_V3: WorkV3[] = [
     image: "/images/projects/Factor.png",
     study: {
       role: "Core protocol engineer",
-      window: "2024 to present",
+      window: "2023–2025",
       stack: ["Solidity 0.8.24", "Foundry", "Echidna", "Slither", "Aderyn", "Defender"],
       challenge:
         "Hold real user capital across volatile L2 liquidity venues without ever losing the principal. Withstand price shocks, MEV reorgs, and partner-protocol failures.",

@@ -17,7 +17,8 @@ Web3 security researcher with 3+ years auditing and building the smart contracts
 ## Professional Experience
 
 ### Independent Security Researcher — Sherlock, Code4rena
-*2023 – Present*
+
+_2025 – Present_
 
 Competitive smart contract audit contests (handle: BadGenius)
 
@@ -25,7 +26,8 @@ Competitive smart contract audit contests (handle: BadGenius)
 - Earned $3.36K across 3 paid contests on Sherlock and Code4rena, reviewing DeFi and protocol-level codebases against live bug-bounty severity criteria.
 
 ### Smart Contract Engineer — Factor Finance
-*[Mon] 2024 – Present*
+
+_[Mon] 2023 – 2025_
 
 DeFi yield optimization protocol on Arbitrum
 
@@ -38,7 +40,7 @@ DeFi yield optimization protocol on Arbitrum
 
 ## Certifications
 
-**RektOff Solana Auditor Bootcamp** — *[Year]*
+**RektOff Solana Auditor Bootcamp** — _[Year]_
 Auditing Anchor and native Solana programs: account validation, CPI safety, exploit patterns.
 
 ---
@@ -55,7 +57,7 @@ Auditing Anchor and native Solana programs: account validation, CPI safety, expl
 
 ## Education
 
-**[Degree], [Institution]** — *[Dates]*
+**[Degree], [Institution]** — _[Dates]_
 
 ---
 
